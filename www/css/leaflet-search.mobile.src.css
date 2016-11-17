@@ -17,11 +17,11 @@
 
 /* SEARCH */
 .leaflet-control.leaflet-control-search {
-	z-index:2000;
+	z-index:4000;
 }
 .leaflet-control-search .search-input {
 	display:block;
-	float:left;
+	float:right;
 	background: #fff;
 	border:1px solid #666;
 	border-radius:2px;
@@ -29,7 +29,7 @@
 	font-size:1.25em;
 	padding:0 .125em;
 	margin:3px;
-	padding-right:30px;
+	padding-right:1000px;
 }
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-button {
