@@ -2857,7 +2857,7 @@ var baseMaps10 = {
 	   L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
   
 //Einrichtung der Suchmaske nach Bezeichnungen
-var searchBezeichnung = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
+/*var searchBezeichnung = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
 	textPlaceholder: 'Bitte eine "Bezeichnung" in die Suchmaske eingeben',
 	propertyName: 'BEZ' ,
 	circleLocation:true ,
@@ -2869,7 +2869,7 @@ var searchBezeichnung = new L.Control.Search({layer: L.featureGroup([json_AlleJS
         json_AlleJSON.resetStyle(layer);
     });
 });
-map.addControl( searchBezeichnung );
+map.addControl( searchBezeichnung );*/
 
 //Einrichtung der Suchmaske nach Inhabernamen
 	var searchName = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
@@ -2887,7 +2887,7 @@ map.addControl( searchBezeichnung );
 map.addControl( searchName );
 	
 //Einrichtung der Suchmaske nach Straßen	
-	var searchStraße = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
+	/*var searchStraße = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
 	textPlaceholder: 'Bitte eine "Straße" in die Suchmaske eingeben     ',
 	propertyName: 'STRASSE' ,
 	circleLocation:true ,
@@ -2899,7 +2899,7 @@ map.addControl( searchName );
         json_AlleJSON.resetStyle(layer);
     });
 });
-map.addControl( searchStraße );
+map.addControl( searchStraße );*/
 
 //Deklarierung von Variablen zur Verwendung in folgenden Funktionen
 var geo = [51.444115,7.263358]; 
