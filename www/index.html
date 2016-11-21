@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/easy-button.css" />
+		<link rel="stylesheet" href="css/leaflet-gps.css" />
+		
 		<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
         <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 		<script src="js/leaflet.js"></script>
@@ -114,6 +116,7 @@
         <script src="data/json_Alle.js"></script>
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
+		<script src="js/leaflet-gps.js"></script>
 		<script src="js/lightbox-plus-jquery.js"></script>
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/easy-button.css" />
@@ -131,6 +134,7 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(map);
+	
 	//alle Pan/Zoom-Funktionen entfernt
 /*map.dragging.disable(); 
 map.touchZoom.disable();
@@ -2910,8 +2914,8 @@ var Impressum = L.popup().setContent("<p><b><u>Impressum</b></u><br /><br /><br 
 "<br /><b>Kontakt</b>:&nbsp;&nbsp;&nbsp;&nbsp;Adalbert.Husar@rub.de<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kai.Rudolph@rub.de<br /><br />"+
 "<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stand der letzten Bearbeitung: <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.11.2015</p>");
 
-
-
+//GPS-Control einrichten
+map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize control-GPS
 	
 //Einrichtung der Buttons
 L.easyButton('<img src="css/images/Standort.png">', function locate() {
@@ -2928,7 +2932,7 @@ L.easyButton('<img src="css/images/Standort.png">', function locate() {
       }
 
 
-      current_position = L.marker(e.latlng).addTo(map);
+      //current_position = L.marker(e.latlng).addTo(map);						//entfernt wegen control gps
       
       
 	}

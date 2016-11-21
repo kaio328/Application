@@ -32,7 +32,7 @@ L.Control.Search = L.Control.extend({
 		textPlaceholder: '',//placeholder value			
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
-		markerLocation: true,		//draw a marker in location found
+		markerLocation: false,		//draw a marker in location found
 		markerIcon: new L.Icon.Default({iconUrl: "css/images/marker-icon.png",  shadowUrl: "css/images/marker-shadow.png"})
 			
 	},
@@ -167,7 +167,7 @@ L.Control.Search = L.Control.extend({
 		this._input.blur();
 		if(this.options.collapsed)
 		{
-			this._input.style.display = 'none';
+			//this._input.style.display = 'none';							/* ENTFERNEN DAMIT SUCHE BEI CLICK NICHT ENTFERNT WIRD */
 			this._cancel.style.display = 'none';			
 			L.DomUtil.removeClass(this._container, 'search-exp');		
 			/*this._markerLoc.hide();                                       /* ENTFERNEN DAMIT MARKER BEI CLICK NICHT ENTFERNT WERDEN */
@@ -711,7 +711,7 @@ L.Control.Search = L.Control.extend({
 					this.showAlert();
 				else
 				{
-					this.showLocation(loc, this._input.value);
+					this.showLocation(loc, this._input.value);					
 					this.fire('search_locationfound', {
 							latlng: loc,
 							text: this._input.value,
@@ -754,7 +754,7 @@ L.Control.Search = L.Control.extend({
 	}
 });
 
-L.Control.Search.Marker = L.Marker.extend({
+L.Control.Search.Marker = L.Marker.extend({     	/* HIER KANN DER MARKER BEARBEITET WERDEN!!!!!!!!!*/
 
 	includes: L.Mixin.Events,
 	
