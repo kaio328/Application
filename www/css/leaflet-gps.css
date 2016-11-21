@@ -25,9 +25,11 @@
 	background-color: #fff;
 	border-radius:4px;
 }
+
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active:hover {
 	background-color: #f4f4f4;
+
 }
 .leaflet-control-gps .gps-button.disabled {
 	background-position: 1px -28px;

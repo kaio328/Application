@@ -33,7 +33,8 @@ L.Control.Search = L.Control.extend({
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
 		markerLocation: true,		//draw a marker in location found
-		markerIcon: new L.Icon.Default({iconUrl: "css/images/marker-icon.png",  shadowUrl: "css/images/marker-shadow.png"})
+		markerIcon: new L.Icon.Default//({iconUrl: "css/images/marker-icon.png",  shadowUrl: "css/images/marker-shadow.png"})
+										//--> seit neuem leaflet nicht mehr notwendig 
 			
 	},
 
