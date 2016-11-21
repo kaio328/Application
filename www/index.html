@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
-		
+		<link rel="stylesheet" href="css/Control.Loading.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
         <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 		<script src="js/leaflet.js"></script>
@@ -29,6 +29,7 @@
         <script src="js/leaflet.measurecontrol.js"></script>
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
+		<script src="js/Control.Loading.js"></script>
 		
 		
     </head>
@@ -134,6 +135,11 @@
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.streets'
 	}).addTo(map);
+	
+	var loadingControl = L.Control.loading({
+                    separate: true
+                });
+                map.addControl(loadingControl);
 	
 	//alle Pan/Zoom-Funktionen entfernt
 /*map.dragging.disable(); 
@@ -2920,7 +2926,7 @@ map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize contr
 //Einrichtung der Buttons
 L.easyButton('<img src="css/images/Standort.png">', function locate() {
       map.locate({setView: false})												//NIX ÄNDERN !!!!
-	  //	setInterval(locate, 8000);												//NIX ÄNDERN !!!! außer Timer ;)
+	  setInterval(locate, 8000);												//NIX ÄNDERN !!!! außer Timer ;)
   }).addTo(map); 																//NIX ÄNDERN !!!!
 	
  var current_position;															//von "accuracy" auf "marker gewechselt"

@@ -32,10 +32,10 @@
 	opacity: 1;
 }
 .leaflet-control-search.search-load .search-input {
-	background: url('../css/images/loader.gif') no-repeat center right #fff;
+	background: url('../css/images/loader.gif');
 }
 .leaflet-control-search.search-load .search-cancel {
-	visibility:hidden;
+	
 }
 .leaflet-control-search .search-cancel {
 	display:block;
