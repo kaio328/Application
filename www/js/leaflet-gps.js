@@ -158,7 +158,7 @@ L.Control.Gps = L.Control.extend({
 
 	_errorGps: function(e) {
 		this.deactivate();
-		this._errorFunc.call(this, this.options.textErr || e.message);
+		this._errorFunc.call(this, this.options.textErr || 'Fehler');
 	},
 
 	/*	_updateAccuracy: function (event) {
