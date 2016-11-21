@@ -32,7 +32,7 @@ L.Control.Search = L.Control.extend({
 		textPlaceholder: '',//placeholder value			
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
-		markerLocation: false,		//draw a marker in location found
+		markerLocation: true,		//draw a marker in location found
 		markerIcon: new L.Icon.Default({iconUrl: "css/images/marker-icon.png",  shadowUrl: "css/images/marker-shadow.png"})
 			
 	},
