@@ -33,6 +33,7 @@ L.Control.Gps = L.Control.extend({
 	options: {
 		autoActive: false,		//activate control at startup
 		autoCenter: false,		//move map when gps location change
+		autoUpdate: 60,
 		maxZoom: null,			//max zoom for autoCenter
 		textErr: null,			//error message on alert notification
 		callErr: null,			//function that run on gps error activating
@@ -158,7 +159,7 @@ L.Control.Gps = L.Control.extend({
 
 	_errorGps: function(e) {
 		this.deactivate();
-		this._errorFunc.call(this, this.options.textErr || 'Fehler');
+		this._errorFunc.call(this, this.options.textErr || 'Fehler: Standort konnte nicht gefunden werden!');
 	},
 
 	/*	_updateAccuracy: function (event) {
