@@ -25,6 +25,25 @@
 	background-color: #fff;
 	border-radius:4px;
 }
+.leaflet-control-gps .gps-button:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    width:26px;
+	height:26px;
+    padding-top: 2px;
+    padding-left: 2px;
+	padding-bottom: 2px;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.leaflet-control-gps .gps-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
 
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active:hover {
@@ -33,6 +52,11 @@
 }
 .leaflet-control-gps .gps-button.disabled {
 	background-position: 1px -28px;
+}
+.leaflet-control-gps .gps-button.click {
+	background-image: url('../css/images/loading.png');
+	background-position: 1px -28px;
+	
 }
 .leaflet-control-gps .gps-button.active {
 	background-position: 1px -56px;
@@ -51,4 +75,4 @@
 	border-radius:4px;
 }
 
-
+}

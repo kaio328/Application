@@ -122,7 +122,7 @@ L.Control.Gps = L.Control.extend({
 	},
 
 	deactivate: function() {
-			this._isActive = false;
+		this._isActive = false;
 		this._firstMoved = false;
 		this._map.stopLocate();
 		L.DomUtil.removeClass(this._button, 'active');
@@ -161,7 +161,7 @@ L.Control.Gps = L.Control.extend({
 		this._errorFunc.call(this, this.options.textErr || 'Fehler: Standort konnte nicht gefunden werden!');
 	},
 
-	_updateAccuracy: function (event) {													//Update beim Zoom?
+	_updateAccuracy: function (event) {													
 			var newZoom = this._map.getZoom(),
 				scale = this._map.options.crs.scale(newZoom);
 			this._gpsMarker.setRadius(this.options.style.radius * scale);

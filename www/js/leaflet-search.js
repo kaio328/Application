@@ -28,8 +28,8 @@ L.Control.Search = L.Control.extend({
 		zoom: null,					//zoom after pan to location found, default: map.getZoom()
 		position: 'topleft',
 		textErr: 'Kein Treffer!',	//error message
-		textCancel: 'Abbrechen',		//title in cancel button		
-		textPlaceholder: '',//placeholder value			
+		textCancel: 'Abbrechen',	//title in cancel button		
+		textPlaceholder: '',		//placeholder value			
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: true,		//draw a circle in location found
 		markerLocation: true,		//draw a marker in location found
