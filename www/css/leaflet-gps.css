@@ -39,7 +39,8 @@
 }
 
 .leaflet-control-gps .gps-button:active:after {				/* klappt nicht auf Android :( */
-    padding: 0;
+	background-image: url('../css/images/gps-icon.png');
+	padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s
