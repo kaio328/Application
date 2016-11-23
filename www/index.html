@@ -5,6 +5,7 @@
     
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+		<link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/leaflet1.0.2.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
@@ -12,6 +13,7 @@
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.min.css" />
 		<script src="js/leaflet1.0.2.js"></script>
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
@@ -27,8 +29,10 @@
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/leaflet-gps.js"></script>
+		<script src="js/L.Control.Locate.js" ></script>
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/easy-button.css" />
+
         <script>
 
 		//Einrichtung der Basiskarte
@@ -139,6 +143,12 @@
 
 	//GPS-Control einrichten
 	map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize control-GPS
+	
+	lc = L.control.locate({
+    strings: {
+        title: "Show me where I am, yo!"
+    }
+}).addTo(map);
 	
     </script>
 
