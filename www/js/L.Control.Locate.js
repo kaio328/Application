@@ -48,7 +48,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              */
             setView: 'untilPan',
             /** Keep the current map zoom level when setting the view and only pan. */
-            keepCurrentZoomLevel: false,
+            keepCurrentZoomLevel: true,
             /** Smooth pan and zoom to the location of the marker. Only works in Leaflet 1.0+. */
             flyTo: false,
             /**
@@ -71,7 +71,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              */
             returnToPrevBounds: false,
             /** If set, a circle that shows the location accuracy is drawn. */
-            drawCircle: true,
+            drawCircle: false,
             /** If set, the marker at the users' location is drawn. */
             drawMarker: true,
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
@@ -124,7 +124,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 alert(control.options.strings.outsideMapBoundsMsg);
             },
             /** Display a pop-up when the user click on the inner marker. */
-            showPopup: true,
+            showPopup: false,
             strings: {
                 title: "Show me where I am",
                 metersUnit: "meters",

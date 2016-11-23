@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
-		<link rel="stylesheet" href="css/L.Control.Locate.min.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 		<script src="js/leaflet1.0.2.js"></script>
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
@@ -142,9 +142,9 @@
 
 
 	//GPS-Control einrichten
-	map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize control-GPS
+	//map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize control-GPS
 	
-	lc = L.control.locate({
+	L.control.locate({
     strings: {
         title: "Show me where I am, yo!"
     }
