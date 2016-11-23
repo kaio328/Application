@@ -77,20 +77,20 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
             markerClass: L.CircleMarker,
             /** Accuracy circle style properties. */
-            circleStyle: {
-                color: '#136AEC',
-                fillColor: '#136AEC',
-                fillOpacity: 0.15,
+				circleStyle: {												//Styles für den großen Radius-Kreis -->  ist ausgeschaltet
+                color: '#d20',
+                fillColor: '#g23',
+                fillOpacity: 1,
                 weight: 2,
                 opacity: 0.5
             },
             /** Inner marker style properties. */
             markerStyle: {
-                color: '#136AEC',
-                fillColor: '#2A93EE',
-                fillOpacity: 0.7,
+                color: '#c20',
+                fillColor: '#f23',
+                fillOpacity: 1,
                 weight: 2,
-                opacity: 0.9,
+                opacity: 1,
                 radius: 5
             },
             /**
