@@ -163,7 +163,7 @@ L.Control.Search = L.Control.extend({
 
 	collapse: function() {
 		this._hideTooltip();
-		this.cancel();
+		//this.cancel();
 		this._alert.style.display = 'none';
 		this._input.blur();
 		if(this.options.collapsed)
