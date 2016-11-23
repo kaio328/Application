@@ -137,7 +137,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             locateOptions: {
                 maxZoom: Infinity,
                 watch: true,  // if you overwrite this, visualization cannot be updated
-                setView: false // have to set this to false because we have to
+                enableHighAccuracy: true,
+				setView: false // have to set this to false because we have to
                                // do setView manually
             }
         },
