@@ -20,6 +20,7 @@
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
+
 		
 		
     </head>
@@ -124,6 +125,7 @@
   
 
 	//Einrichtung der Suchmaske nach Inhabernamen
+
 	var searchName = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
 	textPlaceholder: 'Bitte einen "Namen" in die Suchmaske eingeben     ',
 	propertyName: 'NAME',
@@ -136,13 +138,14 @@
         json_AlleJSON.resetStyle(layer);
     });
 	});
-	map.addControl( searchName );
+	map.addControl(searchName);
 	
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 	//GPS-Control einrichten
-	map.addControl( new L.Control.Gps({autoActive:false}) );						//inizialize control-GPS
+	map.addControl( new L.Control.Gps({autoActive:false}) );					
 	
 	L.control.locate({
     strings: {
