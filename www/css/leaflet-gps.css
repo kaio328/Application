@@ -14,54 +14,66 @@
 	margin-left:10px;
 	margin-top:10px;
 }
-.leaflet-control-gps .gps-button {
+.leaflet-control-gps .gps-button:before {
+	position:relative;
+	content: "\f041";
+    font-family: FontAwesome;
 	display:block;
+	font-size:18px;
 	float:left;
-	width:26px;
+	width:18px;
 	height:26px;
-	background-image: url('../css/images/gps-icon.png');
+	margin-left:8px;
 	background-repeat: no-repeat;
 	background-position: 1px 1px;
 	background-color: #fff;
 	border-radius:4px;
+	color: #444;
 }
-.leaflet-control-gps .gps-button:after {						/* klappt nicht auf Android :( */
-    content: "";
-    background: #90EE90;
-    display: block;
-    width:26px;
+
+
+
+
+.leaflet-control-gps .gps-button:hover:before,
+.leaflet-control-gps .gps-button.active:hover:before {
+	position:relative;
+	content: "\f041";
+    font-family: FontAwesome;
+	display:block;
+	font-size:18px;
+	float:left;
+	width:18px;
 	height:26px;
-    padding-top: 2px;
-    padding-left: 2px;
-	padding-bottom: 2px;
-    opacity: 0;
-    transition: all 0.8s
-}
-
-.leaflet-control-gps .gps-button:active:after {				/* klappt nicht auf Android :( */
-	background-image: url('../css/images/gps-icon.png');
-	padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-}
-
-.leaflet-control-gps .gps-button:hover,
-.leaflet-control-gps .gps-button.active:hover {
-	background-color: #f4f4f4;
+	margin-left:8px;
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+	background-color: #fff;
+	border-radius:4px;
+	color: #2074B6;
 
 }
 .leaflet-control-gps .gps-button.disabled {
 	background-position: 1px -28px;
 }
-.leaflet-control-gps .gps-button.click {
-	background-image: url('../css/images/loading.png');
-	background-position: 1px -28px;
+
+.leaflet-control-gps .gps-button.active:before {
+	position:relative;
+	content: "\f041";
+    font-family: FontAwesome;
+	display:block;
+	font-size:18px;
+	float:left;
+	width:18px;
+	height:26px;
+	margin-left:8px;
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+	background-color: #fff;
+	border-radius:4px;
+	color: #FC8428;
+}
 	
-}
-.leaflet-control-gps .gps-button.active {
-	background-position: 1px -56px;
-}
+	
 
 .leaflet-control-gps .gps-alert {
 	position:absolute;
