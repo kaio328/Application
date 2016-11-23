@@ -168,7 +168,7 @@ L.Control.Search = L.Control.extend({
 		this._input.blur();
 		if(this.options.collapsed)
 		{
-			//this._input.style.display = 'none';							/* ENTFERNEN DAMIT SUCHE BEI CLICK NICHT ENTFERNT WIRD */
+			this._input.style.display = 'none';								/* ENTFERNEN DAMIT SUCHE BEI CLICK NICHT ENTFERNT WIRD */
 			this._cancel.style.display = 'none';			
 			L.DomUtil.removeClass(this._container, 'search-exp');		
 			/*this._markerLoc.hide();                                       /* ENTFERNEN DAMIT MARKER BEI CLICK NICHT ENTFERNT WERDEN */
