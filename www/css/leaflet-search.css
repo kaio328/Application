@@ -17,6 +17,7 @@
 .leaflet-control-search.search-exp {/*expanded*/
 	box-shadow: 0 1px 7px #999;
 	background: #fff;
+	max-width: 350px;
 }
 .leaflet-control-search .search-input {
 	display:block;
