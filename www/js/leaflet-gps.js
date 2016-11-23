@@ -48,6 +48,7 @@ L.Control.Gps = L.Control.extend({
 		accuracy: true,			//show accuracy Circle
 		title: 'Aktuellen Standort anzeigen',
 		position: 'topleft',
+		iconLoading: 'fa fa-spinner fa-spin',
 		transform: function(latlng) { return latlng },
 		setView: false
 		//TODO add gpsLayer
