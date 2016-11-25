@@ -118,7 +118,7 @@
 
 
 	//Einrichtung des Maßstabes	   
-	   L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	  // L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
   
 
 	//Einrichtung der Suchmaske nach Inhabernamen
@@ -142,7 +142,7 @@
 
 
 	//GPS-Control einrichten
-	map.addControl( new L.Control.Gps({autoActive:false}) );					
+	//	map.addControl( new L.Control.Gps({autoActive:false}) );					
 	
 	L.control.locate({
     strings: {

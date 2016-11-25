@@ -146,6 +146,8 @@ L.Control.Search = L.Control.extend({
 		this._input.focus();
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
+		this._markerLoc.hide(); 
+		
 		return this;
 	},
 	
@@ -168,10 +170,10 @@ L.Control.Search = L.Control.extend({
 		this._input.blur();
 		if(this.options.collapsed)
 		{
-			this._input.style.display = 'none';								/* ENTFERNEN DAMIT SUCHE BEI CLICK NICHT ENTFERNT WIRD */
-			this._cancel.style.display = 'none';			
+			this._input.style.display = 'none';								/* ENTFERNEN DAMIT Such-Input-Feld BEI CLICK NICHT ENTFERNT WIRD */
+			/*	this._cancel.style.display = 'none';						/* ENTFERNEN DAMIT Cancel NICHT ENTFERNT WIRD */
 			L.DomUtil.removeClass(this._container, 'search-exp');		
-			/*this._markerLoc.hide();                                       /* ENTFERNEN DAMIT MARKER BEI CLICK NICHT ENTFERNT WERDEN */
+			/*	this._markerLoc.hide();                                     /* ENTFERNEN DAMIT MARKER BEI CLICK NICHT ENTFERNT WERDEN */
 			this._map.off('dragstart click', this.collapse, this);
 		}
 		this.fire('search_collapsed');

@@ -1,11 +1,18 @@
 /* Compatible with Leaflet 0.7 */
 .leaflet-control-locate a {
-  font-size: 1.4em;
-  color: #444;
+	width:24px;
+	height:28px;
+	font-size: 1.4em;
+	color: #444;
+	opacity:1;
+	background-color: rgba(255, 255, 255, 0.8);	
+  
 }
 .leaflet-control-locate.active a {
   color: #2074B6;
+  background-color: rgba(255, 255, 255, 0.8);	
 }
 .leaflet-control-locate.active.following a {
   color: #FC8428;
+  background-color: rgba(255, 255, 255, 0.8);	
 }
