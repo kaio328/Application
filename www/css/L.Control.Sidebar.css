@@ -49,7 +49,7 @@
         .leaflet-sidebar.left.visible {
           left: 0; }
       .leaflet-sidebar.right {
-        right: 0px; }
+        right: -100%; }
         .leaflet-sidebar.right.visible {
           right: 0; }
       .leaflet-sidebar > .leaflet-control {
