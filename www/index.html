@@ -15,11 +15,13 @@
 		<link rel="stylesheet" href="css/Control.Loading.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 		<link rel="stylesheet" href="css/mobile.css" />
+		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<script src="js/leaflet1.0.2.js"></script>
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
+		<script src="js/L.Control.Sidebar.js"></script>
 
 		
 		
@@ -43,26 +45,26 @@
 	
     <body>
 	    <div id="sidebar">
-        <h1>leaflet-sidebar</h1>
+        <h1>Informationen</h1>
 
-        <p>A responsive sidebar plugin for for <a href="http://leafletjs.com/">Leaflet</a>, a JS library for interactive maps.</p>
+        <p></p>
 
-        <p><b>Click on the marker to show the sidebar again when you've closed it.</b></p>
+        <p><b></b></p>
 
-        <p>Other examples:</p>
+        <p></p>
 
         <ul>
-            <li><a href="listing-markers.html">listing-markers example</a></li>
-            <li><a href="two-sidebars.html">two-sidebars example</a></li>
+            <li><a href=></a></li>
+            <li><a href=></a></li>
         </ul>
 
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p class="lorem">Test</p>
 
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p class="lorem">123</p>
 
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p class="lorem">Sahira</p>
 
-        <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p class="lorem">Kai</p>
     </div>
 	
         <div id="map"></div>
@@ -83,7 +85,24 @@
 		id: 'mapbox.streets'
 		}).addTo(map);
 		
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
+            position: 'right'
+        });
+        map.addControl(sidebar);
+		sidebar.toggle();
 
+
+        var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
+            sidebar.toggle();
+        });
+
+        map.on('click', function () {
+            sidebar.hide();
+        })
+
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+        });
 	
 		//Einrichtung des Loaders
 		var loadingControl = L.Control.loading({

@@ -14,7 +14,7 @@
         L.Control.Loading = L.Control.extend({
             options: {
                 delayIndicator: null,
-                position: 'topleft',
+                position: 'bottomright',
                 separate: false,
                 zoomControl: null,
                 spinjs: false,
