@@ -65,14 +65,16 @@
 .leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:21px;
-	height:27px;	
+	
 	content: "\f002";
     font-family: FontAwesome;
 	font-size:1.2em;
 	color: #444;
 	margin-left: 9.5px;
-	margin-top:2px;
+	margin-top:4px;
+	margin-bottom:4px;
+	margin-left:9px;
+	margin-right:9px;
 	border-radius:40px;
 	background-color: rgba(255, 255, 255, 0.8);
 }
