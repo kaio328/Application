@@ -26,7 +26,7 @@
 	border-radius:2px;
 	height:18px;
 	padding:0 18px 0 2px;
-	margin:3px 0 3px 3px;
+	margin:4px 0 3px 3px;
 	width:238px;    										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
 	opacity: 0.8;	
 }
@@ -43,6 +43,7 @@
 	position:absolute;
 	right:35px;												/* Ausrichtung des x-Cancels */
 	margin:3px 0;
+	margin-top:4px;
 	background: url('../css/images/search-icon.png') no-repeat 0 -46px;
 	text-decoration:none;
 	opacity: 0.8;		
@@ -64,8 +65,8 @@
 .leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:22px;
-	height:26px;	
+	width:21px;
+	height:27px;	
 	content: "\f002";
     font-family: FontAwesome;
 	font-size:1.2em;
