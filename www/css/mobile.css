@@ -48,9 +48,8 @@ h3,h4 {
 	border-radius:6px;
 }
 .leaflet-left.leaflet-top .leaflet-control,
-.leaflet-touch .leaflet-left .leaflet-control {
+.leaflet-touch .leaflet-left .leaflet-control {							/*Einzug der Buttons/Controls vom Bildschirmrand und untereinander -->  Bereits "top" entfernt*/
 	margin-left: 8px;
-	margin-top: 8px;
 	margin-bottom: 0;
 }
 .leaflet-left.leaflet-bottom .leaflet-control {

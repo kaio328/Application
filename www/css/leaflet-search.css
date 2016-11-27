@@ -10,7 +10,7 @@
 	background-color: rgba(255, 255, 255, 0.8);
 	z-index:1000;	
 	margin-left: 10px;
-	margin-top: 125px;
+	margin-top: 50px;
 	opacity: 0.9;
 }
 .leaflet-control-search.search-exp {/*expanded*/
@@ -34,18 +34,17 @@
 	background: url('../css/images/loader.gif') no-repeat center right #fff;
 }
 .leaflet-control-search.search-load .search-cancel {
-	visibility:visible;
+	visibility:hidden;
 }
 .leaflet-control-search .search-cancel {
 	display:block;
 	width:22px;
 	height:18px;
 	position:absolute;
-	right:30px;												/* Ausrichtugn des x-Cancels */
+	right:35px;												/* Ausrichtung des x-Cancels */
 	margin:3px 0;
 	background: url('../css/images/search-icon.png') no-repeat 0 -46px;
 	text-decoration:none;
-	filter: alpha(opacity=90);
 	opacity: 0.8;		
 }
 .leaflet-control-search .search-cancel:hover {
@@ -62,20 +61,21 @@
 .leaflet-control-search .search-cancel:hover span {
 	color:#aaa;
 }
-.leaflet-control-search .search-button {
+.leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:24px;
-	height:28px;	
-	background: url('../css/images/search-icon.png') no-repeat 2px 2px #fff;
-	margin-left: 3px;
-	margin-right: 4px;
+	width:22px;
+	height:26px;	
+	content: "\f002";
+    font-family: FontAwesome;
+	font-size:1.2em;
+	color: #444;
+	margin-left: 9.5px;
+	margin-top:2px;
 	border-radius:40px;
 	background-color: rgba(255, 255, 255, 0.8);
 }
-.leaflet-control-search .search-button:hover {
-	background: url('../css/images/search-icon.png') no-repeat 2px -22px #fafafa;
-}
+
 .leaflet-control-search .search-tooltip {
 	position:absolute;
 	top:90%;
