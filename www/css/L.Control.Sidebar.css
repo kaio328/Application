@@ -39,7 +39,7 @@
   @media (max-width: 767px) {
     .leaflet-sidebar {
       width: 100%;
-      padding: 0; }
+      padding: 10; }
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 100%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
