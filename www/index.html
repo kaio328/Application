@@ -5,6 +5,13 @@
     
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+		
+		<script src="js/leaflet1.0.2.js"></script>
+        <script src="js/label.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+		<script src="js/easy-button.js"></script>
+		<script src="js/Control.Loading.js"></script>
+
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/leaflet1.0.2.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
@@ -16,11 +23,6 @@
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
-		<script src="js/leaflet1.0.2.js"></script>
-        <script src="js/label.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-		<script src="js/easy-button.js"></script>
-		<script src="js/Control.Loading.js"></script>
 
 		
 		
@@ -97,7 +99,11 @@
             position: 'right'
         });
         map.addControl(sidebar);
-		sidebar.toggle();
+		
+		
+		//Sidebar 
+		
+		/*sidebar.toggle();
 
 
         var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
@@ -115,7 +121,9 @@
 		var loadingControl = L.Control.loading({
                     separate: true
                 });
-                map.addControl(loadingControl);
+                map.addControl(loadingControl); 
+				
+	*/
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	
@@ -152,33 +160,30 @@
         
 		//Einrichtung aller Ober- und Unterkategorien: Anzeige der PopUps, Hervorheben bei MouseOver, Punktdarstellung auf der Karte, Deklarierung als geoJason zum entschlüsseln und darstellen der enthaltenen Objekte
         function pop_Alle(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    layer.setStyle(doStyleAlle(feature));
-
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
+		
+            
+			var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
             layer.bindPopup(popupContent);
         }
 
         function doStyleAlle() {
             return {
-                radius: 4.0,
+                radius: 0.0,
                 fillColor: '#e31a1c',
                 color: '#000000',
                 weight: 0.0,
                 opacity: 1.0,
                 dashArray: '',
-                fillOpacity: 1.0
+                fillOpacity: 0.0
             }
         }
+		
+		
         function doPointToLayerAlle(feature, latlng) {
             return L.circleMarker(latlng, doStyleAlle())
         }
         var json_AlleJSON = new L.geoJson(json_Alle, {
-            onEachFeature: pop_Alle, 
+			onEachFeature: pop_Alle, 
             pointToLayer: doPointToLayerAlle
             });
 
@@ -194,15 +199,13 @@
 	var searchName = new L.Control.Search({layer: L.featureGroup([json_AlleJSON]) ,
 	textPlaceholder: 'Bitte einen Suchbegriff eingeben',
 	propertyName: 'NAME',
-	circleLocation:true ,
+	circleLocation: false,
 	zoom: null});
+	
 	searchName.on('search_locationfound', function(e) {
-    e.layer.setStyle({fillColor: 'yellow', color: 'yellow', fillOpacity: 1});
-	}).on('search_collapsed', function(f) {
-    json_AlleJSON.eachLayer(function(layer) {
-        json_AlleJSON.resetStyle(layer);
-    });
+    e.layer.setStyle({radius: 4.0, fillColor: 'red', color: 'red', fillOpacity: 1});
 	});
+	
 	map.addControl(searchName);
 	
 

@@ -147,6 +147,7 @@ L.Control.Search = L.Control.extend({
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
 		this._markerLoc.hide(); 
+		this._layer.setStyle({fillOpacity: 0});
 		
 		return this;
 	},
@@ -700,6 +701,7 @@ L.Control.Search = L.Control.extend({
 		this.hideAlert();
 		this._hideTooltip();
 
+		
 		if(this._input.style.display == 'none')	
 			this.expand();
 		else
