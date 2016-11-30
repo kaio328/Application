@@ -748,6 +748,7 @@ L.Control.Search = L.Control.extend({
 			this._markerLoc.setLatLng(latlng);  
 			this._markerLoc.setTitle(title);
 			this._markerLoc.show();
+			this._markerLoc.bindPopup(title);
 			if(this.options.animateLocation)
 				this._markerLoc.animate();
 	
