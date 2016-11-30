@@ -116,14 +116,14 @@
 
         L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
         });
-	
+	*/
 		//Einrichtung des Loaders
 		var loadingControl = L.Control.loading({
                     separate: true
                 });
                 map.addControl(loadingControl); 
 				
-	*/
+	
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	
@@ -143,19 +143,6 @@
 		
 	
 
-	   //Hervorheben der Layer-Informationen auf der Karte
-		var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-            highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-            });
-
-            if (!L.Browser.ie && !L.Browser.opera) {
-                highlightLayer.bringToFront();
-            }
-        }
 
         
 		//Einrichtung aller Ober- und Unterkategorien: Anzeige der PopUps, Hervorheben bei MouseOver, Punktdarstellung auf der Karte, Deklarierung als geoJason zum entschlüsseln und darstellen der enthaltenen Objekte
@@ -200,13 +187,24 @@
 	textPlaceholder: 'Bitte einen Suchbegriff eingeben',
 	propertyName: 'NAME',
 	circleLocation: false,
+	markerLocation:true,
 	zoom: null});
 	
+	//var marker;
 	searchName.on('search_locationfound', function(e) {
-    e.layer.setStyle({radius: 6.0, fillColor: 'red', color: 'red', fillOpacity: 1});
+
+    e.layer.setStyle({radius: 5.0, fillColor: 'red', color: 'red', fillOpacity: 1});
+	
+	   // marker = new L.Marker(e.latlng);
+			//marker.on('click', markerOnClick);
+				//map.addLayer(marker);
 	});
 	
 	map.addControl(searchName);
+	
+		/*function markerOnClick(e) {
+		marker.bindPopup('huhu');
+		}; */
 	
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
