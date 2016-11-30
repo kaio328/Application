@@ -147,8 +147,8 @@ L.Control.Search = L.Control.extend({
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
 		this._markerLoc.hide(); 
-		this._layer.setStyle({fillOpacity: 0});
-		
+		this._layer.setStyle({radius: 0.000001, fillOpacity: 0});
+		this._map.closePopup();
 		return this;
 	},
 	
