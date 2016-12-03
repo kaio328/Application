@@ -114,7 +114,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             metric: true,
             /** This event is called in case of any location error that is not a time out error. */
             onLocationError: function(err, control) {
-                alert('Location Error');
+                alert(err.message);
             },
             /**
              * This even is called when the user's location is outside the bounds set on the map.
@@ -255,6 +255,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._resetVariables();
 
             this._removeMarker();
+			this._event = undefined;
         },
 
         /**
@@ -299,6 +300,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         setView: function() {
             this._drawMarker();
             if (this._isOutsideMapBounds()) {
+				this._event = undefined;
                 this.options.onLocationOutsideMapBounds(this);
             } else {
                 if (this.options.keepCurrentZoomLevel) {
@@ -389,9 +391,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onLocationError: function(err) {
             // ignore time out error if the location is watched
-            //if (err.code == 3 && this.options.locateOptions.watch) {
-            //    return;
-           // }
+            if (err.code == 3 && this.options.locateOptions.watch) {
+                return;
+            }
 
             this.stop();
             this.options.onLocationError(err, this);
