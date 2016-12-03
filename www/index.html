@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
+		<link rel="stylesheet" href="css/leaflet-gps.css" />
 
 		
 		
@@ -87,8 +88,15 @@
 
         <script>
 
+		//Einrichtung der maxBounds
+		var southWest = L.latLng(51.4566, 7.26);
+		var northEast = L.latLng(51.4355, 7.27);
+		
 		//Einrichtung der Basiskarte
-		var map = L.map('map', { zoomControl:false }).setView([51.4513690683,7.27304188159], 12);
+		var map = L.map('map', {
+		zoomControl:false,
+		maxBounds: L.latLngBounds(southWest, northEast)
+		}).setView([51.4513690683,7.27304188159], 12);
        	var basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
 		maxZoom: 16,
 		id: 'mapbox.streets'
@@ -150,7 +158,8 @@
 		
             
 			var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
-            layer.bindPopup(popupContent);
+
+			layer.bindPopup(popupContent);
         }
 
         function doStyleAlle() {
@@ -195,18 +204,17 @@
 
     e.layer.setStyle({radius: 5.0, fillColor: 'red', color: 'red', fillOpacity: 1});
 	
-	  // marker = new L.Marker(e.latlng);
-	  // marker.on('click', markerOnClick);
-	   //map.addLayer(marker);
-	  // e.layer.openPopup().openOn(map);
+	  //marker = new L.Marker(e.latlng).bindPopup("popupContent");
+	 // marker.on('click', OnClick);
+	  //map.addLayer(marker);
 	});
 	
 	map.addControl(searchName);
 	
-		//function markerOnClick(e) {
+		//function OnClick(f) {
+		//marker.bindPopup('TEST').openPopup();
 		//e.layer.openPopup().openOn(map);
 		//}; 
-	
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -217,7 +225,8 @@
 	L.control.locate({
     strings: {
         title: "Standort anzeigen"
-    }
+    },
+	
 }).addTo(map);
 	
     </script>
