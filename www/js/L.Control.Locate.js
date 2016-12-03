@@ -114,7 +114,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             metric: true,
             /** This event is called in case of any location error that is not a time out error. */
             onLocationError: function(err, control) {
-                alert(err.message);
+                alert('Location Error');
             },
             /**
              * This even is called when the user's location is outside the bounds set on the map.
@@ -131,7 +131,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 metersUnit: "meters",
                 feetUnit: "feet",
                 popup: "You are within {distance} {unit} from this point",
-                outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+                outsideMapBoundsMsg: "Du befindest dich leider nicht auf dem Campus!"
             },
             /** The default options passed to leaflets locate method. */
             locateOptions: {
@@ -389,9 +389,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onLocationError: function(err) {
             // ignore time out error if the location is watched
-            if (err.code == 3 && this.options.locateOptions.watch) {
-                return;
-            }
+            //if (err.code == 3 && this.options.locateOptions.watch) {
+            //    return;
+           // }
 
             this.stop();
             this.options.onLocationError(err, this);
@@ -446,8 +446,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onDrag: function() {
             // only react to drags once we have a location
-            if (this._event) {
-                this._userPanned = true;
+            if (this._event) {									
+                this._userPanned = true;																			//hier false dann wird das Icon bei drag nicht blau
                 this._updateContainerStyle();
                 this._drawMarker();
             }
