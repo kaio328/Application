@@ -44,10 +44,10 @@
         }
 		
 		 #sidebar {
-            height: 50%;
-			width:55%;
+            height: 36%;
+			width:70%;
 			margin-top:20%;
-			margin-left:45%;
+			margin-left:30%;
         }
     </style>
 	
@@ -111,20 +111,20 @@
 		
 		//Sidebar 
 		
-		/*sidebar.toggle();
+		
 
 
-        var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
-            sidebar.toggle();
+        //var marker = L.marker([51.2, 7]).addTo(map).on('click', function () {
+        //    sidebar.toggle();
+       // }); 
+
+       // map.on('click', function () {
+          //  sidebar.hide();
+        //})
+
+       L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
         });
-
-        map.on('click', function () {
-            sidebar.hide();
-        })
-
-        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
-        });
-	*/
+	
 		//Einrichtung des Loaders
 		var loadingControl = L.Control.loading({
                     separate: true
@@ -155,12 +155,15 @@
         
 		//Einrichtung aller Ober- und Unterkategorien: Anzeige der PopUps, Hervorheben bei MouseOver, Punktdarstellung auf der Karte, Deklarierung als geoJason zum entschlüsseln und darstellen der enthaltenen Objekte
         function pop_Alle(feature, layer) {
-		
-            
+		 
+		 
+		 layer.on('click', function (e) {
+			sidebar.hide();
 			var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
 
-			layer.bindPopup(popupContent);
-        }
+			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
+			sidebar.toggle();
+        })};
 
         function doStyleAlle() {
             return {
@@ -201,19 +204,22 @@
 	
 	//var marker;
 	searchName.on('search_locationfound', function(e) {
-
+	sidebar.hide();
     e.layer.setStyle({radius: 5.0, fillColor: 'red', color: 'red', fillOpacity: 1});
 	
-	  //marker = new L.Marker(e.latlng).bindPopup("popupContent");
-	 // marker.on('click', OnClick);
-	  //map.addLayer(marker);
+	
+	 //marker = new L.Marker(e.latlng).addTo(map);
+	 //marker.on('click', OnClick);
+	 //map.addLayer(marker);
 	});
 	
 	map.addControl(searchName);
 	
-		//function OnClick(f) {
+		//function OnClick() {
 		//marker.bindPopup('TEST').openPopup();
 		//e.layer.openPopup().openOn(map);
+	
+            //sidebar.show();
 		//}; 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
