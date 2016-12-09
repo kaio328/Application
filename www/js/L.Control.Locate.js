@@ -393,9 +393,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onLocationError: function(err) {
             // ignore time out error if the location is watched
-            if (err.code == 3 && this.options.locateOptions.watch) {
-                return;
-           }
+           // if (err.code == 3 && this.options.locateOptions.watch) {
+            //    return;
+          // }
 
             this.stop();
             this.options.onLocationError(err, this);
