@@ -136,7 +136,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             /** The default options passed to leaflets locate method. */
             locateOptions: {
                 maxZoom: Infinity,
-                watch: false,  // if you overwrite this, visualization cannot be updated
+                watch: true,  // if you overwrite this, visualization cannot be updated
                 enableHighAccuracy: true,
 				setView: false // have to set this to false because we have to
                                // do setView manually
@@ -230,6 +230,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         start: function() {
             this._activate();
+			this.options.locateOptions.watch = false;
 
             if (this._event) {
                 this._drawMarker(this._map);
