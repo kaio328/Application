@@ -230,7 +230,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         start: function() {
             this._activate();
-			this.options.locateOptions.watch = false;
+			//this.options.locateOptions.watch = false;
 
             if (this._event) {
                 this._drawMarker(this._map);
@@ -257,7 +257,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
 
             this._removeMarker();
 			this._event = undefined;
-			this.options.locateOptions.watch = false;
+			//this.options.locateOptions.watch = false;
         },
 
         /**
@@ -443,7 +443,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             }
 
             this._justClicked = false;
-			this.options.locateOptions.watch = true;
+			//this.options.locateOptions.watch = true;
         },
 
         /**
