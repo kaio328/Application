@@ -98,7 +98,7 @@
 		//maxBounds: L.latLngBounds(southWest, northEast)									//maxBounds aktivieren
 		}).setView([51.4513690683,7.27304188159], 12);
        	var basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-		maxZoom: 16,
+		maxZoom: 30,
 		id: 'mapbox.streets'
 		}).addTo(map);
 		
@@ -242,8 +242,7 @@
 	
 	
 }).addTo(map);
-if (locateOptions.watch = true){
-			   timeout:0};
+
 	
     </script>
 
