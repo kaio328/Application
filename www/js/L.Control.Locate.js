@@ -71,7 +71,6 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              * bounds that were saved.
              */
             returnToPrevBounds: false,
-			timeout: 1,
             /** If set, a circle that shows the location accuracy is drawn. */
             drawCircle: false,
             /** If set, the marker at the users' location is drawn. */
@@ -115,7 +114,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             metric: true,
             /** This event is called in case of any location error that is not a time out error. */
             onLocationError: function(err, control) {
-                alert(err.message);
+                alert('Aktueller Standort konnte nicht geortet werden !');
             },
             /**
              * This even is called when the user's location is outside the bounds set on the map.
@@ -137,7 +136,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             /** The default options passed to leaflets locate method. */
             locateOptions: {
                 maxZoom: Infinity,
-                watch: true,  // if you overwrite this, visualization cannot be updated
+                watch: false,  // if you overwrite this, visualization cannot be updated
                 enableHighAccuracy: true,
 				setView: false // have to set this to false because we have to
                                // do setView manually
@@ -392,9 +391,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onLocationError: function(err) {
             // ignore time out error if the location is watched
-            //if (err.code == 3 && this.options.locateOptions.watch) {
-            //    return;
-           // }
+            if (err.code == 3 && this.options.locateOptions.watch) {
+                return;
+           }
 
             this.stop();
             this.options.onLocationError(err, this);
@@ -442,6 +441,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             }
 
             this._justClicked = false;
+			this.options.locateOptions.watch == true;
         },
 
         /**
