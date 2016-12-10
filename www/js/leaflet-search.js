@@ -10,6 +10,7 @@ L.Control.Search = L.Control.extend({
 		jsonpParam: null,			//jsonp param name for search by jsonp service, ex: "callback"
 		propertyLoc: 'loc',			//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'
 		propertyName: '',			//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
+		featuresArray: [],
 		formatData: null,			//callback for reformat all data from source to indexed data object
 		filterData: null,			//callback for filtering data from text searched, params: textSearch, allRecords
 		buildTip: null,				//function that return row tip html node(or html string), receive text tooltip in first param
@@ -49,6 +50,7 @@ L.Control.Search = L.Control.extend({
 		this._countertips = 0;		
 		this._recordsCache = {};
 		this._curReq = null;
+		this._featuresToSearch = this.options.featuresArray;
 	},
 
 	onAdd: function (map) {
