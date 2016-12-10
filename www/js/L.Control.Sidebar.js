@@ -4,7 +4,7 @@ L.Control.Sidebar = L.Control.extend({
 
     options: {
         closeButton: true,
-        position: 'left',
+        position: 'bottom',
         autoPan: false,
     },
 
