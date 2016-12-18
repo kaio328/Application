@@ -99,7 +99,7 @@ L.Control.Sidebar = L.Control.extend({
             .off(content, 'mousewheel', stop)
             .off(content, 'MozMousePixelScroll', stop);*/
 
-        L.DomEvent
+       /*L.DomEvent
             .off(container, 'transitionend',
                 this._handleTransitionEvent, this)
             .off(container, 'webkitTransitionEnd',
@@ -108,8 +108,8 @@ L.Control.Sidebar = L.Control.extend({
         if (this._closeButton && this._close) {
             var close = this._closeButton;
 
-            L.DomEvent.off(close, 'click', this.hide, this);
-        }
+            L.DomEvent.off(close, 'click', this.hide, this);*/
+       // }
 
         return this;
     },
