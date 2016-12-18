@@ -113,8 +113,6 @@
 		
 
 		
-		
-		
        // map.on('click', function () {						//sidebar schließen bei click auf Karte
           //  sidebar.hide();
         //})
@@ -124,7 +122,7 @@
 	   
 	   
 	   
-	   
+
 	
 		//Einrichtung des Loaders/Spinners
 		var loadingControl = L.Control.loading({
@@ -158,10 +156,7 @@
 
 			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
 			
-			sidebar.toggle();
-			sidebar.bringToBack();
-			bringToBack(sidebar);
-			searchControl.bringToFront();
+			sidebar.show();
         })};
 
         //Style der Punkt-Signaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.

@@ -62,7 +62,7 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-            /*.on(content, 'contextmenu', stop)
+           /* .on(content, 'contextmenu', stop)
             .on(content, 'click', fakeStop)
             .on(content, 'mousedown', stop)
             .on(content, 'touchstart', stop)
@@ -91,13 +91,13 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-            .off(content, 'contextmenu', stop)
+           /* .off(content, 'contextmenu', stop)
             .off(content, 'click', fakeStop)
             .off(content, 'mousedown', stop)
             .off(content, 'touchstart', stop)
             .off(content, 'dblclick', fakeStop)
             .off(content, 'mousewheel', stop)
-            .off(content, 'MozMousePixelScroll', stop);
+            .off(content, 'MozMousePixelScroll', stop);*/
 
         L.DomEvent
             .off(container, 'transitionend',
@@ -141,7 +141,7 @@ L.Control.Sidebar = L.Control.extend({
             this.fire('hide');
         }
         if(e) {
-            L.DomEvent.stopPropagation(e);
+          //  L.DomEvent.stopPropagation(e);
         }
     },
 
