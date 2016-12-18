@@ -63,7 +63,7 @@ L.Control.Sidebar = L.Control.extend({
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
             .on(content, 'contextmenu', stop)
-            .on(content, 'click', fakeStop)
+           // .on(content, 'click', fakeStop)
             .on(content, 'mousedown', stop)
             .on(content, 'touchstart', stop)
             .on(content, 'dblclick', fakeStop)
