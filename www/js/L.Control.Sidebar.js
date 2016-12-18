@@ -62,13 +62,13 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-            .on(content, 'contextmenu', stop)
-           // .on(content, 'click', fakeStop)
+            /*.on(content, 'contextmenu', stop)
+            .on(content, 'click', fakeStop)
             .on(content, 'mousedown', stop)
             .on(content, 'touchstart', stop)
             .on(content, 'dblclick', fakeStop)
             .on(content, 'mousewheel', stop)
-            .on(content, 'MozMousePixelScroll', stop);
+            .on(content, 'MozMousePixelScroll', stop);*/
 
         return this;
     },
