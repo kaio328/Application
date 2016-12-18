@@ -158,7 +158,7 @@
 
 			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
 			
-			sidebar.show();
+			sidebar.toggle();
 			sidebar.bringToBack();
 			bringToBack(sidebar);
 			map.addControl(searchControl).bringToFront();
