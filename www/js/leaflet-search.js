@@ -150,7 +150,7 @@ L.Control.Search = L.Control.extend({
 		this._hideTooltip();
 		this._markerLoc.hide(); 
 		sidebar.hide();
-		this._layer.setStyle({radius: 0.000001, fillOpacity: 0});
+		this._map.smallIcon2.hide();
 		this._map.closePopup();
 		return this;
 	},
