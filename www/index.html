@@ -39,8 +39,8 @@
         }
 
         .lorem {
-            font-style: italic;
-            color: #AAA;
+            font-style: calibri;
+            color: red;
         }
 		
 		 #sidebar {
@@ -48,6 +48,8 @@
 			width:70%;
 			margin-top:20%;
 			margin-left:30%;
+			font-style: arial;
+         
         }
     </style>
 	
@@ -157,7 +159,7 @@
 			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
 			
 			sidebar.show();
-			sidebar.BringToBack();
+			map.bringToFront();
         })};
 
         //Style der Punkt-Signaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.

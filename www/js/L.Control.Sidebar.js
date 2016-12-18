@@ -62,13 +62,13 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-           /* .on(content, 'contextmenu', stop)
+            .on(content, 'contextmenu', stop)
             .on(content, 'click', fakeStop)
             .on(content, 'mousedown', stop)
             .on(content, 'touchstart', stop)
             .on(content, 'dblclick', fakeStop)
             .on(content, 'mousewheel', stop)
-            .on(content, 'MozMousePixelScroll', stop);*/
+            .on(content, 'MozMousePixelScroll', stop);
 
         return this;
     },
@@ -91,15 +91,15 @@ L.Control.Sidebar = L.Control.extend({
         var stop = L.DomEvent.stopPropagation;
         var fakeStop = L.DomEvent._fakeStop || stop;
         L.DomEvent
-           /* .off(content, 'contextmenu', stop)
+            .off(content, 'contextmenu', stop)
             .off(content, 'click', fakeStop)
             .off(content, 'mousedown', stop)
             .off(content, 'touchstart', stop)
             .off(content, 'dblclick', fakeStop)
             .off(content, 'mousewheel', stop)
-            .off(content, 'MozMousePixelScroll', stop);*/
+            .off(content, 'MozMousePixelScroll', stop);
 
-       /*L.DomEvent
+        L.DomEvent
             .off(container, 'transitionend',
                 this._handleTransitionEvent, this)
             .off(container, 'webkitTransitionEnd',
@@ -108,8 +108,8 @@ L.Control.Sidebar = L.Control.extend({
         if (this._closeButton && this._close) {
             var close = this._closeButton;
 
-            L.DomEvent.off(close, 'click', this.hide, this);*/
-       // }
+            L.DomEvent.off(close, 'click', this.hide, this);
+        }
 
         return this;
     },
@@ -141,7 +141,7 @@ L.Control.Sidebar = L.Control.extend({
             this.fire('hide');
         }
         if(e) {
-          //  L.DomEvent.stopPropagation(e);
+            L.DomEvent.stopPropagation(e);
         }
     },
 
