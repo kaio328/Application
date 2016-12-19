@@ -24,6 +24,7 @@
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
+		<link rel="stylesheet" href="css/divicon.csss" />
 
 		
 		
@@ -51,9 +52,7 @@
 			font-style: arial;
          
         }
-		.my-div-icon {
-			visibility: false ;
-			}
+	
     </style>
 	
 	
@@ -171,7 +170,7 @@
                 fillColor: '#e31a1c',
                 color: '#000000',
                 weight: 0.0,
-                //opacity: 1.0,
+                opacity: 1.0,
                 dashArray: '',
                 fillOpacity: 1.0
             }
@@ -193,7 +192,7 @@
 
   		
     var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker-icon.png',
+    iconUrl: null,
     iconRetinaUrl: 'css/images/marker-icon-2x.png',
     iconSize:    [25, 41],
     iconAnchor:  [12, 41],
@@ -203,17 +202,17 @@
 
   });
   
-  var myIcon = L.divIcon({className: 'my-div-icon'});
+  var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null});
 		
 		//Einbindung der Datei json_AlleJSON als Layer
        var marker;
 	   var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
-			pointToLayer: doPointToLayerAlle
-			/*function (feature, latlng) {
+			pointToLayer: //doPointToLayerAlle
+			function (feature, latlng) {
 			marker = new L.marker(latlng, {icon: myIcon});
-			return marker;*/	
-      });		
+			return marker;			
+      }});		
 			
 		
 			//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
@@ -281,17 +280,26 @@
         //propertyName: 'Nkat',
         position: 'topleft', 
 		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
-        circleLocation: false,
-		markerLocation:true,
+        circleLocation: true,
+		markerLocation:false,
 		zoom: null});
 		
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
+	//var marker2;
 	searchControl.on('search_locationfound', function(e) {
+	//marker2 = new L.marker(e.latlng).addTo(map);
+	//marker2.on('click', OnClick);	
+	//map.addLayer(marker2);
 	sidebar.hide();
-    //e.layer.setIcon(smallIcon2);
-	e.layer.setStyle({radius: 5.0})
+	//e.layer.setStyle({radius: 5.0});
+	e.layer.setIcon(smallIcon2);
 	});
 	map.addControl(searchControl);
+	
+	
+	//function OnClick() {
+	//sidebar.show();}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 	
 	L.control.locate({
