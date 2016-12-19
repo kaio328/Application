@@ -171,9 +171,9 @@
                 fillColor: '#e31a1c',
                 color: '#000000',
                 weight: 0.0,
-                opacity: 1.0,
+                //opacity: 1.0,
                 dashArray: '',
-                fillOpacity: 0.0
+                fillOpacity: 1.0
             }
         };
 		
@@ -209,11 +209,11 @@
        var marker;
 	   var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
-			pointToLayer: function (feature, latlng) {
+			pointToLayer: doPointToLayerAlle
+			/*function (feature, latlng) {
 			marker = new L.marker(latlng, {icon: myIcon});
-			return marker;
-			
-      }});		
+			return marker;*/	
+      });		
 			
 		
 			//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
@@ -281,14 +281,15 @@
         //propertyName: 'Nkat',
         position: 'topleft', 
 		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
-        circleLocation: true,
-		markerLocation:false,
+        circleLocation: false,
+		markerLocation:true,
 		zoom: null});
 		
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
-    e.layer.setIcon(smallIcon2);
+    //e.layer.setIcon(smallIcon2);
+	e.layer.setStyle({radius: 5.0})
 	});
 	map.addControl(searchControl);
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
