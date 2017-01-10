@@ -179,8 +179,8 @@
         };
 		
 	var smallIcon = new L.Icon({
-    iconUrl: 'css/images/Standort.png',
-    iconRetinaUrl: 'css/images/Standort.png',
+    iconUrl: null,
+    iconRetinaUrl: null,
     iconSize:    [0.00, 0.00],
     iconAnchor:  [0, 0],
     popupAnchor: [1, -34],
@@ -188,8 +188,8 @@
   });
 
   		
-    var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker-icon.png',
+    var smallIcon2 = new L.Icon.Default();
+    /*iconUrl: 'css/images/marker-icon.png',
     iconRetinaUrl: 'css/images/marker-icon-2x.png',
     iconSize:    [25, 41],
     iconAnchor:  [12, 41],
@@ -197,19 +197,22 @@
     shadowUrl: 'css/images/marker-shadow.png',
     shadowSize:  [41, 41]
 
-  });
+  });*/
   
-  var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null});
+  var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null, iconAnchor: null, shadowSize: null, popupAnchor:null});
 		
 		//Einbindung der Datei json_AlleJSON als Layer
        var marker;
 	   var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
-			pointToLayer: //doPointToLayerAlle
-			function (feature, latlng) {
+			pointToLayer: doPointToLayerAlle
+			/*function (feature, latlng) {
 			marker = new L.marker(latlng, {icon: myIcon});
-			return marker;			
-      }});		
+			map.addLayer(marker);
+			
+			return marker;*/
+			
+      });		
 			
 		
 			//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
@@ -277,8 +280,8 @@
         //propertyName: 'Nkat',
         position: 'topleft', 
 		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
-        circleLocation: true,
-		markerLocation:false,
+        circleLocation: false,
+		markerLocation: false,
 		zoom: null});
 		
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
@@ -288,8 +291,7 @@
 	//marker2.on('click', OnClick);	
 	//map.addLayer(marker2);
 	sidebar.hide();
-	//e.layer.setStyle({radius: 5.0});
-	e.layer.setIcon(smallIcon2);
+	e.layer.setStyle({radius: 5.0, fillColor: 'blue', color: 'blue'});
 	});
 	map.addControl(searchControl);
 	

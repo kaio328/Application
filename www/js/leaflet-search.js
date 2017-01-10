@@ -142,6 +142,8 @@ L.Control.Search = L.Control.extend({
 	},
 		
 	cancel: function() {
+		//this._map.removeLayer(marker);
+		//map.e.layer.setStyle({radius: 0.1});
 		this._input.value = '';
 		this._handleKeypress({keyCode:8});
 		this._input.size = this._inputMinSize;
@@ -150,7 +152,6 @@ L.Control.Search = L.Control.extend({
 		this._hideTooltip();
 		this._markerLoc.hide(); 
 		sidebar.hide();
-		this._map.smallIcon2.hide();
 		this._map.closePopup();
 		return this;
 	},
