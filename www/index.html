@@ -280,7 +280,7 @@
         //propertyName: 'Nkat',
         position: 'topleft', 
 		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
-        circleLocation: false,
+        circleLocation: true,
 		markerLocation: false,
 		zoom: null});
 		
@@ -291,7 +291,7 @@
 	//marker2.on('click', OnClick);	
 	//map.addLayer(marker2);
 	sidebar.hide();
-	e.layer.setStyle({radius: 5.0, fillColor: 'blue', color: 'blue'});
+	e.layer.setStyle({radius: 8.0, fillColor: 'blue', color: 'blue'});
 	});
 	map.addControl(searchControl);
 	

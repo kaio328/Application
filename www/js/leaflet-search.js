@@ -769,11 +769,11 @@ L.Control.Search.Marker = L.Marker.extend({     	/* HIER KANN DER MARKER BEARBEI
 	includes: L.Mixin.Events,
 	
 	options: {
-		radius: 6,
-		weight: 5,
+		radius: 8,
+		weight: 3,
 		color: '#e09',
 		stroke: true,
-		fill: true,
+		fill: false,
 		title: '',
 		icon: new L.Icon.Default(),
 		showCircle: true,
