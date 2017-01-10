@@ -42,7 +42,8 @@
   @media (max-width: 767px) {
     .leaflet-sidebar {
       width: 9.9%;
-    margin-top: 45%}
+      height: 27%;
+    margin-top: 125%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 100%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -56,11 +57,12 @@
         .leaflet-sidebar.right.visible {
           right: 0; }}
         .leaflet-touch .leaflet-sidebar > .leaflet-control {
-          border: 0; } }
+          border: 15%; 
+          box-shadow: 0 0 1px #000; }
   @media (min-width: 768px) and (max-width: 991px) {
     .leaflet-sidebar {
       width: 9.9%;
-    margin-top: 45%}
+    margin-top: 97%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 5%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -77,8 +79,9 @@
   @media (min-width: 1200px) {
     .leaflet-sidebar {
       width: 9.9%;
+      height: 30%;
     margin-left: 40%;
-    margin-top: 29%;}
+    margin-top: 31.5%;}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 1%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
