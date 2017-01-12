@@ -35,7 +35,7 @@
             margin: 0;
         }
 
-        html, body, #map {
+        html, body, #app {
             height: 100%;
         }
 
@@ -76,7 +76,7 @@
         <p class="lorem">Kai</p>
     </div>
 	
-        <div id="map"></div>
+        <div id="app"></div>
         <script src="data/json_Alle.js"></script>
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
@@ -93,7 +93,7 @@
 		var northEast = L.latLng(51.4355, 7.27);
 		
 		//Einrichtung der Basiskarte
-		var map = L.map('map', {
+		var map = L.map('app', {
 		zoomControl:false,
 		//maxBounds: L.latLngBounds(southWest, northEast)									//maxBounds aktivieren
 		}).setView([51.4513690683,7.27304188159], 12);
@@ -311,6 +311,10 @@
 
 	
     </script>
-
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+		 app.initialize();
+		   </script>
 </body>
 </html>
