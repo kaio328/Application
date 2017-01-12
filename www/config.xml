@@ -24,7 +24,7 @@
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
-	<platform name="android">	<preference name="Orientation" value="sensorLandscape" /></platform>
+	<platform name="android">	<preference name="Fullscreen" value="false" /></platform>
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="Fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
@@ -128,6 +128,9 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+		 </platform>
+	<platform name="android">	
+	<preference name="Fullscreen" value="false" /></platform>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
