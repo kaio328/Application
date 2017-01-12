@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POI-Suche in Bochum</title>
+    
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+		
+		<script src="js/leaflet1.0.2.js"></script>
+        <script src="js/label.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+		<script src="js/easy-button.js"></script>
+		<script src="js/Control.Loading.js"></script>
+
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/leaflet1.0.2.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/label.css" />
+		<link rel="stylesheet" href="css/leaflet-search.css" />	
+		<link rel="stylesheet" href="css/easy-button.css" />
+		<link rel="stylesheet" href="css/leaflet-gps.css" />
+		<link rel="stylesheet" href="css/Control.Loading.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.css" />
+		<link rel="stylesheet" href="css/mobile.css" />
+		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
+		<link rel="stylesheet" href="css/leaflet-gps.css" />
+		<link rel="stylesheet" href="css/divicon.csss" />
+
+		
+		
+    </head>
+	    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+        }
+
+        .lorem {
+            font-style: calibri;
+            color: red;
+        }
+		
+		 #sidebar {		
+			font-style: arial;
+         
+        }
+	
+    </style>
+	
+	
+    <body>
+	    <div id="sidebar">
+        <h1>Informationen</h1>
+
+        <p></p>
+
+        <p><b></b></p>
+
+        <p></p>
+
+        <ul>
+            <li><a href=></a></li>
+            <li><a href=></a></li>
+        </ul>
+
+        <p class="lorem">Test</p>
+
+        <p class="lorem">123</p>
+
+        <p class="lorem">Sahira</p>
+
+        <p class="lorem">Kai</p>
+    </div>
+	
+        <div id="map"></div>
+        <script src="data/json_Alle.js"></script>
+		<script src="js/leaflet-search.js"></script>
+		<script src="js/easy-button.js"></script>
+		<script src="js/leaflet-gps.js"></script>
+		<script src="js/L.Control.Locate.js" ></script>
+		<script src="js/L.Control.Sidebar.js"></script>
+		<link rel="stylesheet" href="css/leaflet-search.css" />	
+		<link rel="stylesheet" href="css/easy-button.css" />
+
+        <script>
+
+		//Einrichtung der maxBounds
+		var southWest = L.latLng(51.4566, 7.26);
+		var northEast = L.latLng(51.4355, 7.27);
+		
+		//Einrichtung der Basiskarte
+		var map = L.map('map', {
+		zoomControl:false,
+		//maxBounds: L.latLngBounds(southWest, northEast)									//maxBounds aktivieren
+		}).setView([51.4513690683,7.27304188159], 12);
+       	var basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+		maxZoom: 30,
+		id: 'mapbox.streets'
+		}).addTo(map);
+		
+       
+		//Sidebar einrichten
+
+	   var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
+            position: 'right'
+        });
+        map.addControl(sidebar);
+		sidebar.hide();
+		
+
+		
+       // map.on('click', function () {						//sidebar schließen bei click auf Karte
+          //  sidebar.hide();
+        //})
+
+      // L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {	//Close-Button der Sidebar adden
+       // });
+	   
+	   
+	   
+
+	
+		//Einrichtung des Loaders/Spinners
+		var loadingControl = L.Control.loading({
+                    separate: true							//nicht angedockt am Zoom-Button
+                });
+                map.addControl(loadingControl); 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		//Feature-/Layergroups einrichten
+        var feature_group = new L.featureGroup([]);
+        var bounds_group = new L.featureGroup([]);
+        var raster_group = new L.LayerGroup([]);
+	
+		//Anordnung der Layer (?)
+        var layerOrder = new Array();
+        function restackLayers() {
+            for (index = 0; index < layerOrder.length; index++) {
+                layerOrder[index].bringToFront();
+            }
+        }
+        map.on('overlayadd', restackLayers);
+        layerControl = L.control.layers({},{},{collapsed:false});
+		
+        
+		//PopUp-Inhalt definieren (=popupContent), an sidebar übergeben, die per click auf ein feature geöffnet wird
+		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
+        function pop_Alle(feature, layer) {
+		
+		 layer.on('click', function (e) {				
+			sidebar.hide();	
+			var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
+
+			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
+			
+			sidebar.show();
+        })};
+
+        //Style der Punkt-Signaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+		function doStyleAlle() {
+            return {
+                radius: 0.0,
+                fillColor: '#e31a1c',
+                color: '#000000',
+                weight: 0.0,
+                opacity: 1.0,
+                dashArray: '',
+                fillOpacity: 1.0
+            }
+        };
+		
+		//Funktion mit der Features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+        function doPointToLayerAlle(feature, latlng) {
+            return L.circleMarker(latlng, doStyleAlle())
+        };
+		
+	/*var smallIcon = new L.Icon({
+    iconUrl: null,
+    iconRetinaUrl: null,
+    iconSize:    [0.00, 0.00],
+    iconAnchor:  [0, 0],
+    popupAnchor: [1, -34],
+    shadowSize:  [0, 0]
+  });*/
+
+  		
+    /*var smallIcon2 = new L.Icon.Default();
+    iconUrl: 'css/images/marker-icon.png',
+    iconRetinaUrl: 'css/images/marker-icon-2x.png',
+    iconSize:    [25, 41],
+    iconAnchor:  [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'css/images/marker-shadow.png',
+    shadowSize:  [41, 41]
+
+  });*/
+  
+  //var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null, iconAnchor: null, shadowSize: null, popupAnchor:null});
+		
+		//Einbindung der Datei json_AlleJSON als Layer
+      // var marker;
+	   var json_AlleJSON = new L.geoJson(json_Alle, {
+			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
+			pointToLayer: doPointToLayerAlle
+			/*function (feature, latlng) {
+			marker = new L.marker(latlng, {icon: myIcon});
+			map.addLayer(marker);
+			
+			return marker;*/
+			
+      });		
+			
+		
+			//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
+           
+  
+
+		//Einrichtung der Suchmaske
+		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
+		L.Control.Search.include({
+		_searchInLayer: function(layer, retRecords, propName) {
+			var that = this,
+          loc;
+
+		if (layer instanceof L.Control.Search.Marker) return;
+
+        if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+          if (that._getPath(layer.options, propName)) {
+            loc = layer.getLatLng();
+            loc.layer = layer;
+            retRecords[that._getPath(layer.options, propName)] = loc;
+          } else if (that._getPath(layer.feature.properties, propName)) {
+            loc = layer.getLatLng();
+            loc.layer = layer;
+            retRecords[that._getPath(layer.feature.properties, propName)] = loc;
+          } else
+            throw new Error("propertyName '" + propName + "' not found in marker");
+        } else if (layer.hasOwnProperty('feature')) //GeoJSON
+        {
+          if (layer.feature.properties.hasOwnProperty(propName)) {
+            loc = layer.getBounds().getCenter();
+            loc.layer = layer;
+            retRecords[layer.feature.properties[propName]] = loc;
+          } else
+            throw new Error("propertyName '" + propName + "' not found in feature");
+        } else if (layer instanceof L.LayerGroup) {
+          layer.eachLayer(function(layer) {
+            that._searchInLayer(layer, retRecords, propName);
+          });
+        }
+      },
+
+      _recordsFromLayer: function() { //return table: key,value from layer
+        var that = this,
+          retRecords = {},
+          propName = this.options.propertyName;
+
+        if (that._featuresToSearch.length > 0) {
+            this._layer.eachLayer(function(layer) {
+                for (var i = 0; i < that._featuresToSearch.length; i++) {
+                    that._searchInLayer(layer, retRecords, that._featuresToSearch[i]);
+                }
+            });
+        } else {
+            this._layer.eachLayer(function(layer) {
+                that._searchInLayer(layer, retRecords, propName);
+            });
+        }
+        return retRecords;
+      }
+    });
+	
+	//Suche mit angepassten Optionen festlegen
+    var searchControl = new L.Control.Search({
+        layer: L.featureGroup([json_AlleJSON]),
+        //propertyName: 'Nkat',
+        position: 'topleft', 
+		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
+        circleLocation: true,
+		markerLocation: false,
+		zoom: null});
+		
+	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
+	//var marker2;
+	searchControl.on('search_locationfound', function(e) {
+	//marker2 = new L.marker(e.latlng).addTo(map);
+	//marker2.on('click', OnClick);	
+	//map.addLayer(marker2);
+	sidebar.hide();
+	e.layer.setStyle({radius: 8.0, fillColor: 'blue', color: 'blue'});
+	});
+	map.addControl(searchControl);
+	
+	
+	//function OnClick() {
+	//sidebar.show();}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
+	
+	L.control.locate({
+    strings: {
+        title: "Standort anzeigen"
+    },	
+	locateOptions: {
+               timeout: 10000}						//ist auch der Default-Wert von Leaflet	   
+	}).addTo(map);
+
+	
+    </script>
+
+</body>
+</html>
