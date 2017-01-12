@@ -178,18 +178,18 @@
             return L.circleMarker(latlng, doStyleAlle())
         };
 		
-	var smallIcon = new L.Icon({
+	/*var smallIcon = new L.Icon({
     iconUrl: null,
     iconRetinaUrl: null,
     iconSize:    [0.00, 0.00],
     iconAnchor:  [0, 0],
     popupAnchor: [1, -34],
     shadowSize:  [0, 0]
-  });
+  });*/
 
   		
-    var smallIcon2 = new L.Icon.Default();
-    /*iconUrl: 'css/images/marker-icon.png',
+    /*var smallIcon2 = new L.Icon.Default();
+    iconUrl: 'css/images/marker-icon.png',
     iconRetinaUrl: 'css/images/marker-icon-2x.png',
     iconSize:    [25, 41],
     iconAnchor:  [12, 41],
@@ -199,10 +199,10 @@
 
   });*/
   
-  var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null, iconAnchor: null, shadowSize: null, popupAnchor:null});
+  //var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null, iconAnchor: null, shadowSize: null, popupAnchor:null});
 		
 		//Einbindung der Datei json_AlleJSON als Layer
-       var marker;
+      // var marker;
 	   var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
 			pointToLayer: doPointToLayerAlle
