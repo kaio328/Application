@@ -22,6 +22,13 @@
         permission on your app, which PhoneGap requires.
     -->
     <feature name="permissions"                value="none" />
+	
+<gap:config-file platform="android" parent="/manifest" mode="delete">
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+</gap:config-file>
 
 	
 	
@@ -122,7 +129,12 @@
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" version="1" />
-
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
