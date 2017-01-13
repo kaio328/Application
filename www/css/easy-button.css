@@ -2,7 +2,7 @@
 .leaflet-bar button:hover {
   cursor: pointer;
   opacity: 0.9;
- background-color: #ffffff;
+  visibility: ;
 }
 
 .leaflet-bar button {
@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
-  color:#1978cf;
+  color:'';
 
   background-color: #ffffff;
 }

@@ -87,7 +87,7 @@
 		<link rel="stylesheet" href="css/easy-button.css" />
 
         <script>
-
+		
 		//Einrichtung der maxBounds
 		var southWest = L.latLng(51.4566, 7.26);
 		var northEast = L.latLng(51.4355, 7.27);
@@ -102,9 +102,7 @@
 		id: 'mapbox.streets'
 		}).addTo(map);
 		
-       
 		//Sidebar einrichten
-
 	   var sidebar = L.control.sidebar('sidebar', {
             closeButton: true,
             position: 'right'
@@ -112,18 +110,12 @@
         map.addControl(sidebar);
 		sidebar.hide();
 		
-
-		
-       // map.on('click', function () {						//sidebar schließen bei click auf Karte
+       /* map.on('click', function () {						//sidebar schließen bei click auf Karte
           //  sidebar.hide();
-        //})
+        })
 
-      // L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {	//Close-Button der Sidebar adden
-       // });
-	   
-	   
-	   
-
+       L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {	//Close-Button der Sidebar adden
+       });*/
 	
 		//Einrichtung des Loaders/Spinners
 		var loadingControl = L.Control.loading({
@@ -146,16 +138,19 @@
         map.on('overlayadd', restackLayers);
         layerControl = L.control.layers({},{},{collapsed:false});
 		
-        
+		
 		//PopUp-Inhalt definieren (=popupContent), an sidebar übergeben, die per click auf ein feature geöffnet wird
 		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
         function pop_Alle(feature, layer) {
 		
-		 layer.on('click', function (e) {				
+		 layer.on('click', function (e) {	
+			layer.setStyle({fillColor: 'yellow', color: 'yellow'});
+			//layer.setRadius(15);			
+			//e.target.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
 			sidebar.hide();	
-			var popupContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
+			var sidebarContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
 
-			document.getElementById("sidebar").innerHTML = popupContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
+			document.getElementById("sidebar").innerHTML = sidebarContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
 			
 			sidebar.show();
         })};
@@ -198,27 +193,19 @@
     shadowSize:  [41, 41]
 
   });*/
-  
-  //var myIcon = L.divIcon({className: 'my-div-icon', iconSize: null, iconAnchor: null, shadowSize: null, popupAnchor:null});
-		
+  	
 		//Einbindung der Datei json_AlleJSON als Layer
-      // var marker;
-	   var json_AlleJSON = new L.geoJson(json_Alle, {
+		// var marker;
+		var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,						//für jedes feature wird die function pop_Alle ausgeführt
-			pointToLayer: doPointToLayerAlle
+			pointToLayer: doPointToLayerAlle				//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
 			/*function (feature, latlng) {
 			marker = new L.marker(latlng, {icon: myIcon});
 			map.addLayer(marker);
 			
-			return marker;*/
-			
+			return marker;*/	
       });		
-			
-		
-			//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-           
-  
-
+	
 		//Einrichtung der Suchmaske
 		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
 		L.Control.Search.include({
@@ -279,7 +266,7 @@
         layer: L.featureGroup([json_AlleJSON]),
         //propertyName: 'Nkat',
         position: 'topleft', 
-		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ], // List of properties to search on //
+		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
         circleLocation: true,
 		markerLocation: false,
 		zoom: null});
@@ -290,17 +277,13 @@
 	//marker2 = new L.marker(e.latlng).addTo(map);
 	//marker2.on('click', OnClick);	
 	//map.addLayer(marker2);
-
 	e.layer.setStyle({radius: 8.0, fillColor: 'blue', color: 'blue'});
 	});
 	map.addControl(searchControl);
-	
-	
-	//function OnClick() {
-	//sidebar.show();}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 	
+	//Button für Standortsuche und gleichnamiger Funktion implementieren
 	L.control.locate({
     strings: {
         title: "Standort anzeigen"
@@ -309,6 +292,11 @@
                timeout: 10000}						//ist auch der Default-Wert von Leaflet	   
 	}).addTo(map);
 
+	//Reset-Button einfügen
+	L.easyButton('fa fa-times', function(layer){
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'blue', color: 'blue'});				//Style und Radius resetten
+	//map.removeLayer(this._markerLoc);														//MarkerLocation entfernen
+	}).addTo(map);
 	
     </script>
 

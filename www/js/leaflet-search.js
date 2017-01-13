@@ -32,8 +32,8 @@ L.Control.Search = L.Control.extend({
 		textCancel: 'Abbrechen',	//title in cancel button		
 		textPlaceholder: '',		//placeholder value			
 		animateLocation: true,		//animate a circle over location found
-		circleLocation: true,		//draw a circle in location found
-		markerLocation: true,		//draw a marker in location found
+		circleLocation: false,		//draw a circle in location found
+		markerLocation: false,		//draw a marker in location found
 		markerIcon: new L.Icon.Default//({iconUrl: "css/images/marker-icon.png",  shadowUrl: "css/images/marker-shadow.png"})
 										//--> seit neuem leaflet nicht mehr notwendig 
 			
@@ -143,7 +143,6 @@ L.Control.Search = L.Control.extend({
 		
 	cancel: function() {
 		//this._map.removeLayer(marker);
-		//map.e.layer.setStyle({radius: 0.1});
 		this._input.value = '';
 		this._handleKeypress({keyCode:8});
 		this._input.size = this._inputMinSize;
@@ -153,6 +152,7 @@ L.Control.Search = L.Control.extend({
 		this._markerLoc.hide(); 
 		sidebar.hide();
 		this._map.closePopup();
+		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
 		return this;
 	},
 	
