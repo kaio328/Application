@@ -143,7 +143,8 @@
 		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
         function pop_Alle(feature, layer) {
 		
-		 layer.on('click', function (e) {	
+		 layer.on('click', function (e) {
+			json_AlleJSON.setStyle({fillColor: 'blue', color: 'blue'});
 			layer.setStyle({fillColor: 'yellow', color: 'yellow'});
 			//layer.setRadius(15);			
 			//e.target.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
@@ -159,8 +160,8 @@
 		function doStyleAlle() {
             return {
                 radius: 0.0,
-                fillColor: '#e31a1c',
-                color: '#000000',
+                fillColor: 'blue',
+                color: 'blue',
                 weight: 0.0,
                 opacity: 1.0,
                 dashArray: '',
@@ -267,6 +268,7 @@
         //propertyName: 'Nkat',
         position: 'topleft', 
 		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
+		animateLocation: true,
         circleLocation: true,
 		markerLocation: false,
 		zoom: null});
@@ -277,6 +279,7 @@
 	//marker2 = new L.marker(e.latlng).addTo(map);
 	//marker2.on('click', OnClick);	
 	//map.addLayer(marker2);
+	//json_AlleJSON.setStyle({fillColor: 'blue', color: 'blue'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'blue', color: 'blue'});
 	});
 	map.addControl(searchControl);
@@ -295,7 +298,7 @@
 	//Reset-Button einfügen
 	L.easyButton('fa fa-times', function(layer){
 	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'blue', color: 'blue'});				//Style und Radius resetten
-	//map.removeLayer(this._markerLoc);														//MarkerLocation entfernen
+	map._layers.removeLayer(markerLoc);														//MarkerLocation entfernen
 	}).addTo(map);
 	
     </script>
