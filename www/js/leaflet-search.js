@@ -754,7 +754,7 @@ L.Control.Search = L.Control.extend({
 			var that = this;
 			this._markerLoc.setLatLng(latlng);  
 			this._markerLoc.setTitle(title);
-			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch
+			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch Hier: 1,9 Sekunden
 			that._markerLoc.hide();
 			}, 1900);
 			//this._markerLoc.bindPopup(title);
