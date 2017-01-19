@@ -149,14 +149,14 @@
 			//layer.setRadius(15);			
 			//e.target.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
 			sidebar.hide();	
-			var sidebarContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>';
+			var sidebarContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>' + '<table><tr><th scope="row"></th><td>' + '';
 
-			document.getElementById("sidebar").innerHTML = sidebarContent;		//Sidebar Inhalt zuweisen --> Properties des geclickten features
-			
+			document.getElementById("sidebar").innerHTML = sidebarContent;		//Sidebar-Inhalt zuweisen --> Properties des geclickten features
+			//document.getElementById("sidebar").style.fontSize = "15px";		//Sidebar-Schriftgröße ändern
 			sidebar.show();
         })};
 
-        //Style der Punkt-Signaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+        //Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
 		function doStyleAlle() {
             return {
                 radius: 0.0,
@@ -297,8 +297,9 @@
 
 	//Reset-Button einfügen
 	L.easyButton('fa fa-times', function(layer){
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'blue', color: 'blue'});				//Style und Radius resetten
-	map._layers.removeLayer(markerLoc);														//MarkerLocation entfernen
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'blue', color: 'blue'});	//Style und Radius resetten
+	sidebar.hide();																	//sidebar schließen
+	//this._markerLoc.hide();														//MarkerLocation entfernen
 	}).addTo(map);
 	
     </script>

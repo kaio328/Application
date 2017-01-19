@@ -149,7 +149,7 @@ L.Control.Search = L.Control.extend({
 		this._input.focus();
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
-		this._markerLoc.hide(); 
+		//this._markerLoc.hide(); 
 		sidebar.hide();
 		this._map.closePopup();
 		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
@@ -564,17 +564,19 @@ L.Control.Search = L.Control.extend({
 			case 40:
 				this._handleArrowSelect(1);
 			break;
-			case 37:
-			case 39:
-			case 16:
-			case 17:
-
+			case  8://Backspace
+			case 45://Insert
+			case 46://Delete
+				this._autoTypeTmp = false;//disable temporarily autoType
 			break;
-			case 8:
-			case 46:
-				this._autoTypeTmp = false;
+			case 37://Left
+			case 39://Right
+			case 16://Shift
+			case 17://Ctrl
+			case 35://End
+			case 36://Home
 			break;
-			default://All 
+			default:
 
 				if(this._input.value.length)
 					this._cancel.style.display = 'block';
@@ -741,7 +743,6 @@ L.Control.Search = L.Control.extend({
 	},
 
 	showLocation: function(latlng, title) {	
-			
 		if(this.options.zoom)
 			this._map.setView(latlng, this.options.zoom);
 		
@@ -749,10 +750,15 @@ L.Control.Search = L.Control.extend({
 
 		if(this._markerLoc)
 		{
+			//clearTimeout(this._markerLoc);
+			var that = this;
 			this._markerLoc.setLatLng(latlng);  
 			this._markerLoc.setTitle(title);
-			this._markerLoc.show();
-			this._markerLoc.bindPopup(title);
+			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch
+			that._markerLoc.hide();
+			}, 1900);
+			//this._markerLoc.bindPopup(title);
+			
 			if(this.options.animateLocation)
 				this._markerLoc.animate();
 	
