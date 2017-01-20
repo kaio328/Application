@@ -717,6 +717,8 @@ L.Control.Search = L.Control.extend({
 		this.hideAlert();
 		this._hideTooltip();
 
+		json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
+
 		
 		if(this._input.style.display == 'none')	
 			this.expand();

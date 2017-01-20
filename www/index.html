@@ -250,7 +250,7 @@
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
-	json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
+	//json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
 	e.layer.bringToFront();
 	});
