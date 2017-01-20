@@ -242,8 +242,8 @@
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	
-	json_AlleJSON.setStyle({fillColor: 'blue', color: 'blue'});
-	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
+	//json_AlleJSON.setStyle({fillColor: 'blue', color: 'blue'});
+	e.layer.setStyle({radius: 8.0, fillColor: 'blue', color: 'green'});
 	e.layer.bringToFront();
 	});
 	map.addControl(searchControl);
