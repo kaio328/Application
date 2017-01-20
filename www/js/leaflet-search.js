@@ -550,27 +550,24 @@ L.Control.Search = L.Control.extend({
 		
 		switch(e.keyCode)
 		{
-			case 27://Escape
+			case 27: //Escape
 				this.collapse();
 			break;
 			case 13: //Enter
 				if(this._countertips == 1)
 					this._handleArrowSelect(1);
-				if (!this.options.sourceData || typeof this.options.sourceData !== 'function'|| $('.search-tip-select').text() == this._input.value) {
-               this._handleSubmit();	//do search	
-			     break;
-                }
+				this._handleSubmit();	
 			break;
-			case 38:
+			case 38: // Up
 				this._handleArrowSelect(-1);
 			break;
-			case 40:
+			case 40: //Down
 				this._handleArrowSelect(1);
 			break;
 			case  8://Backspace
 			case 45://Insert 
 			case 46://Delete
-				this._autoTypeTmp = false;//disable temporarily autoType
+				//this._autoTypeTmp = false;//disable temporarily autoType
 			break;
 			case 37://Left
 			case 39://Right
@@ -656,12 +653,9 @@ L.Control.Search = L.Control.extend({
 					records = that._recordsCache;
 
 				that.showTooltip( records );
-				
-				if (!Object.keys(records).length)
-					this.showAlert();
  
 				L.DomUtil.removeClass(that._container, 'search-load');
-			}.bind(this));
+			});
 		}
 	},
 	
