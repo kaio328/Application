@@ -853,11 +853,11 @@ L.Control.Search.Marker = L.Marker.extend({     	/* HIER KANN DER MARKER BEARBEI
 		if(this._circleLoc)
 		{
 			var circle = this._circleLoc,
-				tInt = 200,	
-				ss = 10,	
+				tInt = 150,	
+				ss = 60,	
 				mr = parseInt(circle._radius/ss),
 				oldrad = this.options.radius,
-				newrad = circle._radius * 2.5,
+				newrad = circle._radius * 2.0,
 				acc = 0;
 
 			circle._timerAnimLoc = setInterval(function() {
