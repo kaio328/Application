@@ -550,13 +550,16 @@ L.Control.Search = L.Control.extend({
 		
 		switch(e.keyCode)
 		{
-			case 27: 
+			case 27://Escape
 				this.collapse();
 			break;
-			case 13: 
+			case 13: //Enter
 				if(this._countertips == 1)
 					this._handleArrowSelect(1);
-				this._handleSubmit();	
+				if (!this.options.sourceData || typeof this.options.sourceData !== 'function'|| $('.search-tip-select').text() == this._input.value) {
+               this._handleSubmit();	//do search	
+			     break;
+                }
 			break;
 			case 38:
 				this._handleArrowSelect(-1);
@@ -565,7 +568,7 @@ L.Control.Search = L.Control.extend({
 				this._handleArrowSelect(1);
 			break;
 			case  8://Backspace
-			case 45://Insert
+			case 45://Insert 
 			case 46://Delete
 				this._autoTypeTmp = false;//disable temporarily autoType
 			break;
@@ -653,9 +656,12 @@ L.Control.Search = L.Control.extend({
 					records = that._recordsCache;
 
 				that.showTooltip( records );
+				
+				if (!Object.keys(records).length)
+					this.showAlert();
  
 				L.DomUtil.removeClass(that._container, 'search-load');
-			});
+			}.bind(this));
 		}
 	},
 	
@@ -754,9 +760,9 @@ L.Control.Search = L.Control.extend({
 			var that = this;
 			this._markerLoc.setLatLng(latlng);  
 			this._markerLoc.setTitle(title);
-			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch Hier: 1,9 Sekunden
+			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch Hier: 1,25 Sekunden
 			that._markerLoc.hide();
-			}, 1900);
+			}, 1250);
 			//this._markerLoc.bindPopup(title);
 			
 			if(this.options.animateLocation)
@@ -777,7 +783,7 @@ L.Control.Search.Marker = L.Marker.extend({     	/* HIER KANN DER MARKER BEARBEI
 	options: {
 		radius: 12,
 		weight: 3,
-		color: '#e09',
+		color: 'red',
 		stroke: true,
 		fill: false,
 		title: '',
