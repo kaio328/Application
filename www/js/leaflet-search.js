@@ -758,7 +758,7 @@ L.Control.Search = L.Control.extend({
 		if(this.options.zoom)
 			this._map.setView(latlng, this.options.zoom);
 		
-			this._map.panTo(latlng);                            /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */                            
+			//this._map.panTo(latlng);                            /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */                            
 
 		if(this._markerLoc)
 		{
@@ -766,7 +766,7 @@ L.Control.Search = L.Control.extend({
 			var that = this;
 			this._markerLoc.setLatLng(latlng);  
 			this._markerLoc.setTitle(title);
-			this._markerLoc.show(), setTimeout(function() {		//Timeoute setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch Hier: 1,25 Sekunden
+			this._markerLoc.show(), setTimeout(function() {		//Timeout setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch. Hier: 1,25 Sekunden
 			that._markerLoc.hide();
 			}, 1250);
 			//this._markerLoc.bindPopup(title);
