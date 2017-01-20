@@ -16,13 +16,14 @@
     .leaflet-sidebar.left.visible {
       left: 0; }
   .leaflet-sidebar.right {
-    right: -5000px;
-    transition: right 0.5s, width 0.5s;
+    right: -100%;
+    transition: right 1.00s, width 0.5s;
     padding-left: ; }
     .leaflet-sidebar.right.visible {
       right: 0; }
   .leaflet-sidebar > .leaflet-control {
     height: 100%;
+    width: 1000%;close
     width: 1000%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
