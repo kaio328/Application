@@ -136,13 +136,24 @@ L.Control.Search = L.Control.extend({
 		return this;
 	},
 	
+	showAlert2: function(text) {
+		text = text;
+		this._alert.style.display = 'block';
+		this._alert.innerHTML = 'Bitt einen Suchbegriff eingeben !';
+		clearTimeout(this.timerAlert);
+		var that = this;		
+		this.timerAlert = setTimeout(function() {
+			that.hideAlert();
+		},this.options.autoCollapseTime);
+		return this;
+	},
+	
 	hideAlert: function() {
 		this._alert.style.display = 'none';
 		return this;
 	},
 		
 	cancel: function() {
-		//this._map.removeLayer(marker);
 		this._input.value = '';
 		this._handleKeypress({keyCode:8});
 		this._input.size = this._inputMinSize;
@@ -150,8 +161,7 @@ L.Control.Search = L.Control.extend({
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
 		//this._markerLoc.hide(); 
-		sidebar.hide();
-		this._map.closePopup();
+		//sidebar.hide();
 		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
 		return this;
 	},
@@ -713,7 +723,7 @@ L.Control.Search = L.Control.extend({
 		else
 		{
 			if(this._input.value === '')
-				this.collapse();
+				this.showAlert2();
 			else
 			{
 				var loc = this._getLocation(this._input.value);
