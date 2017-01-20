@@ -1,5 +1,6 @@
 .leaflet-div-icon {
   visibility:false;
+
   background:red;
   border:5px solid rgba(255,255,255,0.5);
   color:blue;
