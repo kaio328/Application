@@ -755,11 +755,16 @@ L.Control.Search = L.Control.extend({
 	},
 
 	showLocation: function(latlng, title) {	
-		if(this.options.zoom)
-			this._map.setView(latlng, this.options.zoom);
-		else
-			this._map.flyTo(latlng);                           /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */                            
-
+			//this._map.setView(latlng, this.options.zoom);
+			//this._map.flyTo([latlng], duration: 5.0);                           /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */    
+			this._map.setView(latlng, map.getZoom(), {
+			"animate": true,
+			"pan": {
+			"duration": 1.5
+			}
+		});
+		
+		
 		if(this._markerLoc)
 		{
 			//clearTimeout(this._markerLoc);
