@@ -757,8 +757,8 @@ L.Control.Search = L.Control.extend({
 	showLocation: function(latlng, title) {	
 		if(this.options.zoom)
 			this._map.setView(latlng, this.options.zoom);
-		
-			this._map.flyTo([51.4513690683,7.27304188159], 12);                           /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */                            
+		else
+			this._map.flyTo(latlng);                           /* -------> wenn aus = kein pan zum gefunden Punkt! Heeeeerber Typ :D:D */                            
 
 		if(this._markerLoc)
 		{
