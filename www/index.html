@@ -250,7 +250,7 @@
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
-	//json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
+	json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
 	e.layer.bringToFront();
 	});
@@ -269,9 +269,9 @@
 
 	//Reset-Button einfügen
 	L.easyButton('fa fa-times', function(layer){
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'blue', color: 'blue'});	//Style und Radius resetten
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey'});	//Style und Radius resetten
 	sidebar.hide();																	//sidebar schließen
-	map.markerLoc.hide();													 		//MarkerLocation entfernen
+	map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
 	}).addTo(map);
 	
     </script>

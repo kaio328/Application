@@ -717,7 +717,7 @@ L.Control.Search = L.Control.extend({
 		this.hideAlert();
 		this._hideTooltip();
 
-		json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
+		//json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
 
 		
 		if(this._input.style.display == 'none')	
@@ -773,7 +773,7 @@ L.Control.Search = L.Control.extend({
 			this._markerLoc.setTitle(title);
 			this._markerLoc.show(), setTimeout(function() {								//Timeout setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch. Hier: 1,25 Sekunden
 			that._markerLoc.hide();
-			}, 1250);
+			}, 1600);
 			//this._markerLoc.bindPopup(title);
 			
 			if(this.options.animateLocation)
