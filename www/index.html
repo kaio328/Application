@@ -251,7 +251,7 @@
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
-	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red'});
+	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red', weight: 5.0});
 	e.layer.bringToFront();
 	});
 	map.addControl(searchControl);
