@@ -110,6 +110,16 @@
 		subdomains:['mt0','mt1','mt2','mt3']
 		}).addTo(map);
 		
+		var basemap = L.tileLayer('result/{z}/{x}/{y}.png',{
+		maxZoom: 25,
+		}).addTo(map);
+		
+		//Simples Imageoverlay einfügen
+		//var imageUrl = 'Campusplan_roh.png',
+		//imageBounds = [[51.4566, 7.26], [51.4355, 7.27]];
+
+		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
 		//Sidebar einrichten
 	   var sidebar = L.control.sidebar('sidebar', {
             closeButton: true,
@@ -251,10 +261,12 @@
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
-	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red', weight: 5.0});
+	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red', weight: 3.0});
 	e.layer.bringToFront();
 	});
 	map.addControl(searchControl);
+	
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 	
@@ -269,7 +281,7 @@
 
 	//Reset-Button einfügen
 	L.easyButton('fa fa-times', function(layer){
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey'});	//Style und Radius resetten
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0});	//Style und Radius resetten
 	sidebar.hide();																	//sidebar schließen
 	//map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
 	}).addTo(map);
