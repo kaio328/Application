@@ -1,13 +1,5 @@
 
-body {
-    padding: 0;
-    margin: 0;
-}
-html, body, #map {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+#map {
     background-color: #ffffff
 }
 th {
@@ -28,4 +20,15 @@ th {
 }
 .leaflet-container {
     background: #fff;
+}
+.leaflet-popup-content {
+    width:auto !important;
+}
+.leaflet-tooltip {
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+.leaflet-tooltip-left:before, .leaflet-tooltip-right:before {
+    border: 0px;
 }

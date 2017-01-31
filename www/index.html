@@ -5,18 +5,25 @@
     
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+		<meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 		
 		<script src="js/leaflet1.0.2.js"></script>
+		<script src="js/deps.js"></script>
+		<script src="js/leaflet-include.js"></script>
+
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
+	
+		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/leaflet1.0.2.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
-		<link rel="stylesheet" href="css/leaflet-search.css" />	
+
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
@@ -25,7 +32,6 @@
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/divicon.csss" />
-
 		
 		
     </head>
@@ -83,6 +89,7 @@
 		<script src="js/leaflet-gps.js"></script>
 		<script src="js/L.Control.Locate.js" ></script>
 		<script src="js/L.Control.Sidebar.js"></script>
+		
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/easy-button.css" />
 
@@ -93,27 +100,26 @@
 		var northEast = L.latLng(51.4355, 7.27);
 		
 		//Einrichtung der Basiskarte
-		var map = L.map('map', {
-		zoomControl:false,
-		//maxBounds: L.latLngBounds(southWest, northEast)											//maxBounds aktivieren
-		}).setView([51.4513690683,7.27304188159], 14);
-       
-	   //Open Street Map Layer
-	   /*	var basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-		maxZoom: 30,
-		id: 'mapbox.streets'
-		}).addTo(map);*/
-		
-		//GoogleStreet Layer
-		var basemap = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
-		maxZoom: 30,
-		subdomains:['mt0','mt1','mt2','mt3']
+		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			osm = L.tileLayer(osmUrl, {maxZoom: 20, minZoom: 16.25});
+			
+
+		var map = L.map('map', {rotate: true, touchRotate: true})
+				.setView([51.44459561, 7.26093000], 16.25);
+				//.addLayer(osm);
+				
+				var angle = 27.825;
+		map.setBearing(angle);	
+			
+	L.tileLayer('result/{z}/{x}/{y}.png',{
+		maxZoom: 18,
 		}).addTo(map);
 		
-		var basemap = L.tileLayer('result/{z}/{x}/{y}.png',{
-		maxZoom: 25,
-		}).addTo(map);
-		
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------		
 		//Simples Imageoverlay einfügen
 		//var imageUrl = 'Campusplan_roh.png',
 		//imageBounds = [[51.4566, 7.26], [51.4355, 7.27]];
@@ -251,7 +257,7 @@
         layer: L.featureGroup([json_AlleJSON]),
         //propertyName: 'Nkat',
         position: 'topleft', 
-		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
+		featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 		animateLocation: true,
         circleLocation: true,
 		markerLocation: false,

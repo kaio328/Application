@@ -18,7 +18,7 @@ L.Control.Search = L.Control.extend({
 		minLength: 1,				//minimal text length for autocomplete
 		initial: true,				//search elements only by initial text
 		casesesitive: false,		//search elements in case sensitive text
-		autoType: true,				//complete input with first suggested result and select this filled-in text.
+		autoType: false,				//complete input with first suggested result and select this filled-in text.
 		delayType: 0,				//delay while typing for show tooltip
 		tooltipLimit: -1,			//limit max results to show in tooltip. -1 for no limit.
 		tipAutoSubmit: true,		//auto map panTo when click on tooltip
@@ -139,7 +139,7 @@ L.Control.Search = L.Control.extend({
 	showAlert2: function(text) {
 		text = text;
 		this._alert.style.display = 'block';
-		this._alert.innerHTML = 'Bitt einen Suchbegriff eingeben !';
+		this._alert.innerHTML = 'Bitte einen Suchbegriff eingeben';
 		clearTimeout(this.timerAlert);
 		var that = this;		
 		this.timerAlert = setTimeout(function() {
