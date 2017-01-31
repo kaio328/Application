@@ -102,11 +102,11 @@
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 20, minZoom: 16.25});
+			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 17});
 			
 
-		var map = L.map('map', {rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 16.25);
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
+				.setView([51.44459561, 7.26093000], 17);
 				//.addLayer(osm);
 				
 				var angle = 27.825;
@@ -114,9 +114,9 @@
 			
 	L.tileLayer('result/{z}/{x}/{y}.png',{
 		maxZoom: 18,
+		minZoom: 17,
 		}).addTo(map);
 		
-
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------		
