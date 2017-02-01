@@ -84,6 +84,7 @@
 	
         <div id="map"></div>
         <script src="data/json_Alle.js"></script>
+		<script src="data/polygon1.js"></script>
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/leaflet-gps.js"></script>
@@ -102,24 +103,37 @@
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 17});
+			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 15, opacity:0.5});
 			
-
+		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 17);
-				//.addLayer(osm);
+				.setView([51.44459561, 7.26093000], 15)
+				.addLayer(osm);
 				
+		//Drehung der Karte um Winkel x		
 				var angle = 27.825;
 		map.setBearing(angle);	
-			
-	L.tileLayer('result/{z}/{x}/{y}.png',{
-		maxZoom: 18,
-		minZoom: 17,
-		}).addTo(map);
 		
+		//Einrichtung der Campuskarte		
+		var CampusMap = L.tileLayer('result/{z}/{x}/{y}.png',{
+		maxZoom: 18,
+		minZoom: 15,
+		});
+		
+		//Einrichtung einer LayerGroup --> für mapOverlays
+		var polygone = new L.layerGroup();
+		
+		//mapOverlays implementieren
+		var overlayMaps = {
+		"osm": osm,
+		"CampusMap": CampusMap,
+		"polygone": polygone
+		};
+		
+		//mapOverlays der Karte hinzufügen
+		L.control.layers(null, overlayMaps).addTo(map);
 
-
-//----------------------------------------------------------------------------------------------------------------------------------------		
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Simples Imageoverlay einfügen
 		//var imageUrl = 'Campusplan_roh.png',
 		//imageBounds = [[51.4566, 7.26], [51.4355, 7.27]];
@@ -139,7 +153,13 @@
                     separate: true																	//nicht angedockt am Zoom-Button
                 });			
                 map.addControl(loadingControl); 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+				
+				
+		//Maßstab einfügen
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		--> Kann entfernt werden?
+		
 		//Feature-/Layergroups einrichten
         var feature_group = new L.featureGroup([]);
         var bounds_group = new L.featureGroup([]);
@@ -154,7 +174,7 @@
         }
         map.on('overlayadd', restackLayers);
         layerControl = L.control.layers({},{},{collapsed:false});
-		
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		
 		//PopUp-Inhalt definieren (=popupContent), an sidebar übergeben, die per click auf ein feature geöffnet wird
 		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
@@ -195,7 +215,18 @@
 		var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-      });		
+		});	
+	 
+
+	  //Style festlegen, der für Polygone genutzt wird
+		var myStyle = {
+		"color": "red",
+		"weight": 3,
+		"opacity": 1
+		};
+		
+		//add Polygone
+		json_polygon1JSON = new L.geoJson(json_polygon1, {style: myStyle}).addTo(polygone);
 	
 		//Einrichtung der Suchmaske
 		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
@@ -272,8 +303,6 @@
 	});
 	map.addControl(searchControl);
 	
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 	
 	//Button für Standortsuche und gleichnamiger Funktion implementieren
