@@ -85,6 +85,7 @@
         <div id="map"></div>
         <script src="data/json_Alle.js"></script>
 		<script src="data/polygon1.js"></script>
+		<script src="data/grunflaechen8.js"></script>
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/leaflet-gps.js"></script>
@@ -103,7 +104,7 @@
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 15, opacity:0.5});
+			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 15, opacity:1});
 			
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
@@ -227,7 +228,7 @@
 		
 		//add Polygone
 		json_polygon1JSON = new L.geoJson(json_polygon1, {style: myStyle}).addTo(polygone);
-	
+		
 		//Einrichtung der Suchmaske
 		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
 		L.Control.Search.include({
