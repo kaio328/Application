@@ -235,9 +235,7 @@
 	  //Style festlegen, der für Polygone genutzt wird
 		var stylePolygone = {
 		"color": "#073057ff",
-		"weight": 1,
-		"opacity": 1,
-		"fillOpacity": 1
+		"weight": 1
 		};
 		var styleGrunflaechen = {
 		"color": "#d4eebdff",
@@ -277,10 +275,10 @@
 		
 		//add Polygone
 		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone).addTo(map);
-		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone).addTo(map);
-		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone).addTo(map);
-		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
-		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
+		//json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone).addTo(map);
+		//json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone).addTo(map);
+		//json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
+		//json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
 		//json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone).addTo(map);
 		//json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone).addTo(map);
 
