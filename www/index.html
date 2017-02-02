@@ -8,7 +8,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
-		<script src="js/leaflet.js"></script>
+		<script src="js/leaflet1.0.2.js"></script>
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
 
@@ -20,7 +20,7 @@
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" href="css/leaflet1.0.2.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
 
@@ -279,15 +279,25 @@
 		};
 		
 		//add Polygone
+		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone).addTo(map);
+		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
+		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone).addTo(map);
+		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
 		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone).addTo(map);
 		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone).addTo(map);
 		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone).addTo(map);
-		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
-		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
-		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone).addTo(map);
-		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone).addTo(map);
 		
-		json_rahmenJSON.bringToBack();
+	
+		
+		//json_rahmenJSON.bringToBack();
+		
+/*var marker = L.marker([51.44459561, 7.26093000], {
+draggable: true
+}).addTo(map);
+marker.bindPopup("Test");
+marker.on('click', function(e) {
+marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
+});*/
 		
 		
 		//Watermark
