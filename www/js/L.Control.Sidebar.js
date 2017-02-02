@@ -139,7 +139,7 @@ L.Control.Sidebar = L.Control.extend({
                 });
             }
             this.fire('hide');
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
+			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black', weight: 1.5});
         }
         if(e) {
             L.DomEvent.stopPropagation(e);

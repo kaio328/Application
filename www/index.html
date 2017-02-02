@@ -8,7 +8,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
-		<script src="js/leaflet1.0.2.js"></script>
+		<script src="js/leaflet.js"></script>
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
 
@@ -20,7 +20,7 @@
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/leaflet1.0.2.css" />
+        <link rel="stylesheet" href="css/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
 
@@ -84,8 +84,21 @@
 	
         <div id="map"></div>
         <script src="data/json_Alle.js"></script>
-		<script src="data/polygon1.js"></script>
-		<script src="data/grunflaechen8.js"></script>
+		<script src="data/polygon9.js"></script>
+		<script src="data/rahmen1.js"></script>
+        <script src="data/sperrungen3.js"></script>
+        <script src="data/treppen4.js"></script>
+        <script src="data/weitereBauten5.js"></script>
+        <script src="data/gewaesser6.js"></script>
+        <script src="data/ubergange7.js"></script>
+        <script src="data/grunflaechen8.js"></script>
+        <script src="data/polygon9.js"></script>
+        <script src="data/wege10.js"></script>
+        <script src="data/strassen11.js"></script>
+        <script src="data/parken12.js"></script>
+        <script src="data/audimax13.js"></script>
+
+		
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/leaflet-gps.js"></script>
@@ -112,7 +125,7 @@
 				.addLayer(osm);
 				
 		//Drehung der Karte um Winkel x		
-				var angle = 27.825;
+		var angle = 27.825;
 		map.setBearing(angle);	
 		
 		//Einrichtung der Campuskarte		
@@ -183,8 +196,8 @@
 		
 		 layer.on('click', function (e) {
 			layer.bringToFront();
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
-			layer.setStyle({fillColor: 'red', color: 'red'});
+			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black', weight: 1.5});
+			layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 			//layer.setRadius(15);			
 			
 			var sidebarContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>' + '<table><tr><th scope="row"></th><td>' + '';
@@ -199,11 +212,11 @@
             return {
                 radius: 0.0,
                 fillColor: 'grey',
-                color: 'grey',
+                color: 'black',
                 weight: 0.0,
-                opacity: 1.0,
+                opacity: 1,
                 dashArray: '',
-                fillOpacity: 1.0
+                fillOpacity: 1
             }
         };
 		
@@ -220,14 +233,59 @@
 	 
 
 	  //Style festlegen, der für Polygone genutzt wird
-		var myStyle = {
-		"color": "red",
-		"weight": 3,
-		"opacity": 1
+		var stylePolygone = {
+		"color": "#073057ff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
+		};
+		var styleGrunflaechen = {
+		"color": "#d4eebdff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
+		};
+		var styleParken = {
+		"color": "d7d1cfff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
+		};
+		var styleRahmen = {
+		"color": "black",
+		"weight": 0,
+		"opacity": 0
+		};
+		var styleSperrungen = {
+		"color": "#000000ff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
+		};
+		var styleTreppe = {
+		"color": "#000000ff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
+		};
+		var styleUbergange = {
+		"color": "#4a6691ff",
+		"weight": 1,
+		"opacity": 1,
+		"fillOpacity": 1
 		};
 		
 		//add Polygone
-		json_polygon1JSON = new L.geoJson(json_polygon1, {style: myStyle}).addTo(polygone);
+		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone).addTo(map);
+		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone).addTo(map);
+		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone).addTo(map);
+		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
+		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone).addTo(map);
+		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
+		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone).addTo(map);
+
+
+		
 		
 		//Einrichtung der Suchmaske
 		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
@@ -298,8 +356,8 @@
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	sidebar.hide();
-	json_AlleJSON.setStyle({fillColor: 'grey', color: 'grey'});
-	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'red', weight: 3.0});
+	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black', weight: 1.5});
+	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
 	});
 	map.addControl(searchControl);
@@ -317,7 +375,7 @@
 
 	//Reset-Button einfügen
 	L.easyButton('fa fa-times', function(layer){
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0});	//Style und Radius resetten
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});	//Style und Radius resetten
 	sidebar.hide();																	//sidebar schließen
 	//map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
 	}).addTo(map);
