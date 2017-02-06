@@ -11,6 +11,8 @@
 		<script src="js/leaflet1.0.2.js"></script>
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
+		<script src="js/leaflet-routing-machine.js"></script>
+
 
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
@@ -20,7 +22,9 @@
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/leaflet1.0.2.css" />
+        <link rel="stylesheet" href="css/leaflet-routing-machine.css" />
+		<link rel="stylesheet" href="css/leaflet1.0.2.css" />
+
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
 
@@ -135,10 +139,10 @@
 		minZoom: 15,
 		}).addTo(map);
 		
-		CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
+		/*CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
 		maxZoom: 18,
 		minZoom: 15,
-		}).addTo(map);
+		}).addTo(map);*/
 		
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
@@ -146,7 +150,7 @@
 		//mapOverlays implementieren
 		var overlayMaps = {
 		"osm": osm,
-		"CampusMapNN": CampusMapNN,
+		//"CampusMapNN": CampusMapNN,
 		"CampusMapLinear": CampusMapLinear,
 		"polygone": polygone
 		};
@@ -162,6 +166,17 @@
 		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 		//Sidebar einrichten
+		
+		/*L.Routing.control({
+  waypoints: [
+    L.latLng(51.44499, 7.26078),
+    L.latLng(51.44499, 7.26949)
+  ]
+}).addTo(map);*/
+		
+		
+		
+		
 	   var sidebar = L.control.sidebar('sidebar', {
             closeButton: true,
             position: 'right'
