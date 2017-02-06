@@ -123,6 +123,15 @@
                 });
                 map.addControl(loadingControl); 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		var imageUrl = 'Campusplan_roh.png'
+		imageBounds = [[51.4566, 7.26], [51.2866, 7.23]];
+
+		L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+	
+		
+		
+		
 		//Feature-/Layergroups einrichten
         var feature_group = new L.featureGroup([]);
         var bounds_group = new L.featureGroup([]);
@@ -197,6 +206,8 @@ var json_AlleJSON = new L.geoJson(json_Alle, {
     onEachFeature: pop_Alle,                     
     pointToLayer: function (feature, latlng) {
         marker = new L.marker(latlng, {icon: smallIcon});
+		
+		return marker
     }
 });	
 	
@@ -260,7 +271,7 @@ var json_AlleJSON = new L.geoJson(json_Alle, {
         layer: L.featureGroup([json_AlleJSON]),
         //propertyName: 'Nkat',
         position: 'topleft', 
-		featuresArray: ['BEZ', 'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
+		featuresArray: ['Bez' /*'Hkat', 'Nkat'*/ ],
 		animateLocation: true,
         circleLocation: true,
 		markerLocation: false,

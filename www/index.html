@@ -43,6 +43,7 @@
 
         html, body, #map {
             height: 100%;
+			background: #888888;
         }
 
         .lorem {
@@ -121,18 +122,23 @@
 			
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 15)
-				.addLayer(osm);
+				.setView([51.44459561, 7.26093000], 18);
+				//.addLayer(osm)
 				
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
 		map.setBearing(angle);	
 		
-		//Einrichtung der Campuskarte		
-		var CampusMap = L.tileLayer('result/{z}/{x}/{y}.png',{
+		//Einrichtung der Campuskarte
+		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
 		maxZoom: 18,
 		minZoom: 15,
-		});
+		}).addTo(map);
+		
+		CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
+		maxZoom: 18,
+		minZoom: 15,
+		}).addTo(map);
 		
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
@@ -140,7 +146,8 @@
 		//mapOverlays implementieren
 		var overlayMaps = {
 		"osm": osm,
-		"CampusMap": CampusMap,
+		"CampusMapNN": CampusMapNN,
+		"CampusMapLinear": CampusMapLinear,
 		"polygone": polygone
 		};
 		
@@ -279,21 +286,79 @@
 		};
 		
 		//add Polygone
-		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone).addTo(map);
-		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone).addTo(map);
-		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone).addTo(map);
-		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone).addTo(map);
-		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone).addTo(map);
-		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone).addTo(map);
-		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone).addTo(map);
+		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
+		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone);
+		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone);
+		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone);
+		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone);
+		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
+		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
 		
-/*var marker = L.marker([51.44459561, 7.26093000], {
+
+var smallIcon2 = new L.Icon({
+    iconUrl: 'css/images/marker-icon.png',
+    iconRetinaUrl: 'css/images/marker-icon-2x.png',
+    iconSize:    [25, 41],
+    iconAnchor:  [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'css/images/marker-shadow.png',
+    shadowSize:  [41, 41]
+});
+
+
+var iconUB = new L.divIcon({
+	className: 'leaflet-div-icon',
+	iconSize:    [0, 0],
+	html: '<b><FONTSIZE="88">UB</FONT></b>'
+	});
+
+var iconHZO = new L.divIcon({
+	className: 'leaflet-div-icon',
+	iconSize:    [0, 0],
+	html: '<b><FONTSIZE="88">HZO</FONT></b>'
+	});
+	
+var UB = L.marker([51.44503, 7.26062], {icon: iconUB});
+var HZO = L.marker([51.44478, 7.26243], {icon: iconHZO});
+	
+var Text = new L.layerGroup([]);
+Text.addLayer(UB);
+
+
+var visible;
+// Attach map zoom handler
+map.on('zoomend', function (e) {
+    // Check zoom level
+    if (map.getZoom() > 16) {
+        // Check if not already shown
+        if (!visible) {
+		map.addLayer(Text);
+            };
+            // Set visibility flag
+            visible = true;
+        
+    } else {
+        // Check if not already hidden
+        if (visible) {
+            // Loop over layers
+			map.removeLayer(Text);
+            };
+            // Set visibility flag
+            visible = false;
+        }
+    
+});
+map.fitBounds(json_rahmenJSON.getBounds());
+
+
+var marker = L.marker([51.44459561, 7.26093000], {
+icon: smallIcon2,
 draggable: true
 }).addTo(map);
 marker.bindPopup("Test");
 marker.on('click', function(e) {
 marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
-});*/
+});
 		
 		
 		//Watermark
