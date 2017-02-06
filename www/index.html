@@ -116,19 +116,20 @@
         <script>
 		
 		//Einrichtung der maxBounds
-		var southWest = L.latLng(51.4566, 7.26);
-		var northEast = L.latLng(51.4355, 7.27);
+		var southWest = L.latLng(51.439003, 7.24823);
+		var northEast = L.latLng(51.45077, 7.27346);
+		mybounds = L.latLngBounds(southWest, northEast);
 		
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 18, minZoom: 15, opacity:1});
+			osm = L.tileLayer(osmUrl, {maxZoom: 20, minZoom: 12, opacity:1});
 			
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 18);
-				//.addLayer(osm)
-				
+				.setView([51.44459561, 7.26093000], 16);
+				//.addLayer(osm)	
+
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
 		map.setBearing(angle);	
@@ -136,7 +137,7 @@
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
 		maxZoom: 18,
-		minZoom: 15,
+		minZoom: 16
 		}).addTo(map);
 		
 		/*CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
@@ -172,6 +173,7 @@
     L.latLng(51.44499, 7.26078),
     L.latLng(51.44499, 7.26949)
   ]
+ // geocoder: L.Control.Geocoder.nominatim()
 }).addTo(map);*/
 		
 		
@@ -276,10 +278,10 @@
 		"fillOpacity": 1
 		};
 		var styleRahmen = {
-		"color": 'rgb(209, 204, 222)',
-		"weight": 0,
+		"color": 'rgb(0, 0, 1)',
+		"weight": 2.5,
 		"opacity": 1,
-		"fillOpacity": 1
+		"fillOpacity": 0
 		};
 		var styleSperrungen = {
 		"color": "#000000ff",
@@ -302,12 +304,12 @@
 		
 		//add Polygone
 		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
-		json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone);
-		json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone);
-		json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone);
-		json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone);
-		json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
-		json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
+		//json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone);
+		//json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone);
+		//json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone);
+		//json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone);
+		//json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
+		//json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
 		
 
 var smallIcon2 = new L.Icon({
@@ -324,7 +326,7 @@ var smallIcon2 = new L.Icon({
 var iconUB = new L.divIcon({
 	className: 'leaflet-div-icon',
 	iconSize:    [0, 0],
-	html: '<b><FONTSIZE="88">UB</FONT></b>'
+	html: '<b><FONTSIZE = "200000">UB</FONT></b>'
 	});
 
 var iconHZO = new L.divIcon({
@@ -333,8 +335,8 @@ var iconHZO = new L.divIcon({
 	html: '<b><FONTSIZE="88">HZO</FONT></b>'
 	});
 	
-var UB = L.marker([51.44503, 7.26062], {icon: iconUB});
-var HZO = L.marker([51.44478, 7.26243], {icon: iconHZO});
+var UB = L.marker([51.44498, 7.26070], {icon: iconUB});
+var HZO = L.marker([51.000789, 7.26243], {icon: iconHZO});
 	
 var Text = new L.layerGroup([]);
 Text.addLayer(UB);
@@ -344,7 +346,7 @@ var visible;
 // Attach map zoom handler
 map.on('zoomend', function (e) {
     // Check zoom level
-    if (map.getZoom() > 16) {
+    if (map.getZoom() > 17) {
         // Check if not already shown
         if (!visible) {
 		map.addLayer(Text);
@@ -364,6 +366,11 @@ map.on('zoomend', function (e) {
     
 });
 map.fitBounds(json_rahmenJSON.getBounds());
+map.setMaxBounds(mybounds);
+L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);
+CampusMapLinear.bringToFront();
+
+
 
 
 var marker = L.marker([51.44459561, 7.26093000], {
