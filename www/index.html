@@ -116,8 +116,8 @@
         <script>
 		
 		//Einrichtung der maxBounds
-		var southWest = L.latLng(51.439003, 7.24823);
-		var northEast = L.latLng(51.45077, 7.27346);
+		var southWest = L.latLng(51.44014, 7.25298);				//[link unten , link oben];
+		var northEast = L.latLng(51.44971, 7.27048);				//[rechts oben , rechts unten];
 		mybounds = L.latLngBounds(southWest, northEast);
 		
 		//Einrichtung der Basiskarte
@@ -127,7 +127,7 @@
 			
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 16);
+				.setView([51.44459561, 7.26093000], 12);
 				//.addLayer(osm)	
 
 		//Drehung der Karte um Winkel x		
@@ -137,7 +137,7 @@
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
 		maxZoom: 18,
-		minZoom: 16
+		minZoom: 12
 		}).addTo(map);
 		
 		/*CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
