@@ -72,7 +72,7 @@
 .leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:26px;
+	width:24px;
 	height:30px;
 	content: "\f002";
   font-family: FontAwesome;
