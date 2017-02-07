@@ -20,7 +20,13 @@
 	display:list;
 	float:left;
 	background: #fff;
-	border: none;
+	border: 1px solid #fff;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color: transparent;
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
