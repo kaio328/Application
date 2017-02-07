@@ -2,14 +2,14 @@
 .leaflet-container .leaflet-control-search {
 	position:relative;
 	float:left;
-	color:#1978cf;
+	border-color: rgba(0, 0, 0, 0.4);
 	border-radius: 22px;
-	background-color: rgba(255, 255, 255, 1);
 	z-index:1000;
 
 	margin-left: 10px;
 	margin-top: 50px;
 	opacity: 0.8;
+	background-color: rgba(255, 255, 255, 1);
 }
 .leaflet-control-search.search-exp {/*expanded*/
 	box-shadow: 0 1px 7px #999;
@@ -75,6 +75,7 @@
 	margin-left: 10px;
 	margin-top:3px;
 	border-radius:40px;
+	color: rgba(0, 0, 0, 1);
 }
 
 .leaflet-control-search .search-tooltip {

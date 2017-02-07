@@ -47,7 +47,7 @@
 
         html, body, #map {
             height: 100%;
-			background: #888888;
+			background: 'white';
         }
 
         .lorem {
@@ -366,9 +366,9 @@ map.on('zoomend', function (e) {
     
 });
 map.fitBounds(json_rahmenJSON.getBounds());
-map.setMaxBounds(mybounds);
+//map.setMaxBounds(mybounds);
 //L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);
-CampusMapLinear.bringToFront();
+
 
 
 
@@ -501,7 +501,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});	//Style und Radius resetten
 	sidebar.hide();																	//sidebar schließen
 	//map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
-	}).addTo(map);
+	});
 	
     </script>
 
