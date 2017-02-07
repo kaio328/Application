@@ -20,12 +20,13 @@
 	display:list;
 	float:left;
 	background: #fff;
-	border:2px #666;
-	border-radius:2px;
+	border: none;
+	box-shadow: none;
+	border-radius:100px;
 	height:18px;
-	padding:5 18px 0 2px;
+	padding:1px 125px 0px 2px;
 	margin:5px 0 2px 44.5px;
-	width: 300px ;    										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
+;    										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
 	opacity: 0.8;	
 	font-size: 1.35em;
 	font-family: calibri;
