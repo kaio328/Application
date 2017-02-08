@@ -93,13 +93,21 @@
 		var northEast = L.latLng(51.4355, 7.27);
 		
 		//Einrichtung der Basiskarte
-		var map = L.map('map', {
-		zoomControl:false,
-		//maxBounds: L.latLngBounds(southWest, northEast)									//maxBounds aktivieren
-		}).setView([51.4513690683,7.27304188159], 12);
-       	var basemap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-		maxZoom: 30,
-		id: 'mapbox.streets'
+		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			osm = L.tileLayer(osmUrl, {maxZoom: 20,  opacity:1});
+			
+		//Einrichtung der Karte
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
+				.setView([51.44459561, 7.26093000], 17)
+				.addLayer(osm)	;
+
+	
+		
+		//Einrichtung der Campuskarte
+		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
+		maxZoom: 18,
+		minZoom: 17
 		}).addTo(map);
 		
 		//Sidebar einrichten
@@ -123,10 +131,6 @@
                 });
                 map.addControl(loadingControl); 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		var imageUrl = 'Campusplan_roh.png'
-		imageBounds = [[51.4566, 7.26], [51.2866, 7.23]];
-
-		L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 	
 		

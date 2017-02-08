@@ -24,6 +24,7 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/leaflet-routing-machine.css" />
 		<link rel="stylesheet" href="css/leaflet1.0.2.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
@@ -31,7 +32,7 @@
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
-		<link rel="stylesheet" href="css/L.Control.Locate.css" />
+
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
@@ -123,11 +124,11 @@
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 20, minZoom: 12, opacity:1});
+			osm = L.tileLayer(osmUrl, {maxZoom: 20,  opacity:1});
 			
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
-				.setView([51.44459561, 7.26093000], 12);
+				.setView([51.44459561, 7.26093000], 17);
 				//.addLayer(osm)	
 
 		//Drehung der Karte um Winkel x		
@@ -137,7 +138,7 @@
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
 		maxZoom: 18,
-		minZoom: 12
+		minZoom: 17
 		}).addTo(map);
 		
 		/*CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
@@ -157,7 +158,7 @@
 		};
 		
 		//mapOverlays der Karte hinzufügen
-		L.control.layers(null, overlayMaps).addTo(map);
+		//L.control.layers(null, overlayMaps).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Simples Imageoverlay einfügen
@@ -188,7 +189,8 @@
 		
 		//Einrichtung des Loaders/Spinners
 		var loadingControl = L.Control.loading({
-                    separate: true																	//nicht angedockt am Zoom-Button
+                    separate: true,	//nicht angedockt am Zoom-Button
+					position: 'bottomright'					
                 });			
                 map.addControl(loadingControl); 
 				
@@ -365,8 +367,8 @@ map.on('zoomend', function (e) {
         }
     
 });
-map.fitBounds(json_rahmenJSON.getBounds());
-map.setMaxBounds(mybounds);
+//map.fitBounds(json_rahmenJSON.getBounds());
+map.setMaxBounds(json_rahmenJSON.getBounds());
 //L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);
 
 
@@ -478,10 +480,12 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 		
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
-	sidebar.hide();
+	//map.on('moveend', function(a){		--> bei jedem Pan wird es aktiviert!
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
+	//}),
+	sidebar.hide();
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	});
 	map.addControl(searchControl);

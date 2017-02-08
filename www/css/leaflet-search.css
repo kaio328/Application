@@ -10,6 +10,7 @@
 	margin-top: 50px;
 	opacity: 0.8;
 	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0px 10px #444;
 }
 .leaflet-control-search.search-exp {/*expanded*/
 	box-shadow: 0 1px 7px #999;
@@ -31,7 +32,7 @@
 	border-radius:100px;
 	height:18px;
 	padding:1px 125px 0px 2px;
-	margin:5px 0 2px 44.5px;
+	margin:7px 0px 3px 44.5px;
   										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
 	opacity: 0.8;	
 	font-size: 1.35em;
@@ -48,9 +49,9 @@
 	width:22px;
 	height:18px;
 	position:absolute;
-	right:39px;												/* Ausrichtung des x-Cancels */
+	right:41px;												/* Ausrichtung des x-Cancels */
 	margin:3px 0;
-	margin-top:5px;
+	margin-top: 8px;
 	background: url('../css/images/search-icon.png') no-repeat 0 -46px;
 	text-decoration:none;
 	opacity: 0.8;		
@@ -72,14 +73,14 @@
 .leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:24px;
-	height:30px;
+	width:27px;
+	height:33px;
 	content: "\f002";
   font-family: FontAwesome;
 	font-size:1.3em;
 	color: #444;
-	margin-left: 10px;
-	margin-top:3px;
+	margin-left: 11px;
+	margin-top:5px;
 	border-radius:40px;
 	color: rgba(0, 0, 0, 1);
 }
