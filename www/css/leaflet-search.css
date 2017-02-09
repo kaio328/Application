@@ -2,7 +2,7 @@
 .leaflet-container .leaflet-control-search {
 	position:relative;
 	float:left;
-	border-color: rgba(0, 0, 0, 0.4);
+	border-color: rgba(0, 0, 0, 0.5);
 	border-radius: 22px;
 	z-index:1000;
 
@@ -31,8 +31,8 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
-	padding:1px 125px 0px 2px;
-	margin:7px 0px 3px 44.5px;
+	padding:1px 120px 0px 2px;
+	margin:7px 0px 3px 48.5px;
   										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
 	opacity: 0.8;	
 	font-size: 1.35em;
@@ -92,25 +92,29 @@
 	float:left;
 	list-style: none;
 	padding-left: 0;
-	min-width:250px;
+	min-width:275px;
 	max-height:122px;
-	box-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0.4);
 	z-index:1010;
 	overflow-y:auto;
 	overflow-x:hidden;
 	cursor: pointer;
+	border-radius: 22px;
 }
 .leaflet-control-search .search-tip {
-	margin:2px;
-	padding:2px 4px;
+	margin:3px;
+	padding:2px 8px;
+	border: 2px solid #fff;
+	border-color: rgba(0, 0, 0, 0.4);
 	display:block;
 	color:black;
-	background: #eee;
-	border-radius:.25em;
+	background: #fff;
+	border-radius:22px;
 	text-decoration:none;	
 	white-space:nowrap;
 	vertical-align:center;
+	
 	
 }
 .leaflet-control-search .search-button:hover {

@@ -36,7 +36,8 @@
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
-		<link rel="stylesheet" href="css/divicon.csss" />
+		<link rel="stylesheet" href="css/leaflet-search.css" />	
+		<link rel="stylesheet" href="css/divicon.css" />
 		
 		
     </head>
@@ -110,10 +111,7 @@
 		<script src="js/leaflet-gps.js"></script>
 		<script src="js/L.Control.Locate.js" ></script>
 		<script src="js/L.Control.Sidebar.js"></script>
-		
-		<link rel="stylesheet" href="css/leaflet-search.css" />	
-		<link rel="stylesheet" href="css/easy-button.css" />
-
+	
         <script>
 		
 		//Einrichtung der maxBounds
@@ -138,21 +136,15 @@
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
 		maxZoom: 18,
-		minZoom: 17
+		minZoom: 16
 		}).addTo(map);
-		
-		/*CampusMapNN = L.tileLayer('result/{z}/{x}/{y}.png',{
-		maxZoom: 18,
-		minZoom: 15,
-		}).addTo(map);*/
-		
+			
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
 		
 		//mapOverlays implementieren
 		var overlayMaps = {
 		"osm": osm,
-		//"CampusMapNN": CampusMapNN,
 		"CampusMapLinear": CampusMapLinear,
 		"polygone": polygone
 		};
@@ -166,20 +158,19 @@
 		//imageBounds = [[51.4566, 7.26], [51.4355, 7.27]];
 
 		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
-
-		//Sidebar einrichten
 		
-		/*L.Routing.control({
-  waypoints: [
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	//Routing hinzufügen	
+		L.Routing.control({
+ /* waypoints: [
     L.latLng(51.44499, 7.26078),
     L.latLng(51.44499, 7.26949)
-  ]
+  ]*/
  // geocoder: L.Control.Geocoder.nominatim()
-}).addTo(map);*/
-		
-		
-		
-		
+}).addTo(map);
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+
+		//Sidebar einrichten
 	   var sidebar = L.control.sidebar('sidebar', {
             closeButton: true,
             position: 'right'
@@ -232,8 +223,6 @@
 			sidebar.show();
         })};
 		
-
-
         //Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
 		function doStyleAlle() {
             return {
@@ -259,7 +248,6 @@
 			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
 		});	
 	 
-
 	  //Style festlegen, der für Polygone genutzt wird
 		var stylePolygone = {
 		"color":  'rgb(7, 48, 87)',
@@ -313,7 +301,7 @@
 		//json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
 		//json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
 		
-
+//Standart MarkerIcon für Gebrauch mit Angle 
 var smallIcon2 = new L.Icon({
     iconUrl: 'css/images/marker-icon.png',
     iconRetinaUrl: 'css/images/marker-icon-2x.png',
@@ -324,24 +312,229 @@ var smallIcon2 = new L.Icon({
     shadowSize:  [41, 41]
 });
 
+//Layergruppe erstellen
+var Text = new L.layerGroup([]);
+/*Text.on('click', function(e) {
+Text.bindPopup("Test");
+Text.getPopup().setContent('Clicked' + Text.getLatLng().toString()).openOn(map);
+});*/
 
-var iconUB = new L.divIcon({
-	className: 'leaflet-div-icon',
+//Icons und Marker instanziieren, verknüpfen und Layergruppe "Text" zuordnen
+
+
+
+//Unicenter
+var iconUnicenter = new L.divIcon({
+	className: 'leaflet-div-icon-klein-s1',
 	iconSize:    [0, 0],
-	html: '<b><FONTSIZE = "200000">UB</FONT></b>'
-	});
+	html: '<b>UNICENTER</b>'
+	});	
+var Unicenter = L.marker([51.4469, 7.25789], {icon: iconUnicenter});	
+Text.addLayer(Unicenter);
 
-var iconHZO = new L.divIcon({
-	className: 'leaflet-div-icon',
+
+//UFO
+var iconUFO = new L.divIcon({
+	className: 'leaflet-div-icon-klein1',
+	iconSize:    [0, 0],
+	html: '<b>UFO</b>'
+	});	
+var UFO = L.marker([51.44728, 7.25938], {icon: iconUFO});	
+Text.addLayer(UFO);
+//Icons/Marker für Schriftgröße - klein -
+--> Übergänge
+--> AkaFö, TestDaF, 
+--> Parken
+--> CC
+--> Straßen
+--> Sperrungen
+--> KITA
+--> Forum
+--> ZN
+--> MSZ
+
+//Universitätsstraße
+var iconUniversitätsstrasse = new L.divIcon({
+	className: 'leaflet-div-icon-klein0',
+	iconSize:    [50, 20],
+	html: '<b>Universitätsstrasse</b>'
+	});	
+var Universitätsstrasse = L.marker([51.44733, 7.26061], {icon: iconUniversitätsstrasse});	
+Text.addLayer(Universitätsstrasse);
+
+//I-Nordstraße
+var iconInordstraße = new L.divIcon({
+	className: 'leaflet-div-icon-klein1-1',
+	iconSize:    [50, 20],
+	html: '<b>I-Nordstr.</b>'
+	});	
+var Inordstraße = L.marker([51.44658, 7.26255], {icon: iconInordstraße});	
+Text.addLayer(Inordstraße);
+
+//IAN
+var iconIAN = new L.divIcon({
+	className: 'leaflet-div-icon-klein2',
+	iconSize:    [0, 0],
+	html: '<b>IAN</b>'
+	});	
+var IAN = L.marker([51.44677, 7.26119], {icon: iconIAN});	
+Text.addLayer(IAN);
+
+//IBN
+var iconIBN = new L.divIcon({
+	className: 'leaflet-div-icon-klein2',
+	iconSize:    [0, 0],
+	html: '<b>IBN</b>'
+	});	
+var IBN = L.marker([51.44723, 7.26227], {icon: iconIBN});	
+Text.addLayer(IBN);
+
+//ICN
+var iconICN = new L.divIcon({
+	className: 'leaflet-div-icon-klein2',
+	iconSize:    [0, 0],
+	html: '<b>ICN</b>'
+	});	
+var ICN = L.marker([51.44743, 7.26307], {icon: iconICN});	
+Text.addLayer(ICN);
+
+//IDN
+var iconIDN = new L.divIcon({
+	className: 'leaflet-div-icon-klein2',
+	iconSize:    [0, 0],
+	html: '<b>IDN</b>'
+	});	
+var IDN = L.marker([51.44786, 7.26322], {icon: iconIDN});	
+Text.addLayer(IDN);
+
+//Sportplatz
+var iconSportplatz = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
 	iconSize:    [0, 0],
 	html: '<b><FONTSIZE="88">HZO</FONT></b>'
-	});
+	});	
 	
-var UB = L.marker([51.44498, 7.26070], {icon: iconUB});
-var HZO = L.marker([51.000789, 7.26243], {icon: iconHZO});
-	
-var Text = new L.layerGroup([]);
+//Tennisplatz
+var iconTennisplatz = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b><FONTSIZE="88">HZO</FONT></b>'
+	});	
+
+//CASPO	
+var iconCASPO = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b><FONTSIZE="88">HZO</FONT></b>'
+	});	
+
+//UB
+var iconUB = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b>UB</b>'
+	});		
+var UB = L.marker([51.44498, 7.26059], {icon: iconUB});	
 Text.addLayer(UB);
+
+//HZO	
+var iconHZO = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b>HZO</b>'
+	});		
+var HZO = L.marker([51.44475, 7.262440], {icon: iconHZO});
+Text.addLayer(HZO);	
+
+//Mensa	
+var iconMensa = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b>Mensa</b>'
+	});
+var Mensa = L.marker([51.44302, 7.26218], {icon: iconMensa});
+	Text.addLayer(Mensa);
+	
+//VZ	
+var iconVZ = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b>VZ</b>'
+	});	
+var VZ = L.marker([51.44285, 7.26250], {icon: iconVZ});	
+	Text.addLayer(VZ);
+	
+//MZ	
+var iconMZ = new L.divIcon({
+	className: 'leaflet-div-icon-mittel',
+	iconSize:    [0, 0],
+	html: '<b>MZ</b>'
+	});	
+var MZ = L.marker([51.446, 7.25944], {icon: iconMZ});
+	Text.addLayer(MZ);	
+
+	
+//UV
+var iconUV = new L.divIcon({
+	className: 'leaflet-div-icon-mittel-vertikal',
+	iconSize:    [0, 0],
+	html: '<b>UV</b>'
+	});	
+var UV = L.marker([51.44597, 7.26029], {icon: iconUV});	
+	Text.addLayer(UV);
+
+
+//Audimax
+var iconAudimax = new L.divIcon({
+	className: 'leaflet-div-icon-mittel-groß',
+	iconSize:    [0, 0],
+	html: '<b>Audimax</b>'
+	});
+var Audimax = L.marker([51.44364, 7.26141], {icon: iconAudimax});	
+	Text.addLayer(Audimax);
+//Icons für Schriftgröße - Groß -	
+-->Icons N-Reihe
+-->Icons G-Reihe
+-->Icons M-Reihe
+
+//IA
+var iconIA = new L.divIcon({
+	className: 'leaflet-div-icon-groß',
+	iconSize:    [0, 0],
+	html: '<b>IA</b>'
+	});
+var IA = L.marker([51.44615, 7.26236], {icon: iconIA});	
+	Text.addLayer(IA);
+	
+//IB
+var iconIB = new L.divIcon({
+	className: 'leaflet-div-icon-groß',
+	iconSize:    [0, 0],
+	html: '<b>IB</b>'
+	});
+var IB = L.marker([51.44654, 7.26352], {icon: iconIB});	
+	Text.addLayer(IB);
+	
+//IC
+var iconIC = new L.divIcon({
+	className: 'leaflet-div-icon-groß',
+	iconSize:    [0, 0],
+	html: '<b>IC</b>'
+	});
+var IC = L.marker([51.44364, 7.26141], {icon: iconIC});	
+	//Text.addLayer(IC);
+	
+//ID
+var iconID = new L.divIcon({
+	className: 'leaflet-div-icon-groß',
+	iconSize:    [0, 0],
+	html: '<b>ID</b>'
+	});
+var ID = L.marker([51.44364, 7.26141], {icon: iconID});	
+	//Text.addLayer(ID);
+	
+-->BMZ
+
 
 
 var visible;
@@ -492,22 +685,22 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 	
-	//Button für Standortsuche und gleichnamiger Funktion implementieren
+	//Button für Standortsuche implementieren
 	L.control.locate({
     strings: {
         title: "Standort anzeigen"
     },	
 	locateOptions: {
-               timeout: 10000}														//ist auch der Default-Wert von Leaflet	   
+               timeout: 10000}																				//ist auch der Default-Wert von Leaflet	   
 	}).addTo(map);
 
 	//Reset-Button einfügen
-	L.easyButton('fa fa-times', function(layer){
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});	//Style und Radius resetten
-	sidebar.hide();
-	//sidebar schließen
+	L.easyButton('fa fa-times', function(){
+	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		//Style und Radius resetten
+	sidebar.hide();																							//sidebar schließen
+	//this.disable();
 	//map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
-	});
+	}).addTo(map);
 	
     </script>
 

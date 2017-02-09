@@ -46,7 +46,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              *                view if the user has manually panned the map.
              *                The map view follows the users location until she pans.
              */
-            setView: 'untilPan',
+            setView: 'once',
             /** Keep the current map zoom level when setting the view and only pan. */
             keepCurrentZoomLevel: true,
             /** Smooth pan and zoom to the location of the marker. Only works in Leaflet 1.0+. */
