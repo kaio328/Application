@@ -718,7 +718,9 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	var routingButton = L.easyButton('fa fa-location-arrow', function(){
 	Control.addTo(map);
 	//poppi.openOn(map);
+	sidebar.hide();
 	removeButton.enable();
+	//map.flyTo([51.44459561, 7.26093000], 17);
 	}).addTo(map);
 	
 	//Reset-Button einfügen
