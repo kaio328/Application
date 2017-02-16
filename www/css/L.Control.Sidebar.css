@@ -1,7 +1,7 @@
 .leaflet-sidebar {
 	position: absolute;
 	height:25%;
-	margin-top:40%;
+	margin-top:-50%;
 	margin-right:89.5%;
 	opacity:0.9;
 	-webkit-box-sizing: border-box;
@@ -43,8 +43,8 @@
   @media (max-width: 767px) {
     .leaflet-sidebar {
       width: 9.9%;
-      height: 27%;
-    margin-top: 121%}
+      height: 12.5%;
+    margin-top: 1%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 100%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -63,7 +63,8 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .leaflet-sidebar {
       width: 9.9%;
-    margin-top: 90%}
+      height: 12.5%;
+     margin-top: 1%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 5%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -71,8 +72,8 @@
   @media (min-width: 992px) and (max-width: 1199px) {
     .leaflet-sidebar {
       width:9.9%;
-      height: 25%;
-    margin-top: 35% }
+      height: 12.5%;
+    margin-top: 1% }
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 10%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -80,9 +81,9 @@
   @media (min-width: 1200px) {
     .leaflet-sidebar {
       width: 9.9%;
-      height: 30%;
+      height: 13%;
     margin-left: 40%;
-    margin-top: 31.5%;}
+    margin-top: 1%;}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 1%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -90,7 +91,7 @@
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: -20%;
+    top: 1%;
     width: 31px;
     height: 31px;
     color: black;
@@ -100,7 +101,7 @@
     background: white;
     -webkit-border-radius: 16px;
     border-radius: 16px;
-	margin-top:45px;
+	  margin-top:0px;
     cursor: pointer;
     z-index: 800; }
 
