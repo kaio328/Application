@@ -31,7 +31,7 @@
     margin-top: 2px;
     margin-bottom: 8px;
     border-bottom: 1px solid #ccc;
-    max-height: 320px;
+    max-height: 200px;
     overflow-y: auto;
     transition: all 0.2s ease;
 }
