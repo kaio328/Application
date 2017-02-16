@@ -12,12 +12,14 @@
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
 		<script src="js/leaflet-routing-machine.js"></script>
+		<script src="js/Control.Geocoder.js"></script>
 
 
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
+		<script src="js/bouncemarker.js"></script>
 	
 		
 
@@ -33,7 +35,7 @@
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
 
-		<link rel="stylesheet" href="css/mobile.css" />
+		
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
@@ -127,7 +129,7 @@
 		//Einrichtung der Karte
 		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
 				.setView([51.44459561, 7.26093000], 17);
-				//.addLayer(osm)	
+				//.addLayer(osm)
 
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
@@ -149,6 +151,27 @@
 		"polygone": polygone
 		};
 		
+//Standart MarkerIcon für Gebrauch mit Angle 
+var smallIcon2 = new L.Icon({
+    iconUrl: 'css/images/marker-icon.png',
+    iconRetinaUrl: 'css/images/marker-icon-2x.png',
+    iconSize:    [25, 41],
+    iconAnchor:  [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'css/images/marker-shadow.png',
+    shadowSize:  [41, 41]
+});
+		
+		//Marker erstellen zur Vermessung der Koordinaten in der Karte
+/*var marker = L.marker([51.44459561, 7.26093000], {
+icon: smallIcon2,
+draggable: true
+}).addTo(map);
+marker.bindPopup("Test");
+marker.on('click', function(e) {
+marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
+});*/
+		
 		//mapOverlays der Karte hinzufügen
 		//L.control.layers(null, overlayMaps).addTo(map);
 
@@ -160,14 +183,30 @@
 		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
 		
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-	//Routing hinzufügen	
-		L.Routing.control({
- /* waypoints: [
+			
+		var poppi = L.popup()
+		.setContent("Zieh mich an Dein Start/Ziel !");
+		
+			
+			//Routing hinzufügen	
+		var Control = L.Routing.control({
+ waypoints: [
     L.latLng(51.44499, 7.26078),
-    L.latLng(51.44499, 7.26949)
-  ]*/
- // geocoder: L.Control.Geocoder.nominatim()
-}).addTo(map);
+    L.latLng(51.44375, 7.26185)
+  ],
+   createMarker: function(i, waypoints, n){ 
+   return L.marker(waypoints.latLng, {
+					draggable: true,
+					bounceOnAdd: true,
+					bounceOnAddOptions: {duration: 1000, height: 800, function(){(poppi.openOn(map))}}, 
+					
+icon: smallIcon2}).bindPopup(poppi).openPopup();
+	},	
+	language: 'de',
+	routeWhileDragging: true
+   //geocoder: L.Control.Geocoder.nominatim(),
+   //reverseWaypoints: true
+});
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 		//Sidebar einrichten
@@ -216,7 +255,7 @@
 			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 			//layer.setRadius(15);			
-			var sidebarContent = '<table><tr><th scope="row">BEZ</th><td>' + Autolinker.link(String(feature.properties['BEZ'])) + '</td></tr><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">TELEFON</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">OEFFNUNG</th><td>' + Autolinker.link(String(feature.properties['OEFFNUNG'])) + '</td></tr><tr><th scope="row">WWW</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">EMAIL</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">STRASSE</th><td>' + Autolinker.link(String(feature.properties['STRASSE'])) + '</td></tr><tr><th scope="row">ORT</th><td>' + Autolinker.link(String(feature.properties['ORT'])) + '</td></tr><tr><th scope="row">BEMERKUNG</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '</td></tr><tr><th scope="row">PLZ</th><td>' + Autolinker.link(String(feature.properties['PLZ'])) + '</td></tr><tr><th scope="row">Hkat</th><td>' + Autolinker.link(String(feature.properties['Hkat'])) + '</td></tr><tr><th scope="row">Nkat</th><td>' + Autolinker.link(String(feature.properties['Nkat'])) + '</td></tr></table>' + '<table><tr><th scope="row"></th><td>' + '';
+			var sidebarContent = '<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;						//Sidebar-Inhalt zuweisen --> Properties des geclickten features
 			//document.getElementById("sidebar").style.fontSize = "15px";						//Sidebar-Schriftgröße ändern
@@ -301,16 +340,6 @@
 		//json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
 		//json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
 		
-//Standart MarkerIcon für Gebrauch mit Angle 
-var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker-icon.png',
-    iconRetinaUrl: 'css/images/marker-icon-2x.png',
-    iconSize:    [25, 41],
-    iconAnchor:  [12, 41],
-    popupAnchor: [1, -34],
-    shadowUrl: 'css/images/marker-shadow.png',
-    shadowSize:  [41, 41]
-});
 
 //Layergruppe erstellen
 var Text = new L.layerGroup([]);
@@ -566,16 +595,6 @@ map.setMaxBounds(json_rahmenJSON.getBounds());
 
 
 
-
-
-var marker = L.marker([51.44459561, 7.26093000], {
-icon: smallIcon2,
-draggable: true
-}).addTo(map);
-marker.bindPopup("Test");
-marker.on('click', function(e) {
-marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
-});
 		
 		
 		//Watermark
@@ -674,11 +693,12 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
 	//map.on('moveend', function(a){		--> bei jedem Pan wird es aktiviert!
+	sidebar.hide();
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
+	removeButton.enable();
 	//}),
-	sidebar.hide();
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	});
 	map.addControl(searchControl);
@@ -695,11 +715,19 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	}).addTo(map);
 
 	//Reset-Button einfügen
-	L.easyButton('fa fa-times', function(){
+	var routingButton = L.easyButton('fa fa-location-arrow', function(){
+	Control.addTo(map);
+	//poppi.openOn(map);
+	removeButton.enable();
+	}).addTo(map);
+	
+	//Reset-Button einfügen
+	var removeButton = L.easyButton('fa fa-times', function(){
 	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		//Style und Radius resetten
 	sidebar.hide();																							//sidebar schließen
-	//this.disable();
-	//map._layers.removeLayer(that._markerLoc);														 		//MarkerLocation entfernen
+	//map._layers.removeLayer(that._markerLoc);	
+	map.removeControl(Control);	
+	removeButton.disable();
 	}).addTo(map);
 	
     </script>

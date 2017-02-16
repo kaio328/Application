@@ -1,21 +1,23 @@
 /* Compatible with Leaflet 0.7 */
+.leaflet-control-locate a:hover,
 .leaflet-control-locate a {
+	position: relative;
 	opacity: 1;
-	background: none;
-	margin-top: 5px;
-	margin-left:3px;
-  font-size: 1.22em;
-	border-color: rgba(0, 0, 0, 1);
+	width: 0px;
+	height: 0px;
+	margin-top: 6px;
+	margin-left:12px;
+  font-size: 1.3em;
   
 }
 
 .leaflet-control-locate {
 	opacity: 1;
-	width: 38.5px;
+	width: 36.5px;
 	height:36.5px;
-	border: 1.5px solid #fff;
+	border: 1px solid #fff;
 	border-radius: 100%;
-	border-color: rgba(0, 0, 0, 0.4);
+	border-color: rgba(0, 0, 0, 0.7);
 	background-color: rgba(255, 255, 255, 1);	
 	font-size: 1.4em;
 

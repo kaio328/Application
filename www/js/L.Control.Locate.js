@@ -29,7 +29,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
     var LocateControl = L.Control.extend({
         options: {
             /** Position of the control */
-            position: 'topright',
+            position: 'topleft',
             /** The layer that the user's location should be drawn on. By default creates a new layer. */
             layer: undefined,
             /**
