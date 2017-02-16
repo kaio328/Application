@@ -1,9 +1,9 @@
 .leaflet-sidebar {
 	position: absolute;
 	height:25%;
-	margin-top:-50%;
+	margin-top:40%;
 	margin-right:89.5%;
-	opacity:0.9;
+	opacity:0.7;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -22,7 +22,7 @@
     .leaflet-sidebar.right.visible {
       right: 0; }
   .leaflet-sidebar > .leaflet-control {
-    height: 175%;
+    height: 68%;
     width: 1000%;close
     width: 1000%;
     overflow: auto;
@@ -43,8 +43,8 @@
   @media (max-width: 767px) {
     .leaflet-sidebar {
       width: 9.9%;
-      height: 12.5%;
-    margin-top: 1%}
+      height: 27%;
+    margin-top: 121%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 100%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -63,8 +63,7 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .leaflet-sidebar {
       width: 9.9%;
-      height: 12.5%;
-     margin-top: 1%}
+    margin-top: 93%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 5%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -72,8 +71,8 @@
   @media (min-width: 992px) and (max-width: 1199px) {
     .leaflet-sidebar {
       width:9.9%;
-      height: 12.5%;
-    margin-top: 1% }
+      height: 25%;
+    margin-top: 35% }
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 10%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -81,9 +80,9 @@
   @media (min-width: 1200px) {
     .leaflet-sidebar {
       width: 9.9%;
-      height: 13%;
+      height: 30%;
     margin-left: 40%;
-    margin-top: 1%;}
+    margin-top: 31.5%;}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 1%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -91,7 +90,7 @@
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: 1%;
+    top: -10%;
     width: 31px;
     height: 31px;
     color: black;
@@ -101,7 +100,7 @@
     background: white;
     -webkit-border-radius: 16px;
     border-radius: 16px;
-	  margin-top:0px;
+	  margin-top:45px;
     cursor: pointer;
     z-index: 800; }
 
