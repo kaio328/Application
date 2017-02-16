@@ -3,8 +3,10 @@
 .leaflet-control-locate a {
 	position: relative;
 	opacity: 1;
+	width: 0px;
+	height:0px;
 	margin-top: 5px;
-	margin-left:12%;
+	margin-left:29%;
   font-size: 1.3em;
 	background-color: rgba(255, 255, 255, 1);
 
