@@ -136,7 +136,7 @@
 		map.setBearing(angle);	
 		
 		//Einrichtung der Campuskarte
-		var CampusMapLinear = L.tileLayer('result2/{z}/{x}/{y}.png',{
+		var CampusMapLinear = L.tileLayer('MB_Campus/{z}/{x}/{y}.png',{
 		maxZoom: 18,
 		minZoom: 16
 		}).addTo(map);
@@ -566,7 +566,7 @@ var ID = L.marker([51.44364, 7.26141], {icon: iconID});
 
 
 
-var visible;
+/*var visible;
 // Attach map zoom handler
 map.on('zoomend', function (e) {
     // Check zoom level
@@ -588,7 +588,7 @@ map.on('zoomend', function (e) {
             visible = false;
         }
     
-});
+});*/
 //map.fitBounds(json_rahmenJSON.getBounds());
 map.setMaxBounds(json_rahmenJSON.getBounds());
 //L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);
