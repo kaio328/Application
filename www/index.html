@@ -122,14 +122,13 @@
 		mybounds = L.latLngBounds(southWest, northEast);
 		
 		//Einrichtung der Basiskarte
-		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		/*var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 20,  opacity:1});
+			osm = L.tileLayer(osmUrl, {maxZoom: 18});*/
 			
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false})
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18})
 				.setView([51.44459561, 7.26093000], 17);
-				//.addLayer(osm)
 
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
@@ -146,7 +145,7 @@
 		
 		//mapOverlays implementieren
 		var overlayMaps = {
-		"osm": osm,
+		//"osm": osm,
 		"CampusMapLinear": CampusMapLinear,
 		"polygone": polygone
 		};
@@ -161,7 +160,23 @@ var smallIcon2 = new L.Icon({
     shadowUrl: 'css/images/marker-shadow.png',
     shadowSize:  [41, 41]
 });
-		
+
+var ParkplatzIcon = new L.Icon({
+    iconUrl: 'css/images/Parkplatz.png',
+    iconRetinaUrl: 'css/images/Parkplatz.png',
+    iconSize:    [26, 26],
+    iconAnchor:  [45, -32],
+    popupAnchor: [1, -34]
+});
+	
+var ParkplatzIcon2 = new L.Icon({
+    iconUrl: 'css/images/Parkplatz.png',
+    iconRetinaUrl: 'css/images/Parkplatz.png',
+    iconSize:    [50, 50],
+    iconAnchor:  [88, -63],
+    popupAnchor: [1, -34]
+});	
+
 		//Marker erstellen zur Vermessung der Koordinaten in der Karte
 /*var marker = L.marker([51.44459561, 7.26093000], {
 icon: smallIcon2,
@@ -171,6 +186,8 @@ marker.bindPopup("Test");
 marker.on('click', function(e) {
 marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
 });*/
+
+
 		
 		//mapOverlays der Karte hinzufügen
 		//L.control.layers(null, overlayMaps).addTo(map);
@@ -566,7 +583,31 @@ var ID = L.marker([51.44364, 7.26141], {icon: iconID});
 
 
 
-/*var visible;
+	//Marker für Signaturen
+var marker = L.marker([51.44439, 7.25584], {
+icon: ParkplatzIcon,
+draggable: true,
+interactive: true
+}).addTo(map);
+
+var marker2 = L.marker([51.444392, 7.25584], {
+icon: ParkplatzIcon2,
+draggable: true,
+interactive: true
+});
+marker2.bindPopup("Test");
+marker2.on('click', function(e) {
+marker2.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
+});
+
+
+map.on('zoomstart', function () {
+	map.removeLayer(Text);
+	map.removeLayer(marker);
+	map.removeLayer(marker2);
+	});
+
+var visible;
 // Attach map zoom handler
 map.on('zoomend', function (e) {
     // Check zoom level
@@ -574,6 +615,8 @@ map.on('zoomend', function (e) {
         // Check if not already shown
         if (!visible) {
 		map.addLayer(Text);
+		map.removeLayer(marker);
+		map.addLayer(marker2);
             };
             // Set visibility flag
             visible = true;
@@ -583,19 +626,17 @@ map.on('zoomend', function (e) {
         if (visible) {
             // Loop over layers
 			map.removeLayer(Text);
+			map.addLayer(marker);
+			map.removeLayer(marker2);
             };
             // Set visibility flag
             visible = false;
         }
     
-});*/
+});
 //map.fitBounds(json_rahmenJSON.getBounds());
 map.setMaxBounds(json_rahmenJSON.getBounds());
-//L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);
-
-
-
-		
+//L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);	
 		
 		//Watermark
 		
