@@ -222,10 +222,12 @@
     font-size: 24px;
     color: #ccc;
     font-weight: bold;
+    display:none;
 }
 
 .leaflet-routing-collapse-btn:after {
     content: '\00d7';
+    display:none;
 }
 
 .leaflet-routing-container-hide .leaflet-routing-collapse-btn {
