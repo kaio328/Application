@@ -102,21 +102,7 @@
 	
         <div id="map"></div>
         <script src="data/json_Alle.js"></script>
-		<script src="data/polygon9.js"></script>
 		<script src="data/rahmen1.js"></script>
-        <script src="data/sperrungen3.js"></script>
-        <script src="data/treppen4.js"></script>
-        <script src="data/weitereBauten5.js"></script>
-        <script src="data/gewaesser6.js"></script>
-        <script src="data/ubergange7.js"></script>
-        <script src="data/grunflaechen8.js"></script>
-        <script src="data/polygon9.js"></script>
-        <script src="data/wege10.js"></script>
-        <script src="data/strassen11.js"></script>
-        <script src="data/parken12.js"></script>
-        <script src="data/audimax13.js"></script>
-
-		
 		<script src="js/leaflet-search.js"></script>
 		<script src="js/easy-button.js"></script>
 		<script src="js/leaflet-gps.js"></script>
@@ -137,7 +123,7 @@
 			osm = L.tileLayer(osmUrl, {maxZoom: 30});
 			
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 30})
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18})
 				.setView([51.44480, 7.26150], 17);
 				//.addLayer(osm);
 
@@ -147,7 +133,7 @@
 		
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
-		maxZoom: 30,
+		maxZoom: 18,
 		minZoom: 16
 		}).addTo(map);
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
@@ -162,14 +148,14 @@
 		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 		};
 		
-		map.on("zoomstart", function(){
+		/*map.on("zoomstart", function(){
 		map.removeLayer(overlay);
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
 		map.addLayer(overlay);
 		//map.removeLayer(CampusMapLinear);
-		});
+		});*/
 		
 		
 		localStorage.removeItem('alerted');
