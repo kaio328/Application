@@ -25,7 +25,8 @@
     height: 68%;
     width: 1000%;close
     width: 1000%;
-    overflow: auto;
+                                                                       /*overflow: auto;*/
+    overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

@@ -23,7 +23,7 @@
 			minimizedClassName: '',
 			itineraryClassName: '',
 			totalDistanceRoundingSensitivity: -1,
-			show: true,
+			show: false,
 			collapsible: undefined,
 			collapseBtn: function(itinerary) {
 				var collapseBtn = L.DomUtil.create('span', itinerary.options.collapseBtnClass);

@@ -131,7 +131,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 metersUnit: "meters",
                 feetUnit: "feet",
                 popup: "You are within {distance} {unit} from this point",
-                outsideMapBoundsMsg: "Du befindest dich leider nicht auf dem Campus!"
+                outsideMapBoundsMsg: "Bitte stelle sicher, dass du den Standortdienst aktiviert hast und dass du dich auf dem Campusgelände befindest"
             },
             /** The default options passed to leaflets locate method. */
             locateOptions: {

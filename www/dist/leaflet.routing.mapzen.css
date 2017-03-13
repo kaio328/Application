@@ -1,13 +1,23 @@
-.leaflet-routing-container, .leaflet-routing-error {
-   
-    max-width: 200px;
+/*
+    Oroginally written by Per Liedman for Leaflet Routing Machine : https://github.com/perliedman/leaflet-routing-machine ,
+    Several classes were re-written by Hanbyul Jo for Valhalla plugin for Leaflet Routing Machine : https://github.com/valhalla/lrm-valhalla
+*/
+
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+}
+#map{
+  width:100%;
+  height:100%;
+}
+
+.leaflet-routing-container {
+    width: 320px;
     background-color: white;
     padding-top: 4px;
     transition: all 0.2s ease;
-    box-sizing: border-box;
-    border: 1px solid #fff;
-	border-color: rgba(0, 0, 0, 0.7);
-	border-radius: 100px;
 }
 
 .leaflet-control-container .leaflet-routing-container-hide {
@@ -17,20 +27,18 @@
 
 .leaflet-routing-container h2 {
     font-size: 14px;
-    display: none;
 }
 
 .leaflet-routing-container h3 {
-    font-size: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 .leaflet-routing-collapsible .leaflet-routing-geocoders {
     margin-top: 20px;
 }
 
-.leaflet-routing-alt, .leaflet-routing-geocoders, .leaflet-routing-error {
+.leaflet-routing-alt, .leaflet-routing-geocoders {
     padding: 6px;
     margin-top: 2px;
     margin-bottom: 6px;
@@ -40,7 +48,7 @@
     transition: all 0.2s ease;
 }
 
-.leaflet-control-container .leaflet-routing-container-hide .leaflet-routing-alt, 
+.leaflet-control-container .leaflet-routing-container-hide .leaflet-routing-alt,
 .leaflet-control-container .leaflet-routing-container-hide .leaflet-routing-geocoders {
     display: none;
 }
@@ -58,7 +66,6 @@
 
 .leaflet-routing-alt table {
     border-collapse: collapse;
-     display: none;
 }
 
 .leaflet-routing-alt tr:hover {
@@ -80,31 +87,75 @@
     background-color: #888;
 }
 
-.leaflet-routing-icon {
-    background-image: url('leaflet.routing.icons.png');
-    -webkit-background-size: 0px 0px;                     //240px 20px;
-    background-size: 0px 0px;                            //240px 20px;
-    background-repeat: no-repeat;
+.info::before{
+    -webkit-background-size: 72px 18px;
+    background-size: 72px 18px;
+    background-image:url('modes.icons.png');
     margin: 0;
     content: '';
     display: inline-block;
     vertical-align: top;
-    width: 20px;
-    height: 20px;
+    background-repeat: no-repeat;
+    width:18px;
+    height:18px;
 }
 
-.leaflet-routing-icon-continue         { background-position: 0 0; }
-.leaflet-routing-icon-sharp-right      { background-position: -20px 0; }
-.leaflet-routing-icon-turn-right       { background-position: -40px 0; }
-.leaflet-routing-icon-bear-right       { background-position: -60px 0; }
-.leaflet-routing-icon-u-turn           { background-position: -80px 0; }
-.leaflet-routing-icon-sharp-left       { background-position: -100px 0; }
-.leaflet-routing-icon-turn-left        { background-position: -120px 0; }
-.leaflet-routing-icon-bear-left        { background-position: -140px 0; }
-.leaflet-routing-icon-depart           { background-position: -160px 0; }
-.leaflet-routing-icon-enter-roundabout { background-position: -180px 0; }
-.leaflet-routing-icon-arrive           { background-position: -200px 0; }
-.leaflet-routing-icon-via              { background-position: -220px 0; }
+.info.auto::before{ background-position: 0px 0;}
+.info.bicycle::before{ background-position: -18px 0;}
+.info.multimodal::before{ background-position: -36px 0;}
+.info.pedestrian::before{ background-position: -54px 0;}
+
+.leaflet-routing-icon {
+    -webkit-background-size: 684px 18px;
+    background-size: 684px 18px;
+    background-repeat: no-repeat;
+    background-image:url('leaflet.routing.icons.svg');
+    margin: 0;
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    width: 18px;
+    height: 18px;
+}
+.leaflet-routing-icon-kNone { background-position: 0 0; }
+.leaflet-routing-icon-kStart { background-position: -18px 0; }
+.leaflet-routing-icon-kStartRight { background-position: -36px 0; }
+.leaflet-routing-icon-kStartLeft { background-position: -54px 0; }
+.leaflet-routing-icon-kDestination { background-position: -72px 0; }
+.leaflet-routing-icon-kDestinationRight { background-position: -90px 0; }
+.leaflet-routing-icon-kDestinationLeft { background-position: -108px 0; }
+.leaflet-routing-icon-kBecomes { background-position: -126px 0; }
+.leaflet-routing-icon-kContinue { background-position: -144px 0; }
+.leaflet-routing-icon-kSlightRight { background-position: -162px 0; }
+.leaflet-routing-icon-kRight { background-position: -180px 0; }
+.leaflet-routing-icon-kSharpRight { background-position: -198px 0; }
+.leaflet-routing-icon-kUturnRight { background-position: -216px 0; }
+.leaflet-routing-icon-kUturnLeft { background-position: -234px 0; }
+.leaflet-routing-icon-kSharpLeft { background-position: -252px 0; }
+.leaflet-routing-icon-kLeft { background-position: -270px 0; }
+.leaflet-routing-icon-kSlightLeft { background-position: -288px 0; }
+.leaflet-routing-icon-kRampStraight { background-position: -306px 0; }
+.leaflet-routing-icon-kRampRight { background-position: -324px 0; }
+.leaflet-routing-icon-kRampLeft { background-position: -342px 0; }
+.leaflet-routing-icon-kExitRight { background-position: -360px 0; }
+.leaflet-routing-icon-kExitLeft { background-position: -378px 0; }
+.leaflet-routing-icon-kStayStraight { background-position: -396px 0; }
+.leaflet-routing-icon-kStayRight { background-position: -414px 0; }
+.leaflet-routing-icon-kStayLeft { background-position: -432px 0; }
+.leaflet-routing-icon-kMerge { background-position: -450px 0; }
+.leaflet-routing-icon-kRoundaboutEnter { background-position: -468px 0; }
+.leaflet-routing-icon-kRoundaboutExit { background-position: -486px 0; }
+.leaflet-routing-icon-kFerryEnter { background-position: -504px 0; }
+.leaflet-routing-icon-kFerryExit { background-position: -522px 0; }
+/*.leaflet-routing-icon-kTransit*/
+.leaflet-routing-icon-kTransitBus { background-position: -540px 0; }
+.leaflet-routing-icon-kTransitCable_car { background-position: -558px 0; }
+.leaflet-routing-icon-kTransitFerry { background-position: -576px 0; }
+.leaflet-routing-icon-kTransitFunicular { background-position: -594px 0; }
+.leaflet-routing-icon-kTransitGondola { background-position: -612px 0; }
+.leaflet-routing-icon-kTransitMetro { background-position: -630px 0; }
+.leaflet-routing-icon-kTransitRail { background-position: -648px 0; }
+.leaflet-routing-icon-kTransitTram { background-position: -666px 0; }
 
 .leaflet-routing-geocoders div {
     padding: 4px 0px 4px 0px;
@@ -253,6 +304,11 @@
 }
 .leaflet-left .leaflet-routing-container.leaflet-routing-container-hide {
     margin-left: 10px !important;
+}
+
+.leaflet-routing-error {
+    background-color: #fff;
+    padding: 10px;
 }
 
 @media only screen and (max-width: 640px) {

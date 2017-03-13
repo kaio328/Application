@@ -8,11 +8,15 @@
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
+
 		<script src="js/leaflet1.0.2.js"></script>
+		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
-		<script src="js/leaflet-routing-machine.js"></script>
-		<script src="js/Control.Geocoder.js"></script>
+		<script src="dist/leaflet-routing-machine.js"></script>
+		<script src="dist/lrm-mapzen.js"></script>
+		<script src="dist/lrm-valhalla.js"></script>
+		<script src="dist/Control.Geocoder.js"></script>
 
 
         <script src="js/label.js"></script>
@@ -20,12 +24,16 @@
 		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
 		<script src="js/bouncemarker.js"></script>
+		<script src="dist/leaflet.awesome-markers.js"></script>
+		<script src="dist/leaflet.ajax.js"></script>
+		
+		
 	
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="css/leaflet-routing-machine.css" />
 		<link rel="stylesheet" href="css/leaflet1.0.2.css" />
+		<link rel="stylesheet" href="dist/leaflet-routing-machine.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
 
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
@@ -34,6 +42,7 @@
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
+		<link rel="stylesheet" href="dist/leaflet.awesome-markers.css" />
 
 		
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
@@ -113,6 +122,7 @@
 		<script src="js/leaflet-gps.js"></script>
 		<script src="js/L.Control.Locate.js" ></script>
 		<script src="js/L.Control.Sidebar.js"></script>
+		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 	
         <script>
 		
@@ -122,34 +132,47 @@
 		mybounds = L.latLngBounds(southWest, northEast);
 		
 		//Einrichtung der Basiskarte
-		/*var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 18});*/
+			osm = L.tileLayer(osmUrl, {maxZoom: 30});
 			
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18})
-				.setView([51.44459561, 7.26093000], 17);
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 30})
+				.setView([51.44480, 7.26150], 17);
+				//.addLayer(osm);
 
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
 		map.setBearing(angle);	
 		
 		//Einrichtung der Campuskarte
-		var CampusMapLinear = L.tileLayer('MB_Campus/{z}/{x}/{y}.png',{
-		maxZoom: 18,
+		var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
+		maxZoom: 30,
 		minZoom: 16
 		}).addTo(map);
-			
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
 		
 		//mapOverlays implementieren
 		var overlayMaps = {
 		//"osm": osm,
-		"CampusMapLinear": CampusMapLinear,
-		"polygone": polygone
+		//"Sperrungen": CampusMapLinear,
+		"<img src= css/images/Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959.svg height=25> Sperrungen": CampusMapLinear,
+		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 		};
 		
+		map.on("zoomstart", function(){
+		map.removeLayer(overlay);
+		//map.addLayer(CampusMapLinear);
+		});
+		map.on("zoomend", function(){
+		map.addLayer(overlay);
+		//map.removeLayer(CampusMapLinear);
+		});
+		
+		
+		localStorage.removeItem('alerted');
 //Standart MarkerIcon für Gebrauch mit Angle 
 var smallIcon2 = new L.Icon({
     iconUrl: 'css/images/marker-icon.png',
@@ -160,6 +183,13 @@ var smallIcon2 = new L.Icon({
     shadowUrl: 'css/images/marker-shadow.png',
     shadowSize:  [41, 41]
 });
+
+  var redMarker = L.AwesomeMarkers.icon({
+    icon: 'flag',
+	prefix: 'fa',
+    markerColor: 'red'
+  });
+
 
 var ParkplatzIcon = new L.Icon({
     iconUrl: 'css/images/Parkplatz.png',
@@ -190,7 +220,7 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 
 		
 		//mapOverlays der Karte hinzufügen
-		//L.control.layers(null, overlayMaps).addTo(map);
+		L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Simples Imageoverlay einfügen
@@ -206,7 +236,7 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 		
 			
 			//Routing hinzufügen	
-		var Control = L.Routing.control({
+		/*var Control = L.Routing.control({
  waypoints: [
     L.latLng(51.44499, 7.26078),
     L.latLng(51.44375, 7.26185)
@@ -217,13 +247,43 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 					bounceOnAdd: true,
 					bounceOnAddOptions: {duration: 1000, height: 800, function(){(poppi.openOn(map))}}, 
 					
-icon: smallIcon2}).bindPopup(poppi).openPopup();
+icon: redMarker}).bindPopup(poppi).openPopup();
 	},	
 	language: 'de',
 	routeWhileDragging: true
    //geocoder: L.Control.Geocoder.nominatim(),
    //reverseWaypoints: true
+});*/
+
+
+
+var Control = L.Routing.control({
+waypoints: [
+    L.latLng(51.44499, 7.26078),
+    L.latLng(51.44375, 7.26185)
+  ],
+     createMarker: function(i, waypoints, n){ 
+   return L.marker(waypoints.latLng, {
+					draggable: true,
+					bounceOnAdd: true,
+					bounceOnAddOptions: {duration: 1000, height: 800, function(){(poppi.openOn(map))}}, 
+					
+icon: redMarker}).bindPopup(poppi).openPopup();
+	},
+	fitSelectedRoutes: false,
+	router: L.Routing.mapzen('mapzen-m7c1Upx', {
+    costing: "pedestrian",
+	   directions_options: {
+      language: 'de',
+	  }
+	  }),	
+	  //routeWhileDragging: true,
+		//routeWhileDragging: true,
+	  formatter: new L.Routing.mapzenFormatter(),
+	  reverseWaypoints: true,
+	  //geocoder: L.Control.Geocoder.nominatim()
 });
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 		//Sidebar einrichten
@@ -299,10 +359,24 @@ icon: smallIcon2}).bindPopup(poppi).openPopup();
         };
 	
 		//Einbindung der Datei json_AlleJSON als Layer
-		var json_AlleJSON = new L.geoJson(json_Alle, {
+		/*var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-		});	
+		});	*/
+		
+		 //var json_AlleJSON = new L.GeoJSON.AJAX("https://github.com/kaio328/Application/blob/master/www/data/json_Alle.js", {
+			//onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
+		//	pointToLayer: doPointToLayerAlle
+			//});
+	json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+		//dataType:"jsonp",
+	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
+	pointToLayer: doPointToLayerAlle
+	});
+	json_AlleJSON.addTo(map);
+
+
+		
 	 
 	  //Style festlegen, der für Polygone genutzt wird
 		var stylePolygone = {
@@ -583,29 +657,29 @@ var ID = L.marker([51.44364, 7.26141], {icon: iconID});
 
 
 
-	//Marker für Signaturen
-var marker = L.marker([51.44439, 7.25584], {
+	//Marker für Signaturen --> Parkplatz
+/*var ParplatzMarker = L.marker([51.44439, 7.25584], {
 icon: ParkplatzIcon,
 draggable: true,
 interactive: true
-}).addTo(map);
+}).addTo(map);*/
 
-var marker2 = L.marker([51.444392, 7.25584], {
-icon: ParkplatzIcon2,
+/*var markerMeassure = L.marker([51.44511, 7.26069], {
+icon: smallIcon2,
 draggable: true,
 interactive: true
-});
-marker2.bindPopup("Test");
-marker2.on('click', function(e) {
-marker2.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
-});
+}).addTo(map);
+markerMeassure.bindPopup("test");
+markerMeassure.on('click', function(e) {
+markerMeassure.getPopup().setContent('clicked' + markerMeassure.getLatLng().toString()).openOn(map);
+});*/
 
 
-map.on('zoomstart', function () {
+/*map.on('zoomstart', function () {
 	map.removeLayer(Text);
-	map.removeLayer(marker);
-	map.removeLayer(marker2);
-	});
+	//map.removeLayer(marker);
+	//map.removeLayer(marker2);
+	});*/
 
 var visible;
 // Attach map zoom handler
@@ -614,9 +688,9 @@ map.on('zoomend', function (e) {
     if (map.getZoom() > 17) {
         // Check if not already shown
         if (!visible) {
-		map.addLayer(Text);
-		map.removeLayer(marker);
-		map.addLayer(marker2);
+		//map.addLayer(Text);
+		//map.removeLayer(marker);
+		//map.addLayer(marker2);
             };
             // Set visibility flag
             visible = true;
@@ -625,9 +699,9 @@ map.on('zoomend', function (e) {
         // Check if not already hidden
         if (visible) {
             // Loop over layers
-			map.removeLayer(Text);
-			map.addLayer(marker);
-			map.removeLayer(marker2);
+			//map.removeLayer(Text);
+			//map.addLayer(marker);
+			//map.removeLayer(marker2);
             };
             // Set visibility flag
             visible = false;
@@ -635,7 +709,7 @@ map.on('zoomend', function (e) {
     
 });
 //map.fitBounds(json_rahmenJSON.getBounds());
-map.setMaxBounds(json_rahmenJSON.getBounds());
+//map.setMaxBounds(json_rahmenJSON.getBounds());
 //L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);	
 		
 		//Watermark
@@ -738,7 +812,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
-	removeButton.enable();
+	removeButton.addTo(map);
 	//}),
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	});
@@ -755,14 +829,94 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
                timeout: 10000}																				//ist auch der Default-Wert von Leaflet	   
 	}).addTo(map);
 
-	//Reset-Button einfügen
-	var routingButton = L.easyButton('fa fa-location-arrow', function(){
-	Control.addTo(map);
-	//poppi.openOn(map);
+	//Routing-Button einfügen
+	/*var routingButton = L.easyButton('fa fa-location-arrow', function(){
+	map.setView([51.44459561, 7.26094000], 17);
+	
+	//if(map.getCenter() == [51.44459561, 7.26094000]){
+	map.setView([51.44459561, 7.2609500], 17);
 	sidebar.hide();
 	removeButton.enable();
-	//map.flyTo([51.44459561, 7.26093000], 17);
+	routingButton.disable();
+	Control.addTo(map);
+	var alerted = localStorage.getItem('alerted') || '';
+    if (alerted != 'yes') {
+     alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
+     localStorage.setItem('alerted','yes');
+    }
+	//map.addLayer(osm);
+	//map.removeLayer(CampusMapLinear);
+	//} else {
+	
+	//map.addOneTimeEventListener('moveend', function () {
+	//Control.addTo(map);
+	//poppi.openOn(map);
+	//sidebar.hide();
+	//removeButton.enable();
+	//map.setView([51.44459561, 7.2609500], 17);
+	//})
+	//}
+	}).addTo(map);*/
+	
+	var routingButton = L.easyButton('fa fa-location-arrow', function(){
+	var alerted = localStorage.getItem('alerted') || '';
+    if (alerted != 'yes') {
+     alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
+     localStorage.setItem('alerted','yes');
+    }
+	routingButtonWalk.addTo(map);
+	routingWheelChair.addTo(map);
+	routingButton.disable();
+	removeButton.remove();
+	removeButton.addTo(map);
 	}).addTo(map);
+	
+	var routingButtonWalk = L.easyButton('fa fa-male', function(){
+	map.setView([51.44459561, 7.26094000], 17);
+	//if(map.getCenter() == [51.44459561, 7.26094000]){
+	map.setView([51.44459561, 7.2609500], 17);
+	sidebar.hide();
+	removeButton.addTo(map);
+	//routingButton.disable();
+	Control.addTo(map);
+	Control.getRouter().options.costing = "pedestrian";
+	//map.addLayer(osm);
+	//map.removeLayer(CampusMapLinear);
+	//} else {
+	
+	//map.addOneTimeEventListener('moveend', function () {
+	//Control.addTo(map);
+	//poppi.openOn(map);
+	//sidebar.hide();
+	//removeButton.enable();
+	//map.setView([51.44459561, 7.2609500], 17);
+	//})
+	//}
+	});
+	
+	var routingWheelChair = L.easyButton('fa fa-wheelchair', function(){
+	map.setView([51.44459561, 7.26094000], 17);
+	
+	//if(map.getCenter() == [51.44459561, 7.26094000]){
+	map.setView([51.44459561, 7.2609500], 17);
+	sidebar.hide();
+	removeButton.addTo(map);
+	//routingButton.disable();
+	Control.addTo(map);
+	Control.getRouter().options.costing = "bicycle";
+	//map.addLayer(osm);
+	//map.removeLayer(CampusMapLinear);
+	//} else {
+	
+	//map.addOneTimeEventListener('moveend', function () {
+	//Control.addTo(map);
+	//poppi.openOn(map);
+	//sidebar.hide();
+	//removeButton.enable();
+	//map.setView([51.44459561, 7.2609500], 17);
+	//})
+	//}
+	});
 	
 	//Reset-Button einfügen
 	var removeButton = L.easyButton('fa fa-times', function(){
@@ -770,9 +924,96 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	sidebar.hide();																							//sidebar schließen
 	//map._layers.removeLayer(that._markerLoc);	
 	map.removeControl(Control);	
-	removeButton.disable();
-	}).addTo(map);
+		//routingButton.enable();
+	routingButtonWalk.remove();
+	routingWheelChair.remove();
+	routingButton.enable();
+	removeButton.remove();
+	//map.removeLayer(osm);
+	//map.addLayer(CampusMapLinear);
+	});
+	//removeButton.disable();
 	
+	
+	/*var addOsm = L.easyButton('fa fa-exchange', function(){
+	map.addLayer(osm);
+	map.removeLayer(CampusMapLinear);
+	addOsm.disable();
+	removeOsm.enable();
+	}).addTo(map);*/
+	
+	
+	/*var removeOsm = L.easyButton('fa fa-exchange', function(){
+	map.removeLayer(osm);
+	map.addLayer(CampusMapLinear);
+	addOsm.enable();
+	removeOsm.disable();
+	}).addTo(map);
+	removeOsm.disable();*/
+	
+	/*var opacityButton = L.easyButton('fa fa-minus', function(){
+	CampusMapLinear.setOpacity(0.5);
+	}).addTo(map);*/
+	
+	/*var opacityButton = L.easyButton('fa fa-plus', function(){
+	CampusMapLinear.setOpacity(1);
+	}).addTo(map);*/
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		var point1 = L.latLng(51.44539, 7.25305),
+		    point2 = L.latLng(51.44972, 7.26602),
+		    point3 = L.latLng(51.44021, 7.25749);
+			
+		/*var marker1 = L.marker(point1, {icon:smallIcon2,  draggable: true} ).addTo(map),
+		    marker2 = L.marker(point2, {icon:smallIcon2,  draggable: true} ).addTo(map),
+		    marker3 = L.marker(point3, {icon:smallIcon2,  draggable: true} ).addTo(map);*/
+
+		var overlay = L.imageOverlay.rotated("Campusplan_roh.svg", point1, point2, point3, {
+			opacity: 1,
+			interactive: false,
+			attribution: "Campusplan &copy; <a href='http://www.ruhr-uni-bochum.de/'>Ruhr-Universität Bochum</a>"
+		});
+		
+		/*marker1.bindPopup("test");
+		marker1.on('click', function(e) {
+		marker1.getPopup().setContent('clicked' + marker1.getLatLng().toString()).openOn(map);
+		});
+		marker2.bindPopup("test");
+		marker2.on('click', function(e) {
+		marker2.getPopup().setContent('clicked' + marker2.getLatLng().toString()).openOn(map);
+		});
+		marker3.bindPopup("test");
+		marker3.on('click', function(e) {
+		marker3.getPopup().setContent('clicked' + marker3.getLatLng().toString()).openOn(map);
+		});
+		
+		function repositionImage() {
+			overlay.reposition(marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng());
+		};
+		
+		marker1.on('drag dragend', repositionImage);
+		marker2.on('drag dragend', repositionImage);
+		marker3.on('drag dragend', repositionImage);*/
+		
+// 		var c = overlay.getCanvas2DContext()
+		
+		map.addLayer(overlay);
+		
+
+		/*overlay.on('dblclick',function (e) {
+			console.log('Double click on image.');
+			e.stop();
+		});
+
+		overlay.on('click',function (e) {
+			console.log('Click on image.');
+		});*/
+
+		function setOverlayOpacity(opacity) {
+			overlay.setOpacity(opacity);
+		};
+		
+		
+		map.setMaxBounds(map.getBounds(overlay));
     </script>
 
 </body>
