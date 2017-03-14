@@ -892,7 +892,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//}
 	});
 	
-	var routingWheelChair = L.easyButton('fa fa-wheelchair', function(){
+	var routingWheelChair = L.easyButton('fa fa-car', function(){
 	map.setView([51.44459561, 7.26094000], 17);
 	
 	//if(map.getCenter() == [51.44459561, 7.26094000]){
@@ -901,7 +901,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	removeButton.addTo(map);
 	//routingButton.disable();
 	Control.addTo(map);
-	Control.getRouter().options.costing = "bicycle";
+	Control.getRouter().options.costing = "auto";
 	//map.addLayer(osm);
 	//map.removeLayer(CampusMapLinear);
 	//} else {
@@ -933,21 +933,23 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//removeButton.disable();
 	
 	
-	/*var addOsm = L.easyButton('fa fa-exchange', function(){
+	var addOsm = L.easyButton('fa fa-exchange', function(){
 	map.addLayer(osm);
 	map.removeLayer(CampusMapLinear);
+	map.removeLayer(overlay);
 	addOsm.disable();
 	removeOsm.enable();
-	}).addTo(map);*/
+	}).addTo(map);
 	
 	
-	/*var removeOsm = L.easyButton('fa fa-exchange', function(){
+	var removeOsm = L.easyButton('fa fa-exchange', function(){
 	map.removeLayer(osm);
 	map.addLayer(CampusMapLinear);
+	map.addLayer(overlay);
 	addOsm.enable();
 	removeOsm.disable();
 	}).addTo(map);
-	removeOsm.disable();*/
+	removeOsm.disable();
 	
 	/*var opacityButton = L.easyButton('fa fa-minus', function(){
 	CampusMapLinear.setOpacity(0.5);
