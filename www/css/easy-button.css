@@ -11,6 +11,8 @@
   cursor: pointer;
 }
 
+
+
 .leaflet-bar button {
   background-color: rgba(255, 255, 255, 1);	
 }
@@ -40,19 +42,106 @@
   width: 100%;
   position: relative;
   
+  
 }
 
-
 .leaflet-touch .leaflet-bar button {
-  width: 32px;
-  height: 32px;
+  width: 38.5px;
+  height:38.5px;
   max-height: 10000px;
   max-width: 10000px;
   line-height: 30px;
 }
 .easy-button-container {
   opacity: 1;
-	border-radius: 100px;
+  border-radius: 100px;
+  width: 38.5px;
+  height:38.5px;
 }
 
+/*-----------------------------------------Hier: Routing-Funktion freigeben--------------------------------------------------------------*/
+.state-remove-routing,
+.state-add-routing{
+  transition-duration: .5s;
+  position: absolute;
+  display: block;
+  top: 0;
+  font-size: 1.1em; 
+}
 
+.state-remove-routing{
+  }
+
+.state-add-routing{
+  margin-top: -22px;
+  visibility:hidden; 
+}
+
+.state-remove-routing.remove-routing-active{
+  transform: rotate(133deg);
+  margin-left: 1px;
+  color: #FC8428;
+  font-size: 1.1em; 
+}
+
+.state-add-routing.add-routing-active{
+  }
+ 
+ 
+ /*-----------------------------------------Hier: Routing zu Fuß--------------------------------------------------------------*/
+.state-remove-routingWalk,
+.state-add-routingWalk{
+  transition-duration: .5s;
+  transform: scaleY(1);
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.state-remove-routingWalk{
+  margin-top: -22px;
+  margin-left: 1px;
+  }
+
+.state-add-routingWalk{
+  visibility:hidden;
+}
+
+.state-remove-routingWalk.remove-routingWalk-active{
+  color: #FC8428;
+}
+
+.state-add-routingWalk.add-routingWalk-active{
+  }
+  
+/*-----------------------------------------Hier: Routing per Auto--------------------------------------------------------------*/
+.state-remove-routingCar,
+.state-add-routingCar{
+  transition-duration: .5s;
+  transform: scaleY(1);
+  position: absolute;
+  display: block;
+  top: 0;
+
+}
+
+.state-remove-routingCar{
+    margin-top: -23px;
+  }
+.state-add-routingCar{
+
+  visibility:hidden;
+  
+}
+
+.state-remove-routingCar.remove-routingCar-active{
+
+  color: #FC8428;
+  
+
+}
+
+.state-add-routingCar.add-routingCar-active{
+  
+  
+  }
