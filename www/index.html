@@ -60,7 +60,7 @@
 
         html, body, #map {
             height: 100%;
-			background-color: rgba(0, 0, 0, 1);
+			background-color: rgba(255, 0, 0, 0.0);
         }
 
         .lorem {
@@ -135,7 +135,7 @@
 		var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
 		maxZoom: 18,
 		minZoom: 16
-		}).addTo(map);
+		});
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
