@@ -60,7 +60,7 @@
 
         html, body, #map {
             height: 100%;
-			background-color: rgba(255, 0, 0, 0.0);
+			background-color: rgba(0, 0, 0, 0.0);
         }
 
         .lorem {
@@ -111,21 +111,25 @@
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 	
         <script>
-		
-		//Einrichtung der maxBounds
-		var southWest = L.latLng(51.44014, 7.25298);				//[link unten , link oben];
-		var northEast = L.latLng(51.44971, 7.27048);				//[rechts oben , rechts unten];
-		mybounds = L.latLngBounds(southWest, northEast);
-		
 		//Einrichtung der Basiskarte
 		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 30});
+			osm = L.tileLayer(osmUrl, {maxZoom: 18});
+			
+		var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+		maxZoom: 18,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		});
+			
+			
 			
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18})
-				.setView([51.44480, 7.26150], 17);
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18,  center: [51.44480, 7.26150]})
+				.setView([51.44480, 7.26150], 18)
 				//.addLayer(osm);
+				.addLayer(OpenStreetMap_BlackAndWhite);
+						
+				
 
 		//Drehung der Karte um Winkel x		
 		var angle = 27.825;
@@ -134,8 +138,30 @@
 		//Einrichtung der Campuskarte
 		var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
 		maxZoom: 18,
-		minZoom: 16
-		});
+		minZoom: 16,						//raus zoomen
+		center: [51.44480, 7.26150]
+		}).addTo(map);
+		
+		//Polygon
+		/*var polygon = L.polygon([
+			[51.44023, 7.25746],
+			[51.44451, 7.27044],
+			[51.44867, 7.26471],
+			[51.4449, 7.25346]
+			], 
+			{
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.0,
+			}
+			).addTo(map);*/
+			
+					//Einrichtung der maxBounds
+		/*var southWest = L.latLng([51.44019, 7.2575], map.getMaxZoom()-5);				//[link unten , link oben];
+		var northEast = L.latLng([51.45016, 7.26589], map.getMaxZoom()-5);				//[rechts oben , rechts unten];
+		mybounds = new L.latLngBounds(southWest, northEast);
+		
+		//map.setMaxBounds(overlay.getBounds());*/
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		//Einrichtung einer LayerGroup --> für mapOverlays
 		var polygone = new L.layerGroup();
@@ -171,10 +197,11 @@
 		
 		
 		localStorage.removeItem('alerted');
+		
 //Standart MarkerIcon für Gebrauch mit Angle 
 var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker-icon.png',
-    iconRetinaUrl: 'css/images/marker-icon-2x.png',
+    iconUrl: 'css/images/marker1.png',
+    iconRetinaUrl: 'css/images/marker1.png',
     iconSize:    [25, 41],
     iconAnchor:  [12, 41],
     popupAnchor: [1, -34],
@@ -185,13 +212,15 @@ var smallIcon2 = new L.Icon({
   var WalkMarker = L.AwesomeMarkers.icon({
     icon: 'fa-male',
 	prefix: 'fa',
-    markerColor: 'red'
+    markerColor: 'orange',
+	//iconColor: '#FC8428'
   });
   
    var CarMarker = L.AwesomeMarkers.icon({
     icon: 'fa-car',
 	prefix: 'fa',
-    markerColor: 'red'
+    markerColor: 'orange',
+	//iconColor: 'black'
   });
 
 
@@ -263,18 +292,32 @@ icon: redMarker}).bindPopup(poppi).openPopup();
 		var Ziel = L.latLng(51.44375, 7.26185);
 
 var controlWalk = L.Routing.control({
+        lineOptions: {
+            styles: [
+                {color: 'white', opacity: 0.9, weight: 9},
+                {color: '#FC8428', opacity: 1, weight: 3}
+            ]
+        },
 waypoints: [
     Start,
 	Ziel
   ],
-     createMarker: function(i, waypoints, n){ 
-   return L.marker(waypoints.latLng, {
+     createMarker: function(i, Start, n){ 
+   return L.marker(Start.latLng, {
 					draggable: true,
 					bounceOnAdd: true,
 					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
 					
 icon: WalkMarker}).bindPopup(poppi).openPopup();
 	},
+	 /*createMarker: function(i, Ziel, n){ 
+   return L.marker(Ziel.latLng, {
+					draggable: true,
+					bounceOnAdd: true,
+					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
+					
+icon: CarMarker}).bindPopup(poppi).openPopup();
+	},*/
 	fitSelectedRoutes: false,
 	router: L.Routing.mapzen('mapzen-m7c1Upx', {
     costing: "pedestrian",
@@ -1090,7 +1133,7 @@ var routingButton = L.easyButton({
 		    marker2 = L.marker(point2, {icon:smallIcon2,  draggable: true} ).addTo(map),
 		    marker3 = L.marker(point3, {icon:smallIcon2,  draggable: true} ).addTo(map);*/
 
-		var overlay = L.imageOverlay.rotated("CP_TEST.svg", point1, point2, point3, {
+		var overlay = L.imageOverlay.rotated("Campusplan_WORK-HERE2.svg", point1, point2, point3, {
 			opacity: 1,
 			interactive: false,
 			attribution: "Campusplan &copy; <a href='http://www.ruhr-uni-bochum.de/'>Ruhr-Universität Bochum</a>"
@@ -1135,8 +1178,10 @@ var routingButton = L.easyButton({
 			overlay.setOpacity(opacity);
 		};
 		
-		
-		map.setMaxBounds(overlay.getBounds());
+
+
+		//L.rectangle(, {color: "#ff7800", weight: 1}).addTo(map);
+
     </script>
 
 </body>
