@@ -100,6 +100,19 @@
         left: 1%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 1%; } }
+
+@media only screen and (max-device-width:1440px){
+  	position: absolute;
+	height:25%;
+	margin-top:40%;
+	margin-right:89.5%;
+	opacity:1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0px;
+	z-index: 2000; 
+}
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
