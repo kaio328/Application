@@ -103,9 +103,9 @@
 
 @media only screen and (max-device-width:1440px){
   .leaflet-sidebar {
-  	position: absolute;
+  position: absolute;
 	height:25%;
-	margin-top:40%;
+	margin-top:80%;
 	margin-right:89.5%;
 	opacity:1;
 	-webkit-box-sizing: border-box;
