@@ -104,7 +104,7 @@
 @media only screen and (max-device-width:1440px){
   .leaflet-sidebar {
   position: absolute;
-	height:25%;
+	height:30%;
 	margin-top:130%;
 	margin-right:89.5%;
 	opacity:1;
@@ -124,7 +124,7 @@
 	margin-top:125%;
 	margin-right:89.5%;
 	opacity:1;
-  /*overflow-y: scroll; /* has to be scroll, not auto */
+  overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	padding: 0px;
