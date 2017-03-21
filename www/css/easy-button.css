@@ -3,12 +3,13 @@
 	opacity: 1;
 	width: 38.5px;
 	height:38.5px;
-	border: 0px solid #fff;
+	border: 1px solid #fff;
 	border-radius: 100px;
-	border-color: rgba(0, 0, 0, 0.7);
+	border-color: rgba(0, 0, 0, 1);
   background-color: rgba(255, 255, 255, 1);
 	font-size: 1.4em;
   cursor: pointer;
+  
 }
 
 
@@ -71,7 +72,7 @@
 }
 
 .state-remove-routing{
-  margin-top: -31px;
+  margin-top: -23px;
   }
 
 .state-add-routing{
@@ -100,8 +101,8 @@
 }
 
 .state-remove-routingWalk{
-  margin-top: -30px;
-  margin-left: 0px;
+  margin-top: -22px;
+  margin-left: 1px;
   }
 
 .state-add-routingWalk{
@@ -127,7 +128,7 @@
 }
 
 .state-remove-routingCar{
-    margin-top: -31px;
+    margin-top: -23px;
     margin-left: 1px;
   }
 .state-add-routingCar{
@@ -147,3 +148,10 @@
   
   
   }
+/*------------------------------------------------------------------*/
+.state-removePoints{
+ margin-left:1px;
+ margin-bottom:2px;
+ font-size: 1.0em;
+  
+}
