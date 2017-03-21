@@ -2,9 +2,9 @@
 .leaflet-container .leaflet-control-search {
 	position:relative;
 	float:left;
-	z-index:1000;
-	border: 1px solid #fff;
-	border-color: rgba(0, 0, 0, 0.7);
+	z-index:2000;
+	border: 2px solid #fff;
+	border-color: rgba(0, 0, 0, 0.3);
 	border-radius: 22px;
 	color: rgba(0, 0, 0, 1);
 	margin-left: 10px;
