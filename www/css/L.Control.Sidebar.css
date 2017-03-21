@@ -121,7 +121,7 @@
   .leaflet-sidebar {
   position: absolute;
 	height:25%;
-	margin-top:120%;
+	margin-top:125%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
@@ -134,10 +134,10 @@
 
 @media (orientation : landscape){
   .leaflet-sidebar {
-    position: absolute;
+   position: absolute;
 	height:25%;
-	margin-top:20%;
-	margin-right:60%;
+	margin-top:45%;
+	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-box-sizing: border-box;
