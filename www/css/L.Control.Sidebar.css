@@ -94,14 +94,15 @@
     .leaflet-sidebar {
       width: 9.9%;
       height: 30%;
-    margin-left: 40%;
-    margin-top: 31.5%;}
+     margin-left: 40%;
+     margin-top: 31.5%;}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 1%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 1%; } }
 
 @media only screen and (max-device-width:1440px){
+  .leaflet-sidebar {
   	position: absolute;
 	height:25%;
 	margin-top:40%;
@@ -112,7 +113,7 @@
 	box-sizing: border-box;
 	padding: 0px;
 	z-index: 2000; 
-}
+  }}
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
