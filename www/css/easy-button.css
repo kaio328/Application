@@ -81,7 +81,7 @@
 
 .state-remove-routing.remove-routing-active{
   transform: rotate(133deg);
-  margin-left: 1px;
+  margin-left: 0px;
   color: #FC8428;
   font-size: 1.1em; 
 }
@@ -101,8 +101,8 @@
 }
 
 .state-remove-routingWalk{
-  margin-top: -31px;
-  margin-left: 1px;
+  margin-top: -29px;
+  margin-left: 0px;
   }
 
 .state-add-routingWalk{
@@ -128,7 +128,7 @@
 }
 
 .state-remove-routingCar{
-    margin-top: -35px;
+    margin-top: -332px;
     margin-left: 1px;
   }
 .state-add-routingCar{
