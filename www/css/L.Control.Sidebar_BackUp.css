@@ -78,8 +78,7 @@
         left: 10%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 1%; } }
-  @media (min-width: 1200px)
-  and (orientation : landscape){
+  @media (min-width: 1200px) {
     .leaflet-sidebar {
       width: 9.9%;
       height: 30%;
