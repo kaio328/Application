@@ -57,6 +57,7 @@
   border-radius: 100px;
   width: 38.5px;
   height:38.5px;
+ 
 }
 
 /*-----------------------------------------Hier: Routing-Funktion freigeben--------------------------------------------------------------*/
@@ -70,10 +71,10 @@
 }
 
 .state-remove-routing{
+  margin-top: -31px;
   }
 
 .state-add-routing{
-  margin-top: -31px;
   visibility:hidden; 
 }
 
