@@ -117,11 +117,11 @@
   }
 @media only screen 
   and (max-device-width:1440px) 
-  and (orientation : landscape){
+  {
   .leaflet-sidebar {
   position: absolute;
 	height:25%;
-	margin-top:0%;
+	margin-top:120%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
@@ -131,6 +131,22 @@
 	z-index: 2000; 
   }
   }
+
+@media (orientation : landscape){
+  .leaflet-sidebar {
+    position: absolute;
+	height:25%;
+	margin-top:20%;
+	margin-right:60%;
+	opacity:1;
+  /*overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 0px;
+	z-index: 2000; 
+  }
+  }
+
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
