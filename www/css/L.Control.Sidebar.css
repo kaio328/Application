@@ -46,7 +46,23 @@
       box-shadow: none;
       border: 2px solid rgba(0, 0, 0, 0.2);
       background-clip: padding-box; }
-  
+  @media (max-width: 767px) {
+    .leaflet-sidebar {
+      width: 9.9%;
+      height: 27%;
+    margin-top: 121%}
+      .leaflet-sidebar.left.visible ~ .leaflet-left {
+        left: 100%; }
+      .leaflet-sidebar.right.visible ~ .leaflet-right {
+        right: 1%; }
+      .leaflet-sidebar.left {
+        left: -100%; }
+        .leaflet-sidebar.left.visible {
+          left: 0; }
+      .leaflet-sidebar.right {
+        right: -100%; }
+        .leaflet-sidebar.right.visible {
+          right: 0; }}
         .leaflet-touch .leaflet-sidebar > .leaflet-control {
           border: 15%; 
           overflow-y: scroll; /* has to be scroll, not auto */
@@ -55,9 +71,35 @@
           -moz-box-sizing: border-box;
           box-sizing: border-box;
           box-shadow: 0 0 1px #000; }
-
-
-
+  @media (min-width: 768px) and (max-width: 991px) {
+    .leaflet-sidebar {
+      width: 9.9%;
+    margin-top: 93%}
+      .leaflet-sidebar.left.visible ~ .leaflet-left {
+        left: 5%; }
+      .leaflet-sidebar.right.visible ~ .leaflet-right {
+        right: 1%; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .leaflet-sidebar {
+      width:9.9%;
+      height: 25%;
+    margin-top: 35% }
+      .leaflet-sidebar.left.visible ~ .leaflet-left {
+        left: 10%; }
+      .leaflet-sidebar.right.visible ~ .leaflet-right {
+        right: 1%; } }
+  @media (min-width: 1200px),
+  (max-device-width:1440px)
+  and (orientation : landscape){
+    .leaflet-sidebar {
+      width: 9.9%;
+      height: 1%;
+    margin-left: 40%;
+    margin-top: 31.5%;}
+      .leaflet-sidebar.left.visible ~ .leaflet-left {
+        left: 1%; }
+      .leaflet-sidebar.right.visible ~ .leaflet-right {
+        right: 1%; } }
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
