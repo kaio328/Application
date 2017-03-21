@@ -120,7 +120,6 @@
     
   .leaflet-touch .leaflet-sidebar > .leaflet-control {
    overflow-y: scroll; /* has to be scroll, not auto */
-	background-color: #F5F5F5;
   -webkit-overflow-scrolling: touch;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
