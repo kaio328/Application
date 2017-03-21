@@ -108,7 +108,7 @@
   .leaflet-sidebar {
   position: absolute;
 	height:25%;
-	margin-top:129%;
+	margin-top:128%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
@@ -120,6 +120,7 @@
     
   .leaflet-touch .leaflet-sidebar > .leaflet-control {
    overflow-y: scroll; /* has to be scroll, not auto */
+	background-color: #F5F5F5;
   -webkit-overflow-scrolling: touch;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
