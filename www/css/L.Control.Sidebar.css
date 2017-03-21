@@ -101,11 +101,12 @@
       .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 1%; } }
 
-@media only screen and (max-device-width:1440px){
+@media only screen and (max-device-width:1440px)
+and (orientation : landscape){
   .leaflet-sidebar {
   position: absolute;
 	height:25%;
-	margin-top:80%;
+	margin-top:150%;
 	margin-right:89.5%;
 	opacity:1;
 	-webkit-box-sizing: border-box;
