@@ -74,7 +74,7 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .leaflet-sidebar {
       width: 9.9%;
-    margin-top: 93%}
+    margin-top: 5%}
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 5%; }
       .leaflet-sidebar.right.visible ~ .leaflet-right {
@@ -82,7 +82,7 @@
   @media (min-width: 992px) and (max-width: 1199px) {
     .leaflet-sidebar {
       width:9.9%;
-      height: 1%;
+      height: 25%;
     margin-top: 35% }
       .leaflet-sidebar.left.visible ~ .leaflet-left {
         left: 10%; }
