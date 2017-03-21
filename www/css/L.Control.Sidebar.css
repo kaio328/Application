@@ -108,7 +108,7 @@
   .leaflet-sidebar {
   position: absolute;
 	height:25%;
-	margin-top:128%;
+	margin-top:125%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
@@ -136,6 +136,7 @@
 	height:40%;
 	margin-top:38%;
 	margin-right:89.5%;
+  margin-left: 20%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-box-sizing: border-box;
