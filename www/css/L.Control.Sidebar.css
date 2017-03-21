@@ -114,6 +114,15 @@
 	padding: 0px;
 	z-index: 2000; 
   }
+  .leaflet-touch .leaflet-sidebar > .leaflet-control {
+     overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      box-shadow: none;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      background-clip: padding-box; }
   }
 @media only screen 
   and (max-device-width:1440px) 
@@ -124,7 +133,7 @@
 	margin-top:130%;
 	margin-right:89.5%;
 	opacity:1;
-  overflow-y: scroll; /* has to be scroll, not auto */
+  /*overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	padding: 0px;
@@ -136,7 +145,7 @@
   .leaflet-sidebar {
    position: absolute;
 	height:45%;
-	margin-top:35%;
+	margin-top:50%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
