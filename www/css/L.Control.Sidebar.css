@@ -2,7 +2,7 @@
 	position: absolute;
 	height:25%;
 	margin-top:40%;
-	margin-right:89.5%;
+	margin-right:50%;
 	opacity:1;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -113,6 +113,7 @@
 	-moz-box-sizing: border-box;
 	padding: 0px;
 	z-index: 2000; 
+  }
   }
   .leaflet-sidebar .close {
     position: absolute;
