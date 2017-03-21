@@ -101,29 +101,7 @@
       .leaflet-sidebar.right.visible ~ .leaflet-right {
         right: 1%; } }
 
-@media only screen and (max-device-width:1440px){
-  .leaflet-sidebar {
-  position: absolute;
-	height:30%;
-	margin-top:130%;
-	margin-right:89.5%;
-	opacity:1;
-  /*overflow-y: scroll; /* has to be scroll, not auto */
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	padding: 0px;
-	z-index: 2000; 
-  }
-  .leaflet-touch .leaflet-sidebar > .leaflet-control {
-     overflow-y: scroll; /* has to be scroll, not auto */
-    -webkit-overflow-scrolling: touch;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      box-shadow: none;
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      background-clip: padding-box; }
-  }
+
 @media only screen 
   and (max-device-width:1440px) 
   {
@@ -139,13 +117,24 @@
 	padding: 0px;
 	z-index: 2000; 
   }
+    
+  .leaflet-touch .leaflet-sidebar > .leaflet-control {
+   overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   box-shadow: none;
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   background-clip: padding-box; 
+  }
   }
 
 @media (orientation : landscape){
   .leaflet-sidebar {
    position: absolute;
-	height:44%;
-	margin-top:46%;
+	height:40%;
+	margin-top:40%;
 	margin-right:89.5%;
 	opacity:1;
   /*overflow-y: scroll; /* has to be scroll, not auto */
@@ -154,6 +143,18 @@
 	padding: 0px;
 	z-index: 2000; 
   }
+  
+    .leaflet-touch .leaflet-sidebar > .leaflet-control {
+   overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   box-shadow: none;
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   background-clip: padding-box; 
+  }
+  
   }
 
   .leaflet-sidebar .close {
