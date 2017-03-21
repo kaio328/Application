@@ -4,7 +4,7 @@
 	position: relative;
 	opacity: 1;
 	margin-top: 5px;
-	margin-left:26%;
+	margin-left:23%;
   font-size: 1.3em;
 	width:0px;
 	height:0px;
@@ -16,7 +16,7 @@
 	opacity: 1;
 	width: 37.5px;
 	height:37.5px;
-	border: 1px solid #fff;
+	border: 2px solid #fff;
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);	
