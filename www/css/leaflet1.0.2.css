@@ -145,7 +145,7 @@
 	margin-left: 10px;
 	}
 .leaflet-right .leaflet-control {
-	margin-right: 10px;
+	margin-right: 22.5px;
 	}
 
 
@@ -329,7 +329,8 @@
 .leaflet-control-layers {
 background-color: none;
 border: 0px solid #fff;
-border-radius: 0px;
+width:0;
+height: 0px;
 	}
 
 .leaflet-retina .leaflet-control-layers-toggle,
@@ -342,6 +343,7 @@ border-radius: 0px;
 	border: 1px solid #fff;
 	border-radius: 22px;
 	border-color: rgba(0, 0, 0, 1);
+	margin-right: 50px;
 	}
 
 .leaflet-touch .leaflet-control-layers-toggle {
