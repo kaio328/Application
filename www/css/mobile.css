@@ -4,7 +4,7 @@ html,body {
 }
 
 h3 {
-	font-size:.85em;
+	font-size:0em;
 }
 h3,h4 {
 	white-space:nowrap;
@@ -15,19 +15,19 @@ h3,h4 {
 #copy {
 	right:-4px;
 }
-#map {												/*Bereich ab dem die Karte beginnt*/
+#map {											
 	position:absolute;
-	top:0px;										/* Einzug oben für Karte --> oberere weißer Rand in der app*/
+	top:0px;										
 	left:0;
 	right:0;
 	bottom:0;
 	border:none;
-	border-top:0px solid #f5f5f5;					/*Rahmen um die Karte + Farbe */
+	border-top:0px solid #f5f5f5;					
 	border-left:0px solid #f5f5f5;
 	border-right:0px solid #f5f5f5;
 	border-bottom:0px solid #f5f5f5;
 	height:auto;
-	width:auto;
+	width:auto; 
 }
 #post-it {
 	position:absolute;
@@ -46,7 +46,7 @@ h3,h4 {
 	box-shadow: 0 0 0px rgba(0,0,0, 0);
 	border: 2px solid #bdbdbd;
 	border: 1px solid #fff;
-	border-radius: 100%;
+	border-radius: 0%;
 	border-color: rgba(0, 0, 0, 1)
 }
 .leaflet-left.leaflet-top .leaflet-control,

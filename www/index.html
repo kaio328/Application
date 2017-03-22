@@ -319,6 +319,12 @@ icon: CarMarker}).bindPopup(poppi).openPopup();
 });
 
 var controlCar = L.Routing.control({
+ lineOptions: {
+            styles: [
+                {color: 'white', opacity: 0.9, weight: 9},
+                {color: '#FC8428', opacity: 1, weight: 3}
+            ]
+        },
 waypoints: [
     Start,
 	Ziel
@@ -1164,7 +1170,7 @@ var routingButton = L.easyButton({
 		
 // 		var c = overlay.getCanvas2DContext()
 		
-		map.addLayer(overlay);
+		//map.addLayer(overlay);
 		
 
 		/*overlay.on('dblclick',function (e) {
