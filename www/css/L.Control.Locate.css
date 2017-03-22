@@ -2,12 +2,13 @@
 .leaflet-control-locate a,
 .leaflet-control-locate a:hover{
   opacity:1;
+	border: 0px solid #fff;
 	border-radius: 100%;
-	margin-left:10%;
-	margin-top: 4.5px;
-	width: 15px;
-	height:15px;
-		border: 1px solid #fff;
+	border-color: rgba(0, 0, 0, 1);
+	margin-left:16%;
+	margin-top: 6px;
+
+
 	
 }
 
@@ -15,15 +16,15 @@
 
 .leaflet-control-locate {
 	opacity: 1;
-	width: 37.5px;
-	height:37.5px;
+	width: 40.5px;
+	height:40.5px;
 	border: 1px solid #fff;
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
-	background-color: rgba(255, 255, 255, 1);	
+	background-color: rgba(255, 255, 255, 1);
 	font-size: 1.6em;
   
-	margin-top: 100px;
+	
 	
 
 
@@ -35,7 +36,7 @@
   /*color: #2074B6;*/
 	color: #FC8428;
 	border-radius: 100%;
-	margin-left:13px;
+	margin-left:11px;
 	margin-top: 4.5px;
 	width:0px;
 }
