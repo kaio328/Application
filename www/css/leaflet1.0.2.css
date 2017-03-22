@@ -327,7 +327,7 @@
 /* layers control */
 
 .leaflet-control-layers {
-background-color: rgba(255, 255, 255, 4);
+background-color: none;
 border: 0px solid #fff;
 border-radius: 0px;
 	}
