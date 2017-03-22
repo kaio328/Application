@@ -329,7 +329,7 @@
 .leaflet-control-layers {
 background-color: rgba(255, 255, 255, 0);
 border: 0px solid #fff;
-border-radius: 100px;
+border-radius: 0px;
 	}
 
 .leaflet-retina .leaflet-control-layers-toggle,
@@ -340,13 +340,13 @@ border-radius: 100px;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 	background-color: rgba(255, 255, 255, 1);
 	border: 1px solid #fff;
-	border-radius: 100px;
+	border-radius: 22px;
 	border-color: rgba(0, 0, 0, 1);
 	}
 
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 40px;
-	height: 40px;
+	width: 38px;
+	height: 38px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
