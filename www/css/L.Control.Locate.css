@@ -4,11 +4,11 @@
 	position: relative;
 	opacity: 1;
 	margin-top: 5px;
-	margin-left:10px;
+	margin-left:100%;
   font-size: 1.3em;
-	width:1px;
-	height:1px;
-	background-color: rgba(0, 0, 0, 0);
+	width:10px;
+	height:10px;
+	background-color: rgba(255, 255, 255, 1);
   
 }
 
@@ -16,7 +16,7 @@
 	opacity: 1;
 	width: 37.5px;
 	height:37.5px;
-	border: 8px solid #fff;
+	border: 2px solid #fff;
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);	
