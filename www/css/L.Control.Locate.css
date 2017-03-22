@@ -5,7 +5,7 @@
 	border: 0px solid #fff;
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
-	margin-left:15%;
+	margin-left:4px;
 	margin-top: 5.5px;
 
 
@@ -27,7 +27,7 @@
 }
 
 
-
+.leaflet-control-locate.active a:hover,
 .leaflet-control-locate.active a {
   /*color: #2074B6;*/
 	color: #FC8428;
