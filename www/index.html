@@ -159,23 +159,23 @@
 		
 		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
-		map.dragging.disable();
+		/*map.dragging.disable();
 		map.touchZoom.disable();
 		map.doubleClickZoom.disable();
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
-		map.keyboard.disable();
+		map.keyboard.disable();*/
 		
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
 		map.addLayer(overlay);
-		map.dragging.enable();
+		/*map.dragging.enable();
 		map.touchZoom.enable();
 		map.doubleClickZoom.enable();
 		map.scrollWheelZoom.enable();
 		map.boxZoom.enable();
-		map.keyboard.enable();
+		map.keyboard.enable();*/
 		//map.removeLayer(CampusMapLinear);
 		});
 		
