@@ -47,21 +47,21 @@ h3,h4 {
 	border: 2px solid #bdbdbd;
 	border: 1px solid #fff;
 	border-radius: 0%;
-	border-color: rgba(0, 0, 0, 1)
+	border-color: rgba(0, 0, 0, 1);
 }
 .leaflet-left.leaflet-top .leaflet-control,
 .leaflet-touch .leaflet-left .leaflet-control {							/*Einzug der Buttons/Controls vom Bildschirmrand und untereinander -->  Bereits "top" entfernt*/
 	margin-left: 8px;
 	margin-bottom: 0;
 	border-radius: 100px;
-	border:
+	
 }
 .leaflet-left.leaflet-bottom .leaflet-control {
 	margin-left: 8px;
 	margin-bottom: 8px;
 	margin-top: 0;
 }
-.leaflet-right .leaflet-control {
+.leaflet-right.leaflet-top .leaflet-control {
 	margin-right: 22.5px;
 	}
 
