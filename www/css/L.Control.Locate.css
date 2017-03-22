@@ -6,7 +6,7 @@
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	margin-left:4px;
-	margin-top: 5.5px;
+	margin-top: 6px;
 
 
 	
@@ -33,7 +33,7 @@
 	color: #FC8428;
 	border-radius: 100%;
 	margin-left:15px;
-	margin-top: 5.5px;
+	margin-top: 6px;
 	width:0px;
 }
 .leaflet-control-locate.active.following a {
