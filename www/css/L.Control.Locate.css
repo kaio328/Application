@@ -6,8 +6,8 @@
 	margin-top: 5px;
 	margin-left:10%;
   font-size: 1.3em;
-	width:5px;
-	height:5px;
+	width:0px;
+	height:0px;
 	background-color: rgba(255, 255, 255, 1);
   
 }
@@ -21,6 +21,7 @@
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);	
 	font-size: 1.4em;
+	margin-left:10%;
 
 }
 
@@ -28,8 +29,10 @@
   /*color: #2074B6;*/
 	color: #FC8428;
 	border-radius: 100%;
+	margin-left:10%;
 }
 .leaflet-control-locate.active.following a {
   color: #FC8428;
   border-radius: 100%;
+	margin-left:10%;
 }
