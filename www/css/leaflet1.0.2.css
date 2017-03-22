@@ -333,16 +333,15 @@
 	border-radius: 100px;
 	border-color: rgba(0, 0, 0, 1);
 	}
+
+.leaflet-retina .leaflet-control-layers-toggle,
 .leaflet-control-layers-toggle {
 	background-image: url(images/layers.png);
 	width: 32px;
 	height: 32px;
 	border-radius: 22px;
 	}
-.leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(images/layers.png);
-	background-size: 26px 26px;
-	}
+
 .leaflet-touch .leaflet-control-layers-toggle {
 	width: 44px;
 	height: 44px;
