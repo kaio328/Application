@@ -109,6 +109,9 @@
 	z-index: 800;
 	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 	pointer-events: auto;
+	border: 1px solid #fff;
+	border-radius: 100%;
+	border-color: rgba(0, 0, 0, 1);
 	}
 .leaflet-top,
 .leaflet-bottom {
