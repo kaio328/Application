@@ -3,8 +3,11 @@
 .leaflet-control-locate a:hover{
   opacity:1;
 	border-radius: 100%;
-	margin-left:13%;
+	margin-left:25%;
 	margin-top: 4.5px;
+	width: 15px;
+	height:15px;
+		border: 1px solid #fff;
 	
 }
 
