@@ -328,6 +328,8 @@
 
 .leaflet-control-layers {
 background-color: rgba(255, 255, 255, 0);
+border: 0px solid #fff;
+border-radius: 100px;
 	}
 
 .leaflet-retina .leaflet-control-layers-toggle,
