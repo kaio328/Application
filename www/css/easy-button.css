@@ -34,7 +34,7 @@
 .leaflet-bar button.disabled {
   cursor: default;
   pointer-events: none;
-  opacity: 0.1;
+  opacity: 0.4;
   
 
 }
