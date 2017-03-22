@@ -61,9 +61,10 @@ h3,h4 {
 	margin-bottom: 8px;
 	margin-top: 0;
 }
-  /*.leaflet-right.leaflet-top .leaflet-control {
+  .leaflet-right.leaflet-top .leaflet-control {
 	margin-right: 22.5px;
-	}*/
+	border:none;
+	}
 
 /* ZOOM */
 .leaflet-control-zoom,
