@@ -145,7 +145,7 @@
 	margin-left: 10px;
 	}
 .leaflet-right .leaflet-control {
-	margin-right: 5px;
+	margin-right: 0px;
 	}
 
 
@@ -362,7 +362,7 @@ background-color: rgba(255, 255, 255, 1);
 .leaflet-control-layers-expanded {
 	padding: 1px 1px 1px 1px;
 	width: 130px;
-	height: 59px;
+	height: 60px;
 	color: #333;
 	background-color: rgba(0, 0, 0, 1);
 	border-radius: 0px;
