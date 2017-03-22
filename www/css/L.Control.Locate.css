@@ -1,14 +1,5 @@
 /* Compatible with Leaflet 0.7 */
-.leaflet-control-locate a:hover,
-.leaflet-control-locate a {
-	position: relative;
-	opacity: 1;
-	margin-top: 5px;
-	margin-left:10%;
-  font-size: 1.3em;
-	background-color: rgba(255, 255, 255, 1);
-  
-}
+
 
 .leaflet-control-locate {
 	opacity: 1;
@@ -18,20 +9,25 @@
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);	
-	font-size: 1.4em;
-	margin-left:10%;
+	font-size: 1.7em;
+
+	margin-top: 100px;
+	
 
 
 }
-
+.leaflet-control-locate a,
+.leaflet-control-locate a:hover,
 .leaflet-control-locate.active a {
   /*color: #2074B6;*/
 	color: #FC8428;
 	border-radius: 100%;
-	margin-left:10%;
+	margin-left:25%;
+	margin-top: 4.5px;
+	width:0px;
 }
 .leaflet-control-locate.active.following a {
   color: #FC8428;
   border-radius: 100%;
-	margin-left:10%;
+
 }
