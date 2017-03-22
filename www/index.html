@@ -141,7 +141,7 @@
 		maxZoom: 18,
 		minZoom: 17,						//raus zoomen
 		center: [51.44480, 7.26150]
-		});
+		}).addTo(map);
 		
 		//Polygon
 		/*var polygon = L.polygon([
@@ -1182,7 +1182,7 @@ var routingButton = L.easyButton({
 		
 // 		var c = overlay.getCanvas2DContext()
 		
-		//map.addLayer(overlay);
+		map.addLayer(overlay);
 		
 
 		/*overlay.on('dblclick',function (e) {
