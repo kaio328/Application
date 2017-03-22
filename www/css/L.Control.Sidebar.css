@@ -161,11 +161,10 @@
   
   }
 
-  .leaflet-sidebar .close,
-  .leaflet-touch .leaflet-sidebar .close {
+  .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: -6%;
+    top: -10%;
     width: 31px;
     height: 31px;
     color: black;
@@ -175,7 +174,7 @@
     background: white;
     -webkit-border-radius: 16px;
     border-radius: 16px;
-	  margin-top:0px;
+	  margin-top:45px;
     cursor: pointer;
     z-index: 800; }
 
