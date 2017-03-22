@@ -125,7 +125,7 @@
 			
 			
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 30, minZoom: 17,  center: [51.44480, 7.26150]})
+		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 18, minZoom: 17,  center: [51.44480, 7.26150]})
 				.setView([51.44480, 7.26150], 17)
 				//.addLayer(osm);
 				.addLayer(OpenStreetMap_BlackAndWhite);
@@ -182,11 +182,11 @@
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
 		map.keyboard.disable();*/
-		//map.removeLayer(overlay);
+		map.removeLayer(overlay);
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		//map.addLayer(overlay);
+		map.addLayer(overlay);
 		/*map.dragging.enable();
 		map.touchZoom.enable();
 		map.doubleClickZoom.enable();
