@@ -5,8 +5,8 @@
 	border-radius: 100%;
 	margin-left:25%;
 	margin-top: 4.5px;
-	width: 3px;
-	height:3px;
+	width: 15px;
+	height:15px;
 		border: 1px solid #fff;
 	
 }
@@ -22,7 +22,7 @@
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);	
 	font-size: 1.6em;
-  margin-left: 1000px;
+  
 	margin-top: 100px;
 	
 
