@@ -44,7 +44,7 @@ h3,h4 {
 .leaflet-bottom .leaflet-control,								
 .leaflet-left .leaflet-control {
 	box-shadow: 0 0 0px rgba(0,0,0, 0);
-	border: 2px solid #bdbdbd;
+	border: 1px solid #bdbdbd;
 	border: 1px solid #fff;
 	border-radius: 0%;
 	border-color: rgba(0, 0, 0, 1);
