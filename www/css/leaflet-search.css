@@ -32,7 +32,7 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
-	padding:1px 120px 0px 2px;
+	padding:1px 20px 0px 2px;
 	margin:7px 0px 3px 48.5px;
   										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
 	opacity: 0.8;	
@@ -74,12 +74,12 @@
 .leaflet-control-search .search-button:before {
 	display:block;
 	float:left;
-	width:29px;
-	height:34px;
+	width:30px;
+	height:36px;
 	content: "\f002";
   font-family: FontAwesome;
 	font-size:1.4em;
-	margin-left: 11px;
+	margin-left: 12px;
 	margin-top:6px;
 	color: rgba(0, 0, 0, 1);
 	z-index:1000;
@@ -156,7 +156,7 @@
 	height:18px;
 	padding:1px 100px 0px 2px;
 	margin:7px 0px 3px 48.5px;
-    
+		} 
   }
 
 @media (orientation : landscape){
@@ -174,9 +174,10 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
-	padding:1px 160px 0px 2px;
+	padding:1px 100px 0px 2px;
 	margin:7px 0px 3px 48.5px;
   }
+}
 
 
 
