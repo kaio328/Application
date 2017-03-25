@@ -63,7 +63,9 @@ h3,h4 {
 }
   .leaflet-right.leaflet-top .leaflet-control {
 	margin-right: 9px;
-	border:none;
+	border: 1px solid #fff;
+	border-radius: 100px;
+	border-color: rgba(0, 0, 0, 1);
 	}
 
 /* ZOOM */
