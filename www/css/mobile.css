@@ -41,11 +41,12 @@ h3,h4 {
 /********** Leaflet Customizations for **********/
 
 /* CONTROLS */
+
 .leaflet-bottom .leaflet-control,								
 .leaflet-left .leaflet-control {
 	box-shadow: 0 0 0px rgba(0,0,0, 0);
-	border: 0px solid #fff;
-	border-radius: 100px;
+	border: 1px solid #fff;
+  border-radius: 100px; 
 	border-color: rgba(0, 0, 0, 1);
 }
 .leaflet-left.leaflet-top .leaflet-control,
@@ -59,16 +60,30 @@ h3,h4 {
 }
 .leaflet-left.leaflet-bottom .leaflet-control {
 	margin-left: 8px;
-	margin-bottom: 8px;
-	margin-top: 0;
-	border-radius: 100px;
-	border: 1px solid #fff;
+	margin-bottom: 10px;
+	border: none;
+  border-radius: 100px; 
 	border-color: rgba(0, 0, 0, 1);
+
 }
+
+
+.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-layers-expanded {
+	padding: 1px 1px 1px 1px;
+	width: 131px;
+	height: 60px;
+	color: #333;
+	border:none;
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 1px;
+	}
+
+
+
   .leaflet-right.leaflet-top .leaflet-control {
 	margin-right: 9px;
 	border: 1px solid #fff;
-	margin-top: 13px;
+	margin-top: 15px;
 	border-radius: 100px;
 	border-color: rgba(0, 0, 0, 1);
 	}
