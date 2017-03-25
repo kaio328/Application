@@ -60,7 +60,7 @@ h3,h4 {
 }
 .leaflet-left.leaflet-bottom .leaflet-control {
 	margin-left: 8px;
-	margin-bottom: 14px;
+	margin-bottom: 16px;
 	border: none;
   border-radius: 100px; 
 	border-color: rgba(0, 0, 0, 1);
