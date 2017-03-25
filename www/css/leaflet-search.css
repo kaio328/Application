@@ -32,7 +32,7 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
-	width:200px;
+	width:150px;
 	padding:1px 50px 0px 2px;
 	margin:7px 0px 3px 48.5px;
   										 /*Breite des Suchefeldes  <---------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! WICHTIG!!!!!!!!!!!*/  
@@ -85,6 +85,7 @@
 	color: rgba(0, 0, 0, 1);
 	z-index:1000;
 }
+
 
 .leaflet-control-search .search-tooltip {
 	position:absolute;
@@ -155,6 +156,7 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
+	width:150px;
 	padding:1px 50px 0px 2px;
 	margin:7px 0px 3px 48.5px;
 		} 
@@ -175,6 +177,7 @@
 	box-shadow: none;
 	border-radius:100px;
 	height:18px;
+	width:180px;
 	padding:1px 50px 0px 2px;
 	margin:7px 0px 3px 48.5px;
 		} 
