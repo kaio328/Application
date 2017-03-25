@@ -337,8 +337,8 @@ background-color: rgba(255, 255, 255, 1);
 .leaflet-retina .leaflet-control-layers-toggle,
 .leaflet-control-layers-toggle {
 	background-image: url(images/layers.png);
-	width: 28px;
-	height: 28px;
+	width: 40.5px;
+	height: 40.5px;
 	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
 	background-color: rgba(255, 255, 255, 1);
 	border: 1px solid #fff;
