@@ -237,7 +237,7 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 
 		
 		//mapOverlays der Karte hinzufügen
-		L.control.layers(null, overlayMaps, {position: "topright"}).addTo(map);
+		L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Simples Imageoverlay einfügen
@@ -893,6 +893,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	var removeButton = L.easyButton({
 	id: 'remove', 
 	type: 'animate',
+	position: 'topright',
 	states: [{
 		stateName: 'removePoints',
 		icon:'fa fa-times',

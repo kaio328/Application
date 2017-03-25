@@ -6,7 +6,7 @@
 	border: 1px solid #fff;
 	border-color: rgba(0, 0, 0, 1);
 	border-radius: 22px;
-	color: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 1);
 	margin-left: 10px;
 	margin-top: 15px;
 	opacity: 1;
@@ -136,5 +136,47 @@
 	border-radius:.25em;
 	
 }
+
+@media only screen 
+  and (max-device-width:1440px) 
+  {
+.leaflet-control-search .search-input {
+	display:list;
+	float:left;
+	background: #fff;
+	border: 1px solid #fff;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color: transparent;
+	box-shadow: none;
+	border-radius:100px;
+	height:18px;
+	padding:1px 100px 0px 2px;
+	margin:7px 0px 3px 48.5px;
+    
+  }
+
+@media (orientation : landscape){
+.leaflet-control-search .search-input {
+	display:list;
+	float:left;
+	background: #fff;
+	border: 1px solid #fff;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+	-webkit-tap-highlight-color: transparent;
+	box-shadow: none;
+	border-radius:100px;
+	height:18px;
+	padding:1px 160px 0px 2px;
+	margin:7px 0px 3px 48.5px;
+  }
+
 
 
