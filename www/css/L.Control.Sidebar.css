@@ -151,10 +151,10 @@
 @media (orientation : landscape){
   .leaflet-sidebar {
    position: absolute;
-   width: 9%;
+   width: 9.9%;
 	height:40%;
 	margin-top:37.65%;
-	margin-right:81.25%;
+	margin-right:89.25%;
   
   /*margin-left: 40%;
 	opacity:1;
