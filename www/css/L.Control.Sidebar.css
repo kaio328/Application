@@ -133,7 +133,7 @@
       .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: -10%;
+    top: -40px;
     width: 31px;
     height: 31px;
     color: black;
@@ -180,7 +180,7 @@
     .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: -10%;
+    top: -40px;
     width: 31px;
     height: 31px;
     color: black;
@@ -199,7 +199,7 @@
   .leaflet-sidebar .close {
     position: absolute;
     right: -885%;
-    top: -10%;
+    top: -180px;
     width: 31px;
     height: 31px;
     color: black;
