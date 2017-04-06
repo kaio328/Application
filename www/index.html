@@ -237,7 +237,7 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 
 		
 		//mapOverlays der Karte hinzufügen
-		L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
+		myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Simples Imageoverlay einfügen
@@ -1188,6 +1188,14 @@ var routingButton = L.easyButton({
 		function setOverlayOpacity(opacity) {
 			overlay.setOpacity(opacity);
 		};
+		
+		sidebar.on('show', function () {
+		map.removeControl(myControl);
+		});
+		
+		sidebar.on('hidden', function () {
+		map.addControl(myControl);
+		});
 		
 
 

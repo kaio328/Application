@@ -67,7 +67,7 @@ h3,h4 {
 
 }
 
-@media (orientation : landscape){
+/*@media (orientation : landscape){
 .leaflet-left.leaflet-bottom .leaflet-control {
 	margin-left: -100px;
 	margin-bottom: 16px;
@@ -76,7 +76,7 @@ h3,h4 {
 	border-color: rgba(0, 0, 0, 1);
 
 }
-}
+}*/
 
 
 
