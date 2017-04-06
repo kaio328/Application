@@ -1205,8 +1205,7 @@ var routingButton = L.easyButton({
 	function doOnOrientationChange()
 	{
       if (screen.height > screen.width) {
-         alert('portrait');
-		 sidebar.on('show', function () {
+		sidebar.on('show', function () {
 		map.removeControl(myControl);
 		});
 		sidebar.on('hidden', function () {
