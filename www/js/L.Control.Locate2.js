@@ -22,7 +22,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
     }
 
     // attach your plugin to the global 'L' variable
-    if(typeof window !== 'undefined' && window.L){
+    if (typeof window !== 'undefined' && window.L){
         window.L.Control.Locate = factory(L);
     }
 } (function (L) {
@@ -46,12 +46,11 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              *                view if the user has manually panned the map.
              *                The map view follows the users location until she pans.
              */
-            setView: 'once',
+            setView: 'untilPan',
             /** Keep the current map zoom level when setting the view and only pan. */
-            keepCurrentZoomLevel: true,
+            keepCurrentZoomLevel: false,
             /** Smooth pan and zoom to the location of the marker. Only works in Leaflet 1.0+. */
             flyTo: false,
-			enableHighAccuracy: true,
             /**
              * The user location can be inside and outside the current view when the user clicks on the
              * control that is already active. Both cases can be configures separately.
@@ -71,27 +70,32 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              * bounds that were saved.
              */
             returnToPrevBounds: false,
+            /**
+             * Keep a cache of the location after the user deactivates the control. If set to false, the user has to wait
+             * until the locate API returns a new location before they see where they are again.
+             */
+            cacheLocation: true,
             /** If set, a circle that shows the location accuracy is drawn. */
-            drawCircle: false,
+            drawCircle: true,
             /** If set, the marker at the users' location is drawn. */
             drawMarker: true,
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
             markerClass: L.CircleMarker,
             /** Accuracy circle style properties. */
-				circleStyle: {												//Styles für den großen Radius-Kreis -->  ist ausgeschaltet
-                color: '#d20',
-                fillColor: '#g23',
-                fillOpacity: 1,
+            circleStyle: {
+                color: '#136AEC',
+                fillColor: '#136AEC',
+                fillOpacity: 0.15,
                 weight: 2,
                 opacity: 0.5
             },
-            /** Inner marker style properties. */
+            /** Inner marker style properties. Only works if your marker class supports `setStyle`. */
             markerStyle: {
-                color: '#c20',
-                fillColor: '#f23',
-                fillOpacity: 1,
+                color: '#136AEC',
+                fillColor: '#2A93EE',
+                fillOpacity: 0.7,
                 weight: 2,
-                opacity: 1,
+                opacity: 0.9,
                 radius: 5
             },
             /**
@@ -114,7 +118,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             metric: true,
             /** This event is called in case of any location error that is not a time out error. */
             onLocationError: function(err, control) {
-                alert('Aktueller Standort konnte nicht geortet werden !');
+                alert(err.message);
             },
             /**
              * This even is called when the user's location is outside the bounds set on the map.
@@ -125,20 +129,19 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
                 alert(control.options.strings.outsideMapBoundsMsg);
             },
             /** Display a pop-up when the user click on the inner marker. */
-            showPopup: false,
+            showPopup: true,
             strings: {
                 title: "Show me where I am",
                 metersUnit: "meters",
                 feetUnit: "feet",
                 popup: "You are within {distance} {unit} from this point",
-                outsideMapBoundsMsg: "Bitte stelle sicher, dass du den Standortdienst aktiviert hast und dass du dich auf dem Campusgelände befindest"
+                outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
             },
             /** The default options passed to leaflets locate method. */
             locateOptions: {
                 maxZoom: Infinity,
                 watch: true,  // if you overwrite this, visualization cannot be updated
-                enableHighAccuracy: true,
-				setView: false // have to set this to false because we have to
+                setView: false // have to set this to false because we have to
                                // do setView manually
             }
         },
@@ -171,7 +174,6 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._prevBounds = null;
 
             this._link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', container);
-            this._link.href = '#';
             this._link.title = this.options.strings.title;
             this._icon = L.DomUtil.create(this.options.iconElementTag, this.options.icon, this._link);
 
@@ -230,7 +232,6 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         start: function() {
             this._activate();
-			//this.options.locateOptions.watch = false;
 
             if (this._event) {
                 this._drawMarker(this._map);
@@ -256,8 +257,6 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._resetVariables();
 
             this._removeMarker();
-			//this._event = undefined;
-			//this.options.locateOptions.watch = false;
         },
 
         /**
@@ -290,6 +289,10 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             this._map.stopLocate();
             this._active = false;
 
+            if (!this.options.cacheLocation) {
+                this._event = undefined;
+            }
+
             // unbind event listeners
             this._map.off('locationfound', this._onLocationFound, this);
             this._map.off('locationerror', this._onLocationError, this);
@@ -302,7 +305,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
         setView: function() {
             this._drawMarker();
             if (this._isOutsideMapBounds()) {
-				this._event = undefined;
+                this._event = undefined;  // clear the current location so we can get back into the bounds
                 this.options.onLocationOutsideMapBounds(this);
             } else {
                 if (this.options.keepCurrentZoomLevel) {
@@ -354,11 +357,14 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             // small inner marker
             if (this.options.drawMarker) {
                 var mStyle = this._isFollowing() ? this.options.followMarkerStyle : this.options.markerStyle;
-
                 if (!this._marker) {
                     this._marker = new this.options.markerClass(latlng, mStyle).addTo(this._layer);
                 } else {
-                    this._marker.setLatLng(latlng).setStyle(mStyle);
+                    this._marker.setLatLng(latlng);
+                    // If the markerClass can be updated with setStyle, update it.
+                    if (this._marker.setStyle) {
+                        this._marker.setStyle(mStyle);
+                    }
                 }
             }
 
@@ -393,9 +399,9 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onLocationError: function(err) {
             // ignore time out error if the location is watched
-           // if (err.code == 3 && this.options.locateOptions.watch) {
-            //    return;
-          // }
+            if (err.code == 3 && this.options.locateOptions.watch) {
+                return;
+            }
 
             this.stop();
             this.options.onLocationError(err, this);
@@ -443,7 +449,6 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             }
 
             this._justClicked = false;
-			//this.options.locateOptions.watch = true;
         },
 
         /**
@@ -451,8 +456,8 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
          */
         _onDrag: function() {
             // only react to drags once we have a location
-            if (this._event) {									
-                this._userPanned = true;																			//hier false dann wird das Icon bei drag nicht blau
+            if (this._event) {
+                this._userPanned = true;
                 this._updateContainerStyle();
                 this._drawMarker();
             }
