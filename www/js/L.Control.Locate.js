@@ -72,16 +72,16 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              */
             returnToPrevBounds: false,
             /** If set, a circle that shows the location accuracy is drawn. */
-            drawCircle: false,
+            drawCircle: true,
             /** If set, the marker at the users' location is drawn. */
             drawMarker: true,
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
             markerClass: L.CircleMarker,
             /** Accuracy circle style properties. */
 				circleStyle: {												//Styles für den großen Radius-Kreis -->  ist ausgeschaltet
-                color: '#d20',
-                fillColor: '#g23',
-                fillOpacity: 1,
+                color: '#136AEC',
+                fillColor: '#136AEC',
+                fillOpacity: 0.15,
                 weight: 2,
                 opacity: 0.5
             },
