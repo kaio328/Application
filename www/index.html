@@ -1205,12 +1205,16 @@ var routingButton = L.easyButton({
 	function doOnOrientationChange()
 	{
       if (screen.height > screen.width) {
-		sidebar.on('show', function () {
+         alert('portrait');
+		 function ABC(){
+		 		sidebar.on('show', function () {
 		map.removeControl(myControl);
 		});
+		
 		sidebar.on('hidden', function () {
 		map.addControl(myControl);
 		});
+		}
       } else {
          alert('landscape');
       }
