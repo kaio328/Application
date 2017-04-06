@@ -129,6 +129,23 @@
    border: 1px solid rgba(0, 0, 0, 1);
    background-clip: padding-box; 
   }
+    
+      .leaflet-sidebar .close {
+    position: absolute;
+    right: -885%;
+    top: -10%;
+    width: 31px;
+    height: 31px;
+    color: black;
+    font-size: 30px;
+    line-height: 1em;
+    text-align: center;
+    background: white;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+	  margin-top:45px;
+    cursor: pointer;
+    z-index: 800; }
   }
 
 @media (orientation : landscape){
@@ -158,6 +175,24 @@
    border: 1px solid rgba(0, 0, 0, 1);
    background-clip: padding-box; 
   }
+  
+  
+    .leaflet-sidebar .close {
+    position: absolute;
+    right: -885%;
+    top: -10%;
+    width: 31px;
+    height: 31px;
+    color: black;
+    font-size: 30px;
+    line-height: 1em;
+    text-align: center;
+    background: white;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+	  margin-top:45px;
+    cursor: pointer;
+    z-index: 800; }
   
   }
 
