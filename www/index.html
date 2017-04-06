@@ -1197,6 +1197,19 @@ var routingButton = L.easyButton({
 		map.addControl(myControl);
 		});
 		
+		
+		
+		
+	window.addEventListener('orientationchange', doOnOrientationChange);
+
+	function doOnOrientationChange()
+	{
+      if (screen.height > screen.width) {
+         alert('portrait');
+      } else {
+         alert('landscape');
+      }
+	}
 
 
 		//L.rectangle(, {color: "#ff7800", weight: 1}).addTo(map);
