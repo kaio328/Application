@@ -74,7 +74,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
             /** If set, a circle that shows the location accuracy is drawn. */
             drawCircle: true,
             /** If set, the marker at the users' location is drawn. */
-            drawMarker: true,
+            drawMarker: false,
             /** The class to be used to create the marker. For example L.CircleMarker or L.Marker */
             markerClass: L.CircleMarker,
             /** Accuracy circle style properties. */
