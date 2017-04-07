@@ -291,7 +291,7 @@ waypoints: [
    return L.marker (Start.latLng, {
 					draggable: true,
 					bounceOnAdd: true,
-					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
+					bounceOnAddOptions: {duration: 500, height: 100, function(){(bindPopup(poppi).openOn(map))}}, 
 					
 icon: WalkMarker}).bindPopup(poppi).openPopup();
 	//}
@@ -334,7 +334,7 @@ waypoints: [
    return L.marker(waypoints.latLng, {
 					draggable: true,
 					bounceOnAdd: true,
-					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
+					bounceOnAddOptions: {duration: 500, height: 100, function(){(bindPopup(poppi).openOn(map))}}, 
 					
 icon: CarMarker}).bindPopup(poppi).openPopup();
 	},
@@ -1065,15 +1065,15 @@ var routingButton = L.easyButton({
 	
 	//map.setView([51.44459561, 7.26094000]);
 	//if(map.getCenter() == [51.44459561, 7.26094000]){
-	map.setView([51.44480, 7.26152],16);
-	map.addOneTimeEventListener('moveend', function () {
+	map.setView([51.44480, 7.26150],16);
+	/*map.addOneTimeEventListener('moveend', function () {
 	map.removeControl(controlWalk);
 	controlCar.addTo(map);
 	map.setView([51.44480, 7.26150],16);
-	});
-	//map.removeControl(controlWalk);
+	});*/
+	map.removeControl(controlWalk);
 	//map.removeControl(controlCar);
-	//controlCar.addTo(map);
+	controlCar.addTo(map);
 	//Control.getRouter().options.costing = "auto";
 				this.state('remove-routingCar');
 				routingButtonWalk.state('add-routingWalk');
