@@ -1201,25 +1201,26 @@ var routingButton = L.easyButton({
 		
 		
 	//Catch Orientation	
-	/*window.addEventListener('orientationchange', doOnOrientationChange);
+	window.addEventListener('orientationchange', doOnOrientationChange);
 
 	function doOnOrientationChange()
 	{
       if (screen.height > screen.width) {
-         alert('portrait');
-		 function ABC(){
+        // alert('portrait');
+		map.myControl.setPosition('bottomright');
+		/* function ABC(){
 		 		sidebar.on('show', function () {
 		map.removeControl(myControl);
 		});
 		
 		sidebar.on('hidden', function () {
 		map.addControl(myControl);
-		});
-		};
+		});*/
+		
       } else {
          alert('landscape');
       }
-	}*/
+	}
 
 
 		//L.rectangle(, {color: "#ff7800", weight: 1}).addTo(map);
