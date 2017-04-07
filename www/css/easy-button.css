@@ -83,13 +83,12 @@
 .state-remove-routing.remove-routing-active{
   transform: rotate(133deg);
   margin-left: 0px;
-  color: #FC8428;
   font-size: 1.1em; 
 }
 
 .state-add-routing.add-routing-active{
   }
- 
+
  
  /*-----------------------------------------Hier: Routing zu Fuß--------------------------------------------------------------*/
 .state-remove-routingWalk,
