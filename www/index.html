@@ -1219,7 +1219,9 @@ var routingButton = L.easyButton({
 		
       } else {
          //alert('landscape');
-		 myControl.setPosition('bottomleft');
+		 map.removeControl(loadingControl); 
+		 myControl.setPosition('bottomright');
+		 map.addControl(loadingControl); 
       }
 	}
 
