@@ -1192,10 +1192,13 @@ var routingButton = L.easyButton({
 		
 		sidebar.on('show', function () {
 		map.removeControl(myControl);
+		map.removeControl(loadingControl);
 		});
 		
 		sidebar.on('hidden', function () {
+		map.addControl(loadingControl); 
 		map.addControl(myControl);
+		 
 		});
 		
 		
