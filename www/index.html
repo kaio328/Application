@@ -290,8 +290,8 @@ waypoints: [
 	//for (i = 0; waypoint.length; i++){
    return L.marker (Start.latLng, {
 					draggable: true,
-					bounceOnAdd: true,
-					bounceOnAddOptions: {duration: 500, height: 100, function(){(bindPopup(poppi).openOn(map))}}, 
+					bounceOnAdd: false,
+					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
 					
 icon: WalkMarker}).bindPopup(poppi).openPopup();
 	//}
@@ -333,7 +333,7 @@ waypoints: [
      createMarker: function(i, waypoints, n){ 
    return L.marker(waypoints.latLng, {
 					draggable: true,
-					bounceOnAdd: true,
+					bounceOnAdd: false,
 					bounceOnAddOptions: {duration: 500, height: 100, function(){(bindPopup(poppi).openOn(map))}}, 
 					
 icon: CarMarker}).bindPopup(poppi).openPopup();
@@ -1015,12 +1015,7 @@ var routingButton = L.easyButton({
 	//sidebar.hide();
 	//removeButton.addTo(map);
 	//routingButton.disable();
-			map.removeEventListener('moveend', function () {
-			map.removeControl(controlWalk);
-			controlCar.addTo(map);
-			}); 
 	map.removeControl(controlCar);
-	//map.removeControl(controlWalk);
 	controlWalk.addTo(map);
 				this.state('remove-routingWalk');
 				routingButtonCar.state('add-routingCar');
