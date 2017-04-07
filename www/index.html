@@ -1206,7 +1206,7 @@ var routingButton = L.easyButton({
 	function doOnOrientationChange()
 	{
       if (screen.height > screen.width) {
-        alert('portrait');
+       myControl.setPosition('bottomleft');
 		//myControl.setPosition('bottomright');
 		/* function ABC(){
 		 		sidebar.on('show', function () {
@@ -1218,7 +1218,7 @@ var routingButton = L.easyButton({
 		});*/
 		
       } else {
-         alert('landscape');
+         //alert('landscape');
 		 myControl.setPosition('bottomright');
       }
 	}
