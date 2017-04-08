@@ -161,5 +161,7 @@ h3,h4 {
 	border-radius: 100px;
 	border-color: rgba(0, 0, 0, 1);
 	padding:0 4px 2px 4px;
+	margin-right: 10px;
+	margin-bottom: 3px;
 }
 
