@@ -768,17 +768,21 @@ L.Control.Search = L.Control.extend({
 		if(this._markerLoc)
 		{
 			//clearTimeout(this._markerLoc);
+				
 			var that = this;
-			this._markerLoc.setLatLng(latlng);  
-			this._markerLoc.setTitle(title);
-			this._markerLoc.show(), setTimeout(function() {								//Timeout setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch. Hier: 1,25 Sekunden
+			map.addOneTimeEventListener('moveend', function(){
+			that._markerLoc.setLatLng(latlng);  
+			that._markerLoc.setTitle(title);
+			that._markerLoc.show(), setTimeout(function() {								//Timeout setzen: Marker verschwindet nach eingegebener Zeit wieder von automatisch. Hier: 1,25 Sekunden
 			that._markerLoc.hide();
 			}, 1600);
+			});
 			//this._markerLoc.bindPopup(title);
 			
 			if(this.options.animateLocation)
-				this._markerLoc.animate();
-	
+				map.addOneTimeEventListener('moveend', function(a){
+				that._markerLoc.animate();
+	});
 		}
 		
 		if(this.options.autoCollapse)

@@ -877,13 +877,13 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 		
 	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
 	searchControl.on('search_locationfound', function(e) {
-	//map.on('moveend', function(a){		--> bei jedem Pan wird es aktiviert!
+	map.addOneTimeEventListener('moveend', function(){		
 	sidebar.hide();
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
 	removeButton.addTo(map);
-	//}),
+	});
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	});
 	map.addControl(searchControl);
