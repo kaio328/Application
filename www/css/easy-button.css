@@ -34,7 +34,8 @@
 .leaflet-bar button.disabled {
   cursor: default;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.1;
+  display: none;
   
 
 }
@@ -54,11 +55,9 @@
   max-width: 10000px;
   line-height: 30px;
 }
+
 .easy-button-container {
 	opacity: 1;
-	border-radius: 100px;
-  width: 40.5px;
-  height:40.5px;
  
 }
 
