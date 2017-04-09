@@ -120,7 +120,7 @@
     
   .leaflet-touch .leaflet-sidebar > .leaflet-control {
    overflow-y: scroll; /* has to be scroll, not auto */
-   -webkit-scrollbar: 1em;
+  -webkit-scrollbar: 1em;
   -webkit-overflow-scrolling: touch;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -162,7 +162,7 @@
 	margin-right:81.4%;
   
   /*margin-left: 40%;
-	opacity:1;
+	opacity:1;*/
   /*overflow-y: scroll; /* has to be scroll, not auto */
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -173,6 +173,7 @@
     .leaflet-touch .leaflet-sidebar > .leaflet-control {
    overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
+      -webkit-scrollbar: 1em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
    box-sizing: border-box;
