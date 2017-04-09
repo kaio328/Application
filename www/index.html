@@ -886,7 +886,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
-	removeButton.addTo(map);
+	removeButton.enable();
 	});
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	});
@@ -911,13 +911,15 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//routingButtonWalk.remove();
 	//routingWheelChair.remove();
 	//routingButton.enable();
-	removeButton.remove();
+	removeButton.disable();
 	//map.removeLayer(osm);
 	//map.addLayer(CampusMapLinear);
 	}
 	}
 	]
 	});
+	removeButton.addTo(map);
+	removeButton.disable();
 	//removeButton.addTo(map);
 	//removeButton.disable();
 	//removeButton.disable();
@@ -972,11 +974,11 @@ var routingButton = L.easyButton({
 		title: 'Routing hinzufügen',
 		onClick: function() {
 	//function(){
-	var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') {
+	//var alerted = localStorage.getItem('alerted') || '';
+    //if (alerted != 'yes') {
      //alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
-     localStorage.setItem('alerted','yes');
-    }
+     //localStorage.setItem('alerted','yes');
+    //}
 	routingButtonWalk.addTo(map);
 	routingButtonCar.addTo(map);
 
@@ -1109,16 +1111,12 @@ var routingButton = L.easyButton({
 	
 	
 	
-	/*var addOsm = L.easyButton('fa fa-exchange', function(){
-	map.addLayer(osm);
-	map.removeLayer(CampusMapLinear);
-	map.removeLayer(overlay);
-	addOsm.disable();
-	removeOsm.enable();
+	var addOsm = L.easyButton('fa fa-exchange', function(){
+	//L.DomUtil.removeClass(this._container, 'leaflet-routing-container-hide');
 	}).addTo(map);
 	
 	
-	var removeOsm = L.easyButton('fa fa-exchange', function(){
+	/*var removeOsm = L.easyButton('fa fa-exchange', function(){
 	map.removeLayer(osm);
 	map.addLayer(CampusMapLinear);
 	map.addLayer(overlay);

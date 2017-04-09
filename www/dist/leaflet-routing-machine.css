@@ -32,6 +32,7 @@
     padding: 6px;
     margin-top: 6px;
     margin-bottom: 6px;
+    margin-left: 6px;
     border-bottom: 1px solid #ccc;
     max-height: 320px;
     overflow-y: auto;

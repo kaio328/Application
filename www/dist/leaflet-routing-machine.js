@@ -2603,6 +2603,11 @@ if (typeof module === 'object' && module.exports) {
 			showAlternatives: false,
 			defaultErrorHandler: function(e) {
 				console.error('Routing error:', e.error);
+				var alerted = localStorage.getItem('alerted') || '';
+				if (alerted != 'yes') {
+				alert("Bitte beachte: Wird nach dem Verschieben der beiden Marker keine Route angezeigt, dann konnte keine ermittelt werden!");
+				localStorage.setItem('alerted','yes');
+    }
 			}
 		},
 
