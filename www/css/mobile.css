@@ -85,7 +85,15 @@ h3,h4 {
 
 }
 }*/
-
+.leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-layers-expanded {
+	padding: 1px 1px 1px 1px;
+	width: 131px;
+	height: 60px;
+	color: #333;
+	border:none;
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 1px;
+	}
 
 
 .leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-layers-expanded {
