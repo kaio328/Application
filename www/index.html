@@ -212,11 +212,10 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		map.spin(true);
 		map.addLayer(overlay);
-		setTimeout(function () {
-        map.spin(false);
-        }, 500);
+		});
+
+ 
 
 		/*map.dragging.enable();
 		map.touchZoom.enable();
