@@ -124,7 +124,7 @@ var defaults = {
   width: 5,             // The line thickness
   radius: 10,           // The radius of the inner circle
   rotate: 0,            // rotation offset
-  color: '#000',        // #rgb or #rrggbb
+  color: 'white',        // #rgb or #rrggbb
   speed: 1,             // Rounds per second
   trail: 100,           // Afterglow percentage
   opacity: 1/4,         // Opacity of the lines
