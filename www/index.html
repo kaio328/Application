@@ -119,9 +119,9 @@ var map = L.map('map', {
 	maxZoom: 17,
 	minZoom: 10,
 	center: [51.44480, 7.26150],
-	zoomSnap:0.1,
+	//zoomSnap:0.1,
 	detectRetina:true,
-	bounceAtZoomLimits: false
+	//bounceAtZoomLimits: false
 	})
 		.setView([51.44480, 7.26150], 17)
 		//.addLayer(osm);
@@ -138,7 +138,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	minZoom: 15,						//raus zoomen
 	center: [51.44480, 7.26150],
 	detectRetina: true,
-	zoomSnap:0.1,
+	//zoomSnap:0.1,
 	attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
 	}).addTo(map);
 		
