@@ -27,7 +27,7 @@
 		<script src="dist/leaflet.awesome-markers.js"></script>
 		<script src="dist/leaflet.ajax.js"></script>
 		
-		<script src="js/spin.js" charset="utf-8"></script>
+		<script src="js/spin.min.js" charset="utf-8"></script>
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
 		
 		
@@ -204,7 +204,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
-		map.spin(true)
+		//map.spin(true)
 		/*map.dragging.disable();
 		map.touchZoom.disable();
 		map.doubleClickZoom.disable();
@@ -215,7 +215,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		map.spin(false);
+		//map.spin(false);
 		map.addLayer(overlay);
 		/*map.dragging.enable();
 		map.touchZoom.enable();
@@ -1388,6 +1388,11 @@ var routingButton = L.easyButton({
 		map.setView(center, wantedZoom);*/
 		
 		
+if (map.hasLayer(overlay)){
+map.spin(false);
+} else {
+map.spin(true);
+};
 
 
 
