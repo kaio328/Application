@@ -82,7 +82,7 @@
 
     </div>
 	
-        <div id="map"></div>
+		<div id="map"></div>
         <script src="data/json_Alle.js"></script>
 		<script src="data/rahmen1.js"></script>
 		<script src="js/leaflet-search.js"></script>
@@ -93,42 +93,54 @@
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 	
         <script>
+		
 		//Einrichtung der Basiskarte
-		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			osm = L.tileLayer(osmUrl, {maxZoom: 17, minZoom: 15});
+var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	osm = L.tileLayer(osmUrl, {
+	maxZoom: 17,
+	minZoom: 15
+	});
 			
-		var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-		maxZoom: 17,
-		minZoom: 10,
-		opacity: 0.5,
-		detectRetina: true,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		});
+var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	minZoom: 10,
+	opacity: 0.5,
+	detectRetina: true,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
 			
-			
-			
+
 		//Einrichtung der Karte
-		var map = L.map('map', {zoomControl: false, rotate: true, touchRotate: false, maxZoom: 17, minZoom: 10,  center: [51.44480, 7.26150], zoomSnap:0.1})
-				.setView([51.44480, 7.26150], 17)
-				//.addLayer(osm);
-				.addLayer(OpenStreetMap_BlackAndWhite);
+var map = L.map('map', {
+	zoomControl: false,
+	rotate: true,
+	touchRotate: false,
+	maxZoom: 17,
+	minZoom: 10,
+	center: [51.44480, 7.26150],
+	zoomSnap:0.1,
+	detectRetina:true,
+	bounceAtZoomLimits: false
+	})
+		.setView([51.44480, 7.26150], 17)
+		//.addLayer(osm);
+		.addLayer(OpenStreetMap_BlackAndWhite);
 						
-				
 
 		//Drehung der Karte um Winkel x		
-		var angle = 27.825;
-		map.setBearing(angle);	
+var angle = 27.825;
+	map.setBearing(angle);	
 		
 		//Einrichtung der Campuskarte
-		var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
-		maxZoom: 17,
-		minZoom: 15,						//raus zoomen
-		center: [51.44480, 7.26150],
-		detectRetina: true,
-		zoomSnap:0.1,
-		attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
-		}).addTo(map);
+var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
+	maxZoom: 17,
+	minZoom: 15,						//raus zoomen
+	center: [51.44480, 7.26150],
+	detectRetina: true,
+	zoomSnap:0.1,
+	attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
+	}).addTo(map);
 		
 		//Polygon
 		/*var polygon = L.polygon([
@@ -247,9 +259,28 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
 		
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-			
-		var poppi = L.popup()
-		.setContent("Zieh mich an Dein Start/Ziel !");
+		//Marker für die Routing-Funktion ersteller
+var markerStart = L.AwesomeMarkers.icon({
+	icon: 'fa-map-marker',
+	prefix: 'fa',
+    markerColor: 'orange'
+	//iconColor: '#FC8428'
+});
+  
+var markerZiel = L.AwesomeMarkers.icon({
+    icon: 'fa-flag',
+	prefix: 'fa',
+    markerColor: 'orange',
+	iconColor: 'black'
+});
+		
+		
+		//Popups für die Routing-Marker erstellen	
+var popupStart = L.popup()
+	.setContent("Zieh mich an Deinen Startpunkt !");
+		
+var popupZiel = L.popup()
+	.setContent("Zieh mich an Deinen Zielpunkt !");
 		
 			
 			//Routing hinzufügen	
@@ -275,7 +306,7 @@ icon: redMarker}).bindPopup(poppi).openPopup();
 		var Start = L.latLng(51.44499, 7.26078);	
 		var Ziel = L.latLng(51.44375, 7.26185);
 
-var controlWalk = L.Routing.control({
+var controlRouting = L.Routing.control({
         lineOptions: {
             styles: [
                 {color: 'white', opacity: 0.9, weight: 9},
@@ -286,15 +317,24 @@ waypoints: [
     Start,
 	Ziel
   ],
-     createMarker: function (i, Start, n){ 
-	//for (i = 0; waypoint.length; i++){
-   return L.marker (Start.latLng, {
-					draggable: true,
-					bounceOnAdd: false,
-					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
-					
-icon: WalkMarker}).bindPopup(poppi).openPopup();
-	//}
+ createMarker: function (i, waypoint, n){ 
+    var marker = L.marker (waypoint.latLng, {
+                draggable: true,
+                bounceOnAdd: false,
+                bounceOnAddOptions: {
+                    duration: 1000,
+                    height: 800
+                },
+                icon: WalkMarker
+    })
+    if (i == 0) {
+        // This is the first marker, indicating start
+        marker.setIcon(markerStart).bindPopup(popupStart)
+    } else if (i == n -1) {
+        //This is the last marker indicating destination
+        marker.setIcon(markerZiel).bindPopup(popupZiel)
+    }
+    return marker
 	},
 	 /*createMarker: function(i, Ziel, n){ 
    return L.marker(Ziel.latLng, {
@@ -319,7 +359,7 @@ icon: CarMarker}).bindPopup(poppi).openPopup();
 	  //geocoder: L.Control.Geocoder.nominatim()
 });
 
-var controlCar = L.Routing.control({
+/*var controlCar = L.Routing.control({
  lineOptions: {
             styles: [
                 {color: 'white', opacity: 0.9, weight: 9},
@@ -330,13 +370,27 @@ waypoints: [
     Start,
 	Ziel
   ],
-     createMarker: function(i, waypoints, n){ 
-   return L.marker(waypoints.latLng, {
-					draggable: true,
-					bounceOnAdd: false,
-					bounceOnAddOptions: {duration: 500, height: 100, function(){(bindPopup(poppi).openOn(map))}}, 
-					
-icon: CarMarker}).bindPopup(poppi).openPopup();
+ createMarker: function (i, waypoint, n){ 
+    var marker = L.marker (waypoint.latLng, {
+                draggable: true,
+                bounceOnAdd: false,
+                bounceOnAddOptions: {
+                    duration: 1000,
+                    height: 800, 
+                    function(){
+                        (bindPopup(myPopup).openOn(map))
+                    }
+                },
+                icon: WalkMarker
+    })
+    if (i == 0) {
+        // This is the first marker, indicating start
+        marker.setIcon(markerStart).bindPopup(popupStart).openPopup(map)
+    } else if (i == n -1) {
+        //This is the last marker indicating destination
+        marker.setIcon(markerZiel).bindPopup(popupZiel).openPopup(map)
+    }
+    return marker
 	},
 	fitSelectedRoutes: false,
 	router: L.Routing.mapzen('mapzen-m7c1Upx', {
@@ -350,10 +404,10 @@ icon: CarMarker}).bindPopup(poppi).openPopup();
 	  formatter: new L.Routing.mapzenFormatter(),
 	  reverseWaypoints: true,
 	  //geocoder: L.Control.Geocoder.nominatim()
-});
+});*/
 
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 		//Sidebar einrichten
 	   var sidebar = L.control.sidebar('sidebar', {
@@ -927,7 +981,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
         title: "Standort anzeigen"
     },	
 	locateOptions: {
-               timeout: 20000}																				//ist auch der Default-Wert von Leaflet	   
+               timeout: 20000}																				//Default-Wert von Leaflet = 10000   
 	}).addTo(map);
 
 	//Routing-Button einfügen
@@ -973,8 +1027,11 @@ var routingButton = L.easyButton({
      //alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
      localStorage.setItem('alerted','yes');
     }*/
+	map.setView([51.44480, 7.26150],15);
+	controlRouting.addTo(map);
 	routingButtonWalk.addTo(map);
 	routingButtonCar.addTo(map);
+	
 
 	//routingButton.disable();
 	//removeButton.remove();
@@ -993,8 +1050,7 @@ var routingButton = L.easyButton({
 			//routingButton.enable();
 			//removeButton.addTo(map);
 			//removeButton.remove();
-			map.removeControl(controlWalk);
-			map.removeControl(controlCar);
+			map.removeControl(controlRouting);
 				this.state('add-routing');
 				    }
 	}]
@@ -1009,20 +1065,22 @@ var routingButton = L.easyButton({
 		title: 'zu Fuß',
 		onClick: function() {
 		
-	map.setView([51.44480, 7.26150],15);
+	
 	//if(map.getCenter() == [51.44459561, 7.26094000]){
 	//map.setView([51.44459561, 7.2609500], 17);
 	//sidebar.hide();
 	//removeButton.addTo(map);
 	//routingButton.disable();
-	map.removeControl(controlCar);
-	controlWalk.addTo(map);
+	//map.removeControl(controlCar);
+	controlRouting.getRouter().options.costing = "pedestrian";
+	controlRouting.route();
+	controlRouting.addTo(map);
 				this.state('remove-routingWalk');
 				routingButtonCar.state('add-routingCar');
 	}
 	}, {
 		stateName: 'remove-routingWalk',
-		title: 'zu Fuß',
+		title: 'Routing zu Fuß',
 		icon: 'fa fa-male',
 		onClick: function() {
 			//routingButtonWalk.remove();
@@ -1030,7 +1088,9 @@ var routingButton = L.easyButton({
 			//routingButton.enable();
 			//removeButton.addTo(map);
 			//removeButton.remove();
-			map.removeControl(controlWalk);
+			map.removeControl(controlRouting);
+			controlRouting.getRouter().options.costing = "";
+			controlRouting.addTo(map);
 				this.state('add-routingWalk');
 				    }
 	}]
@@ -1055,7 +1115,7 @@ var routingButton = L.easyButton({
 	states: [{
 		stateName: 'add-routingCar',
 		icon:'fa fa-car',
-		title: 'per Auto',
+		title: 'Routing per Auto',
 	onClick: function(){
 	
 	//map.setView([51.44459561, 7.26094000]);
@@ -1066,9 +1126,11 @@ var routingButton = L.easyButton({
 	controlCar.addTo(map);
 	map.setView([51.44480, 7.26150],16);
 	});*/
-	map.removeControl(controlWalk);
+	//map.removeControl(controlWalk);
+	controlRouting.getRouter().options.costing = "auto";
+	controlRouting.route();
 	//map.removeControl(controlCar);
-	controlCar.addTo(map);
+	//controlCar.addTo(map);
 	//Control.getRouter().options.costing = "auto";
 				this.state('remove-routingCar');
 				routingButtonWalk.state('add-routingWalk');
@@ -1083,7 +1145,10 @@ var routingButton = L.easyButton({
 			//routingButton.enable();
 			//removeButton.addTo(map);
 			//removeButton.remove();
-			map.removeControl(controlCar);
+			//map.removeControl(controlCar);
+			map.removeControl(controlRouting);
+			controlRouting.getRouter().options.costing = "";
+			controlRouting.addTo(map);
 				this.state('add-routingCar');
 				    }
 	}]
@@ -1237,7 +1302,7 @@ var routingButton = L.easyButton({
 		//L.rectangle(, {color: "#ff7800", weight: 1}).addTo(map);
 		//map.setMaxBounds([[51.44019, 7.2575],[51.45016, 7.26589]]);
 		
-		mybounds = new L.latLngBounds(southWest, northEast);
+		//mybounds = new L.latLngBounds(southWest, northEast);
 		var bounds = L.latLngBounds([[51.44019, 7.2575],[51.45016, 7.26589]]);
 		var wantedZoom = map.getBoundsZoom(bounds, true);
 		var center = bounds.getCenter();

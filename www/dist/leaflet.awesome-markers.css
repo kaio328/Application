@@ -44,6 +44,12 @@ Version: 1.0
 
 .awesome-marker .icon-white {
   color: #fff;
+  font-size: 17px;
+}
+
+.awesome-marker .icon-black {
+  color: #fff;
+  font-size: 15px;
 }
 
 /* Colors */
@@ -121,4 +127,7 @@ Version: 1.0
 
 .awesome-marker-icon-black {
   background-position: -682px 0;
+  
 }
+
+
