@@ -27,6 +27,9 @@
 		<script src="dist/leaflet.awesome-markers.js"></script>
 		<script src="dist/leaflet.ajax.js"></script>
 		
+		<script src="spin/dist/spin.min.js" charset="utf-8"></script>
+		<script src="leaflet.spin.min.js" charset="utf-8"></script>
+		
 		
 	
 		
@@ -60,7 +63,7 @@
         }
 
         html, body, #map {
-            height: 100%;
+
 			background-color: rgba(255, 0, 0, 0.0);
         }
 
@@ -73,6 +76,12 @@
 			font-style: arial;
          
         }
+		
+		#foo {
+    width: 	50px;
+    height: 50px;
+    background-color: #f00;
+}
 	
     </style>
 	
@@ -93,6 +102,29 @@
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 	
         <script>
+		var opts = {
+lines: 13, // The number of lines to draw
+length: 28, // The length of each line
+width: 14, // The line thickness
+radius: 42, // The radius of the inner circle
+scale: 1, // Scales overall size of the spinner
+corners: 1, // Corner roundness (0..1)
+color: '#000', // #rgb or #rrggbb or array of colors
+opacity: 0.25, // Opacity of the lines
+rotate: 0, // The rotation offset
+direction: 1, // 1: clockwise, -1: counterclockwise
+speed: 1, // Rounds per second
+trail: 60, // Afterglow percentage
+fps: 20, // Frames per second when using setTimeout() as a fallback for CSS
+zIndex: 2e9, // The z-index (defaults to 2000000000)
+className: 'spinner', // The CSS class to assign to the spinner
+top: '50%', // Top position relative to parent
+left: '50%', // Left position relative to parent
+shadow: false,// Whether to render a shadow
+hwaccel: false, // Whether to use hardware acceleration
+position: 'absolute', // Element positioning
+};	
+		
 		
 		//Einrichtung der Basiskarte
 var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -171,6 +203,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
+		map.spin(true)
 		/*map.dragging.disable();
 		map.touchZoom.disable();
 		map.doubleClickZoom.disable();
@@ -181,6 +214,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
+		map.spin(false);
 		map.addLayer(overlay);
 		/*map.dragging.enable();
 		map.touchZoom.enable();
@@ -191,6 +225,31 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		//map.removeLayer(CampusMapLinear);
 		});
 		
+		/*var visible;
+// Attach map zoom handler
+map.on('zoomend', function (e) {
+    // Check zoom level
+    if (map.getZoom() > 17) {
+        // Check if not already shown
+        if (!visible) {
+		//map.addLayer(Text);
+		//map.removeLayer(marker);
+		//map.addLayer(marker2);
+            };
+            // Set visibility flag
+            visible = true;
+        
+    } else {
+        // Check if not already hidden
+        if (visible) {
+            // Loop over layers
+			//map.removeLayer(Text);
+			//map.addLayer(marker);
+			//map.removeLayer(marker2);
+            };
+            // Set visibility flag
+            visible = false;
+        }
 		
 		localStorage.removeItem('alerted');
 		localStorage.removeItem('alerted1');
@@ -1328,6 +1387,8 @@ var routingButton = L.easyButton({
 		map.setView(center, wantedZoom);*/
 		
 		
+
+
 
     </script>
 
