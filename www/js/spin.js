@@ -125,7 +125,7 @@ var defaults = {
   radius: 10,           // The radius of the inner circle
   rotate: 0,            // rotation offset
   color: 'white',        // #rgb or #rrggbb
-  speed: 1,             // Rounds per second
+  speed: 2.2,             // Rounds per second
   trail: 100,           // Afterglow percentage
   opacity: 1/4,         // Opacity of the lines
   fps: 20,              // Frames per second when using setTimeout()
