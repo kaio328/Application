@@ -73,6 +73,7 @@
 
 .state-remove-routing{
   margin-top: -31px;
+  
   }
 
 .state-add-routing{
@@ -83,6 +84,7 @@
   transform: rotate(133deg);
   margin-left: 0px;
   font-size: 1.1em; 
+  color: #FC8428;
 }
 
 .state-add-routing.add-routing-active{
