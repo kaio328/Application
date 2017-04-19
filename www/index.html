@@ -193,6 +193,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		
 		localStorage.removeItem('alerted');
+		localStorage.removeItem('alerted1');
 		
 //Standart MarkerIcon für Gebrauch mit Angle 
 var smallIcon2 = new L.Icon({
@@ -346,7 +347,7 @@ icon: CarMarker}).bindPopup(poppi).openPopup();
 	},*/
 	fitSelectedRoutes: false,
 	router: L.Routing.mapzen('mapzen-m7c1Upx', {
-    costing: "pedestrian",
+    costing: "",
 	  directions_options: {
       language: 'de',
 	 // routeWhileDragging: true
@@ -1027,11 +1028,16 @@ var routingButton = L.easyButton({
      //alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
      localStorage.setItem('alerted','yes');
     }*/
+	var alerted1 = localStorage.getItem('alerted1') || '';
+    if (alerted1 != 'yes') {
+     alert("Hinweis: Ziehe die beiden Markierungen an Dein Start- und Zielpunkt. Wähle mittels angezeigter Schaltflächen anschließend dein bevorzugtes Reisemittel aus");
+     localStorage.setItem('alerted1','yes');
+    };
 	map.setView([51.44480, 7.26150],15);
-	controlRouting.addTo(map);
+	//controlRouting.addTo(map);
 	routingButtonWalk.addTo(map);
 	routingButtonCar.addTo(map);
-	
+	controlRouting.addTo(map);
 
 	//routingButton.disable();
 	//removeButton.remove();
@@ -1051,6 +1057,7 @@ var routingButton = L.easyButton({
 			//removeButton.addTo(map);
 			//removeButton.remove();
 			map.removeControl(controlRouting);
+			controlRouting.getRouter().options.costing = "";
 				this.state('add-routing');
 				    }
 	}]
@@ -1072,9 +1079,15 @@ var routingButton = L.easyButton({
 	//removeButton.addTo(map);
 	//routingButton.disable();
 	//map.removeControl(controlCar);
+	
+	var alerted = localStorage.getItem('alerted') || '';
+    if (alerted != 'yes') {
+     alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
+     localStorage.setItem('alerted','yes');
+    };
+	
 	controlRouting.getRouter().options.costing = "pedestrian";
 	controlRouting.route();
-	controlRouting.addTo(map);
 				this.state('remove-routingWalk');
 				routingButtonCar.state('add-routingCar');
 	}
@@ -1127,6 +1140,12 @@ var routingButton = L.easyButton({
 	map.setView([51.44480, 7.26150],16);
 	});*/
 	//map.removeControl(controlWalk);
+	var alerted = localStorage.getItem('alerted') || '';
+    if (alerted != 'yes') {
+     alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
+     localStorage.setItem('alerted','yes');
+    };
+	
 	controlRouting.getRouter().options.costing = "auto";
 	controlRouting.route();
 	//map.removeControl(controlCar);
