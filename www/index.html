@@ -10,13 +10,18 @@
 		
 		
 		<script src="js/leaflet.js"></script>
-		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
+
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
 		<script src="dist/leaflet-routing-machine.js"></script>
 		<script src="dist/lrm-mapzen.js"></script>
 		<script src="dist/lrm-valhalla.js"></script>
 		<script src="dist/Control.Geocoder.js"></script>
+		<script src="js/leaflet-search.js"></script>
+		<script src="js/easy-button.js"></script>
+		<script src="js/L.Control.Locate.js" ></script>
+		<script src="js/L.Control.Sidebar.js"></script>
+
 
 
         <script src="js/label.js"></script>
@@ -26,9 +31,12 @@
 		<script src="js/bouncemarker.js"></script>
 		<script src="dist/leaflet.awesome-markers.js"></script>
 		<script src="dist/leaflet.ajax.js"></script>
+		<script src="js/L.Control.Sidebar.js"></script>
 		
-		<script src="js/spin.min.js" charset="utf-8"></script>
+		<script src="js/spin.js" charset="utf-8"></script>
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
+		
+		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
@@ -91,20 +99,15 @@
 		<div id="map"></div>
         <script src="data/json_Alle.js"></script>
 		<script src="data/rahmen1.js"></script>
-		<script src="js/leaflet-search.js"></script>
-		<script src="js/easy-button.js"></script>
-		<script src="js/leaflet-gps.js"></script>
-		<script src="js/L.Control.Locate.js" ></script>
-		<script src="js/L.Control.Sidebar.js"></script>
-		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
+
 	
         <script>
 var opts = {
-	lines: 11, // The number of lines to draw
+	lines: 15, // The number of lines to draw
 	length: 0, // The length of each line
 	width: 7, // The line thickness
 	radius: 19, // The radius of the inner circle
-	scale: 1.5, // Scales overall size of the spinner
+	scale: 0.5, // Scales overall size of the spinner
 	corners: 1, // Corner roundness (0..1)
 	color: '#000', // #rgb or #rrggbb or array of colors
 	opacity: 0.35, // Opacity of the lines
@@ -117,11 +120,13 @@ var opts = {
 	className: 'spinner', // The CSS class to assign to the spinner
 	top: '50%', // Top position relative to parent
 	left: '50%', // Left position relative to parent
-	shadow: false,// Whether to render a shadow
+	shadow: true,// Whether to render a shadow
 	hwaccel: false, // Whether to use hardware acceleration
 	position: 'absolute' // Element positioning
 
-};	
+}
+var target = document.getElementById('foo')
+var spinner = new Spinner(opts).spin(target);
 		
 		
 		//Einrichtung der Basiskarte
@@ -216,7 +221,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		setTimeout(function() {
 		map.addLayer(overlay);
 		map.spin(false);
-		})
+		}, 500)
 		});
 		
 

@@ -131,6 +131,7 @@ var defaults = {
   fps: 20,              // Frames per second when using setTimeout()
   zIndex: 2e9,          // Use a high z-index by default
   className: 'spinner', // CSS class to assign to the element
+  shadow: true,
   top: 'auto',          // center vertically
   left: 'auto'          // center horizontally
 };
