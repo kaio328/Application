@@ -170,7 +170,10 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		};
 		
 		map.on("zoomstart", function(){
-		map.removeLayer(overlay);
+		overlay.setStyle({
+		opacity: 0
+		})
+		});
 		/*map.dragging.disable();
 		map.touchZoom.disable();
 		map.doubleClickZoom.disable();
@@ -179,9 +182,10 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.disable();*/
 		
 		//map.addLayer(CampusMapLinear);
-		});
 		map.on("zoomend", function(){
-		map.addLayer(overlay);
+		overlay.setStyle({
+		opacity: 1
+		});
 		/*map.dragging.enable();
 		map.touchZoom.enable();
 		map.doubleClickZoom.enable();
