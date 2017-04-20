@@ -54,7 +54,7 @@
 	right:50px;												/* Ausrichtung des x-Cancels */
 	margin:3px 0;
 	margin-top: 10px;
-	background: url('../css/images/close.svg') no-repeat 0px 3px;
+	background: url('../css/images/close.s') no-repeat 0px 3px;
 	text-decoration:none;
 	opacity: 0.8;		
 }
