@@ -160,7 +160,7 @@ L.Control.Search = L.Control.extend({
 		this._input.focus();
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
-		removeButton._container.style.display = "none";
+		//removeButton._container.style.display = "none";
 		//this._markerLoc.hide(); 
 		//sidebar.hide();
 		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
