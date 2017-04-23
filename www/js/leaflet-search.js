@@ -160,9 +160,13 @@ L.Control.Search = L.Control.extend({
 		this._input.focus();
 		this._cancel.style.display = 'none';
 		this._hideTooltip();
+		removeButton._container.style.display = "none";
 		//this._markerLoc.hide(); 
 		//sidebar.hide();
 		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
+		if (screen.height < screen.width) {
+		controlRouting._container.style.display = "none";
+		} 
 		return this;
 	},
 	
@@ -177,12 +181,7 @@ L.Control.Search = L.Control.extend({
 		this.fire('search_expanded');
 				  if (screen.height < screen.width) {
 			controlRouting._container.style.display = "none";
-			
-		
-      } else {
-		controlRouting._container.style.display = "none";
-		
-      }
+					} 
 		return this;	
 	},
 
@@ -203,11 +202,6 @@ L.Control.Search = L.Control.extend({
 		
 						   if (screen.height < screen.width) {
 			controlRouting._container.style.display = "Block";
-			
-		
-      } else {
-		controlRouting._container.style.display = "none";
-		
       }
 		
 		return this;
