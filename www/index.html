@@ -69,7 +69,8 @@
 
         html, body, #map {
 
-			background-color: rgba(255, 255, 255, 0.0);
+			background-color: black;
+			background-opacity: 0.0;
         }
 
         .lorem {
@@ -178,7 +179,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	//zoomSnap:0.1,
 	bounceAtZoomLimits: false,
 	attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
-	}).addTo(map);
+	});
 		
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
@@ -193,7 +194,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 		};
 		
-		/*map.on("zoomstart", function(){
+		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
 		//map.spin(true)
 		/*map.dragging.disable();
@@ -202,16 +203,17 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
 		map.keyboard.disable();*/
-		
-		//map.addLayer(CampusMapLinear);
-		/*});
+		map.addLayer(CampusMapLinear);
+		});
 		map.on("zoomend", function(){
-		map.spin(true);
+		map.removeLayer(CampusMapLinear);
+		map.addLayer(overlay);
+		/*map.spin(true);
 		setTimeout(function() {
 		map.addLayer(overlay);
 		map.spin(false);
-		}, 500)
-		});*/
+		}, 500)*/
+		});
 		
 
 		/*map.dragging.enable();
@@ -904,7 +906,7 @@ var routingButton = L.easyButton({
 	}).addTo(map);
 	
 	*/
-	var opacityButton1 = L.easyButton('fa fa-plus', function(){
+	/*var opacityButton1 = L.easyButton('fa fa-plus', function(){
 	overlay.addTo(map);
 	}).addTo(map);
 	
@@ -920,7 +922,7 @@ var routingButton = L.easyButton({
 	
 	var opacityButton4 = L.easyButton('fa fa-minus', function(){
 	map.removeLayer(OpenStreetMap_BlackAndWhite);
-	}).addTo(map);
+	}).addTo(map);*/
 	
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		/*var point1 = L.latLng(51.44539, 7.25305),
@@ -964,7 +966,7 @@ var routingButton = L.easyButton({
 		
 // 		var c = overlay.getCanvas2DContext()
 		
-		//map.addLayer(overlay);
+		map.addLayer(overlay);
 		
 
 		/*overlay.on('dblclick',function (e) {
@@ -1045,7 +1047,7 @@ var routingButton = L.easyButton({
 		var center = bounds.getCenter();
 		map.setView(center, wantedZoom);*/
 		
-/*var visible;		
+var visible;		
 if (map.hasLayer(overlay)){
 if (!visible) {
 map.spin(false);
@@ -1058,7 +1060,7 @@ map.spin(true);
  // Set visibility flag
             visible = false;
 }
-};*/
+};
 
 
 
