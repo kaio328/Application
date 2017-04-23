@@ -1016,18 +1016,17 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
-	});
 	
-		function doOnOrientationChangeSecond(){
-      if (screen.height > screen.width) {
-		removeButton.addTo(map);
+	   if (screen.height > screen.width) {
+			removeButton.addTo(map);
+			
 		
       } else {
 		controlRouting._container.style.display = "None";
 		removeButton.addTo(map);
 		controlRouting._container.style.display = "Block";
       }
-	};
+	})
 	});
 	// L.easyButton.addTo(map);         --> klappt nicht!
 	map.addControl(searchControl);
