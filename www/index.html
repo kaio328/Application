@@ -69,7 +69,7 @@
 
         html, body, #map {
 
-			background-color: black;
+			background-color: rgba(0, 0, 0, 0.0);
         }
 
         .lorem {
@@ -160,9 +160,9 @@ var map = L.map('map', {
 	//detectRetina:true,
 	bounceAtZoomLimits: false
 	})
-		.setView([51.44480, 7.26150], 17)
+		.setView([51.44480, 7.26150], 17);
 		//.addLayer(osm);
-		.addLayer(OpenStreetMap_BlackAndWhite);
+		//.addLayer(OpenStreetMap_BlackAndWhite);
 						
 
 		//Drehung der Karte um Winkel x		
@@ -1311,10 +1311,23 @@ var routingButton = L.easyButton({
 	overlay.setOpacity(0.0);
 	}).addTo(map);
 	
-	var opacityButton = L.easyButton('fa fa-plus', function(){
-		CampusMapLinear.setOpacity(0.4);
-	overlay.setOpacity(0.4);
-	}).addTo(map);*/
+	*/
+	var opacityButton1 = L.easyButton('fa fa-plus', function(){
+	overlay.addTo(map);
+	}).addTo(map);
+	
+	var opacityButton2 = L.easyButton('fa fa-minus', function(){
+	overlay.remove();
+	}).addTo(map);
+	
+	var opacityButton3 = L.easyButton('fa fa-plus', function(){
+	map.addLayer(OpenStreetMap_BlackAndWhite);
+	//map._container.style.background-color = "black";
+	}).addTo(map);
+	
+	var opacityButton4 = L.easyButton('fa fa-minus', function(){
+	map.removeLayer(OpenStreetMap_BlackAndWhite);
+	}).addTo(map);
 	
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		/*var point1 = L.latLng(51.44539, 7.25305),
@@ -1358,7 +1371,7 @@ var routingButton = L.easyButton({
 		
 // 		var c = overlay.getCanvas2DContext()
 		
-		map.addLayer(overlay);
+		//map.addLayer(overlay);
 		
 
 		/*overlay.on('dblclick',function (e) {
@@ -1439,7 +1452,7 @@ var routingButton = L.easyButton({
 		var center = bounds.getCenter();
 		map.setView(center, wantedZoom);*/
 		
-var visible;		
+/*var visible;		
 if (map.hasLayer(overlay)){
 if (!visible) {
 map.spin(false);
@@ -1452,7 +1465,7 @@ map.spin(true);
  // Set visibility flag
             visible = false;
 }
-};
+};*/
 
 
 
