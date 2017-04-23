@@ -110,10 +110,14 @@ h3,h4 {
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-loading,
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-zoom a.leaflet-control-loading ,
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-zoomslider a.leaflet-control-loading {
-  border: 1px solid #fff;
-	border-radius: 100px;
+  border: 0px solid #fff;
+	border-radius: 0px;
 	border-color: rgba(0, 0, 0, 1);
-	margin-bottom: 5px;
+	margin-bottom: 0px;
+	width: 0px;
+	height: 0px;
+	margin-bottom: 10px;
+	margin-right: 15px;
 }
 
 

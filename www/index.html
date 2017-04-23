@@ -503,7 +503,7 @@ waypoints: [
                     separate: true,	//nicht angedockt am Zoom-Button
 					position: 'bottomright'					
                 });			
-                //map.addControl(loadingControl); 
+                map.addControl(loadingControl); 
 				
 				
 		//Maßstab einfügen
@@ -1016,10 +1016,20 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
-	removeButton.addTo(map);
+	});
+	
+		function doOnOrientationChangeSecond(){
+      if (screen.height > screen.width) {
+		removeButton.addTo(map);
+		
+      } else {
+		controlRouting._container.style.display = "None";
+		removeButton.addTo(map);
+		controlRouting._container.style.display = "Block";
+      }
+	};
 	});
 	// L.easyButton.addTo(map);         --> klappt nicht!
-	});
 	map.addControl(searchControl);
 	
 	
@@ -1295,6 +1305,7 @@ var routingButton = L.easyButton({
 		CampusMapLinear.setOpacity(0.4);
 	overlay.setOpacity(0.4);
 	}).addTo(map);*/
+	
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		/*var point1 = L.latLng(51.44539, 7.25305),
 		    point2 = L.latLng(51.44972, 7.26602),
