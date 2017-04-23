@@ -69,7 +69,7 @@
 
         html, body, #map {
 
-			background-color: rgba(0, 0, 0, 0.0);
+			background-color: rgba(255, 0, 0, 0.5);
 			background-opacity:0;
         }
 
@@ -915,6 +915,7 @@ var routingButton = L.easyButton({
 	
 	var opacityButton3 = L.easyButton('fa fa-plus', function(){
 	map.addLayer(OpenStreetMap_BlackAndWhite);
+	CampusMapLinear.bringToFront();
 	//map._container.style.background-color = "black";
 	}).addTo(map);
 	
