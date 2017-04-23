@@ -1411,9 +1411,28 @@ var routingButton = L.easyButton({
 		 myControl.setPosition('bottomright');
 		 map.addControl(loadingControl); 
 		 controlRouting._container.style.display = "Block";
-		 searchControl._cancel();
+		 
+		searchControl._input.value = '';
+		searchControl._handleKeypress({keyCode:8});
+		searchControl._input.size = searchControl._inputMinSize;
+		searchControl._input.focus();
+		searchControl._cancel.style.display = 'none';
+		searchControl._hideTooltip();
+		removeButton._container.style.display = "none";
+		//this._markerLoc.hide(); 
+		//sidebar.hide();
+		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
+		if (screen.height < screen.width) {
+		controlRouting._container.style.display = "none";
+		
+		} else {
+		controlRouting._container.style.display = "none";
+		
       }
+		return searchControl;
 	}
+      }
+	
 
 					//Einrichtung der maxBounds
 		/*var southWest = L.latLng([51.44019, 7.2575], map.getMaxZoom()-5);				//[link unten , link oben];
