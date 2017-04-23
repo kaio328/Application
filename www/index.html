@@ -1412,13 +1412,7 @@ var routingButton = L.easyButton({
 		 map.addControl(loadingControl); 
 		 controlRouting._container.style.display = "Block";
 		 
-		searchControl._input.value = '';
-		searchControl._handleKeypress({keyCode:8});
-		searchControl._input.size = searchControl._inputMinSize;
-		searchControl._input.focus();
-		searchControl._cancel.style.display = 'none';
-		searchControl._hideTooltip();
-		removeButton._container.style.display = "none";
+		searchControl.collapse();
 		//this._markerLoc.hide(); 
 		//sidebar.hide();
 		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
