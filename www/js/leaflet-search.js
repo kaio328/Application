@@ -175,7 +175,7 @@ L.Control.Search = L.Control.extend({
 			this._map.on('dragstart click', this.collapse, this);
 		}
 		this.fire('search_expanded');
-				  /* if (screen.height < screen.width) {
+				  if (screen.height < screen.width) {
 			controlRouting._container.style.display = "none";
 			
 		
@@ -183,7 +183,7 @@ L.Control.Search = L.Control.extend({
 		removeButton.addTo(map);
 		controlRouting._container.style.display = "Block";
 		
-      }*/
+      }
 		return this;	
 	},
 
@@ -202,7 +202,7 @@ L.Control.Search = L.Control.extend({
 		}
 		this.fire('search_collapsed');
 		
-						   /*if (screen.height < screen.width) {
+						   if (screen.height < screen.width) {
 			controlRouting._container.style.display = "Block";
 			
 		
@@ -210,7 +210,7 @@ L.Control.Search = L.Control.extend({
 		removeButton.addTo(map);
 		controlRouting._container.style.display = "none";
 		
-      }*/
+      }
 		
 		return this;
 	},
