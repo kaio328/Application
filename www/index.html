@@ -207,12 +207,24 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		});
 		map.on("zoomend", function(){
 		map.removeLayer(CampusMapLinear);
-		map.addLayer(overlay);
-		/*map.spin(true);
+		//map.addLayer(overlay);
+		
+		map.spin(true);
+		map.touchZoom.disable();
+		map.doubleClickZoom.disable();
+		map.scrollWheelZoom.disable();
+		map.boxZoom.disable();
+		map.keyboard.disable();
+		
 		setTimeout(function() {
 		map.addLayer(overlay);
+		map.touchZoom.enable();
+		map.doubleClickZoom.enable();
+		map.scrollWheelZoom.enable();
+		map.boxZoom.enable();
+		map.keyboard.enable();
 		map.spin(false);
-		}, 500)*/
+		}, 200)
 		});
 		
 
@@ -1060,7 +1072,7 @@ map.spin(true);
  // Set visibility flag
             visible = false;
 }
-};
+}
 
 
 
