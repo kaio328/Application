@@ -180,7 +180,7 @@ L.Control.Search = L.Control.extend({
 			
 		
       } else {
-		controlRouting._container.style.display = "Block";
+		controlRouting._container.style.display = "none";
 		
       }
 		return this;	
@@ -201,8 +201,8 @@ L.Control.Search = L.Control.extend({
 		}
 		this.fire('search_collapsed');
 		
-						   if (screen.height > screen.width) {
-			controlRouting._container.style.display = "Block";
+						   if (screen.height < screen.width) {
+			controlRouting._container.style.display = "none";
 			
 		
       } else {
