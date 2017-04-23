@@ -269,6 +269,20 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 		myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+  var WalkMarker = L.AwesomeMarkers.icon({
+    icon: 'fa-male',
+	prefix: 'fa',
+    markerColor: 'orange',
+	//iconColor: '#FC8428'
+  });
+  
+   var CarMarker = L.AwesomeMarkers.icon({
+    icon: 'fa-car',
+	prefix: 'fa',
+    markerColor: 'orange',
+	//iconColor: 'black'
+  });
+
 
 		//Marker für die Routing-Funktion ersteller
 var markerStart = L.AwesomeMarkers.icon({
