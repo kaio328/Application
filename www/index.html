@@ -180,20 +180,6 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
 	}).addTo(map);
 		
-		//Polygon
-		/*var polygon = L.polygon([
-			[51.44023, 7.25746],
-			[51.44451, 7.27044],
-			[51.44867, 7.26471],
-			[51.4449, 7.25346]
-			], 
-			{
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.0,
-			}
-			).addTo(map);*/
-			
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		//Einrichtung einer LayerGroup --> für mapOverlays
@@ -207,7 +193,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 		};
 		
-		map.on("zoomstart", function(){
+		/*map.on("zoomstart", function(){
 		map.removeLayer(overlay);
 		//map.spin(true)
 		/*map.dragging.disable();
@@ -218,14 +204,14 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.disable();*/
 		
 		//map.addLayer(CampusMapLinear);
-		});
+		/*});
 		map.on("zoomend", function(){
 		map.spin(true);
 		setTimeout(function() {
 		map.addLayer(overlay);
 		map.spin(false);
 		}, 500)
-		});
+		});*/
 		
 
 		/*map.dragging.enable();
@@ -265,49 +251,7 @@ map.on('zoomend', function (e) {
 		*/
 		localStorage.removeItem('alerted');
 		localStorage.removeItem('alerted1');
-		
-//Standart MarkerIcon für Gebrauch mit Angle 
-var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker1.png',
-    iconRetinaUrl: 'css/images/marker1.png',
-    iconSize:    [25, 41],
-    iconAnchor:  [12, 41],
-    popupAnchor: [1, -34],
-    shadowUrl: 'css/images/marker-shadow.png',
-    shadowSize:  [41, 41]
-});
-
-  var WalkMarker = L.AwesomeMarkers.icon({
-    icon: 'fa-male',
-	prefix: 'fa',
-    markerColor: 'orange',
-	//iconColor: '#FC8428'
-  });
-  
-   var CarMarker = L.AwesomeMarkers.icon({
-    icon: 'fa-car',
-	prefix: 'fa',
-    markerColor: 'orange',
-	//iconColor: 'black'
-  });
-
-
-var ParkplatzIcon = new L.Icon({
-    iconUrl: 'css/images/Parkplatz.png',
-    iconRetinaUrl: 'css/images/Parkplatz.png',
-    iconSize:    [26, 26],
-    iconAnchor:  [45, -32],
-    popupAnchor: [1, -34]
-});
-	
-var ParkplatzIcon2 = new L.Icon({
-    iconUrl: 'css/images/Parkplatz.png',
-    iconRetinaUrl: 'css/images/Parkplatz.png',
-    iconSize:    [50, 50],
-    iconAnchor:  [88, -63],
-    popupAnchor: [1, -34]
-});	
-
+			
 		//Marker erstellen zur Vermessung der Koordinaten in der Karte
 /*var marker = L.marker([51.44459561, 7.26093000], {
 icon: smallIcon2,
@@ -324,13 +268,7 @@ marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(m
 		myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		//Simples Imageoverlay einfügen
-		//var imageUrl = 'Campusplan_roh.png',
-		//imageBounds = [[51.4566, 7.26], [51.4355, 7.27]];
 
-		//L.imageOverlay(imageUrl, imageBounds).addTo(map);
-		
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		//Marker für die Routing-Funktion ersteller
 var markerStart = L.AwesomeMarkers.icon({
 	icon: 'fa-circle-o',
@@ -355,25 +293,6 @@ var popupZiel = L.popup()
 	.setContent("Zieh mich an Deinen Zielpunkt !");
 		
 			
-			//Routing hinzufügen	
-		/*var Control = L.Routing.control({
- waypoints: [
-    L.latLng(51.44499, 7.26078),
-    L.latLng(51.44375, 7.26185)
-  ],
-   createMarker: function(i, waypoints, n){ 
-   return L.marker(waypoints.latLng, {
-					draggable: true,
-					bounceOnAdd: true,
-					bounceOnAddOptions: {duration: 1000, height: 800, function(){(poppi.openOn(map))}}, 
-					
-icon: redMarker}).bindPopup(poppi).openPopup();
-	},	
-	language: 'de',
-	routeWhileDragging: true
-   //geocoder: L.Control.Geocoder.nominatim(),
-   //reverseWaypoints: true
-});*/
 
 		var Start = L.latLng(51.44499, 7.26078);	
 		var Ziel = L.latLng(51.44375, 7.26185);
@@ -408,14 +327,6 @@ waypoints: [
     }
     return marker
 	},
-	 /*createMarker: function(i, Ziel, n){ 
-   return L.marker(Ziel.latLng, {
-					draggable: true,
-					bounceOnAdd: true,
-					bounceOnAddOptions: {duration: 1000, height: 800, function(){(bindPopup(poppi).openOn(map))}}, 
-					
-icon: CarMarker}).bindPopup(poppi).openPopup();
-	},*/
 	fitSelectedRoutes: false,
 	router: L.Routing.mapzen('mapzen-m7c1Upx', {
     costing: "",
@@ -430,53 +341,6 @@ icon: CarMarker}).bindPopup(poppi).openPopup();
 	  reverseWaypoints: true,
 	  //geocoder: L.Control.Geocoder.nominatim()
 });
-
-/*var controlCar = L.Routing.control({
- lineOptions: {
-            styles: [
-                {color: 'white', opacity: 0.9, weight: 9},
-                {color: '#FC8428', opacity: 1, weight: 3}
-            ]
-        },
-waypoints: [
-    Start,
-	Ziel
-  ],
- createMarker: function (i, waypoint, n){ 
-    var marker = L.marker (waypoint.latLng, {
-                draggable: true,
-                bounceOnAdd: false,
-                bounceOnAddOptions: {
-                    duration: 1000,
-                    height: 800, 
-                    function(){
-                        (bindPopup(myPopup).openOn(map))
-                    }
-                },
-                icon: WalkMarker
-    })
-    if (i == 0) {
-        // This is the first marker, indicating start
-        marker.setIcon(markerStart).bindPopup(popupStart).openPopup(map)
-    } else if (i == n -1) {
-        //This is the last marker indicating destination
-        marker.setIcon(markerZiel).bindPopup(popupZiel).openPopup(map)
-    }
-    return marker
-	},
-	fitSelectedRoutes: false,
-	router: L.Routing.mapzen('mapzen-m7c1Upx', {
-    costing: "auto",
-	   directions_options: {
-      language: 'de',
-	  }
-	  }),	
-	  //routeWhileDragging: true,
-		//routeWhileDragging: true,
-	  formatter: new L.Routing.mapzenFormatter(),
-	  reverseWaypoints: true,
-	  //geocoder: L.Control.Geocoder.nominatim()
-});*/
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -505,27 +369,7 @@ waypoints: [
                 });			
                 map.addControl(loadingControl); 
 				
-				
-		//Maßstab einfügen
-		//L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		--> Kann entfernt werden?
-		
-		//Feature-/Layergroups einrichten
-        var feature_group = new L.featureGroup([]);
-        var bounds_group = new L.featureGroup([]);
-        var raster_group = new L.LayerGroup([]);
-	
-		//Anordnung der Layer (?)
-        var layerOrder = new Array();
-        function restackLayers() {
-            for (index = 0; index < layerOrder.length; index++) {
-                layerOrder[index].bringToFront();
-            }
-        }
-        map.on('overlayadd', restackLayers);
-        layerControl = L.control.layers({},{},{collapsed:false});
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		//PopUp-Inhalt definieren (=popupContent), an sidebar übergeben, die per click auf ein feature geöffnet wird
 		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
@@ -572,6 +416,7 @@ waypoints: [
 			//onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 		//	pointToLayer: doPointToLayerAlle
 			//});
+			
 	json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
@@ -581,283 +426,16 @@ waypoints: [
 
 
 		
-	 
-	  //Style festlegen, der für Polygone genutzt wird
-		var stylePolygone = {
-		"color":  'rgb(7, 48, 87)',
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
-		var styleGrunflaechen = {
-		"color": 'rgb(212, 238, 189)',			//"#d4eebdff"
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
-		var styleParken = {
-		"color": 'rgb(215, 209, 207)',		//"d7d1cfff"
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
+		//add Polygone
 		var styleRahmen = {
 		"color": 'rgb(0, 0, 1)',
 		"weight": 2.5,
 		"opacity": 1,
 		"fillOpacity": 0
 		};
-		var styleSperrungen = {
-		"color": "#000000ff",
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
-		var styleTreppe = {
-		"color": "#000000ff",
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
-		var styleUbergange = {
-		"color": 'rgb(74, 102, 145)',		//"#4a6691ff",
-		"weight": 1,
-		"opacity": 0.65,
-		"fillOpacity": 1
-		};
-		
-		//add Polygone
 		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
-		//json_grunflaechenJSON = new L.geoJson(json_grunflaechen8, {interactive: false, style: styleGrunflaechen}).addTo(polygone);
-		//json_parkenJSON = new L.geoJson(json_parken12, {interactive: false, style: styleParken}).addTo(polygone);
-		//json_ubergangeJSON = new L.geoJson(json_ubergange7, {interactive: false, style: styleUbergange}).addTo(polygone);
-		//json_polygonJSON = new L.geoJson(json_polygon9, {interactive: false, style: stylePolygone}).addTo(polygone);
-		//json_treppeJSON = new L.geoJson(json_treppen4, {interactive: false, style: styleTreppe}).addTo(polygone);
-		//json_sperrungenJSON = new L.geoJson(json_sperrungen3, {interactive: false, style: styleSperrungen}).addTo(polygone);
 		
 
-//Layergruppe erstellen
-var Text = new L.layerGroup([]);
-/*Text.on('click', function(e) {
-Text.bindPopup("Test");
-Text.getPopup().setContent('Clicked' + Text.getLatLng().toString()).openOn(map);
-});*/
-
-//Icons und Marker instanziieren, verknüpfen und Layergruppe "Text" zuordnen
-
-
-
-//Unicenter
-var iconUnicenter = new L.divIcon({
-	className: 'leaflet-div-icon-klein-s1',
-	iconSize:    [0, 0],
-	html: '<b>UNICENTER</b>'
-	});	
-var Unicenter = L.marker([51.4469, 7.25789], {icon: iconUnicenter});	
-Text.addLayer(Unicenter);
-
-
-//UFO
-var iconUFO = new L.divIcon({
-	className: 'leaflet-div-icon-klein1',
-	iconSize:    [0, 0],
-	html: '<b>UFO</b>'
-	});	
-var UFO = L.marker([51.44728, 7.25938], {icon: iconUFO});	
-Text.addLayer(UFO);
-//Icons/Marker für Schriftgröße - klein -
---> Übergänge
---> AkaFö, TestDaF, 
---> Parken
---> CC
---> Straßen
---> Sperrungen
---> KITA
---> Forum
---> ZN
---> MSZ
-
-//Universitätsstraße
-var iconUniversitätsstrasse = new L.divIcon({
-	className: 'leaflet-div-icon-klein0',
-	iconSize:    [50, 20],
-	html: '<b>Universitätsstrasse</b>'
-	});	
-var Universitätsstrasse = L.marker([51.44733, 7.26061], {icon: iconUniversitätsstrasse});	
-Text.addLayer(Universitätsstrasse);
-
-//I-Nordstraße
-var iconInordstraße = new L.divIcon({
-	className: 'leaflet-div-icon-klein1-1',
-	iconSize:    [50, 20],
-	html: '<b>I-Nordstr.</b>'
-	});	
-var Inordstraße = L.marker([51.44658, 7.26255], {icon: iconInordstraße});	
-Text.addLayer(Inordstraße);
-
-//IAN
-var iconIAN = new L.divIcon({
-	className: 'leaflet-div-icon-klein2',
-	iconSize:    [0, 0],
-	html: '<b>IAN</b>'
-	});	
-var IAN = L.marker([51.44677, 7.26119], {icon: iconIAN});	
-Text.addLayer(IAN);
-
-//IBN
-var iconIBN = new L.divIcon({
-	className: 'leaflet-div-icon-klein2',
-	iconSize:    [0, 0],
-	html: '<b>IBN</b>'
-	});	
-var IBN = L.marker([51.44723, 7.26227], {icon: iconIBN});	
-Text.addLayer(IBN);
-
-//ICN
-var iconICN = new L.divIcon({
-	className: 'leaflet-div-icon-klein2',
-	iconSize:    [0, 0],
-	html: '<b>ICN</b>'
-	});	
-var ICN = L.marker([51.44743, 7.26307], {icon: iconICN});	
-Text.addLayer(ICN);
-
-//IDN
-var iconIDN = new L.divIcon({
-	className: 'leaflet-div-icon-klein2',
-	iconSize:    [0, 0],
-	html: '<b>IDN</b>'
-	});	
-var IDN = L.marker([51.44786, 7.26322], {icon: iconIDN});	
-Text.addLayer(IDN);
-
-//Sportplatz
-var iconSportplatz = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b><FONTSIZE="88">HZO</FONT></b>'
-	});	
-	
-//Tennisplatz
-var iconTennisplatz = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b><FONTSIZE="88">HZO</FONT></b>'
-	});	
-
-//CASPO	
-var iconCASPO = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b><FONTSIZE="88">HZO</FONT></b>'
-	});	
-
-//UB
-var iconUB = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b>UB</b>'
-	});		
-var UB = L.marker([51.44498, 7.26059], {icon: iconUB});	
-Text.addLayer(UB);
-
-//HZO	
-var iconHZO = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b>HZO</b>'
-	});		
-var HZO = L.marker([51.44475, 7.262440], {icon: iconHZO});
-Text.addLayer(HZO);	
-
-//Mensa	
-var iconMensa = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b>Mensa</b>'
-	});
-var Mensa = L.marker([51.44302, 7.26218], {icon: iconMensa});
-	Text.addLayer(Mensa);
-	
-//VZ	
-var iconVZ = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b>VZ</b>'
-	});	
-var VZ = L.marker([51.44285, 7.26250], {icon: iconVZ});	
-	Text.addLayer(VZ);
-	
-//MZ	
-var iconMZ = new L.divIcon({
-	className: 'leaflet-div-icon-mittel',
-	iconSize:    [0, 0],
-	html: '<b>MZ</b>'
-	});	
-var MZ = L.marker([51.446, 7.25944], {icon: iconMZ});
-	Text.addLayer(MZ);	
-
-	
-//UV
-var iconUV = new L.divIcon({
-	className: 'leaflet-div-icon-mittel-vertikal',
-	iconSize:    [0, 0],
-	html: '<b>UV</b>'
-	});	
-var UV = L.marker([51.44597, 7.26029], {icon: iconUV});	
-	Text.addLayer(UV);
-
-
-//Audimax
-var iconAudimax = new L.divIcon({
-	className: 'leaflet-div-icon-mittel-groß',
-	iconSize:    [0, 0],
-	html: '<b>Audimax</b>'
-	});
-var Audimax = L.marker([51.44364, 7.26141], {icon: iconAudimax});	
-	Text.addLayer(Audimax);
-//Icons für Schriftgröße - Groß -	
--->Icons N-Reihe
--->Icons G-Reihe
--->Icons M-Reihe
-
-//IA
-var iconIA = new L.divIcon({
-	className: 'leaflet-div-icon-groß',
-	iconSize:    [0, 0],
-	html: '<b>IA</b>'
-	});
-var IA = L.marker([51.44615, 7.26236], {icon: iconIA});	
-	Text.addLayer(IA);
-	
-//IB
-var iconIB = new L.divIcon({
-	className: 'leaflet-div-icon-groß',
-	iconSize:    [0, 0],
-	html: '<b>IB</b>'
-	});
-var IB = L.marker([51.44654, 7.26352], {icon: iconIB});	
-	Text.addLayer(IB);
-	
-//IC
-var iconIC = new L.divIcon({
-	className: 'leaflet-div-icon-groß',
-	iconSize:    [0, 0],
-	html: '<b>IC</b>'
-	});
-var IC = L.marker([51.44364, 7.26141], {icon: iconIC});	
-	//Text.addLayer(IC);
-	
-//ID
-var iconID = new L.divIcon({
-	className: 'leaflet-div-icon-groß',
-	iconSize:    [0, 0],
-	html: '<b>ID</b>'
-	});
-var ID = L.marker([51.44364, 7.26141], {icon: iconID});	
-	//Text.addLayer(ID);
-	
--->BMZ
 
 
 
