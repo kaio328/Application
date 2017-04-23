@@ -1016,16 +1016,16 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
-	removeButton.addTo(map);
+	removeButton._container.style.display = "Block";
 	
-			   if (screen.height > screen.width) {
+			  /* if (screen.height > screen.width) {
 			controlRouting._container.style.display = "none";
 			
 		
       } else {
 		controlRouting._container.style.display = "Block";
 		
-      }
+      }*/
 	});
 	});
 	map.addControl(searchControl);
@@ -1049,21 +1049,24 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//routingButtonWalk.remove();
 	//routingWheelChair.remove();
 	//routingButton.enable();
-	removeButton.remove();
-		   if (screen.height > screen.width) {
+	//removeButton.remove();
+	removeButton._container.style.display = "none";
+		   /*if (screen.height < screen.width) {
 			controlRouting._container.style.display = "none";
 			
 		
       } else {
 		controlRouting._container.style.display = "Block";
 		
-      }
+      }*/
 	//map.removeLayer(osm);
 	//map.addLayer(CampusMapLinear);
 	}
 	}
 	]
 	});
+	removeButton.addTo(map);
+	removeButton._container.style.display = "none";
 	//removeButton.addTo(map);
 	//removeButton.disable();
 	//removeButton.disable();
