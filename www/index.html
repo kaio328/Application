@@ -1044,6 +1044,7 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		//Style und Radius resetten
 	//sidebar.hide();																							//sidebar schließen
 	//map._layers.removeLayer(that._markerLoc);	
+	searchControl._markerLoc.hide();
 	//map.removeControl(Control);	
 		//routingButton.enable();
 	//routingButtonWalk.remove();
@@ -1410,6 +1411,7 @@ var routingButton = L.easyButton({
 		 myControl.setPosition('bottomright');
 		 map.addControl(loadingControl); 
 		 controlRouting._container.style.display = "Block";
+		 searchControl._cancel();
       }
 	}
 
