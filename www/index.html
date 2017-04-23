@@ -1016,19 +1016,18 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: 'red', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
+	removeButton.addTo(map);
 	
-	   if (screen.height > screen.width) {
-			removeButton.addTo(map);
+			   if (screen.height > screen.width) {
+			controlRouting._container.style.display = "none";
 			
 		
       } else {
-		controlRouting._container.style.display = "None";
-		removeButton.addTo(map);
 		controlRouting._container.style.display = "Block";
+		
       }
-	})
 	});
-	// L.easyButton.addTo(map);         --> klappt nicht!
+	});
 	map.addControl(searchControl);
 	
 	
@@ -1051,6 +1050,14 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
 	//routingWheelChair.remove();
 	//routingButton.enable();
 	removeButton.remove();
+		   if (screen.height > screen.width) {
+			controlRouting._container.style.display = "none";
+			
+		
+      } else {
+		controlRouting._container.style.display = "Block";
+		
+      }
 	//map.removeLayer(osm);
 	//map.addLayer(CampusMapLinear);
 	}
