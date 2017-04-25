@@ -133,6 +133,7 @@ var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-m
 	bounceAtZoomLimits: false,
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	});
+	
 			
 
 		//Einrichtung der Karte
@@ -147,9 +148,9 @@ var map = L.map('map', {
 	//detectRetina:true,
 	bounceAtZoomLimits: false
 	})
-		.setView([51.44480, 7.26150], 17);
+		.setView([51.44480, 7.26150], 17)
 		//.addLayer(osm);
-		//.addLayer(OpenStreetMap_BlackAndWhite);
+		.addLayer(OpenStreetMap_BlackAndWhite);
 						
 
 		//Drehung der Karte um Winkel x		
@@ -836,7 +837,7 @@ var routingButton = L.easyButton({
 	
 	//map.setView([51.44459561, 7.26094000]);
 	//if(map.getCenter() == [51.44459561, 7.26094000]){
-	map.setView([51.44480, 7.26150],15);
+	//map.setView([51.44480, 7.26150],15);
 	/*map.addOneTimeEventListener('moveend', function () {
 	map.removeControl(controlWalk);
 	controlCar.addTo(map);

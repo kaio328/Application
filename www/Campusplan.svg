@@ -40,9 +40,9 @@
      inkscape:window-height="1018"
      id="namedview11497"
      showgrid="false"
-     inkscape:zoom="0.5"
-     inkscape:cx="490.07056"
-     inkscape:cy="439.34377"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="517.66973"
+     inkscape:cy="652.93"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -11187,10 +11187,10 @@
        sodipodi:nodetypes="cssc" />
     <path
        style="fill:#bfb8d1;fill-opacity:1;stroke:#211e1e;stroke-width:0.28346455;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 283.17187,24.666705 v 12.890624 h 9.32812 v 1.96875 h 19.5 v 3.75 h 62.4375 v -6.28125 h 19.125 V 58.36983 h 24.1875 v -11.4375 h 16.78125 v -2.4375 h 4.5 v 4.59375 h 9.84375 V 34.153702 h -17.5459 l 0,-10.296011"
+       d="m 283.63591,23.937501 v 13.619828 h 8.86408 v 1.96875 h 19.5 v 3.75 h 62.4375 v -6.28125 h 19.125 V 58.36983 h 24.1875 v -11.4375 h 16.78125 v -2.4375 h 4.5 v 4.59375 h 9.84375 V 34.153702 h -10.09315 v 0 0 -9.796875"
        id="path8569"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccccccccccccccc" />
+       sodipodi:nodetypes="cccccccccccccccccccccc" />
     <path
        inkscape:connector-curvature="0"
        id="path9039"
@@ -13995,10 +13995,10 @@
        y="-56.271397" />
     <path
        style="fill:none;stroke:#637378;stroke-width:0.3061251;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3.86400008;stroke-dasharray:3.06665986, 1.53278908;stroke-opacity:1"
-       d="m 305.71393,104.79102 c -2.81904,-5.496149 -2.10907,-11.821883 -0.72274,-20.047064 0.34879,-2.069408 1.76556,-6.811259 1.39087,-8.430024"
+       d="m 309.42624,107.57525 c -1.05195,-2.05093 -8.9406,-5.94096 -9.15797,-8.278516 -0.36514,-3.926697 3.85391,-9.396892 4.72292,-14.552778 0.34879,-2.069408 1.76556,-6.811259 1.39087,-8.430024"
        id="path3410-7"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="csc" />
+       sodipodi:nodetypes="cssc" />
     <path
        style="fill:none;stroke:#637378;stroke-width:0.35177618;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3.86400008;stroke-dasharray:3.52397725, 1.7613671;stroke-opacity:1"
        d="m 393.57622,115.55971 c 1.66501,-2.83835 11.47683,-5.6959 14.87788,-10.79175 2.7826,-4.16922 4.59362,-12.714467 3.48364,-14.628458"
