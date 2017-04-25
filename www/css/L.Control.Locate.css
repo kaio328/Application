@@ -1,16 +1,12 @@
 /* Compatible with Leaflet 0.7 */
 .leaflet-control-locate a,
 .leaflet-control-locate a:hover{
-  opacity:1;
+	opacity:1;
 	border: 0px solid #fff;
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	margin-left:4px;
 	margin-top: 6px;
-  background-image:url(images/gps-marker-after.svg);
-  width: 40.5px;
-	height:40.5px;
-	color:white;
 }
 
 
@@ -33,22 +29,17 @@
 .leaflet-control-locate.active a:hover,
 .leaflet-control-locate.active a {
   /*color: #2074B6;*/
-	color: white;
+	color: #FC8428;
 	border-radius: 100%;
-	margin-left:0px;
-	margin-top: 0px;
+	margin-left:4px;
+	margin-top: 6px;
 	width: 40.5px;
 	height:40.5px;
-  opacity:1; 
-	background-image:url(images/gps-marker-after.svg);
 
-	
 	
 }
 .leaflet-control-locate.active.following a {
   color: #FC8428;
   border-radius: 100%;
-	background-image:url(images/gps-marker-after.svg);
 	
-
 }
