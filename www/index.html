@@ -206,6 +206,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		setTimeout(function() {
 		map.addLayer(overlay);
+		map.removeLayer(CampusMapLinear);
 		map.touchZoom.enable();
 		map.doubleClickZoom.enable();
 		map.scrollWheelZoom.enable();
