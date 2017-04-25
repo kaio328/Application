@@ -7,6 +7,8 @@
 	border-color: rgba(0, 0, 0, 1);
 	margin-left:4px;
 	margin-top: 6px;
+	background-image: url(images/gps-marker-before.svg);
+	font-size: 1em;
 }
 
 
@@ -17,7 +19,7 @@
 	border-radius: 100%;
 	border-color: rgba(0, 0, 0, 1);
 	background-color: rgba(255, 255, 255, 1);
-	font-size: 1.6em;
+	font-size: 1em;
 	width: 40.5px;
 	height:40.5px;
 	
@@ -29,16 +31,17 @@
 .leaflet-control-locate.active a:hover,
 .leaflet-control-locate.active a {
   /*color: #2074B6;*/
-	color: #FC8428;
+	color: #f23;
 	border-radius: 100%;
 	margin-left:4px;
 	margin-top: 6px;
+	font-size: 1em;
 
 
 	
 }
 .leaflet-control-locate.active.following a {
-  color: #FC8428;
+  color: #f23;
   border-radius: 100%;
 	
 }
