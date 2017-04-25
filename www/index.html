@@ -193,7 +193,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		});
 		map.on("zoomend", function(){
 		map.removeLayer(CampusMapLinear);
-		//map.addLayer(overlay);
+		map.addLayer(overlay);
 		
 		map.spin(true);
 		map.touchZoom.disable();
@@ -210,7 +210,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.boxZoom.enable();
 		map.keyboard.enable();
 		map.spin(false);
-		}, 200)
+		}, 1)
 		});
 		
 
@@ -946,7 +946,7 @@ var routingButton = L.easyButton({
 		    marker2 = L.marker(point2, {icon:smallIcon2,  draggable: true} ).addTo(map),
 		    marker3 = L.marker(point3, {icon:smallIcon2,  draggable: true} ).addTo(map);*/
 
-		var overlay = L.imageOverlay.rotated("Campusplan_WORK-HERE2.svg", point1, point2, point3, {
+		var overlay = L.imageOverlay.rotated("Campusplan.svg", point1, point2, point3, {
 			opacity: 1,
 			interactive: false,
 			attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
