@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>POI-Suche in Bochum</title>
-    
+        <title> Mobiles Lageinformationssystem des Campus der Ruhr-Universität Bochum</title>
+		<meta name="Bearbeiter" content="Kai Christopher Rudolph">
         <meta charset="utf-8" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
 		
 		<script src="js/leaflet.js"></script>
-
 		<script src="js/deps.js"></script>
 		<script src="js/leaflet-include.js"></script>
 		<script src="dist/leaflet-routing-machine.js"></script>
@@ -21,9 +21,6 @@
 		<script src="js/easy-button.js"></script>
 		<script src="js/L.Control.Locate.js" ></script>
 		<script src="js/L.Control.Sidebar.js"></script>
-
-
-
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
 		<script src="js/easy-button.js"></script>
@@ -32,35 +29,30 @@
 		<script src="dist/leaflet.awesome-markers.js"></script>
 		<script src="dist/leaflet.ajax.js"></script>
 		<script src="js/L.Control.Sidebar.js"></script>
-		
 		<script src="js/spin.js" charset="utf-8"></script>
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
-		
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
+		
+		<script src="data/json_Alle.js"></script>
+		<script src="data/rahmen1.js"></script>
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/leaflet1.0.2.css" />
 		<link rel="stylesheet" href="dist/leaflet-routing-machine.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
-
         <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
 		<link rel="stylesheet" href="css/mobile.css" />
-
 		<link rel="stylesheet" href="css/easy-button.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/Control.Loading.css" />
 		<link rel="stylesheet" href="dist/leaflet.awesome-markers.css" />
-
-		
 		<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 		<link rel="stylesheet" href="css/leaflet-gps.css" />
 		<link rel="stylesheet" href="css/leaflet-search.css" />	
 		<link rel="stylesheet" href="css/divicon.css" />
 		
-		
-    </head>
 	    <style>
         body {
             padding: 0;
@@ -91,17 +83,11 @@
 	
     </style>
 	
-	
+	</head>
     <body>
-	    <div id="sidebar">
-
-    </div>
-	
+	    <div id="sidebar"></div>
 		<div id="map"></div>
-        <script src="data/json_Alle.js"></script>
-		<script src="data/rahmen1.js"></script>
 
-	
         <script>
 var opts = {
 	lines: 15, // The number of lines to draw
@@ -266,8 +252,19 @@ map.on('zoomend', function (e) {
 		localStorage.removeItem('alerted');
 		localStorage.removeItem('alerted1');
 			
-		//Marker erstellen zur Vermessung der Koordinaten in der Karte
-/*var marker = L.marker([51.44459561, 7.26093000], {
+		//Marker + Icon erstellen zur Vermessung der Koordinaten in der Karte
+			//Icon
+		/*var smallIcon2 = new L.Icon({
+    iconUrl: 'css/images/marker1.png',
+    iconRetinaUrl: 'css/images/marker1.png',
+    iconSize:    [25, 41],
+    iconAnchor:  [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'css/images/marker-shadow.png',
+    shadowSize:  [41, 41]
+});
+			//Marker
+var marker = L.marker([51.44459561, 7.26093000], {
 icon: smallIcon2,
 draggable: true
 }).addTo(map);
