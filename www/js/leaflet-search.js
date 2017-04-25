@@ -822,7 +822,7 @@ L.Control.Search.Marker = L.Marker.extend({     										/* HIER KANN DER MARKE
 	options: {
 		radius: 12,
 		weight: 3,
-		color: 'yellow',
+		color: '#EEC900',
 		stroke: true,
 		fill: false,
 		title: '',
