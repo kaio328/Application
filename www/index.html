@@ -149,9 +149,9 @@ var map = L.map('map', {
 	//detectRetina:true,
 	bounceAtZoomLimits: false
 	})
-		.setView([51.44480, 7.26150], 17)
+		.setView([51.44480, 7.26150], 17);
 		//.addLayer(osm);
-		.addLayer(OpenStreetMap_BlackAndWhite);
+		//.addLayer(OpenStreetMap_BlackAndWhite);
 						
 
 		//Drehung der Karte um Winkel x		
@@ -436,25 +436,31 @@ waypoints: [
         };
 	
 		//Einbindung der Datei json_AlleJSON als Layer
-		/*var json_AlleJSON = new L.geoJson(json_Alle, {
+		var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-		});	*/
-		
+		});	
 		 //var json_AlleJSON = new L.GeoJSON.AJAX("https://github.com/kaio328/Application/blob/master/www/data/json_Alle.js", {
 			//onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 		//	pointToLayer: doPointToLayerAlle
 			//});
-			
-	json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+	
+	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 	pointToLayer: doPointToLayerAlle
 	});
-	json_AlleJSON.addTo(map);
+	json_AlleJSON.on('data:progress', function (e) {
+    if (e.error) {
+        //alert('error');
+			var json_AlleJSON = new L.geoJson(json_Alle, {
+			onEachFeature: pop_Alle,													
+			pointToLayer: doPointToLayerAlle											
+		});	
+		map.addLayer(json_AlleJSON);
+    }
+});
 
-
-		
 		//add Polygone
 		var styleRahmen = {
 		"color": 'rgb(0, 0, 1)',
