@@ -55,6 +55,7 @@
 		
 	    <style>
         body {
+		
             padding: 0;
             margin: 0;
         }
@@ -65,21 +66,13 @@
 			background-opacity: 0.0;
         }
 
-        .lorem {
-            font-style: calibri;
-            color: red;
+		
+		 #sidebar {	
+		 
+			font-family: droid-sans, sans-serif;
+			
         }
 		
-		 #sidebar {		
-			font-style: arial;
-         
-        }
-		
-		#foo {
-    width: 	50px;
-    height: 50px;
-    background-color: #f00;
-}
 	
     </style>
 	
@@ -89,33 +82,6 @@
 		<div id="map"></div>
 
         <script>
-		//Spinner einrichten
-var opts = {
-	lines: 15, // The number of lines to draw
-	length: 0, // The length of each line
-	width: 7, // The line thickness
-	radius: 19, // The radius of the inner circle
-	scale: 0.5, // Scales overall size of the spinner
-	corners: 1, // Corner roundness (0..1)
-	color: '#000', // #rgb or #rrggbb or array of colors
-	opacity: 0.35, // Opacity of the lines
-	rotate: 21, // The rotation offset
-	direction: 1, // 1: clockwise, -1: counterclockwise
-	speed: 1, // Rounds per second
-	trail: 61, // Afterglow percentage
-	fps: 20, // Frames per second when using setTimeout() as a fallback for CSS
-	zIndex: 2e9, // The z-index (defaults to 2000000000)
-	className: 'spinner', // The CSS class to assign to the spinner
-	top: '50%', // Top position relative to parent
-	left: '50%', // Left position relative to parent
-	shadow: true,// Whether to render a shadow
-	hwaccel: false, // Whether to use hardware acceleration
-	position: 'absolute' // Element positioning
-
-}
-var target = document.getElementById('foo')
-var spinner = new Spinner(opts).spin(target);
-		
 		
 		//Einrichtung der Basiskarte
 var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
