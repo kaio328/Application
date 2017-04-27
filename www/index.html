@@ -132,7 +132,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	//detectRetina: true,
 	//zoomSnap:0.1,
 	bounceAtZoomLimits: false,
-	attribution: "Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
+	attribution: "RUB-Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>Kai Christopher Rudolph</a>"
 	});
 		
 
@@ -161,7 +161,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		});
 		map.on("zoomend", function(){
 		map.spin(true);
-		//map.removeLayer(CampusMapLinear);
+		map.removeLayer(CampusMapLinear);
 		//map.addLayer(overlay);
 		
 		//map.spin(true);
@@ -172,7 +172,6 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.disable();
 		
 		setTimeout(function() {
-		map.removeLayer(CampusMapLinear);
 		map.addLayer(overlay);
 		map.removeLayer(CampusMapLinear);
 		map.touchZoom.enable();
