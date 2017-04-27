@@ -118,7 +118,11 @@ var map = L.map('map', {
 		.setView([51.44480, 7.26150], 17);
 		//.addLayer(osm);
 		//.addLayer(OpenStreetMap_BlackAndWhite);
-						
+	map.spin(true)
+setTimeout(function (){
+map.spin(false);
+},500);
+	
 
 		//Drehung der Karte um Winkel x		
 var angle = 27.825;
@@ -1037,13 +1041,13 @@ if (map.hasLayer(overlay)){
 if (!visible) {
 map.spin(false);
 // Set visibility flag
-            visible = true;
-};
+            visible = false;
+}
 } else {
 if (visible) {
 map.spin(true);
  // Set visibility flag
-            visible = false;
+            visible = true;
 }
 }
 
