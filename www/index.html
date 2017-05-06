@@ -417,7 +417,7 @@ waypoints: [
 		//	pointToLayer: doPointToLayerAlle
 			//});
 	
-	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.json", {
+	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 	pointToLayer: doPointToLayerAlle
@@ -429,7 +429,6 @@ waypoints: [
 			onEachFeature: pop_Alle,													
 			pointToLayer: doPointToLayerAlle											
 		});	
-		map.addLayer(json_AlleJSON);
     }
 });
 
