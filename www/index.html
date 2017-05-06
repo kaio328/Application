@@ -417,20 +417,20 @@ waypoints: [
 		//	pointToLayer: doPointToLayerAlle
 			//});
 	
-	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+	var json_AlleJSON = new L.GeoJSON.AJAX("./data/json_Alle.geojson", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 	pointToLayer: doPointToLayerAlle
 	});
-	json_AlleJSON.on('data:progress', function (e) {
+	/*json_AlleJSON.on('data:progress', function (e) {
     if (e.error) {
         //alert('error');
 			var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													
 			pointToLayer: doPointToLayerAlle											
 		});	
-    }
-});
+    }*/
+
 
 		//add Polygone
 		var styleRahmen = {
