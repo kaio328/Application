@@ -33,7 +33,8 @@
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
 		
-		<script src="data/json_Alle.geojson"></script>
+
+		<script src="data/json_Alle.json"></script>
 		<script src="data/rahmen1.js"></script>
 		
 
@@ -416,7 +417,7 @@ waypoints: [
 		//	pointToLayer: doPointToLayerAlle
 			//});
 	
-	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.json", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 	pointToLayer: doPointToLayerAlle
