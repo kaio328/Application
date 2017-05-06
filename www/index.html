@@ -408,16 +408,16 @@ waypoints: [
         };
 	
 		//Einbindung der Datei json_AlleJSON als Layer
-		/*var json_AlleJSON = new L.geoJson(json_Alle, {
+		var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-		});	*/
+		});	
 		 //var json_AlleJSON = new L.GeoJSON.AJAX("https://github.com/kaio328/Application/blob/master/www/data/json_Alle.js", {
 			//onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 		//	pointToLayer: doPointToLayerAlle
 			//});
 	
-	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+	/*var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
 		//dataType:"jsonp",
 	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
 	pointToLayer: doPointToLayerAlle
@@ -430,7 +430,7 @@ waypoints: [
 			pointToLayer: doPointToLayerAlle											
 		});	
     }
-});
+});*/
 
 		//add Polygone
 		var styleRahmen = {
