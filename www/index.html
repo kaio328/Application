@@ -139,7 +139,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	//zoomSnap:0.1,
 	bounceAtZoomLimits: false,
 	attribution: "RUB-Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>AG Geomatik | Geographisches Institut</a>"
-	});
+	}).addTo(map);
 		
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
@@ -157,7 +157,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.on("zoomstart", function(){
 		//map.removeLayer(overlay);
 		//overlay.setOpacity(0.1);
-		overlay.bringToBack();
+		CampusMapLinear.bringToFront();
 		//map.spin(true)
 		/*map.dragging.disable();
 		map.touchZoom.disable();
@@ -165,15 +165,15 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
 		map.keyboard.disable();*/
-		map.addLayer(CampusMapLinear);
+		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
 		//map.spin(true);
 		//map.removeLayer(CampusMapLinear);
 		//map.addLayer(overlay);
 		//overlay.setOpacity(1);
-		overlay.bringToFront();
-		map.removeLayer(CampusMapLinear);
+		CampusMapLinear.bringToBack();
+		//map.removeLayer(CampusMapLinear);
 		
 		//map.spin(true);
 		/*map.touchZoom.disable();
