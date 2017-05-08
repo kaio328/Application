@@ -5,7 +5,7 @@
 		<meta name="Bearbeiter" content="Kai Christopher Rudolph">
         <meta charset="utf-8" />
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1  />
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
@@ -114,9 +114,7 @@ var map = L.map('map', {
 	center: [51.44480, 7.26150],
 	//zoomSnap:0.1,
 	//detectRetina:true,
-	bounceAtZoomLimits: false,
-	preferCanvas: true,
-	renderer: L.Canvas
+	bounceAtZoomLimits: false
 	})
 		.setView([51.44480, 7.26150], 17);
 		//.addLayer(osm);
