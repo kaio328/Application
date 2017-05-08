@@ -167,18 +167,19 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		map.spin(true);
+		//map.spin(true);
 		//map.removeLayer(CampusMapLinear);
 		//map.addLayer(overlay);
-		
+		overlay.setOpacity(1);
+		map.removeLayer(CampusMapLinear);
 		//map.spin(true);
-		map.touchZoom.disable();
+		/*map.touchZoom.disable();
 		map.doubleClickZoom.disable();
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
-		map.keyboard.disable();
+		map.keyboard.disable();*/
 		
-		setTimeout(function() {
+		/*setTimeout(function() {
 		//map.addLayer(overlay);
 		overlay.setOpacity(1);
 		map.removeLayer(CampusMapLinear);
@@ -189,7 +190,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.enable();
 		map.spin(false);
 		}, 100)
-		});
+		});*/
 		
 
 		/*map.dragging.enable();
