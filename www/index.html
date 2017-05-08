@@ -980,13 +980,13 @@ var routingButton = L.easyButton({
 		};
 		
 		sidebar.on('show', function () {
-		map.removeControl(loadingControl);
+		//map.removeControl(loadingControl);
 		map.removeControl(myControl);
 		});
 		
 		sidebar.on('hidden', function () {
 		map.addControl(myControl);
-		map.addControl(loadingControl); 
+		//map.addControl(loadingControl); 
 		 
 		});
 		
