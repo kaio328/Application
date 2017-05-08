@@ -29,9 +29,10 @@
 		<script src="dist/leaflet.awesome-markers.js"></script>
 		<script src="dist/leaflet.ajax.js"></script>
 		<script src="js/L.Control.Sidebar.js"></script>
+		<script src="js/spin.js" charset="utf-8"></script>
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
 		<script src="dist/Leaflet.ImageOverlay.Rotated.js"></script>
-		
+
 
 		<script src="data/json_Alle.js"></script>
 		<script src="data/rahmen1.js"></script>
@@ -139,7 +140,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	//zoomSnap:0.1,
 	bounceAtZoomLimits: false,
 	attribution: "RUB-Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>AG Geomatik | Geographisches Institut</a>"
-	}).addTo(map);
+	});
 		
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
@@ -156,8 +157,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		map.on("zoomstart", function(){
 		//map.removeLayer(overlay);
-		//overlay.setOpacity(0.1);
-		CampusMapLinear.bringToFront();
+		overlay.setOpacity(0);
 		//map.spin(true)
 		/*map.dragging.disable();
 		map.touchZoom.disable();
@@ -168,13 +168,11 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		//map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		//map.spin(true);
+		map.spin(true);
 		//map.removeLayer(CampusMapLinear);
 		//map.addLayer(overlay);
-		//overlay.setOpacity(1);
-		CampusMapLinear.bringToBack();
-		//map.removeLayer(CampusMapLinear);
-		
+		overlay.setOpacity(1);
+		map.removeLayer(CampusMapLinear);
 		//map.spin(true);
 		/*map.touchZoom.disable();
 		map.doubleClickZoom.disable();
@@ -182,9 +180,9 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.boxZoom.disable();
 		map.keyboard.disable();*/
 		
-		/*setTimeout(function() {
+		setTimeout(function() {
 		//map.addLayer(overlay);
-		overlay.setOpacity(1);
+		//overlay.setOpacity(1);
 		map.removeLayer(CampusMapLinear);
 		map.touchZoom.enable();
 		map.doubleClickZoom.enable();
@@ -193,8 +191,8 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.enable();
 		map.spin(false);
 		}, 100)
-		});*/
 		});
+		
 
 		/*map.dragging.enable();
 		map.touchZoom.enable();
@@ -917,9 +915,11 @@ var routingButton = L.easyButton({
 	//map._container.style.background-color = "black";
 	}).addTo(map);*/
 	
-	opacityButton4 = L.easyButton('fa fa-minus', function(){
-	overlay.setOpacity(0);
-	}).addTo(map);
+	/*opacityButton4 = L.easyButton('fa fa-minus', function(){
+	map.removeLayer(overlay);
+	overlay.setUrl("Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959");
+	overlay.addTo(map);
+	}).addTo(map);*/
 	
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		/*var point1 = L.latLng(51.44539, 7.25305),
