@@ -5,7 +5,7 @@
 		<meta name="Bearbeiter" content="Kai Christopher Rudolph">
         <meta charset="utf-8" />
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1  />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
 		<meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		
@@ -154,7 +154,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 		};
 		
-		/*map.on("zoomstart", function(){
+		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
 		//map.spin(true)
 		/*map.dragging.disable();
@@ -163,7 +163,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.scrollWheelZoom.disable();
 		map.boxZoom.disable();
 		map.keyboard.disable();*/
-		/*map.addLayer(CampusMapLinear);
+		map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
 		map.spin(true);
@@ -187,7 +187,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.keyboard.enable();
 		map.spin(false);
 		}, 100)
-		});*/
+		});
 		
 
 		/*map.dragging.enable();
