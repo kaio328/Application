@@ -106,7 +106,7 @@ var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-m
 
 		//Einrichtung der Karte
 var map = L.map('map', {
-	zoomControl: false,
+	zoomControl: true,
 	rotate: true,
 	touchRotate: false,
 	maxZoom: 17,
@@ -119,12 +119,10 @@ var map = L.map('map', {
 		.setView([51.44480, 7.26150], 17);
 		//.addLayer(osm);
 		//.addLayer(OpenStreetMap_BlackAndWhite);
-		
-	map.spin(true)
-setTimeout(function (){
-map.spin(false);
-}, 1000);
 	
+
+
+
 
 		//Drehung der Karte um Winkel x		
 var angle = 27.825;
@@ -156,7 +154,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		
 		map.on("zoomstart", function(){
 		map.removeLayer(overlay);
-		//map.spin(true)
+		map.spin(true)
 		/*map.dragging.disable();
 		map.touchZoom.disable();
 		map.doubleClickZoom.disable();
@@ -166,7 +164,7 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 		map.addLayer(CampusMapLinear);
 		});
 		map.on("zoomend", function(){
-		map.spin(true);
+		//map.spin(true);
 		//map.removeLayer(CampusMapLinear);
 		//map.addLayer(overlay);
 		
@@ -355,7 +353,7 @@ waypoints: [
 		sidebar.hide();
 		
 		//Einrichtung des Loaders/Spinners
-		var loadingControl = L.Control.loading({
+		/*var loadingControl = L.Control.loading({
 					spinjs: true,
 					spin: {
 					lines: 7,
@@ -368,7 +366,7 @@ waypoints: [
                     separate: true,	//nicht angedockt am Zoom-Button
 					position: 'bottomright'					
                 });			
-                map.addControl(loadingControl); 
+                map.addControl(loadingControl); */
 				
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
@@ -423,7 +421,7 @@ waypoints: [
 	pointToLayer: doPointToLayerAlle
 	});
 	json_AlleJSON.on('data:progress', function (e) {
-	map.spin(true);
+	//map.spin(true);
     if (e.error) {
         //alert('error');
 			var json_AlleJSON = new L.geoJson(json_Alle, {
@@ -896,8 +894,8 @@ var routingButton = L.easyButton({
 	overlay.setOpacity(0.0);
 	}).addTo(map);
 	
-	*/
-	/*var opacityButton1 = L.easyButton('fa fa-plus', function(){
+	
+	var opacityButton1 = L.easyButton('fa fa-plus', function(){
 	overlay.addTo(map);
 	}).addTo(map);
 	
@@ -909,11 +907,11 @@ var routingButton = L.easyButton({
 	map.addLayer(OpenStreetMap_BlackAndWhite);
 	CampusMapLinear.bringToFront();
 	//map._container.style.background-color = "black";
-	}).addTo(map);
-	
-	var opacityButton4 = L.easyButton('fa fa-minus', function(){
-	map.removeLayer(OpenStreetMap_BlackAndWhite);
 	}).addTo(map);*/
+	
+	opacityButton4 = L.easyButton('fa fa-minus', function(){
+	//map.hideLayer(overlay);
+	}).addTo(map);
 	
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 		/*var point1 = L.latLng(51.44539, 7.25305),
@@ -1038,7 +1036,7 @@ var routingButton = L.easyButton({
 		var center = bounds.getCenter();
 		map.setView(center, wantedZoom);*/
 		
-var visible;		
+/*var visible;		
 if (map.hasLayer(overlay)){
 if (!visible) {
 map.spin(false);
@@ -1051,7 +1049,7 @@ map.spin(true);
  // Set visibility flag
             visible = false;
 }
-}
+}*/
 
 
 
