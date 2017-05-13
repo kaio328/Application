@@ -81,29 +81,8 @@
 		<div id="map"></div>
 
         <script>
-		
-		
-		//Einrichtung der Basiskarte
-var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-	osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	osm = L.tileLayer(osmUrl, {
-	maxZoom: 17,
-	minZoom: 15,
-	bounceAtZoomLimits: false
-	});
-			
-var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-	maxZoom: 17,
-	minZoom: 15,
-	opacity: 0.3,
-	//detectRetina: true,
-	bounceAtZoomLimits: false,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	});
-	
-			
-
-		//Einrichtung der Karte
+					
+//Einrichtung des Karte-Containers
 var map = L.map('map', {
 	zoomControl: false,
 	rotate: true,
@@ -111,25 +90,32 @@ var map = L.map('map', {
 	maxZoom: 17,
 	minZoom: 15,
 	center: [51.44480, 7.26150],
-	//zoomSnap:0.1,
-	//detectRetina:true,
 	bounceAtZoomLimits: false
 	})
-		.setView([51.44480, 7.26150], 17);
-		//.addLayer(osm);
-		//.addLayer(OpenStreetMap_BlackAndWhite);
+	.setView([51.44480, 7.26150], 17);
+
+//Einrichtung der Basiskarte
+var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	osm = L.tileLayer(osmUrl, {
+	maxZoom: 17,
+	minZoom: 15,
+	bounceAtZoomLimits: false
+	});
 	
-
-map.spin(true), setTimeout(function(){
-map.spin(false);
-},1000)
-
-
-		//Drehung der Karte um Winkel x		
-var angle = 27.825;
+	
+//Drehung des Kartencontainers um Winkel 28.224 Grad		
+var angle = 28.224;
 	map.setBearing(angle);	
+
+	
+//Ladespinner beim Start der Anwendung	
+map.spin(true), setTimeout(function(){
+	map.spin(false);
+	},1000)
 		
-		//Einrichtung der Campuskarte
+		
+//Einrichtung der Campuskarte im Rasterformat
 var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
 	maxZoom: 17,
 	minZoom: 1,						//raus zoomen
@@ -138,146 +124,64 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 	//zoomSnap:0.1,
 	bounceAtZoomLimits: false,
 	attribution: "RUB-Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>AG Geomatik | Geographisches Institut</a>"
-	});
-		
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
-		//Einrichtung einer LayerGroup --> für mapOverlays
-		var polygone = new L.layerGroup();
-		
-		//mapOverlays implementieren
-		var overlayMaps = {
-		//"osm": osm,
-		//"Sperrungen": CampusMapLinear,
-		"<img src= css/images/Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959.svg height=25> Sperrungen": CampusMapLinear,
-		"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
-		};
-		
-		map.on("zoomstart", function(){
-		//map.removeLayer(overlay);
-		overlay.setOpacity(0.0);
-		//map.spin(true)
-		/*map.dragging.disable();
-		map.touchZoom.disable();
-		map.doubleClickZoom.disable();
-		map.scrollWheelZoom.disable();
-		map.boxZoom.disable();
-		map.keyboard.disable();*/
-		map.addLayer(CampusMapLinear);
-		});
-		map.on("zoomend", function(){
-		map.spin(true),
-		//map.removeLayer(CampusMapLinear);
-		//map.addLayer(overlay);
-		//overlay.setOpacity(1);
-		//map.removeLayer(CampusMapLinear);
-		//map.spin(true);
-		/*map.touchZoom.disable();
-		map.doubleClickZoom.disable();
-		map.scrollWheelZoom.disable();
-		map.boxZoom.disable();
-		map.keyboard.disable();*/
-		
-		setTimeout(function() {
-		//map.addLayer(overlay);
-		map.removeLayer(CampusMapLinear);
-		overlay.setOpacity(1);
-		/*map.touchZoom.enable();
-		map.doubleClickZoom.enable();
-		map.scrollWheelZoom.enable();
-		map.boxZoom.enable();
-		map.keyboard.enable();*/
-		map.spin(false);
-		}, 100)
-		});
-		
-
-		/*map.dragging.enable();
-		map.touchZoom.enable();
-		map.doubleClickZoom.enable();
-		map.scrollWheelZoom.enable();
-		map.boxZoom.enable();
-		map.keyboard.enable();*/
-		//map.removeLayer(CampusMapLinear);
-	
-		
-		/*var visible;
-// Attach map zoom handler
-map.on('zoomend', function (e) {
-    // Check zoom level
-    if (map.getZoom() > 17) {
-        // Check if not already shown
-        if (!visible) {
-		//map.addLayer(Text);
-		//map.removeLayer(marker);
-		//map.addLayer(marker2);
-            };
-            // Set visibility flag
-            visible = true;
-        
-    } else {
-        // Check if not already hidden
-        if (visible) {
-            // Loop over layers
-			//map.removeLayer(Text);
-			//map.addLayer(marker);
-			//map.removeLayer(marker2);
-            };
-            // Set visibility flag
-            visible = false;
-        }
-		*/
-		localStorage.removeItem('alerted');
-		localStorage.removeItem('alerted1');
-			
-		//Marker + Icon erstellen zur Vermessung der Koordinaten in der Karte
-			//Icon
-		/*var smallIcon2 = new L.Icon({
-    iconUrl: 'css/images/marker1.png',
-    iconRetinaUrl: 'css/images/marker1.png',
-    iconSize:    [25, 41],
-    iconAnchor:  [12, 41],
-    popupAnchor: [1, -34],
-    shadowUrl: 'css/images/marker-shadow.png',
-    shadowSize:  [41, 41]
 });
-			//Marker
-var marker = L.marker([51.44459561, 7.26093000], {
-icon: smallIcon2,
-draggable: true
-}).addTo(map);
-marker.bindPopup("Test");
-marker.on('click', function(e) {
-marker.getPopup().setContent('Clicked' + marker.getLatLng().toString()).openOn(map);
-});*/
+		
 
+
+//Einrichtung einer LayerGroup für mapOverlays
+var polygone = new L.layerGroup();
 
 		
-		//mapOverlays der Karte hinzufügen
-		myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"}).addTo(map);
+//Inhalt für mapOverlays implementieren
+var overlayMaps = {
+	"<img src= css/images/Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959.svg height=25> Sperrungen": CampusMapLinear,
+	"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
+};
+	
+//mapOverlays-Control der Karte hinzufügen
+myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
+	.addTo(map);
+	
+	
+//Beim Zoomstart die SVG-Datei ausblenden und die Rasterdatei einblenden, bei Zoomende SVG-Datei einblenden und Rasterdatei ausblenden	
+map.on("zoomstart", function(){
+	overlay.setOpacity(0.0);
+	map.addLayer(CampusMapLinear);
+});
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-  var WalkMarker = L.AwesomeMarkers.icon({
+map.on("zoomend", function(){
+	map.spin(true),
+	setTimeout(function() {
+	map.removeLayer(CampusMapLinear);
+	overlay.setOpacity(1);
+	map.spin(false);
+	}, 100)
+});
+
+//LocalStorage der Alarmmeldungen auf Null setzen	
+localStorage.removeItem('alerted');
+localStorage.removeItem('alerted1');
+			
+
+//Marker und entsprechende Icons für die Routing-Schaltflächen einrichten
+var WalkMarker = L.AwesomeMarkers.icon({
     icon: 'fa-male',
 	prefix: 'fa',
     markerColor: 'orange',
-	//iconColor: '#FC8428'
-  });
+});
   
-   var CarMarker = L.AwesomeMarkers.icon({
+var CarMarker = L.AwesomeMarkers.icon({
     icon: 'fa-car',
 	prefix: 'fa',
     markerColor: 'orange',
-	//iconColor: 'black'
-  });
+});
 
 
-		//Marker für die Routing-Funktion ersteller
+//Marker und entsprechende Icons für die Routing-Funktion einrichten
 var markerStart = L.AwesomeMarkers.icon({
 	icon: 'fa-circle-o',
 	prefix: 'fa',
     markerColor: 'orange'
-	//iconColor: '#FC8428'
 });
   
 var markerZiel = L.AwesomeMarkers.icon({
@@ -288,7 +192,7 @@ var markerZiel = L.AwesomeMarkers.icon({
 });
 		
 		
-		//Popups für die Routing-Marker erstellen	
+//Popups für die Routing-Marker erstellen	
 var popupStart = L.popup()
 	.setContent("Zieh mich an Deinen Startpunkt !");
 		
@@ -296,36 +200,30 @@ var popupZiel = L.popup()
 	.setContent("Zieh mich an Deinen Zielpunkt !");
 		
 			
+//Koordinaten der Routing-Marker zur bei Start der Funktion festlegen
+var Start = L.latLng(51.44499, 7.26078);	
+var Ziel = L.latLng(51.44375, 7.26185);
 
-		var Start = L.latLng(51.44499, 7.26078);	
-		var Ziel = L.latLng(51.44375, 7.26185);
-
+//Routing-Control implementieren
 var controlRouting = L.Routing.control({
-        lineOptions: {
-            styles: [
-                {color: 'white', opacity: 0.9, weight: 9},
-                {color: '#FC8428', opacity: 1, weight: 3}
+	lineOptions: {
+    styles: [
+             {color: 'white', opacity: 0.9, weight: 9},
+             {color: '#FC8428', opacity: 1, weight: 3}
             ]
-        },
-waypoints: [
-    Start,
-	Ziel
-  ],
- createMarker: function (i, waypoint, n){ 
+     },
+	waypoints: [
+				Start,
+				Ziel
+				],
+	createMarker: function (i, waypoint, n){ 
     var marker = L.marker (waypoint.latLng, {
                 draggable: true,
-                bounceOnAdd: false,
-                bounceOnAddOptions: {
-                    duration: 1000,
-                    height: 800
-                },
                 icon: WalkMarker
     })
     if (i == 0) {
-        // This is the first marker, indicating start
         marker.setIcon(markerStart).bindPopup(popupStart)
     } else if (i == n -1) {
-        //This is the last marker indicating destination
         marker.setIcon(markerZiel).bindPopup(popupZiel)
     }
     return marker
@@ -334,205 +232,92 @@ waypoints: [
 	router: L.Routing.mapzen('mapzen-m7c1Upx', {
     costing: "",
 	  directions_options: {
-      language: 'de',
-	 // routeWhileDragging: true
-	  }
+							language: 'de',
+						  }
 	  }),	
-	  //routeWhileDragging: true,
-		//routeWhileDragging: true,
 	  formatter: new L.Routing.mapzenFormatter(),
-	  reverseWaypoints: true,
-	  //geocoder: L.Control.Geocoder.nominatim()
+	  reverseWaypoints: true
 });
 
+	
+//Sidebar einrichten
+var sidebar = L.control.sidebar('sidebar', {
+    closeButton: true,
+    position: 'right'
+});
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-		//Sidebar einrichten
-	   var sidebar = L.control.sidebar('sidebar', {
-            closeButton: true,
-            position: 'right'
-        });
-        map.addControl(sidebar);
-		sidebar.hide();
+//Sidebar hinzufügen und ausblenden   
+map.addControl(sidebar);
+sidebar.hide();
 		
-		//Einrichtung des Loaders/Spinners
-		/*var loadingControl = L.Control.loading({
-					spinjs: true,
-					spin: {
-					lines: 7,
-					length: 3,
-					width: 3,
-					radius: 5,
-					rotate: 13,
-					top: "83%"
-					},
-                    separate: true,	//nicht angedockt am Zoom-Button
-					position: 'bottomright'					
-                });			
-                map.addControl(loadingControl); */
-				
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		//PopUp-Inhalt definieren (=popupContent), an sidebar übergeben, die per click auf ein feature geöffnet wird
-		//Zur Aktualisierung wird side beim click auf ein weiteres feature zuerst geschlossen und anschließend wieder geöffnet (=Aktualisierung des sidebar-Inhaltes)
-        function pop_Alle(feature, layer) {
-		
-		 layer.on('click', function (e) {
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Alle(feature, layer) {
+	layer.on('click', function (e) {
 			layer.bringToFront();
 			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
-			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
-			//layer.setRadius(15);			
-			var sidebarContent = '<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
 
-			document.getElementById("sidebar").innerHTML = sidebarContent;						//Sidebar-Inhalt zuweisen --> Properties des geclickten features
-			//document.getElementById("sidebar").style.fontSize = "15px";						//Sidebar-Schriftgröße ändern
+			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
-        })};
+    })
+};
 		
-        //Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
-		function doStyleAlle() {
-            return {
-                radius: 0.0,
-                fillColor: 'grey',
-                color: 'black',
-                weight: 0.0,
-                opacity: 1,
-                dashArray: '',
-                fillOpacity: 1
-	
+//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+function doStyleAlle() {
+    return {
+            radius: 0.0,
+            fillColor: 'grey',
+            color: 'black',
+            weight: 0.0,
+            opacity: 1,
+            dashArray: '',
+            fillOpacity: 1
             }
-        };
+};
 		
-		//Funktion mit der Features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
-        function doPointToLayerAlle(feature, latlng) {
-            return L.circleMarker(latlng, doStyleAlle())
-        };
+//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+function doPointToLayerAlle(feature, latlng) {
+    return L.circleMarker(latlng, doStyleAlle())
+};
 	
-		//Einbindung der Datei json_AlleJSON als Layer
-		/*var json_AlleJSON = new L.geoJson(json_Alle, {
-			onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
-			pointToLayer: doPointToLayerAlle											//features werden mittels function doPointToLayerAlle und dem darin enhaltenen Verweis auf doStyleAlle als Punkt-Signatures abgebildet
-		});	*/
-		 //var json_AlleJSON = new L.GeoJSON.AJAX("https://github.com/kaio328/Application/blob/master/www/data/json_Alle.js", {
-			//onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
-		//	pointToLayer: doPointToLayerAlle
-			//});
-	
-	var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
-		//dataType:"jsonp",
-	onEachFeature: pop_Alle,													//für jedes feature wird die function pop_Alle ausgeführt
+
+//Einbindung der Datei json_AlleJSON als Layer
+var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
+	onEachFeature: pop_Alle,													
 	pointToLayer: doPointToLayerAlle
-	});
-	json_AlleJSON.on('data:progress', function (e) {
-	//map.spin(true);
+});
+
+json_AlleJSON.on('data:progress', function (e) {
     if (e.error) {
-        //alert('error');
 			var json_AlleJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Alle,													
 			pointToLayer: doPointToLayerAlle											
-		});	
+			});	
     }
 });
+//Einbindung der Datei json_AlleJSON als Layer
+//Einbindung der Datei json_AlleJSON als Layer
+//Einbindung der Datei json_AlleJSON als Layer
+//Einbindung der Datei json_AlleJSON als Layer
+//Einbindung der Datei json_AlleJSON als Layer
 
-		//add Polygone
-		var styleRahmen = {
-		"color": 'rgb(0, 0, 1)',
-		"weight": 2.5,
-		"opacity": 1,
-		"fillOpacity": 0
-		};
-		json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
-		
-
-
-
-
-	//Marker für Signaturen --> Parkplatz
-/*var ParplatzMarker = L.marker([51.44439, 7.25584], {
-icon: ParkplatzIcon,
-draggable: true,
-interactive: true
-}).addTo(map);*/
-
-/*var markerMeassure = L.marker([51.44511, 7.26069], {
-icon: smallIcon2,
-draggable: true,
-interactive: true
-}).addTo(map);
-markerMeassure.bindPopup("test");
-markerMeassure.on('click', function(e) {
-markerMeassure.getPopup().setContent('clicked' + markerMeassure.getLatLng().toString()).openOn(map);
-});*/
-
-
-/*map.on('zoomstart', function () {
-	map.removeLayer(Text);
-	//map.removeLayer(marker);
-	//map.removeLayer(marker2);
-	});*/
-
-/*var visible;
-// Attach map zoom handler
-map.on('zoomend', function (e) {
-    // Check zoom level
-    if (map.getZoom() > 17) {
-        // Check if not already shown
-        if (!visible) {
-		//map.addLayer(Text);
-		//map.removeLayer(marker);
-		//map.addLayer(marker2);
-            };
-            // Set visibility flag
-            visible = true;
-        
-    } else {
-        // Check if not already hidden
-        if (visible) {
-            // Loop over layers
-			//map.removeLayer(Text);
-			//map.addLayer(marker);
-			//map.removeLayer(marker2);
-            };
-            // Set visibility flag
-            visible = false;
-        }
-    
-});*/
-//map.fitBounds(json_rahmenJSON.getBounds());
-//map.setMaxBounds(json_rahmenJSON.getBounds());
-//L.rectangle(mybounds, {fillOpacity:0, weight: 3}).addTo(map);	
-		
-		//Watermark
-		
-		/*L.Control.Watermark = L.Control.extend({
-		onAdd: function(map) {
-        var img = L.DomUtil.create('img');
-
-        img.src = 'rub.jpg';
-        img.style.width = '500px';
-		img.style.margintop = '400px';
-
-        return img;
-    },
-
-    onRemove: function(map) {
-        // Nothing to do here
-    }
-});
-
-L.control.watermark = function(opts) {
-    return new L.Control.Watermark(opts);
-}
-
-L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
-
-
+//Inhalt der mapOverlays festlegen
+var styleRahmen = {
+	"color": 'rgb(0, 0, 1)',
+	"weight": 2.5,
+	"opacity": 1,
+	"fillOpacity": 0
+	};
+json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
 		
 		
-		//Einrichtung der Suchmaske
-		//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
-		L.Control.Search.include({
+//Einrichtung der Suchmaske
+//Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
+L.Control.Search.include({
 		_searchInLayer: function(layer, retRecords, propName) {
 			var that = this,
           loc;
@@ -583,484 +368,234 @@ L.control.watermark({ position: 'bottomleft' }).addTo(map);*/
         }
         return retRecords;
       }
-    });
+});
 	
-	//Suche mit angepassten Optionen festlegen
-    var searchControl = new L.Control.Search({
-        layer: L.featureGroup([json_AlleJSON]),
-        //propertyName: 'Nkat',
-        position: 'topleft', 
-		featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
-		animateLocation: true,
-        circleLocation: true,
-		markerLocation: false,
-		zoom: 12});
+//Suchmaske mit angepassten Optionen festlegen
+var searchControl = new L.Control.Search({
+    layer: L.featureGroup([json_AlleJSON]),
+			position: 'topleft', 
+			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
+			animateLocation: true,
+			circleLocation: true,
+			markerLocation: false,
+			zoom: 12
+});
 		
-	//Festlegen was ausgeführt werden soll, wenn Suche erfolgreich war
-	searchControl.on('search_locationfound', function(e) {
+//Festlegen was ausgeführt werden soll, wenn Suchvorgang erfolgreich war
+searchControl.on('search_locationfound', function(e) {
 	map.addOneTimeEventListener('moveend', function(){		
 	sidebar.hide();
 	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
 	removeButton._container.style.display = "Block";
-	
-			  /* if (screen.height > screen.width) {
-			controlRouting._container.style.display = "none";
-			
-		
-      } else {
-		controlRouting._container.style.display = "Block";
-		
-      }*/
 	});
-	});
-	map.addControl(searchControl);
+});
+map.addControl(searchControl);
 	
 	
-		//Reset-Button einfügen
-	var removeButton = L.easyButton({
+//Reset-Button der feature-Anzeige einfügen
+var removeButton = L.easyButton({
 	id: 'remove', 
 	type: 'animate',
 	position: 'topright',
 	states: [{
-		stateName: 'removePoints',
-		icon:'fa fa-times',
-		title: 'Punkte entfernen',
-		onClick: function() {
-	json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		//Style und Radius resetten
-	//sidebar.hide();																							//sidebar schließen
-	//map._layers.removeLayer(that._markerLoc);	
-	searchControl._markerLoc.hide();
-	//map.removeControl(Control);	
-		//routingButton.enable();
-	//routingButtonWalk.remove();
-	//routingWheelChair.remove();
-	//routingButton.enable();
-	//removeButton.remove();
-	removeButton._container.style.display = "none";
-		   /*if (screen.height < screen.width) {
-			controlRouting._container.style.display = "none";
-			
-		
-      } else {
-		controlRouting._container.style.display = "Block";
-		
-      }*/
-	//map.removeLayer(osm);
-	//map.addLayer(CampusMapLinear);
-	}
-	}
-	]
-	});
-	removeButton.addTo(map);
-	removeButton._container.style.display = "none";
-	//removeButton.addTo(map);
-	//removeButton.disable();
-	//removeButton.disable();
+			stateName: 'removePoints',
+			icon:'fa fa-times',
+			title: 'Punkte entfernen',
+			onClick: function() {
+					json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		
+					searchControl._markerLoc.hide();
+					removeButton._container.style.display = "none";
+								}
+	}]
+});
+removeButton.addTo(map);
+removeButton._container.style.display = "none";
 
 	
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
-	
-	//Button für Standortsuche implementieren
-	L.control.locate({
+				
+//Standortabfrage implementieren
+L.control.locate({
     strings: {
         title: "Standort anzeigen"
-    },	
+			 },	
 	locateOptions: {
-               timeout: 20000}																				//Default-Wert von Leaflet = 10000   
-	}).addTo(map);
+        timeout: 20000}																				//Default-Wert von Leaflet = 10000   
+	}).
+	addTo(map);
 
-	//Routing-Button einfügen
-	/*var routingButton = L.easyButton('fa fa-location-arrow', function(){
-	map.setView([51.44459561, 7.26094000], 17);
-	
-	//if(map.getCenter() == [51.44459561, 7.26094000]){
-	map.setView([51.44459561, 7.2609500], 17);
-	sidebar.hide();
-	removeButton.enable();
-	routingButton.disable();
-	Control.addTo(map);
-	var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') {
-     alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
-     localStorage.setItem('alerted','yes');
-    }
-	//map.addLayer(osm);
-	//map.removeLayer(CampusMapLinear);
-	//} else {
-	
-	//map.addOneTimeEventListener('moveend', function () {
-	//Control.addTo(map);
-	//poppi.openOn(map);
-	//sidebar.hide();
-	//removeButton.enable();
-	//map.setView([51.44459561, 7.2609500], 17);
-	//})
-	//}
-	}).addTo(map);*/
-	
+//Routing-Funktion implementieren
+//Zunächst Schaltfläche zur Freigabe der Vehicle einrichten
 var routingButton = L.easyButton({
 	id: 'routing', 
 	type: 'animate',
 	states: [{
-		stateName: 'add-routing',
-		icon:'fa-location-arrow',
-		title: 'Routing hinzufügen',
-		onClick: function() {
-	//function(){
-	/*var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') {
-     //alert("Bitte beachte, dass die Routing-Funktion noch in Bearbeitung ist!");
-     localStorage.setItem('alerted','yes');
-    }*/
-	var alerted1 = localStorage.getItem('alerted1') || '';
-    if (alerted1 != 'yes') {
-     alert("Hinweis: Ziehe die beiden Markierungen an Dein Start- und Zielpunkt. Wähle mittels angezeigter Schaltflächen anschließend dein bevorzugtes Reisemittel aus");
-     localStorage.setItem('alerted1','yes');
-    };
-	map.setView([51.44480, 7.26150],15);
-	//controlRouting.addTo(map);
-	routingButtonWalk.addTo(map);
-	routingButtonCar.addTo(map);
-	controlRouting.addTo(map);
+			stateName: 'add-routing',
+			icon:'fa-location-arrow',
+			title: 'Routing hinzufügen',
+			onClick: function() {
+						var alerted1 = localStorage.getItem('alerted1') || '';
+							if (alerted1 != 'yes') {
+							alert("Hinweis: Ziehe die beiden Markierungen an Dein Start- und Zielpunkt. Wähle mittels angezeigter Schaltflächen anschließend dein bevorzugtes Reisemittel aus");
+							localStorage.setItem('alerted1','yes');
+							};
+							
+						map.setView([51.44480, 7.26150],15);
+						routingButtonWalk.addTo(map);
+						routingButtonCar.addTo(map);
+						controlRouting.addTo(map);
+						
+						this.state('remove-routing');
+						routingButtonWalk.state('add-routingWalk');
+						routingButtonCar.state('add-routingCar');
+								}
+			}, {
+			stateName: 'remove-routing',
+			title: 'Routing schließen',
+			icon: 'fa-location-arrow',
+			onClick: function() {
+						routingButtonWalk.remove();
+						routingButtonCar.remove();
+						map.removeControl(controlRouting);
+						controlRouting.getRouter().options.costing = "";
+						
+						this.state('add-routing');
+								}
+				}
+			]
+}).addTo(map);
 
-	//routingButton.disable();
-	//removeButton.remove();
-	//removeButton.addTo(map);
-				this.state('remove-routing');
-				routingButtonWalk.state('add-routingWalk');
-				routingButtonCar.state('add-routingCar');
-	}
-	}, {
-	    stateName: 'remove-routing',
-		title: 'Routing schließen',
-		icon: 'fa-location-arrow',
-		onClick: function() {
-			routingButtonWalk.remove();
-			routingButtonCar.remove();
-			//routingButton.enable();
-			//removeButton.addTo(map);
-			//removeButton.remove();
-			map.removeControl(controlRouting);
-			controlRouting.getRouter().options.costing = "";
-				this.state('add-routing');
-				    }
-	}]
-	}).addTo(map);
-
-	var routingButtonWalk = L.easyButton({
+//Schaltfläche des Routings zu Fuß implementieren
+var routingButtonWalk = L.easyButton({
 	id: 'routing-walk', 
 	type: 'animate',
 	states: [{
-		stateName: 'add-routingWalk',
-		icon:'fa fa-male',
-		title: 'zu Fuß',
-		onClick: function() {
-		
-	
-	//if(map.getCenter() == [51.44459561, 7.26094000]){
-	//map.setView([51.44459561, 7.2609500], 17);
-	//sidebar.hide();
-	//removeButton.addTo(map);
-	//routingButton.disable();
-	//map.removeControl(controlCar);
-	
-	var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') {
-     alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
-     localStorage.setItem('alerted','yes');
-    };
-	
-	controlRouting.getRouter().options.costing = "pedestrian";
-	controlRouting.route();
-				this.state('remove-routingWalk');
-				routingButtonCar.state('add-routingCar');
-	}
-	}, {
+			stateName: 'add-routingWalk',
+			icon:'fa fa-male',
+			title: 'zu Fuß',
+			onClick: function() {
+						var alerted = localStorage.getItem('alerted') || '';
+							if (alerted != 'yes') {
+							alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
+							localStorage.setItem('alerted','yes');
+													  };
+													  
+						controlRouting.getRouter().options.costing = "pedestrian";
+						controlRouting.route();
+							
+						this.state('remove-routingWalk');
+						routingButtonCar.state('add-routingCar');
+							   }				
+			}, {
 		stateName: 'remove-routingWalk',
 		title: 'Routing zu Fuß',
 		icon: 'fa fa-male',
 		onClick: function() {
-			//routingButtonWalk.remove();
-			//routingWheelChair.remove();
-			//routingButton.enable();
-			//removeButton.addTo(map);
-			//removeButton.remove();
-			map.removeControl(controlRouting);
-			controlRouting.getRouter().options.costing = "";
-			controlRouting.addTo(map);
-				this.state('add-routingWalk');
-				    }
-	}]
-	});
-	
-	//map.addLayer(osm);
-	//map.removeLayer(CampusMapLinear);
-	//} else {
-	
-	//map.addOneTimeEventListener('moveend', function () {
-	//Control.addTo(map);
-	//poppi.openOn(map);
-	//sidebar.hide();
-	//removeButton.enable();
-	//map.setView([51.44459561, 7.2609500], 17);
-	//})
-	//}
-	
-	var routingButtonCar = L.easyButton({
+						map.removeControl(controlRouting);
+						controlRouting.getRouter().options.costing = "";
+						controlRouting.addTo(map);
+						
+						this.state('add-routingWalk');
+						    }
+			  }
+			 ]
+});
+
+//Schaltfläche des Routings zu Fuß implementieren
+var routingButtonCar = L.easyButton({
 	id: 'routing-car',
 	type: 'animate',
 	states: [{
-		stateName: 'add-routingCar',
-		icon:'fa fa-car',
-		title: 'Routing per Auto',
-	onClick: function(){
+			stateName: 'add-routingCar',
+			icon:'fa fa-car',
+			title: 'Routing per Auto',
+			onClick: function(){
+						var alerted = localStorage.getItem('alerted') || '';
+							if (alerted != 'yes') {
+							alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
+							localStorage.setItem('alerted','yes');
+												  };
 	
-	//map.setView([51.44459561, 7.26094000]);
-	//if(map.getCenter() == [51.44459561, 7.26094000]){
-	//map.setView([51.44480, 7.26150],15);
-	/*map.addOneTimeEventListener('moveend', function () {
-	map.removeControl(controlWalk);
-	controlCar.addTo(map);
-	map.setView([51.44480, 7.26150],16);
-	});*/
-	//map.removeControl(controlWalk);
-	var alerted = localStorage.getItem('alerted') || '';
-    if (alerted != 'yes') {
-     alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
-     localStorage.setItem('alerted','yes');
-    };
-	
-	controlRouting.getRouter().options.costing = "auto";
-	controlRouting.route();
-	//map.removeControl(controlCar);
-	//controlCar.addTo(map);
-	//Control.getRouter().options.costing = "auto";
-				this.state('remove-routingCar');
-				routingButtonWalk.state('add-routingWalk');
-				}
-	}, {
+						controlRouting.getRouter().options.costing = "auto";
+						controlRouting.route();
+
+						this.state('remove-routingCar');
+						routingButtonWalk.state('add-routingWalk');
+							  }
+			}, {
 	stateName: 'remove-routingCar',
 		title: 'Routing schließen',
 		icon: 'fa fa-car',
 		onClick: function() {
-			//routingButtonWalk.remove();
-			//routingWheelChair.remove();
-			//routingButton.enable();
-			//removeButton.addTo(map);
-			//removeButton.remove();
-			//map.removeControl(controlCar);
-			map.removeControl(controlRouting);
-			controlRouting.getRouter().options.costing = "";
-			controlRouting.addTo(map);
-				this.state('add-routingCar');
+					map.removeControl(controlRouting);
+					controlRouting.getRouter().options.costing = "";
+					controlRouting.addTo(map);
+					
+					this.state('add-routingCar');
 				    }
-	}]
-	});
+			   }	
+			]
+});
 	
 	
-	//map.addLayer(osm);
-	//map.removeLayer(CampusMapLinear);
-	//} else {
-	
-	//map.addOneTimeEventListener('moveend', function () {
-	//Control.addTo(map);
-	//poppi.openOn(map);
-	//sidebar.hide();
-	//removeButton.enable();
-	//map.setView([51.44459561, 7.2609500], 17);
-	//})
-	//}
-	
-	
-	
-	/*var addOsm = L.easyButton('fa fa-exchange', function(){
-	map.addLayer(osm);
-	map.removeLayer(CampusMapLinear);
-	map.removeLayer(overlay);
-	addOsm.disable();
-	removeOsm.enable();
-	}).addTo(map);*/
-	
-	
-	/*var removeOsm = L.easyButton('fa fa-exchange', function(){
-	map.removeLayer(osm);
-	map.addLayer(CampusMapLinear);
-	map.addLayer(overlay);
-	addOsm.enable();
-	removeOsm.disable();
-	}).addTo(map);
-	removeOsm.disable();
-	
-	var opacityButton = L.easyButton('fa fa-minus', function(){
-	CampusMapLinear.setOpacity(0.0);
-	overlay.setOpacity(0.0);
-	}).addTo(map);
-	
-	
-	var opacityButton1 = L.easyButton('fa fa-plus', function(){
-	overlay.addTo(map);
-	}).addTo(map);
-	
-	var opacityButton2 = L.easyButton('fa fa-minus', function(){
-	overlay.remove();
-	}).addTo(map);
-	
-	var opacityButton3 = L.easyButton('fa fa-plus', function(){
-	map.addLayer(OpenStreetMap_BlackAndWhite);
-	CampusMapLinear.bringToFront();
-	//map._container.style.background-color = "black";
-	}).addTo(map);*/
-	
-	/*opacityButton4 = L.easyButton('fa fa-minus', function(){
-	map.removeLayer(overlay);
-	overlay.setUrl("Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959");
-	overlay.addTo(map);
-	}).addTo(map);*/
-	
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		/*var point1 = L.latLng(51.44539, 7.25305),
-		    point2 = L.latLng(51.44972, 7.26602),
-		    point3 = L.latLng(51.44021, 7.25749);*/
+//ImageOverlay zur Einbettung der SVG-Campuskarte einrichten	
+var point1 = L.latLng(51.446, 7.2525),
+	point2 = L.latLng(51.45034, 7.26549),
+	point3 = L.latLng(51.44021, 7.25749);
 			
-			var point1 = L.latLng(51.446, 7.2525),
-		    point2 = L.latLng(51.45034, 7.26549),
-		    point3 = L.latLng(51.44021, 7.25749);
-			
-		/*var marker1 = L.marker(point1, {icon:smallIcon2,  draggable: true} ).addTo(map),
-		    marker2 = L.marker(point2, {icon:smallIcon2,  draggable: true} ).addTo(map),
-		    marker3 = L.marker(point3, {icon:smallIcon2,  draggable: true} ).addTo(map);*/
 
-		var overlay = L.imageOverlay.rotated("Campusplan.svg", point1, point2, point3, {
+var overlay = L.imageOverlay.rotated("Campusplan.svg", point1, point2, point3, {
 			opacity: 1,
 			interactive: false,
 			attribution: "RUB-Campusplan &copy; <a href='https://www.geographie.ruhr-uni-bochum.de/institut/'>AG Geomatik | Geographisches Institut</a>"
-		});
+});
 		
-		/*marker1.bindPopup("test");
-		marker1.on('click', function(e) {
-		marker1.getPopup().setContent('clicked' + marker1.getLatLng().toString()).openOn(map);
-		});
-		marker2.bindPopup("test");
-		marker2.on('click', function(e) {
-		marker2.getPopup().setContent('clicked' + marker2.getLatLng().toString()).openOn(map);
-		});
-		marker3.bindPopup("test");
-		marker3.on('click', function(e) {
-		marker3.getPopup().setContent('clicked' + marker3.getLatLng().toString()).openOn(map);
-		});
-		
-		function repositionImage() {
-			overlay.reposition(marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng());
-		};
-		
-		marker1.on('drag dragend', repositionImage);
-		marker2.on('drag dragend', repositionImage);
-		marker3.on('drag dragend', repositionImage);*/
-		
-// 		var c = overlay.getCanvas2DContext()
-		
-		map.addLayer(overlay);
+map.addLayer(overlay);
 		
 
-		/*overlay.on('dblclick',function (e) {
-			console.log('Double click on image.');
-			e.stop();
-		});
+function setOverlayOpacity(opacity) {
+		overlay.setOpacity(opacity);
+};
+		
 
-		overlay.on('click',function (e) {
-			console.log('Click on image.');
-		});*/
+//Sidebar und mapOverlay-Control
+sidebar.on('show', function () {
+	map.removeControl(myControl);
+});
+		
+sidebar.on('hidden', function () {
+	map.addControl(myControl);
+});
+		
+		
+		
+//Ausrichtung des Smartphones identifizieren und Funktion an Ausirchtung anpassen
+window.addEventListener('orientationchange', doOnOrientationChange);
 
-		function setOverlayOpacity(opacity) {
-			overlay.setOpacity(opacity);
-		};
-		
-		sidebar.on('show', function () {
-		//map.removeControl(loadingControl);
-		map.removeControl(myControl);
-		});
-		
-		sidebar.on('hidden', function () {
-		map.addControl(myControl);
-		//map.addControl(loadingControl); 
-		 
-		});
-		
-		
-		
-	//Catch Orientation	
-	window.addEventListener('orientationchange', doOnOrientationChange);
-
-	function doOnOrientationChange()
+function doOnOrientationChange()
 	{
-      if (screen.height > screen.width) {
-       myControl.setPosition('bottomleft');
-		//myControl.setPosition('bottomright');
-		/* function ABC(){
-		 		sidebar.on('show', function () {
-		map.removeControl(myControl);
-		});
+		if (screen.height > screen.width) {
+			myControl.setPosition('bottomleft');
+			controlRouting._container.style.display = "none";
 		
-		sidebar.on('hidden', function () {
-		map.addControl(myControl);
-		});*/
-		controlRouting._container.style.display = "none";
+			} else {
+
+				myControl.setPosition('bottomright');
 		
-      } else {
-         //alert('landscape');
-		//map.removeControl(loadingControl); 
-		myControl.setPosition('bottomright');
-		//map.addControl(loadingControl); 
-		controlRouting._container.style.display = "Block";
+				controlRouting._container.style.display = "Block";
 		 
-		 if (controlRouting._container.style.display = "Block"){
+		if (controlRouting._container.style.display = "Block")
+		{
 		searchControl.collapse();
-		//searchControl.expand();
+	
 		}
-		//this._markerLoc.hide(); 
-		//sidebar.hide();
-		//this._layer.setStyle({fillColor: 'blue', color: 'blue'});
-		}
+
+				  }	
 		
 	}
 	
 	
-
-					//Einrichtung der maxBounds
-		/*var southWest = L.latLng([51.44019, 7.2575], map.getMaxZoom()-5);				//[link unten , link oben];
-		var northEast = L.latLng([51.45016, 7.26589], map.getMaxZoom()-5);				//[rechts oben , rechts unten];
-		mybounds = new L.latLngBounds(southWest, northEast);
-		
-		//map.setMaxBounds(overlay.getBounds());*/
-		//L.rectangle(, {color: "#ff7800", weight: 1}).addTo(map);
-		//map.setMaxBounds([[51.44019, 7.2575],[51.45016, 7.26589]]);
-		
-		//mybounds = new L.latLngBounds(southWest, northEast);
-		/*var bounds = L.latLngBounds([[51.44019, 7.2575],[51.45016, 7.26589]]);
-		var wantedZoom = map.getBoundsZoom(bounds, true);
-		var center = bounds.getCenter();
-		map.setView(center, wantedZoom);*/
-		
-/*var visible;		
-if (map.hasLayer(overlay)){
-if (!visible) {
-map.spin(false);
-// Set visibility flag
-            visible = true;
-};
-} else {
-if (visible) {
-map.spin(true);
- // Set visibility flag
-            visible = false;
-}
-}*/
-
-
-
-
     </script>
 
 </body>
