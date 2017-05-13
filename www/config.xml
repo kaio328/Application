@@ -6,10 +6,10 @@
         id        = "com.KaiChristopherRudolph.MobilesLageinformationssystemRUB"
         version   = "0.9">
 
-    <name>RUB-Lageplan</name>
+    <name>RUB-Campusplan</name>
 
     <description>
-        Interaktiver Lageplan
+        Interaktiver Campusplan
     </description>
 
     <author href="" email="kai.rudolph@rub.de">
