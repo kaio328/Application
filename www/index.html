@@ -137,7 +137,7 @@ var overlayMaps = {
 };
 	
 //mapOverlays-Control der Karte hinzufügen
-myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
+overlayControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
 	.addTo(map);
 	
 	
@@ -559,11 +559,11 @@ function setOverlayOpacity(opacity) {
 
 //Sidebar und mapOverlay-Control
 sidebar.on('show', function () {
-	map.removeControl(myControl);
+	map.removeControl(overlayControl);
 });
 		
 sidebar.on('hidden', function () {
-	map.addControl(myControl);
+	map.addControl(overlayControl);
 });
 		
 		
@@ -581,7 +581,7 @@ function doOnOrientationChange()
 			controlRouting._container.style.display = "none";
 			
 			} else {
-				myControl.setPosition('bottomright');
+				//overlayControl.setPosition('bottomright');
 				scale.addTo(map);
 				controlRouting._container.style.display = "Block";
 		 
