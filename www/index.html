@@ -580,6 +580,7 @@ function doOnOrientationChange()
 		if (screen.height > screen.width) {
 			myControl.setPosition('bottomleft');
 			controlRouting._container.style.display = "none";
+			scale.addTo(map);
 			map.removeControl(scale);
 			} else {
 
