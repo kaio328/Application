@@ -208,8 +208,9 @@ L.Control.Search = L.Control.extend({
 			this._map.off('dragstart click', this.collapse, this);
 		}
 		this.fire('search_collapsed');
+		setTimeout(function(){
 		overlayControl.addTo(map);
-		
+		},1000)
 						   if (screen.height < screen.width) {
 			controlRouting._container.style.display = "Block";
 			
