@@ -212,10 +212,10 @@ L.Control.Search = L.Control.extend({
 		
 						   if (screen.height < screen.width) {
 			controlRouting._container.style.display = "Block";
-			overlayControl.addTo(map);
+			
 	  } else {
 		controlRouting._container.style.display = "none";
-		map.removeControl(overlayControl);
+		
       }
 		
 		return this;
