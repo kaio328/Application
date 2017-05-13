@@ -336,7 +336,7 @@ function doPointToLayerDozenten(feature, latlng) {
 	
 
 //Einbindung der Datei json_AlleJSON als Layer
-var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.js", {
+var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
 	onEachFeature: pop_Dozenten,													
 	pointToLayer: doPointToLayerDozenten
 });
