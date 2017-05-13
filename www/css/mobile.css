@@ -106,7 +106,7 @@ h3,h4 {
 	border-radius: 1px;
 	}
 
-.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
+ /*.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
 	margin-left: 75px;
 	margin-bottom: -50px;
 	}
@@ -115,7 +115,7 @@ h3,h4 {
 	margin-right: 75px;
 	margin-bottom: -250px;
 	position: relative;
-	}
+	}*/
 
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-loading,
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-zoom a.leaflet-control-loading ,
