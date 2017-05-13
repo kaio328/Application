@@ -106,10 +106,7 @@ h3,h4 {
 	border-radius: 1px;
 	}
 
-.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
-	margin-left: 6px;
-	margin-bottom: 3px;
-	}
+
 
 /*.leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-scale {
 	margin-right: 75px;
@@ -188,3 +185,8 @@ h3,h4 {
 	margin-bottom: 3px;
 }
 
+.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
+	margin-left: 6px;
+	margin-bottom: 3px;
+	z-index: 3000;
+	}
