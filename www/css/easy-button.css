@@ -2,7 +2,7 @@
 .leaflet-bar button:hover {
 	opacity: 1;
 	width: 40.5px;
-	height:42px;
+	height:40.5px;
 	border: 0px solid #fff;
 	
 	border-color: rgba(0, 0, 0, 1);
@@ -52,7 +52,7 @@
 
 .leaflet-touch .leaflet-bar button {
   width: 40.5px;
-  height:40.5px;
+  height:40.7px;
   max-height: 10000px;
   max-width: 10000px;
   line-height: 30px;
