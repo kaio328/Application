@@ -341,6 +341,7 @@ var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/ka
 	pointToLayer: doPointToLayerDozenten
 });
 
+json_DozentenJSON.on('data:progress', function (e) {
     if (e.error) {
 			var json_DozentenJSON = new L.geoJson(json_Alle, {
 			onEachFeature: pop_Dozenten,													
