@@ -577,7 +577,7 @@ var scale = L.control.scale({position: "bottomright"}).addTo(map);
 function doOnOrientationChange()
 	{
 		if (screen.height > screen.width) {
-			map.removeControl(scale);
+			//map.removeControl(scale);
 			controlRouting._container.style.display = "none";
 			
 			} else {
