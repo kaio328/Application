@@ -90,18 +90,7 @@
     <icon src="res/icon/windows-phone/icon-173.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-	<splash src="splash.png" />
-    <splash src="res/screen/android/splash.png"       gap:platform="android" gap:qualifier="port-ldpi" />
-    <splash src="res/screen/android/splash.png"       gap:platform="android" gap:qualifier="port-mdpi" />
-    <splash src="res/screen/android/splash.png"       gap:platform="android" gap:qualifier="port-hdpi" />
-    <splash src="res/screen/android/splash.png"       gap:platform="android" gap:qualifier="port-xhdpi" />
-    <splash src="res/screen/blackberry/screen-225.png"              gap:platform="blackberry" />
-    <splash src="res/screen/ios/screen-iphone-portrait.png"         gap:platform="ios"     width="320" height="480" />
-    <splash src="res/screen/ios/screen-iphone-portrait-2x.png"      gap:platform="ios"     width="640" height="960" />
-    <splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
-    <splash src="res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
-    <splash src="res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
-    <splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
+
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
