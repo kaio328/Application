@@ -137,7 +137,7 @@ var overlayMaps = {
 };
 	
 //mapOverlays-Control der Karte hinzufügen
-myControl = L.control.layers(null, overlayMaps, {position: "bottomright"})
+myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
 	.addTo(map);
 	
 	
@@ -571,7 +571,7 @@ sidebar.on('hidden', function () {
 //Ausrichtung des Smartphones identifizieren und Funktion an Ausirchtung anpassen
 window.addEventListener('orientationchange', doOnOrientationChange);
 
-var scale = L.control.scale({position: "bottomleft"});
+var scale = L.control.scale({position: "bottomright"}).addTo(map);
 
 
 function doOnOrientationChange()
@@ -594,6 +594,11 @@ function doOnOrientationChange()
 				  }	
 		
 	}
+
+
+	opacityButton4 = L.easyButton('fa fa-minus', function(){
+	map.removeControl(scale);
+	}).addTo(map);
 	
 	
     </script>

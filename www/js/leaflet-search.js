@@ -185,6 +185,7 @@ L.Control.Search = L.Control.extend({
 		this.fire('search_expanded');
 				  if (screen.height < screen.width) {
 			controlRouting._container.style.display = "none";
+			map.removeControl(myControl);
 					
 					} else {
 		controlRouting._container.style.display = "none";
@@ -207,13 +208,14 @@ L.Control.Search = L.Control.extend({
 			this._map.off('dragstart click', this.collapse, this);
 		}
 		this.fire('search_collapsed');
+		myControl.addTo(map);
 		
 						   if (screen.height < screen.width) {
 			controlRouting._container.style.display = "Block";
-      
+			myControl.addTo(map);
 	  } else {
 		controlRouting._container.style.display = "none";
-		
+		map.removeControl(myControl);
       }
 		
 		return this;
