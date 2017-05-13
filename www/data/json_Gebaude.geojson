@@ -1,4 +1,4 @@
-var json_Gebaude = {
+{
 	"type": "FeatureCollection",
 	"crs": {
 		"type": "name",
@@ -34,7 +34,6 @@ var json_Gebaude = {
 			"properties": {
 				"id": 2,
 				"Bez": "NB"
-			
 
 			},
 			"geometry": {
@@ -57,7 +56,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 4,
 				"Bez": "ND"
-				
+
 			},
 			"geometry": {
 				"type": "Point",
@@ -221,4 +220,4 @@ var json_Gebaude = {
 		}
 
 	]
-	}
+}

@@ -10,9 +10,11 @@
 	"features": [{
 			"type": "Feature",
 			"properties": {
-				"id": null,
+				"id": 1,
 				"Bez": "Dr. Dennis Edler",
-				"Syn": "Edler, Dr. Dennis Edler",
+				"Syn": "Edler Dennis, Dr. Dennis Edler",
+				"Syn2": "Dennis Edler, Dr. Dennis Edler",
+				"Syn3": "NA 5/169",
 				"Vorname": "Dennis",
 				"Nachname": "Edler",
 				"Raumnummer": "NA 5/169",
