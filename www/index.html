@@ -67,6 +67,8 @@
 		 #sidebar {	
 		 
 			font-family: droid-sans, sans-serif;
+			text-align: left;
+			vertical-align: top;
 			
         }
 		
@@ -265,7 +267,7 @@ function pop_Alle(feature, layer) {
     })
 };
 		
-//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+//Style der features festlegen
 function doStyleAlle() {
     return {
             radius: 0.0,
@@ -278,7 +280,7 @@ function doStyleAlle() {
             }
 };
 		
-//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+//Funktion über die alle features des Layers auf Basis des festlegeten Styles abbgebilded werden
 function doPointToLayerAlle(feature, latlng) {
     return L.circleMarker(latlng, doStyleAlle())
 };
@@ -299,6 +301,69 @@ json_AlleJSON.on('data:progress', function (e) {
     }
 });
 //Einbindung der Datei json_AlleJSON als Layer
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Alle(feature, layer) {
+	layer.on('click', function (e) {
+			layer.bringToFront();
+			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
+
+			document.getElementById("sidebar").innerHTML = sidebarContent;
+			sidebar.show();
+    })
+};
+		
+//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+function doStyleDozenten() {
+    return {
+            radius: 0.0,
+            fillColor: 'grey',
+            color: 'black',
+            weight: 0.0,
+            opacity: 1,
+            dashArray: '',
+            fillOpacity: 1
+            }
+};
+		
+//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+function doPointToLayerDozenten(feature, latlng) {
+    return L.circleMarker(latlng, doStyleDozenten())
+};
+	
+
+//Einbindung der Datei json_AlleJSON als Layer
+var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.js", {
+	onEachFeature: pop_Dozenten,													
+	pointToLayer: doPointToLayerDozenten
+});
+
+    if (e.error) {
+			var json_DozentenJSON = new L.geoJson(json_Alle, {
+			onEachFeature: pop_Dozenten,													
+			pointToLayer: doPointToLayerDozenten											
+			});	
+    }
+});
+
+//Einbindung der Datei json_AlleJSON als Layer
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Dozenten(feature, layer) {
+	layer.on('click', function (e) {
+			layer.bringToFront();
+			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
+
+			document.getElementById("sidebar").innerHTML = sidebarContent;
+			sidebar.show();
+    })
+};
 //Einbindung der Datei json_AlleJSON als Layer
 //Einbindung der Datei json_AlleJSON als Layer
 //Einbindung der Datei json_AlleJSON als Layer
@@ -371,7 +436,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_AlleJSON]),
+    layer: L.featureGroup([json_AlleJSON,json_DozentenJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
