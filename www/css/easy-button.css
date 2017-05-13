@@ -2,9 +2,9 @@
 .leaflet-bar button:hover {
 	opacity: 1;
 	width: 40.5px;
-	height:40.5px;
+	height:40.7px;
 	border: 0px solid #fff;
-	border-radius: 100px;
+	
 	border-color: rgba(0, 0, 0, 1);
   background-color: rgba(255, 255, 255, 1);
 	font-size: 1.4em;
@@ -16,8 +16,7 @@
 
 .leaflet-bar button {
   background-color: rgba(255, 255, 255, 1);	
-  width: 40.5px;
-	height:40.5px;
+
   border-radius: 100px;
 }
 
