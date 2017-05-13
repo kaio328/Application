@@ -216,7 +216,6 @@ var controlRouting = L.Routing.control({
 				Start,
 				Ziel
 				],
-				addWaypoints: false,
 	createMarker: function (i, waypoint, n){ 
     var marker = L.marker (waypoint.latLng, {
                 draggable: true,
@@ -574,7 +573,8 @@ sidebar.on('hidden', function () {
 //Ausrichtung des Smartphones identifizieren und Funktion an Ausirchtung anpassen
 window.addEventListener('orientationchange', doOnOrientationChange);
 
-var scale = L.control.scale();
+var scale = L.control.scale({position: "bottmleft"});
+
 function doOnOrientationChange()
 	{
 		if (screen.height > screen.width) {
