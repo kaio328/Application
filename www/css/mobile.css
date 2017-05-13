@@ -106,12 +106,12 @@ h3,h4 {
 	border-radius: 1px;
 	}
 
- /*.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
-	margin-left: 75px;
-	margin-bottom: -50px;
+.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale {
+	margin-left: 6px;
+	margin-bottom: 3px;
 	}
 
-.leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-scale {
+/*.leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-scale {
 	margin-right: 75px;
 	margin-bottom: -250px;
 	position: relative;
@@ -131,7 +131,7 @@ h3,h4 {
 }
 
 
-  .leaflet-right.leaflet-top .leaflet-control {
+.leaflet-right.leaflet-top .leaflet-control {
 	margin-right: 9px;
 	border: 1px solid #fff;
 	margin-top: 15px;

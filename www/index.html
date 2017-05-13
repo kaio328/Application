@@ -24,11 +24,9 @@
 		<script src="js/L.Control.Sidebar.js"></script>
         <script src="js/label.js"></script>
         <script src="js/Autolinker.min.js"></script>
-		<script src="js/easy-button.js"></script>
 		<script src="js/Control.Loading.js"></script>
 		<script src="js/bouncemarker.js"></script>
 		<script src="js/leaflet.ajax.js"></script>
-		<script src="js/L.Control.Sidebar.js"></script>
 		<script src="js/spin.js" charset="utf-8"></script>
 		<script src="js/leaflet.spin.js" charset="utf-8"></script>
 		<script src="js/Leaflet.ImageOverlay.Rotated.js"></script>
@@ -139,7 +137,7 @@ var overlayMaps = {
 };
 	
 //mapOverlays-Control der Karte hinzufügen
-myControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
+myControl = L.control.layers(null, overlayMaps, {position: "bottomright"})
 	.addTo(map);
 	
 	
@@ -573,7 +571,7 @@ sidebar.on('hidden', function () {
 //Ausrichtung des Smartphones identifizieren und Funktion an Ausirchtung anpassen
 window.addEventListener('orientationchange', doOnOrientationChange);
 
-var scale = L.control.scale({position: "bottomleft"}).addTo(map);
+var scale = L.control.scale({position: "bottomleft"});
 
 
 function doOnOrientationChange()
