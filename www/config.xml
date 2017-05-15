@@ -21,7 +21,7 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    
+    <preference name="permissions"  			  value="none"/>
 	
 	
     <!-- Customize your app and platform with the preference element. -->
@@ -39,7 +39,7 @@
     <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-    <preference name="SplashScreen" value="splash" />
+
    
       
 	<preference name="phonegap-version" value="cli-6.5.0" /> 
@@ -49,16 +49,16 @@
 
     <!-- Core plugins -->
     <plugin name="cordova-plugin-battery-status" />
-    <plugin name="cordova-plugin-camera" />
-    <plugin name="cordova-plugin-media-capture" />
+
+
     <plugin name="cordova-plugin-console" />
-    <plugin name="cordova-plugin-contacts" />
+
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-file" />
-    <plugin name="cordova-plugin-file-transfer" />
+ 
+
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-inappbrowser" />
