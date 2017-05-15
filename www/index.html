@@ -359,7 +359,7 @@ function pop_Dozenten(feature, layer) {
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(Stri(feangture.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
+			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
