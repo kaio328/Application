@@ -56,7 +56,7 @@
     <plugin name="cordova-plugin-device" />
     <plugin name="cordova-plugin-device-motion" />
     <plugin name="cordova-plugin-device-orientation" />
-    <plugin name="cordova-plugin-dialogs" />
+ 
  
 
     <plugin name="cordova-plugin-geolocation" />
