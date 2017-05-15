@@ -60,9 +60,9 @@
  
 
     <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova-plugin-globalization" />
+
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-media" />
+
     <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
