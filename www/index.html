@@ -33,6 +33,7 @@
 
 
 		<script src="data/json_Dozenten.js"></script>
+		<script src="data/json_Gebaude.js"></script>
 		<script src="data/rahmen1.js"></script>
 		
 
@@ -251,14 +252,14 @@ var sidebar = L.control.sidebar('sidebar', {
 map.addControl(sidebar);
 sidebar.hide();
 		
-		
-/*//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
-function pop_Alle(feature, layer) {
+//Einbindung der Datei json_GebaudeJSON als Layer		
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Gebaude(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
-			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
-			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});				
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});			
 			var sidebarContent = 
 			
 			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
@@ -269,7 +270,7 @@ function pop_Alle(feature, layer) {
 };
 		
 //Style der features festlegen
-function doStyleAlle() {
+function doStyleGebaude() {
     return {
             radius: 0.0,
             fillColor: 'grey',
@@ -282,33 +283,33 @@ function doStyleAlle() {
 };
 		
 //Funktion über die alle features des Layers auf Basis des festlegeten Styles abbgebilded werden
-function doPointToLayerAlle(feature, latlng) {
-    return L.circleMarker(latlng, doStyleAlle())
+function doPointToLayerGebaude(feature, latlng) {
+    return L.circleMarker(latlng, doStyleGebaude())
 };
 	
 
-//Einbindung der Datei json_AlleJSON als Layer
-var json_AlleJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Alle.geojson", {
-	onEachFeature: pop_Alle,													
-	pointToLayer: doPointToLayerAlle
+//Einbindung der Datei json_GebaudeJSON als Layer
+var json_GebaudeJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Gebaude.geojson", {
+	onEachFeature: pop_Gebaude,													
+	pointToLayer: doPointToLayerGebaude
 });
 
-json_AlleJSON.on('data:progress', function (e) {
+json_GebaudeJSON.on('data:progress', function (e) {
     if (e.error) {
-			var json_AlleJSON = new L.geoJson(json_Alle, {
-			onEachFeature: pop_Alle,													
-			pointToLayer: doPointToLayerAlle											
+			var json_GebaudeJSON = new L.geoJson(json_Gebaude, {
+			onEachFeature: pop_Gebaude,													
+			pointToLayer: doPointToLayerGebaude											
 			});	
     }
 });
-//Einbindung der Datei json_AlleJSON als Layer
+//Einbindung der Datei json_DozentenJSON als Layer
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
-function pop_Alle(feature, layer) {
+function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});	
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});	
-			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});			
 			var sidebarContent = 
 			
 			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
@@ -316,7 +317,7 @@ function pop_Alle(feature, layer) {
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
     })
-};*/
+};
 		
 //Style der Punktsignaturen, die alle Objekte der Dozenten.geojson abbilden
 function doStyleDozenten() {
@@ -353,7 +354,7 @@ json_DozentenJSON.on('data:progress', function (e) {
 });
 
 
-//PopUp-Inhalt der Dozenten.geojson definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+/*//PopUp-Inhalt der Dozenten.geojson definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
@@ -466,7 +467,7 @@ function pop_Dozenten(feature, layer) {
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
     })
-};
+};*/
 //Einbindung der Datei json_AlleJSON als Layer
 //Einbindung der Datei json_AlleJSON als Layer
 //-------------------------------------------------------------------
@@ -537,7 +538,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_DozentenJSON]),
+    layer: L.featureGroup([json_DozentenJSON, json_GebaudeJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,

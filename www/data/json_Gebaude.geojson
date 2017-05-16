@@ -11,7 +11,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 0,
-				"Bez": "Audimax"
+				"Bez": "Audimax",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -22,7 +23,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 1,
-				"Bez": "NA"
+				"Bez": "NA",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -33,7 +35,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 2,
-				"Bez": "NB"
+				"Bez": "NB",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -44,7 +47,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 3,
-				"Bez": "NC"
+				"Bez": "NC",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -55,7 +59,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 4,
-				"Bez": "ND"
+				"Bez": "ND",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -67,7 +72,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 5,
-				"Bez": "GA"
+				"Bez": "GA",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -78,7 +84,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 6,
-				"Bez": "GB"
+				"Bez": "GB",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -89,7 +96,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 7,
-				"Bez": "GC"
+				"Bez": "GC",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -100,7 +108,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 8,
-				"Bez": "HZO"
+				"Bez": "HZO",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -111,7 +120,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 9,
-				"Bez": "MA"
+				"Bez": "MA",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -122,7 +132,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 10,
-				"Bez": "VC"
+				"Bez": "VC",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -133,7 +144,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 11,
-				"Bez": "IA"
+				"Bez": "IA",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -144,7 +156,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 12,
-				"Bez": "IB"
+				"Bez": "IB",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -155,7 +168,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 13,
-				"Bez": "IC"
+				"Bez": "IC",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -166,7 +180,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 14,
-				"Bez": "ID"
+				"Bez": "ID",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -177,7 +192,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 15,
-				"Bez": "IAN"
+				"Bez": "IAN",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -188,7 +204,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 16,
-				"Bez": "IBN"
+				"Bez": "IBN",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -199,7 +216,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 17,
-				"Bez": "ICN"
+				"Bez": "ICN",
+				"Syn":""
 			},
 			"geometry": {
 				"type": "Point",
@@ -210,7 +228,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 18,
-				"Bez": "IDN"
+				"Bez": "IDN",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -221,7 +240,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 19,
-				"Bez": "NAFOF"
+				"Bez": "NAFOF",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -232,7 +252,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 20,
-				"Bez": "NABF"
+				"Bez": "NABF",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -243,7 +264,8 @@
 			"type": "Feature",
 			"properties": {
 				"id": 21,
-				"Bez": "NBCF"
+				"Bez": "NBCF",
+				"Syn":""
 
 			},
 			"geometry": {
@@ -254,9 +276,10 @@
 			"type": "Feature",
 			"properties": {
 				"id": 22,
-				"Bez": "NCDF"
+				"Bez": "NCDF",
+				"Syn":""
 
-			},
+			}/*,
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.26694, 51.44442]
@@ -569,7 +592,7 @@
 				"type": "Point",
 				"coordinates": [7.25799, 51.44768]
 			}
-		}
+		}*/
 
 	]
 }
