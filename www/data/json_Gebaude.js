@@ -619,6 +619,20 @@ var json_Gebaude = {
 				"type": "Point",
 				"coordinates": [7.25799, 51.44768]
 			}
-		}
+		}, {
+				"type": "Feature",
+				"properties": {
+					"id": 20,
+					"Bez": "Zentrum für molekulare Spektroskopie und Simulation solvensgesteuerter Prozesse",
+					"Syn": "ZEMOS, Zentrum für molekulare Spektroskopie und Simulation solvensgesteuerter Prozesse",
+					"Öffnungszeiten Vorlesungszeit": "",
+					"Öffnungszeiten vorlesungsfreie Zeit": "",
+					"Telefonnummer": "-"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [7.26829, 51.44571]
+				}
+			}
 	]
 }
