@@ -624,7 +624,7 @@ var json_Gebaude = {
 				"properties": {
 					"id": 20,
 					"Bez": "Zentrum für molekulare Spektroskopie und Simulation solvensgesteuerter Prozesse",
-					"Syn": "ZEMOS, Zentrum für molekulare Spektroskopie und Simulation solvensgesteuerter Prozesse"
+					"Syn": "ZEMOS"
 				},
 				"geometry": {
 					"type": "Point",

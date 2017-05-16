@@ -28,7 +28,7 @@ L.Control.Search = L.Control.extend({
 		autoCollapseTime: 1200,		//delay for autoclosing alert and collapse after blur
 		zoom: null,					//zoom after pan to location found, default: map.getZoom()
 		position: 'topleft',
-		textErr: 'Kein Treffer!',	//error message
+		textErr: 'Kein Treffer! Bitte Groß- und Kleinschreibung beachten!',	//error message
 		textCancel: 'Abbrechen',	//title in cancel button		
 		textPlaceholder: 'Suchbegriff eingeben',		//placeholder value			
 		animateLocation: true,		//animate a circle over location found
@@ -132,7 +132,7 @@ L.Control.Search = L.Control.extend({
 		var that = this;		
 		this.timerAlert = setTimeout(function() {
 			that.hideAlert();
-		},this.options.autoCollapseTime);
+		}, 3000,this.options.autoCollapseTime);
 		return this;
 	},
 	

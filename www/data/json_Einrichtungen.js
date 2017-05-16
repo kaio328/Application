@@ -118,7 +118,7 @@ var json_Einrichtungen = {
 				},
 				"geometry": {
 					"type": "Point",
-					"coordinates": [7.261836107263529, 51.441787759646211]
+					"coordinates": [7.262467998878375, 51.443086504221256]
 				}
 			}, {
 				"type": "Feature",
