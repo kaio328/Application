@@ -428,7 +428,7 @@ function pop_Raume(feature, layer) {
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Institut</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Zugehörigkeit </th><td>' + Autolinker.link(String(feature.properties['Zugehörigkeit'])) + '</td></tr><tr><th scope="row">Sekretariat</th><td>' + Autolinker.link(String(feature.properties['Sekretariat'])) + '</td></tr><tr><th scope="row">Studienfachberatung</th><td>' + Autolinker.link(String(feature.properties['Studienfachberatung'])) + '</td></tr><tr><th scope="row">Geschäftsführender Direktor</th><td>' + Autolinker.link(String(feature.properties['Geschäftsführender Direktor'])) ;
+			'<table><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Ausstattung</th><td>' + Autolinker.link(String(feature.properties['Ausstattung'])) + '</td></tr><tr><th scope="row">Software</th><td>' + Autolinker.link(String(feature.properties['Software'])) + '</td></tr><tr><th scope="row">öffentliche Nutzung</th><td>' + Autolinker.link(String(feature.properties['öffentliche Nutzung'])) ;
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();

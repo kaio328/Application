@@ -12,8 +12,8 @@
 			"properties": {
 				"id": 0,
 				"Bez": "NA 7/129",
-				"Ausstattung": "-",
-				"Software": "-",
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "ESRI ArcGIS 10.1 (mit diversen Erweiterungen), Geomedia Professional (mit diversen Erweiterungen), ERDAS Imagine Professional, ERDAS Photogrammetry, Trimble eCognition, Trimble Pathfinder Office, Trimble TerrySync, QGIS, IDRISI, Photoshop, SPSS,MaxQDA, u.v.m.",
 				"öffentliche Nutzung": "Nutzung nach Absprache",
 				"Syn": []
 			},
@@ -26,8 +26,8 @@
 			"properties": {
 				"id": 1,
 				"Bez": "NA 7/130",
-				"Ausstattung": "-",
-				"Software": "-",
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "ESRI ArcGIS 10.1 (mit diversen Erweiterungen), Geomedia Professional (mit diversen Erweiterungen), ERDAS Imagine Professional, ERDAS Photogrammetry, Trimble eCognition, Trimble Pathfinder Office, Trimble TerrySync, QGIS, IDRISI, Photoshop, SPSS,MaxQDA, u.v.m.",
 				"öffentliche Nutzung": "Nutzung nach Absprache",
 				"Syn": []
 			},
@@ -40,8 +40,8 @@
 			"properties": {
 				"id": 2,
 				"Bez": "NA 5/xxx",
-				"Ausstattung": "-",
-				"Software": "-",
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "Angabe ausstehend",
 				"öffentliche Nutzung": "Ja",
 				"Syn": []
 			},
