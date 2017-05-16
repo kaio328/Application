@@ -139,7 +139,9 @@ L.Control.Sidebar = L.Control.extend({
                 });
             }
             this.fire('hide');
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
         }
         if(e) {
             L.DomEvent.stopPropagation(e);

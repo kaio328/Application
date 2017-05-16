@@ -263,8 +263,9 @@ sidebar.hide();
 function pop_Gebaude(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
-			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});			
 			var sidebarContent = 
 			
@@ -314,12 +315,13 @@ json_GebaudeJSON.on('data:progress', function (e) {
 function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
-			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});	
+			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});	
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
+			'<table><tr><th scope="row">Dozent/-in</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten Vorlesungszeit'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer']));
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
@@ -412,8 +414,9 @@ json_FakultatenJSON.on('data:progress', function (e) {
 });
 
 
-//Einbindung der Datei json_AlleJSON als Layer
-//Einbindung der Datei json_AlleJSON als Layer
+//4. Raume.geojson
+//5. Veranstaltungen.geojson
+//6. Einrichtungen.geojson
 //-------------------------------------------------------------------
 //Inhalt der mapOverlays festlegen
 var styleRahmen = {
@@ -484,7 +487,7 @@ L.Control.Search.include({
 var searchControl = new L.Control.Search({
     layer: L.featureGroup([json_DozentenJSON, json_GebaudeJSON]),
 			position: 'topleft', 
-			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
+			featuresArray: ['Bez' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
 			circleLocation: true,
 			markerLocation: false,
@@ -497,8 +500,10 @@ searchControl.on('search_locationfound', function(e) {
 	searchControl._markerLoc.hide();
 	searchControl._markerLoc.show();		
 	sidebar.hide();
-	//json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 	json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+	json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+	json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
+	
 	e.layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
 	removeButton._container.style.display = "Block";
