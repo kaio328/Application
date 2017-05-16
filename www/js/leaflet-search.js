@@ -132,7 +132,7 @@ L.Control.Search = L.Control.extend({
 		var that = this;		
 		this.timerAlert = setTimeout(function() {
 			that.hideAlert();
-		}, 3000,this.options.autoCollapseTime);
+		}, 4000,this.options.autoCollapseTime);
 		return this;
 	},
 	
