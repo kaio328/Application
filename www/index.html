@@ -32,7 +32,7 @@
 		<script src="js/Leaflet.ImageOverlay.Rotated.js"></script>
 
 
-		<script src="data/json_Alle.js"></script>
+		<script src="data/json_Dozenten.js"></script>
 		<script src="data/rahmen1.js"></script>
 		
 
@@ -252,7 +252,7 @@ map.addControl(sidebar);
 sidebar.hide();
 		
 		
-//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+/*//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Alle(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
@@ -316,8 +316,58 @@ function pop_Alle(feature, layer) {
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
     })
+};*/
+		
+//Style der Punktsignaturen, die alle Objekte der Dozenten.geojson abbilden
+function doStyleDozenten() {
+    return {
+            radius: 0.0,
+            fillColor: 'grey',
+            color: 'black',
+            weight: 0.0,
+            opacity: 1,
+            dashArray: '',
+            fillOpacity: 1
+            }
 };
 		
+//Funktion über die alle Objekte des Layers auf Basis des festlegeten Styles als Kreismarkierungen abbgebilded werden
+function doPointToLayerDozenten(feature, latlng) {
+    return L.circleMarker(latlng, doStyleDozenten())
+};
+	
+
+//Einbindung der Datei Dozenten.geojson als Layer
+var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
+	onEachFeature: pop_Dozenten,													
+	pointToLayer: doPointToLayerDozenten
+});
+
+json_DozentenJSON.on('data:progress', function (e) {
+    if (e.error) {
+			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
+			onEachFeature: pop_Dozenten,													
+			pointToLayer: doPointToLayerDozenten											
+			});	
+    }
+});
+
+
+//PopUp-Inhalt der Dozenten.geojson definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Dozenten(feature, layer) {
+	layer.on('click', function (e) {
+			layer.bringToFront();
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Dozent/-in</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten Vorlesungszeit'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
+
+			document.getElementById("sidebar").innerHTML = sidebarContent;
+			sidebar.show();
+    })
+};
+//Einbindung der Datei json_AlleJSON als Layer
 //Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
 function doStyleDozenten() {
     return {
@@ -345,7 +395,7 @@ var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/ka
 
 json_DozentenJSON.on('data:progress', function (e) {
     if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Alle, {
+			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
 			onEachFeature: pop_Dozenten,													
 			pointToLayer: doPointToLayerDozenten											
 			});	
@@ -357,7 +407,57 @@ json_DozentenJSON.on('data:progress', function (e) {
 function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
-			json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
+
+			document.getElementById("sidebar").innerHTML = sidebarContent;
+			sidebar.show();
+    })
+};
+//Einbindung der Datei json_AlleJSON als Layer
+//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+function doStyleDozenten() {
+    return {
+            radius: 0.0,
+            fillColor: 'grey',
+            color: 'black',
+            weight: 0.0,
+            opacity: 1,
+            dashArray: '',
+            fillOpacity: 1
+            }
+};
+		
+//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+function doPointToLayerDozenten(feature, latlng) {
+    return L.circleMarker(latlng, doStyleDozenten())
+};
+	
+
+//Einbindung der Datei json_AlleJSON als Layer
+var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
+	onEachFeature: pop_Dozenten,													
+	pointToLayer: doPointToLayerDozenten
+});
+
+json_DozentenJSON.on('data:progress', function (e) {
+    if (e.error) {
+			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
+			onEachFeature: pop_Dozenten,													
+			pointToLayer: doPointToLayerDozenten											
+			});	
+    }
+});
+
+//Einbindung der Datei json_AlleJSON als Layer
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Dozenten(feature, layer) {
+	layer.on('click', function (e) {
+			layer.bringToFront();
+			//json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
@@ -369,9 +469,7 @@ function pop_Dozenten(feature, layer) {
 };
 //Einbindung der Datei json_AlleJSON als Layer
 //Einbindung der Datei json_AlleJSON als Layer
-//Einbindung der Datei json_AlleJSON als Layer
-//Einbindung der Datei json_AlleJSON als Layer
-
+//-------------------------------------------------------------------
 //Inhalt der mapOverlays festlegen
 var styleRahmen = {
 	"color": 'rgb(0, 0, 1)',
@@ -439,7 +537,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_AlleJSON, json_DozentenJSON]),
+    layer: L.featureGroup([json_DozentenJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
@@ -450,9 +548,12 @@ var searchControl = new L.Control.Search({
 		
 //Festlegen was ausgeführt werden soll, wenn Suchvorgang erfolgreich war
 searchControl.on('search_locationfound', function(e) {
-	map.addOneTimeEventListener('moveend', function(){		
+	map.addOneTimeEventListener('moveend', function(){
+	searchControl._markerLoc.hide();
+	searchControl._markerLoc.show();		
 	sidebar.hide();
-	json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+	//json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
+	json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
 	e.layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
 	removeButton._container.style.display = "Block";
@@ -471,7 +572,7 @@ var removeButton = L.easyButton({
 			icon:'fa fa-times',
 			title: 'Punkte entfernen',
 			onClick: function() {
-					json_AlleJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		
+					json_DozentenJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});		
 					searchControl._markerLoc.hide();
 					removeButton._container.style.display = "none";
 								}
