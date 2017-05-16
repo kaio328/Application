@@ -12,7 +12,7 @@
 			"properties": {
 				"id": 0,
 				"Bez": "Audimax",
-				"Syn": ""
+				"Syn": []
 
 			},
 			"geometry": {
@@ -24,7 +24,7 @@
 			"properties": {
 				"id": 1,
 				"Bez": "NA",
-				"Syn": ""
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
