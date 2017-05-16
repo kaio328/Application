@@ -12,7 +12,7 @@
 			"properties": {
 				"id": 0,
 				"Bez": "Audimax",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -24,7 +24,7 @@
 			"properties": {
 				"id": 1,
 				"Bez": "NA",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -36,7 +36,7 @@
 			"properties": {
 				"id": 2,
 				"Bez": "NB",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -48,7 +48,7 @@
 			"properties": {
 				"id": 3,
 				"Bez": "NC",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -60,7 +60,7 @@
 			"properties": {
 				"id": 4,
 				"Bez": "ND",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -73,7 +73,7 @@
 			"properties": {
 				"id": 5,
 				"Bez": "GA",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -85,7 +85,7 @@
 			"properties": {
 				"id": 6,
 				"Bez": "GB",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -97,7 +97,7 @@
 			"properties": {
 				"id": 7,
 				"Bez": "GC",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -109,7 +109,7 @@
 			"properties": {
 				"id": 8,
 				"Bez": "HZO",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -121,7 +121,7 @@
 			"properties": {
 				"id": 9,
 				"Bez": "MA",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -133,7 +133,7 @@
 			"properties": {
 				"id": 10,
 				"Bez": "VC",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -145,7 +145,7 @@
 			"properties": {
 				"id": 11,
 				"Bez": "IA",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -157,7 +157,7 @@
 			"properties": {
 				"id": 12,
 				"Bez": "IB",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -169,7 +169,7 @@
 			"properties": {
 				"id": 13,
 				"Bez": "IC",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -181,7 +181,7 @@
 			"properties": {
 				"id": 14,
 				"Bez": "ID",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -193,7 +193,7 @@
 			"properties": {
 				"id": 15,
 				"Bez": "IAN",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -205,7 +205,7 @@
 			"properties": {
 				"id": 16,
 				"Bez": "IBN",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -217,7 +217,7 @@
 			"properties": {
 				"id": 17,
 				"Bez": "ICN",
-				"Syn":""
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -229,7 +229,7 @@
 			"properties": {
 				"id": 18,
 				"Bez": "IDN",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -241,7 +241,7 @@
 			"properties": {
 				"id": 19,
 				"Bez": "NAFOF",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -253,7 +253,7 @@
 			"properties": {
 				"id": 20,
 				"Bez": "NABF",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -265,7 +265,7 @@
 			"properties": {
 				"id": 21,
 				"Bez": "NBCF",
-				"Syn":""
+				"Syn": null
 
 			},
 			"geometry": {
@@ -277,7 +277,7 @@
 			"properties": {
 				"id": 22,
 				"Bez": "NCDF",
-				"Syn":""
+				"Syn": null
 
 			}/*,
 			"geometry": {
