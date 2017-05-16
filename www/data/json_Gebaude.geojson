@@ -279,7 +279,8 @@
 				"Bez": "NCDF",
 				"Syn": null
 
-			}/*,
+			}
+		}/*,
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.26694, 51.44442]
