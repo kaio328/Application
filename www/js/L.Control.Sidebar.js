@@ -139,9 +139,12 @@ L.Control.Sidebar = L.Control.extend({
                 });
             }
             this.fire('hide');
-			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
-			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
-			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+					json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
         }
         if(e) {
             L.DomEvent.stopPropagation(e);
