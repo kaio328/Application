@@ -26,7 +26,7 @@ var json_Raume = {
 				"id": 1,
 				"Bez": "NA 7/130",
 				"Ausstattung": "-",
-				"Software": "-";
+				"Software": "-",
 				"öffentliche Nutzung": "Nutzung nach Absprache"
 			},
 			"geometry": {
