@@ -269,7 +269,7 @@ function pop_Gebaude(feature, layer) {
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});			
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">Telefon/Mobil</th><td>' + Autolinker.link(String(feature.properties['TELEFON'])) + '</td></tr><tr><th scope="row">Internetadresse</th><td>' + Autolinker.link(String(feature.properties['WWW'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['EMAIL'])) + '</td></tr><tr><th scope="row">Hinweis</th><td>' + Autolinker.link(String(feature.properties['BEMERKUNG'])) + '';
+			'<table><tr><th scope="row">Gebäude</th><td>' + Autolinker.link(String(feature.properties['Bez']));
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
