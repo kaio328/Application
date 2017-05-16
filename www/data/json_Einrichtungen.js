@@ -339,7 +339,7 @@ var json_Einrichtungen = {
 				},
 				"geometry": {
 					"type": "Point",
-					"coordinates": null
+					"coordinates": [7.26296, 51.44403]
 				}
 			}, {
 					"type": "Feature",
@@ -353,7 +353,7 @@ var json_Einrichtungen = {
 					},
 					"geometry": {
 						"type": "Point",
-						"coordinates": null
+						"coordinates":[7.26296, 51.44403]
 					}
 				}
 			
