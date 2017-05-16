@@ -21,6 +21,7 @@
 				"type": "Point",
 				"coordinates": [7.262467998878375, 51.443086504221256]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -36,6 +37,7 @@
 				"type": "Point",
 				"coordinates": [7.259840779261091, 51.443973017351269]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -51,6 +53,7 @@
 				"type": "Point",
 				"coordinates": [7.25579, 51.44501]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -65,6 +68,7 @@
 				"type": "Point",
 				"coordinates": [7.260769365505132, 51.445023259043168]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -78,6 +82,7 @@
 				"type": "Point",
 				"coordinates": [7.261836107263529, 51.441787759646211]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -92,6 +97,7 @@
 				"type": "Point",
 				"coordinates": [7.25958, 51.44564]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -106,6 +112,7 @@
 				"type": "Point",
 				"coordinates": [7.25889, 51.44413]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -120,6 +127,7 @@
 				"type": "Point",
 				"coordinates": [7.261836107263529, 51.441787759646211]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -133,6 +141,7 @@
 				"type": "Point",
 				"coordinates": [7.2551, 51.44467]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -146,6 +155,7 @@
 				"type": "Point",
 				"coordinates": [7.25577, 51.44481]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -159,6 +169,7 @@
 				"type": "Point",
 				"coordinates": []
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -173,6 +184,7 @@
 				"type": "Point",
 				"coordinates": [7.26105, 51.44613]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -187,6 +199,7 @@
 				"type": "Point",
 				"coordinates": [7.25961, 51.44603]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -201,6 +214,7 @@
 				"type": "Point",
 				"coordinates": [7.25945, 51.44581]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -215,6 +229,7 @@
 				"type": "Point",
 				"coordinates": [7.25961, 51.44566]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -229,6 +244,7 @@
 				"type": "Point",
 				"coordinates": [7.26058, 51.44577]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -243,6 +259,7 @@
 				"type": "Point",
 				"coordinates": [7.26263, 51.44288]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -257,6 +274,7 @@
 				"type": "Point",
 				"coordinates": [7.26282, 51.44268]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -271,6 +289,7 @@
 				"type": "Point",
 				"coordinates": [7.26616, 51.44366]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -285,6 +304,7 @@
 				"type": "Point",
 				"coordinates": [7.26708, 51.444]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -299,6 +319,7 @@
 				"type": "Point",
 				"coordinates": [7.26829, 51.44571]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -313,6 +334,7 @@
 				"type": "Point",
 				"coordinates": [7.2593, 51.44793]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -327,6 +349,7 @@
 				"type": "Point",
 				"coordinates": [7.26296, 51.44403]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
@@ -341,22 +364,22 @@
 				"type": "Point",
 				"coordinates": []
 			}
-			
+
 		}, {
-				"type": "Feature",
-				"properties": {
-					"id": 24,
-					"Bez": "Hochschulkommunikation (Dezernat 8)",
-					"Syn": "Pressestelle, Hochschulkommunikation (Dezernat 8)",
-					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag: 8.00 - 16.00 Uhr",
-					"Öffnungszeiten vorlesungsfreie Zeit": "-",
-					"Telefonnummer": "+492343222830"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": []
-				}
+			"type": "Feature",
+			"properties": {
+				"id": 24,
+				"Bez": "Hochschulkommunikation (Dezernat 8)",
+				"Syn": "Pressestelle, Hochschulkommunikation (Dezernat 8)",
+				"Öffnungszeiten Vorlesungszeit": "Montag - Freitag: 8.00 - 16.00 Uhr",
+				"Öffnungszeiten vorlesungsfreie Zeit": "-",
+				"Telefonnummer": "+492343222830"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": []
 			}
-	
+		}
+
 	]
 }
