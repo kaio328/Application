@@ -30,7 +30,7 @@ L.Control.Search = L.Control.extend({
 		position: 'topleft',
 		textErr: 'Kein Treffer!',	//error message
 		textCancel: 'Abbrechen',	//title in cancel button		
-		textPlaceholder: '',		//placeholder value			
+		textPlaceholder: 'Suchbegriff eingeben',		//placeholder value			
 		animateLocation: true,		//animate a circle over location found
 		circleLocation: false,		//draw a circle in location found
 		markerLocation: false,		//draw a marker in location found
