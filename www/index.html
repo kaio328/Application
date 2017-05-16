@@ -34,6 +34,7 @@
 
 		<script src="data/json_Dozenten.js"></script>
 		<script src="data/json_Gebaude.js"></script>
+		<script src="data/json_Fakultaten.js"></script>
 		<script src="data/rahmen1.js"></script>
 		
 
@@ -252,7 +253,7 @@ var sidebar = L.control.sidebar('sidebar', {
 map.addControl(sidebar);
 sidebar.hide();
 		
-//Einbindung der Datei json_GebaudeJSON als Layer		
+//Einbindung der Gebaude.geojson als Layer		
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Gebaude(feature, layer) {
 	layer.on('click', function (e) {
@@ -302,7 +303,7 @@ json_GebaudeJSON.on('data:progress', function (e) {
 			});	
     }
 });
-//Einbindung der Datei json_DozentenJSON als Layer
+//Einbindung der Dozenten.geojson als Layer
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
@@ -353,12 +354,14 @@ json_DozentenJSON.on('data:progress', function (e) {
     }
 });
 
-
-/*//PopUp-Inhalt der Dozenten.geojson definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
-function pop_Dozenten(feature, layer) {
+//Einbindung der Fakultaten.geojson als Layer
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Fakultaten(feature, layer) {
 	layer.on('click', function (e) {
 			layer.bringToFront();
 			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
@@ -368,9 +371,8 @@ function pop_Dozenten(feature, layer) {
 			sidebar.show();
     })
 };
-//Einbindung der Datei json_AlleJSON als Layer
 //Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
-function doStyleDozenten() {
+function doStyleFakultaten() {
     return {
             radius: 0.0,
             fillColor: 'grey',
@@ -383,91 +385,27 @@ function doStyleDozenten() {
 };
 		
 //Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
-function doPointToLayerDozenten(feature, latlng) {
-    return L.circleMarker(latlng, doStyleDozenten())
+function doPointToLayerFakultaten(feature, latlng) {
+    return L.circleMarker(latlng, doStyleFakultaten())
 };
 	
 
-//Einbindung der Datei json_AlleJSON als Layer
-var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
-	onEachFeature: pop_Dozenten,													
-	pointToLayer: doPointToLayerDozenten
+//Einbindung der Fakultaten.geojson als Layer
+var json_FakultatenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Fakultaten.geojson", {
+	onEachFeature: pop_Fakultaten,													
+	pointToLayer: doPointToLayerFakultaten
 });
 
-json_DozentenJSON.on('data:progress', function (e) {
+json_FakultatenJSON.on('data:progress', function (e) {
     if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
-			onEachFeature: pop_Dozenten,													
-			pointToLayer: doPointToLayerDozenten											
+			var json_DozentenJSON = new L.geoJson(json_Fakultaten, {
+			onEachFeature: pop_Fakultaten,													
+			pointToLayer: doPointToLayerFakultaten											
 			});	
     }
 });
 
-//Einbindung der Datei json_AlleJSON als Layer
-//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
-function pop_Dozenten(feature, layer) {
-	layer.on('click', function (e) {
-			layer.bringToFront();
-			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
-			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
-			var sidebarContent = 
-			
-			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
 
-			document.getElementById("sidebar").innerHTML = sidebarContent;
-			sidebar.show();
-    })
-};
-//Einbindung der Datei json_AlleJSON als Layer
-//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
-function doStyleDozenten() {
-    return {
-            radius: 0.0,
-            fillColor: 'grey',
-            color: 'black',
-            weight: 0.0,
-            opacity: 1,
-            dashArray: '',
-            fillOpacity: 1
-            }
-};
-		
-//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
-function doPointToLayerDozenten(feature, latlng) {
-    return L.circleMarker(latlng, doStyleDozenten())
-};
-	
-
-//Einbindung der Datei json_AlleJSON als Layer
-var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
-	onEachFeature: pop_Dozenten,													
-	pointToLayer: doPointToLayerDozenten
-});
-
-json_DozentenJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
-			onEachFeature: pop_Dozenten,													
-			pointToLayer: doPointToLayerDozenten											
-			});	
-    }
-});
-
-//Einbindung der Datei json_AlleJSON als Layer
-//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
-function pop_Dozenten(feature, layer) {
-	layer.on('click', function (e) {
-			layer.bringToFront();
-			//json_AlleJSON.setStyle({fillColor: 'grey', color: 'black'});
-			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
-			var sidebarContent = 
-			
-			'<table><tr><th scope="row">Bezeichnung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
-
-			document.getElementById("sidebar").innerHTML = sidebarContent;
-			sidebar.show();
-    })
-};*/
 //Einbindung der Datei json_AlleJSON als Layer
 //Einbindung der Datei json_AlleJSON als Layer
 //-------------------------------------------------------------------
