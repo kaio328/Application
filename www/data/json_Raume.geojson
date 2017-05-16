@@ -14,7 +14,8 @@
 				"Bez": "NA 7/129",
 				"Ausstattung": "-",
 				"Software": "-",
-				"öffentliche Nutzung": "Nutzung nach Absprache"
+				"öffentliche Nutzung": "Nutzung nach Absprache",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -27,7 +28,8 @@
 				"Bez": "NA 7/130",
 				"Ausstattung": "-",
 				"Software": "-";
-				"öffentliche Nutzung": "Nutzung nach Absprache"
+				"öffentliche Nutzung": "Nutzung nach Absprache",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -40,7 +42,8 @@
 				"Bez": "NA 5/xxx",
 				"Ausstattung": "-",
 				"Software": "-",
-				"öffentliche Nutzung": "Ja"
+				"öffentliche Nutzung": "Ja",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
