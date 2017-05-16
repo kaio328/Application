@@ -15,7 +15,7 @@ L.Control.Search = L.Control.extend({
 		filterData: null,			//callback for filtering data from text searched, params: textSearch, allRecords
 		buildTip: null,				//function that return row tip html node(or html string), receive text tooltip in first param
 		container: '',				//container id to insert Search Control		
-		minLength: 2,				//minimal text length for autocomplete
+		minLength: 1,				//minimal text length for autocomplete
 		initial: true,				//search elements only by initial text
 		casesesitive: false,		//search elements in case sensitive text
 		autoType: false,				//complete input with first suggested result and select this filled-in text.

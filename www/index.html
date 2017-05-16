@@ -485,7 +485,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_DozentenJSON]),
+    layer: L.featureGroup([json_DozentenJSON, json_GebaudeJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
