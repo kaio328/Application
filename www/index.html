@@ -468,6 +468,57 @@ json_RaumeJSON.on('data:progress', function (e) {
     }
 });
 //5. Veranstaltungen.geojson
+//PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
+function pop_Veranstaltungen(feature, layer) {
+	layer.on('click', function (e) {
+			layer.bringToFront();
+			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
+			var sidebarContent = 
+			
+			'<table><tr><th scope="row">Veranstaltung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Leitung</th><td>' + Autolinker.link(String(feature.properties['Dozenten/-innen'])) + '</td></tr><tr><th scope="row">Veranstaltungsraum</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Veranstaltungszeiten</th><td>' + Autolinker.link(String(feature.properties['Zeiten'])) ;
+
+			document.getElementById("sidebar").innerHTML = sidebarContent;
+			sidebar.show();
+    })
+};
+//Style der Punktsignaturen, die die features des Layers (in dem Fall Alle_json) abbilden -->  Farbe, Radius, Transperanz der Kreise etc.
+function doStyleVeranstaltungen() {
+    return {
+            radius: 0.0,
+            fillColor: 'grey',
+            color: 'black',
+            weight: 0.0,
+            opacity: 1,
+            dashArray: '',
+            fillOpacity: 1
+            }
+};
+		
+//Funktion über die alle features des Layers auf Basis des festlegeten Styles (doStyleAlle) abbgebilded werden
+function doPointToLayerVeranstaltungen(feature, latlng) {
+    return L.circleMarker(latlng, doStyleVeranstaltungen())
+};
+	
+
+//Einbindung der Veranstaltungen.geojson als Layer
+var json_VeranstaltungenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Veranstaltungen.geojson", {
+	onEachFeature: pop_Veranstaltungen,													
+	pointToLayer: doPointToLayerVeranstaltungen
+});
+
+json_VeranstaltungenJSON.on('data:progress', function (e) {
+    if (e.error) {
+			var json_DozentenJSON = new L.geoJson(json_Veranstaltungen, {
+			onEachFeature: pop_Veranstaltungen,													
+			pointToLayer: doPointToLayerVeranstaltungen											
+			});	
+    }
+});
 //6. Einrichtungen.geojson
 //-------------------------------------------------------------------
 //Inhalt der mapOverlays festlegen
@@ -537,7 +588,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_DozentenJSON, json_FakultatenJSON, json_GebaudeJSON, json_RaumeJSON]),
+    layer: L.featureGroup([json_DozentenJSON, json_FakultatenJSON, json_GebaudeJSON, json_RaumeJSON, json_VeranstaltungenJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
@@ -556,6 +607,7 @@ searchControl.on('search_locationfound', function(e) {
 	json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 	json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 	json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+	json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 	
 	e.layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});
 	e.layer.bringToFront();
