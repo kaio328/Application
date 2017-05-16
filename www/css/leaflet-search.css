@@ -168,8 +168,8 @@
 	float:left;
 	list-style: none;
 	padding-left: 0;
-	min-width:225px;
-	max-width:225px;
+	min-width:250px;
+	max-width:250px;
 	max-height:122px;
 	background-color: rgba(0, 0, 0, 0);
 	border-color: rgba(0, 0, 0, 0.4);
@@ -211,6 +211,7 @@
 	padding-left: 0;
 	min-width:275px;
 	max-height:122px;
+	max-width: 450px
 	background-color: rgba(0, 0, 0, 0);
 	border-color: rgba(0, 0, 0, 0.4);
 	z-index:1010;
