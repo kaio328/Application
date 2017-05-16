@@ -12,7 +12,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 0,
 				"Bez": "Audimax",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -24,7 +24,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 1,
 				"Bez": "NA",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -36,7 +36,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 2,
 				"Bez": "NB",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -48,7 +48,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 3,
 				"Bez": "NC",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -60,7 +60,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 4,
 				"Bez": "ND",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -73,7 +73,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 5,
 				"Bez": "GA",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -85,7 +85,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 6,
 				"Bez": "GB",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -97,7 +97,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 7,
 				"Bez": "GC",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -109,7 +109,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 8,
 				"Bez": "HZO",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -121,7 +121,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 9,
 				"Bez": "MA",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -133,8 +133,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 10,
 				"Bez": "VC",
-				"Syn": null
-
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -145,7 +144,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 11,
 				"Bez": "IA",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -157,7 +156,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 12,
 				"Bez": "IB",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -169,7 +168,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 13,
 				"Bez": "IC",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -181,7 +180,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 14,
 				"Bez": "ID",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -193,7 +192,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 15,
 				"Bez": "IAN",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -205,7 +204,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 16,
 				"Bez": "IBN",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -217,7 +216,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 17,
 				"Bez": "ICN",
-				"Syn": null
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -229,7 +228,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 18,
 				"Bez": "IDN",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -241,7 +240,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 19,
 				"Bez": "NAFOF",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -253,7 +252,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 20,
 				"Bez": "NABF",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -265,7 +264,7 @@ var json_Gebaude = {
 			"properties": {
 				"id": 21,
 				"Bez": "NBCF",
-				"Syn": null
+				"Syn": []
 
 			},
 			"geometry": {
@@ -277,12 +276,10 @@ var json_Gebaude = {
 			"properties": {
 				"id": 22,
 				"Bez": "NCDF",
-				"Syn": null
+				"Syn": []
 
-			}
-		}
-		]
-}/*,
+			},
+
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.26694, 51.44442]
@@ -291,7 +288,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 23,
-				"Bez": "NDEF"
+				"Bez": "NDEF",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -302,7 +300,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 24,
-				"Bez": "HNA"
+				"Bez": "HNA",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -313,7 +312,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 25,
-				"Bez": "HNB"
+				"Bez": "HNB",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -324,7 +324,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 26,
-				"Bez": "HNC"
+				"Bez": "HNC",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -335,7 +336,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 27,
-				"Bez": "GAFO"
+				"Bez": "GAFO",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -346,7 +348,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 28,
-				"Bez": "GABF"
+				"Bez": "GABF",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -357,7 +360,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 29,
-				"Bez": "GBCF"
+				"Bez": "GBCF",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -368,7 +372,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 30,
-				"Bez": "HGA"
+				"Bez": "HGA",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -379,7 +384,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 31,
-				"Bez": "HGB"
+				"Bez": "HGB",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -390,7 +396,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 32,
-				"Bez": "HGC"
+				"Bez": "HGC",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -401,7 +408,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 33,
-				"Bez": "GCFW"
+				"Bez": "GCFW",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -412,7 +420,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 34,
-				"Bez": "Tennisplatz"
+				"Bez": "Tennisplatz",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -423,7 +432,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 35,
-				"Bez": "Sportplatz"
+				"Bez": "Sportplatz",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -434,7 +444,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 36,
-				"Bez": "N-Süd"
+				"Bez": "N-Süd",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -445,7 +456,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 37,
-				"Bez": "NT"
+				"Bez": "NT",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -456,7 +468,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 38,
-				"Bez": "NI"
+				"Bez": "NI",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -467,7 +480,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 39,
-				"Bez": "MAFO"
+				"Bez": "MAFO",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -478,7 +492,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 40,
-				"Bez": "MABF"
+				"Bez": "MABF",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -489,7 +504,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 41,
-				"Bez": "HMA"
+				"Bez": "HMA",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -500,7 +516,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 42,
-				"Bez": "IAFO"
+				"Bez": "IAFO",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -511,7 +528,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 43,
-				"Bez": "ICFW"
+				"Bez": "ICFW",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -522,7 +540,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 44,
-				"Bez": "ICFO"
+				"Bez": "ICFO",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -533,7 +552,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 45,
-				"Bez": "HIA"
+				"Bez": "HIA",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -544,8 +564,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 46,
-				"Bez": "HIB"
-
+				"Bez": "HIB",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -555,7 +575,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 47,
-				"Bez": "HIC"
+				"Bez": "HIC",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -566,7 +587,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 48,
-				"Bez": "FNO"
+				"Bez": "FNO",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -577,7 +599,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 49,
-				"Bez": "ZN"
+				"Bez": "ZN",
+				"Syn": []
 
 			},
 			"geometry": {
@@ -588,14 +611,14 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 50,
-				"Bez": "Uni Center"
+				"Bez": "Uni Center",
+				"Syn": []
 
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.25799, 51.44768]
 			}
-		}*/
-
-	
-
+		}
+	]
+}

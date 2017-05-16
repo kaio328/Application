@@ -11,26 +11,25 @@ var json_Dozenten = {
 			"type": "Feature",
 			"properties": {
 				"id": 0,
-				"Bez": "Dr. Dennis Edler",
-				"Syn": "Edler, Dr. Dennis Edler",
-				"Syn2": "Dennis, Dr. Dennis Edler",
+				"Bez": "Dennis Edler (Dr.)",
+				"Syn": "Edler, Dennis Edler (Dr.)",
 				"Raumnummer": "NA 5/169",
 				"Sprechzeiten Vorlesungszeit": "Freitag 10.00 - 12.00 (u. n. V.)",
 				"E-Mail": "Dennis.Edler@rub.de",
-				"Telefonnummer": "+492343223362"
+				"Telefonnummer": "02343223362"
 
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.26367, 51.4437]
 			}
-		},{
+			
+		}, {
 			"type": "Feature",
 			"properties": {
 				"id": 1,
-				"Bez": "Prof. Dr. Carsten Jürgens",
-				"Syn": "Jürgens, Prof. Dr. Carsten Jürgens",
-				"Syn2": "Carten, Prof. Dr. Carsten Jürgens",
+				"Bez": "Carsten Jürgens (Prof. Dr.)",
+				"Syn": "Jürgens, Carsten Jürgens (Prof. Dr.)",
 				"Raumnummer": "NA 7/133",
 				"Sprechzeiten Vorlesungszeit": "Dienstag 13.00 - 14.00",
 				"E-Mail": "Carsten.Juergens@rub.de",
@@ -41,13 +40,13 @@ var json_Dozenten = {
 				"type": "Point",
 				"coordinates": [7.26367, 51.4437]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
 				"id": 2,
-				"Bez": "Dr. Andreas P. Redecker",
-				"Syn": "Redecker, Dr. Andreas P. Redecker",
-				"Syn2": "Andreas P., Dr. Andreas P. Redecker",
+				"Bez": "Andreas P. Redecker (Dr.)",
+				"Syn": "Redecker, Andreas P. Redecker (Dr.)",
 				"Raumnummer": "NA 5/173",
 				"Sprechzeiten Vorlesungszeit": "Dienstag 12.15 - 13.00",
 				"E-Mail": "Andreas.P.Redecker@rub.de",
@@ -58,13 +57,13 @@ var json_Dozenten = {
 				"type": "Point",
 				"coordinates": [7.26367, 51.4437]
 			}
+			
 		}, {
 			"type": "Feature",
 			"properties": {
 				"id": 3,
-				"Bez": "Prof. Dr. Frank Dickmann",
-				"Syn": "Dickmann, Prof. Dr. Frank Dickmann",
-				"Syn2": "Frank, Prof. Dr. Frank Dickmann",
+				"Bez": "Frank Dickmann (Prof. Dr.)",
+				"Syn": "Dickmann, Frank Dickmann (Prof. Dr.)",
 				"Raumnummer": "NA 7/131",
 				"Sprechzeiten Vorlesungszeit": "Dienstag 10.30 - 11.30 Uhr (u. n. V.)",
 				"E-Mail": "Frank.Dickmann@rub.de",

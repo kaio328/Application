@@ -14,7 +14,8 @@ var json_Veranstaltungen = {
 				"Bez": "Geographische Informationssysteme II",
 				"Dozenten/-innen": "Dr. Andreas P. Redecker",
 				"Raumnummer": "NA 7/129",
-				"Zeiten": "Dienstag 9.00 - 12.00 Uhr, Donnerstag 12.00 - 17.00 Uhr"
+				"Zeiten": "Dienstag 9.00 - 12.00 Uhr, Donnerstag 12.00 - 17.00 Uhr",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -27,7 +28,8 @@ var json_Veranstaltungen = {
 				"Bez": "Amtliche Geobasis- und Fachdaten",
 				"Dozenten/-innen": "Dr. Dennis Edler",
 				"Raumnummer": "NA 7/130",
-				"Zeiten": "Donnerstag 10.00 - 12.00 Uhr (u.n.V)"
+				"Zeiten": "Donnerstag 10.00 - 12.00 Uhr (u.n.V)",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -40,7 +42,8 @@ var json_Veranstaltungen = {
 				"Bez": "Produktionsverfahren Kartographischer Medien: Ansätze der empirischen Kartographie ",
 				"Dozenten/-innen": "Prof. Dr. Frank Dickmann, Dr. Dennis Edler",
 				"Raumnummer": "NA 7/129",
-				"Zeiten": "Montag 14.00 - 17.00 Uhr"
+				"Zeiten": "Montag 14.00 - 17.00 Uhr",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",

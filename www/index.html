@@ -532,7 +532,7 @@ function pop_Einrichtungen(feature, layer) {
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Veranstaltung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Leitung</th><td>' + Autolinker.link(String(feature.properties['Dozenten/-innen'])) + '</td></tr><tr><th scope="row">Veranstaltungsraum</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Veranstaltungszeiten</th><td>' + Autolinker.link(String(feature.properties['Zeiten'])) ;
+			'<table><tr><th scope="row">Einrichtung</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Öffnungszeiten Vorlesungszeit</th><td>' + Autolinker.link(String(feature.properties['Öffnungszeiten Vorlesungszeit'])) + '</td></tr><tr><th scope="row">Öffnungszeiten vorlesungsfreie Zeit</th><td>' + Autolinker.link(String(feature.properties['Öffnungszeiten vorlesungsfreie Zeit'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) ;
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();

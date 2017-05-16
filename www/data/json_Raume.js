@@ -12,9 +12,10 @@ var json_Raume = {
 			"properties": {
 				"id": 0,
 				"Bez": "NA 7/129",
-				"Ausstattung": "-",
-				"Software": "-",
-				"öffentliche Nutzung": "Nutzung nach Absprache"
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "ESRI ArcGIS 10.1 (mit diversen Erweiterungen), Geomedia Professional (mit diversen Erweiterungen), ERDAS Imagine Professional, ERDAS Photogrammetry, Trimble eCognition, Trimble Pathfinder Office, Trimble TerrySync, QGIS, IDRISI, Photoshop, SPSS,MaxQDA, u.v.m.",
+				"öffentliche Nutzung": "Nutzung nach Absprache",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -25,9 +26,10 @@ var json_Raume = {
 			"properties": {
 				"id": 1,
 				"Bez": "NA 7/130",
-				"Ausstattung": "-",
-				"Software": "-",
-				"öffentliche Nutzung": "Nutzung nach Absprache"
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "ESRI ArcGIS 10.1 (mit diversen Erweiterungen), Geomedia Professional (mit diversen Erweiterungen), ERDAS Imagine Professional, ERDAS Photogrammetry, Trimble eCognition, Trimble Pathfinder Office, Trimble TerrySync, QGIS, IDRISI, Photoshop, SPSS,MaxQDA, u.v.m.",
+				"öffentliche Nutzung": "Nutzung nach Absprache",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",
@@ -38,9 +40,10 @@ var json_Raume = {
 			"properties": {
 				"id": 2,
 				"Bez": "NA 5/xxx",
-				"Ausstattung": "-",
-				"Software": "-",
-				"öffentliche Nutzung": "Ja"
+				"Ausstattung": "Angabe ausstehend",
+				"Software": "Angabe ausstehend",
+				"öffentliche Nutzung": "Ja",
+				"Syn": []
 			},
 			"geometry": {
 				"type": "Point",

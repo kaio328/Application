@@ -12,7 +12,8 @@ var json_Fakultaten = {
 			"properties": {
 				"id": 0,
 				"Bez": "Geographisches Institut",
-				"Telefonnummer Sekretariat": "Kerstin Schäfer: +492343224788",
+				"Syn": "GI, Geographisches Institut",
+				"Sekretariat": "Kerstin Schäfer: +492343224788",
 				"Studienfachberatung": "Dr. Dennis Edler: +492343223362",
 				"Geschäftsführender Direktor": "Prof. Dr. Carsten Jürgens",
 				"Zugehörigkeit": "Fakultät für Geowissenschaften"
@@ -26,7 +27,8 @@ var json_Fakultaten = {
 			"properties": {
 				"id": 1,
 				"Bez": "Institut für Geologie, Mineralogie & Geophysik ",
-				"Telefonnummer Sekretariat": "Frau Sitter: +49234223233",
+				"Syn": "GMG, Institut für Geologie, Mineralogie & Geophysik",
+				"Sekretariat": "Frau Sitter: +49234223233",
 				"Studienfachberatung": "Thomas Fockenberg: +492343224392",
 				"Geschäftsführender Direktor": "Prof. Dr. Stefan Wohnlich",
 				"Zugehörigkeit": "Fakultät für Geowissenschaften"

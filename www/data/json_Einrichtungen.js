@@ -1,4 +1,4 @@
-{
+var json_Einrichtungen = {
 	"type": "FeatureCollection",
 	"crs": {
 		"type": "name",
@@ -12,7 +12,7 @@
 			"properties": {
 				"id": 0,
 				"Bez": "Mensa",
-				"Syn": null,
+				"Syn": [],
 				"Öffnungszeiten Vorlesungszeit": "Montag - Donnerstag: 11.00 - 14.30 Uhr, Freitag: 11.00 - 14.00 Uhr",
 				"Öffnungszeiten vorlesungsfreie Zeit": "Montag - Donnerstag: 11.00 - 14.30 Uhr, Freitag: 11.00 - 14.00 Uhr",
 				"Telefonnummer": "-"
@@ -77,12 +77,13 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.261836107263529, 51.441787759646211]
-			}, {
+			}
+		}, {
 				"type": "Feature",
 				"properties": {
 					"id": 5,
 					"Bez": "BAföG-Amt",
-					"Syn": null,
+					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "Dienstag, Mittwoch: 9.00 - 12.00 Uhr, Donnerstag: 13.00 - 15.30 Uhr",
 					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "+492343211606"
@@ -96,7 +97,7 @@
 				"properties": {
 					"id": 6,
 					"Bez": "Q-West",
-					"Syn": null,
+					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag 11.15 - 22.00 Uhr",
 					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "0234321138"
@@ -110,7 +111,7 @@
 				"properties": {
 					"id": 7,
 					"Bez": "Bistro",
-					"Syn": null,
+					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag: 11.00 - 16.00 Uhr ",
 					"Öffnungszeiten vorlesungsfreie Zeit": "Montag - Freitag: 11.00 - 16.00 Uhr ",
 					"Telefonnummer": "-"
@@ -191,7 +192,7 @@
 				"properties": {
 					"id": 13,
 					"Bez": "Kulturcafé",
-					"Syn": null,
+					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "Montag - Donnerstag: 10.00 : 20.00 Uhr, Freitag: 10.00 - 16.00 Uhr",
 					"Öffnungszeiten vorlesungsfreie Zeit": "geschlossen"
 					"Telefonnummer": "+492343222290"
@@ -275,7 +276,7 @@
 				"properties": {
 					"id": 19,
 					"Bez": "Isotopenlabor",
-					"Syn": null,
+					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "",
 					"Öffnungszeiten vorlesungsfreie Zeit": "",
 					"Telefonnummer": "+492343224238"
@@ -339,8 +340,7 @@
 				"geometry": {
 					"type": "Point",
 					"coordinates": null
-				}
-			}, {
+				}, {
 					"type": "Feature",
 					"properties": {
 						"id": 24,
@@ -355,6 +355,6 @@
 						"coordinates": null
 					}
 				}
-			
+			}
 			]
 		}
