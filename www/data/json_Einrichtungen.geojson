@@ -340,7 +340,9 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": null
-			}, {
+			}
+			
+		},{
 				"type": "Feature",
 				"properties": {
 					"id": 24,
