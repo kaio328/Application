@@ -373,7 +373,7 @@ function pop_Fakultaten(feature, layer) {
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
-			'<table><tr><th scope="row">Dozent/-in</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Raumnummer</th><td>' + Autolinker.link(String(feature.properties['Raumnummer'])) + '</td></tr><tr><th scope="row">Sprechzeiten</th><td>' + Autolinker.link(String(feature.properties['Sprechzeiten Vorlesungszeit'])) + '</td></tr><tr><th scope="row">E-Mail</th><td>' + Autolinker.link(String(feature.properties['E-Mail'])) + '</td></tr><tr><th scope="row">Telefonnummer</th><td>' + Autolinker.link(String(feature.properties['Telefonnummer'])) + '</td></tr><tr><th scope="row">Telefon</th><td>' + Autolinker.link(String(feature.properties['weitere Infos'])) + 'abc';
+			'<table><tr><th scope="row">Institut</th><td>' + Autolinker.link(String(feature.properties['Bez'])) + '</td></tr><tr><th scope="row">Zugehörigkeit </th><td>' + Autolinker.link(String(feature.properties['Zugehörigkeit'])) + '</td></tr><tr><th scope="row">Sekretariat</th><td>' + Autolinker.link(String(feature.properties['Sekretariat'])) + '</td></tr><tr><th scope="row">Studienfachberatung</th><td>' + Autolinker.link(String(feature.properties['Studienfachberatung'])) + '</td></tr><tr><th scope="row">Geschäftsführender Direktor</th><td>' + Autolinker.link(String(feature.properties['Geschäftsführender Direktor'])) ;
 
 			document.getElementById("sidebar").innerHTML = sidebarContent;
 			sidebar.show();
@@ -485,7 +485,7 @@ L.Control.Search.include({
 	
 //Suchmaske mit angepassten Optionen festlegen
 var searchControl = new L.Control.Search({
-    layer: L.featureGroup([json_DozentenJSON, json_GebaudeJSON]),
+    layer: L.featureGroup([json_DozentenJSON, json_FakultatenJSON]),
 			position: 'topleft', 
 			featuresArray: ['Bez', 'Syn' /*'NAME', 'TELEFON' /*'Hkat', 'Nkat'*/ ],
 			animateLocation: true,
