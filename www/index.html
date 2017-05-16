@@ -257,7 +257,8 @@ var sidebar = L.control.sidebar('sidebar', {
 map.addControl(sidebar);
 sidebar.hide();
 		
-//Einbindung der Gebaude.geojson als Layer		
+//GeoJson-Dateien implementieren
+//1. Gebaude.geojson		
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Gebaude(feature, layer) {
 	layer.on('click', function (e) {
@@ -293,7 +294,7 @@ function doPointToLayerGebaude(feature, latlng) {
 };
 	
 
-//Einbindung der Datei json_GebaudeJSON als Layer
+//Einbindung json_GebaudeJSON als Layer
 var json_GebaudeJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Gebaude.geojson", {
 	onEachFeature: pop_Gebaude,													
 	pointToLayer: doPointToLayerGebaude
@@ -307,7 +308,8 @@ json_GebaudeJSON.on('data:progress', function (e) {
 			});	
     }
 });
-//Einbindung der Dozenten.geojson als Layer
+
+//2. Dozenten.geojson
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Dozenten(feature, layer) {
 	layer.on('click', function (e) {
@@ -358,7 +360,7 @@ json_DozentenJSON.on('data:progress', function (e) {
     }
 });
 
-//Einbindung der Fakultaten.geojson als Layer
+//3. Fakultaten.geojson
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Fakultaten(feature, layer) {
 	layer.on('click', function (e) {
