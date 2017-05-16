@@ -158,8 +158,28 @@
 	height:18px;
 	width:150px;
 	padding:1px 50px 0px 2px;
-	margin:7px 0px 3px 50px;
+	margin:8px 0px 3px 50px;
 		} 
+	
+.leaflet-control-search .search-tooltip {
+	position:absolute;
+	top:80%;
+	left:45px;
+	float:left;
+	list-style: none;
+	padding-left: 0;
+	min-width:225px;
+	max-width:225px;
+	max-height:122px;
+	background-color: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0.4);
+	z-index:1010;
+	overflow-y:auto;
+	overflow-x:hidden;
+	cursor: pointer;
+	border-radius: 22px;
+  }
+		
   }
 
 @media (orientation : landscape){
@@ -179,8 +199,26 @@
 	height:18px;
 	width:388px;
 	padding:1px 50px 0px 2px;
-	margin:7px 0px 3px 50px;
+	margin:8px 0px 3px 50px;
 		} 
+	
+	.leaflet-control-search .search-tooltip {
+	position:absolute;
+	top:80%;
+	left:45px;
+	float:left;
+	list-style: none;
+	padding-left: 0;
+	min-width:275px;
+	max-height:122px;
+	background-color: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0.4);
+	z-index:1010;
+	overflow-y:auto;
+	overflow-x:hidden;
+	cursor: pointer;
+	border-radius: 22px;
+}
 }
 
 
