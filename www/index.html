@@ -679,12 +679,12 @@ var removeButton = L.easyButton({
 			icon:'fa fa-times',
 			title: 'Punkte entfernen',
 			onClick: function() {
-					json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
-					json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
-					json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
-					json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
-					json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
-					json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});	
+					json_DozentenJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
+					json_GebaudeJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
+					json_FakultatenJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
+					json_RaumeJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
+					json_VeranstaltungenJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
+					json_EinrichtungenJSON.setStyle({radius: 0.0000001, fillColor: 'grey', color: 'grey', weight: 0.000001});
 					searchControl._markerLoc.hide();
 					removeButton._container.style.display = "none";
 								}
