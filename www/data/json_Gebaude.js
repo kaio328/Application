@@ -11,7 +11,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 0,
-				"Bez": "Audimax"
+				"Bez": "Audimax",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -22,7 +23,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 1,
-				"Bez": "NA"
+				"Bez": "NA",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -33,8 +35,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 2,
-				"Bez": "NB"
-			
+				"Bez": "NB",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -45,7 +47,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 3,
-				"Bez": "NC"
+				"Bez": "NC",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -56,8 +59,9 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 4,
-				"Bez": "ND"
-				
+				"Bez": "ND",
+				"Syn": null
+
 			},
 			"geometry": {
 				"type": "Point",
@@ -68,7 +72,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 5,
-				"Bez": "GA"
+				"Bez": "GA",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -79,7 +84,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 6,
-				"Bez": "GB"
+				"Bez": "GB",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -90,7 +96,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 7,
-				"Bez": "GC"
+				"Bez": "GC",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -101,7 +108,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 8,
-				"Bez": "HZO"
+				"Bez": "HZO",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -112,7 +120,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 9,
-				"Bez": "MA"
+				"Bez": "MA",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -123,7 +132,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 10,
-				"Bez": "VC"
+				"Bez": "VC",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -134,7 +144,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 11,
-				"Bez": "IA"
+				"Bez": "IA",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -145,7 +156,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 12,
-				"Bez": "IB"
+				"Bez": "IB",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -156,7 +168,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 13,
-				"Bez": "IC"
+				"Bez": "IC",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -167,7 +180,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 14,
-				"Bez": "ID"
+				"Bez": "ID",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -178,7 +192,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 15,
-				"Bez": "IAN"
+				"Bez": "IAN",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -189,7 +204,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 16,
-				"Bez": "IBN"
+				"Bez": "IBN",
+				"Syn": null
 
 			},
 			"geometry": {
@@ -200,7 +216,8 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 17,
-				"Bez": "ICN"
+				"Bez": "ICN",
+				"Syn": null
 			},
 			"geometry": {
 				"type": "Point",
@@ -211,14 +228,374 @@ var json_Gebaude = {
 			"type": "Feature",
 			"properties": {
 				"id": 18,
-				"Bez": "IDN"
+				"Bez": "IDN",
+				"Syn": null
 
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.26334, 51.44791]
 			}
-		}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 19,
+				"Bez": "NAFOF",
+				"Syn": null
 
-	]
-	}
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26354, 51.44327]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 20,
+				"Bez": "NABF",
+				"Syn": null
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26465, 51.44365]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 21,
+				"Bez": "NBCF",
+				"Syn": null
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26583, 51.44404]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 22,
+				"Bez": "NCDF",
+				"Syn": null
+
+			}
+		}
+		]
+}/*,
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26694, 51.44442]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 23,
+				"Bez": "NDEF"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.2681, 51.44478]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 24,
+				"Bez": "HNA"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26388, 51.44453]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 25,
+				"Bez": "HNB"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26495, 51.44489]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 26,
+				"Bez": "HNC"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26603, 51.44533]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 27,
+				"Bez": "GAFO"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26057, 51.44284]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 28,
+				"Bez": "GABF"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25952, 51.4425]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 29,
+				"Bez": "GBCF"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25839, 51.44212]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 30,
+				"Bez": "HGA"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.2601, 51.44359]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 31,
+				"Bez": "HGB"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25892, 51.4432]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 32,
+				"Bez": "HGC"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25776, 51.44283]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 33,
+				"Bez": "GCFW"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25693, 51.44231]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 34,
+				"Bez": "Tennisplatz"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25883, 51.44108]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 35,
+				"Bez": "Sportplatz"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26035, 51.44139]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 36,
+				"Bez": "N-Süd"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26412, 51.44279]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 37,
+				"Bez": "NT"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26569, 51.44343]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 38,
+				"Bez": "NI"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26753, 51.44422]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 39,
+				"Bez": "MAFO"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25961, 51.44484]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 40,
+				"Bez": "MABF"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25808, 51.44504]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 41,
+				"Bez": "HMA"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25848, 51.44453]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 42,
+				"Bez": "IAFO"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26346, 51.44584]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 43,
+				"Bez": "ICFW"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26454, 51.4462]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 44,
+				"Bez": "ICFO"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26562, 51.44654]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 45,
+				"Bez": "HIA"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26363, 51.44562]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 46,
+				"Bez": "HIB"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26474, 51.44603]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 47,
+				"Bez": "HIC"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26587, 51.44654]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 48,
+				"Bez": "FNO"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26217, 51.44535]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 49,
+				"Bez": "ZN"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.26876, 51.44513]
+			}
+		}, {
+			"type": "Feature",
+			"properties": {
+				"id": 50,
+				"Bez": "Uni Center"
+
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [7.25799, 51.44768]
+			}
+		}*/
+
+	
+

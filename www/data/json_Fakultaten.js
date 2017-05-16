@@ -1,4 +1,4 @@
-{
+var json_Fakultaten = {
 	"type": "FeatureCollection",
 	"crs": {
 		"type": "name",
@@ -7,13 +7,15 @@
 		}
 	},
 
-	"features": [
-		{
+	"features": [{
 			"type": "Feature",
 			"properties": {
 				"id": 0,
-				"Bez": "TEST",
-				"Ausstattung": "Futter"
+				"Bez": "Geographisches Institut",
+				"Telefonnummer Sekretariat": "Kerstin Schäfer: +492343224788",
+				"Studienfachberatung": "Dr. Dennis Edler: +492343223362",
+				"Geschäftsführender Direktor": "Prof. Dr. Carsten Jürgens",
+				"Zugehörigkeit": "Fakultät für Geowissenschaften"
 			},
 			"geometry": {
 				"type": "Point",
@@ -23,56 +25,15 @@
 			"type": "Feature",
 			"properties": {
 				"id": 1,
-				"Bez": "TEST",
-				"Syn": "Audimax"
+				"Bez": "Institut für Geologie, Mineralogie & Geophysik ",
+				"Telefonnummer Sekretariat": "Frau Sitter: +49234223233",
+				"Studienfachberatung": "Thomas Fockenberg: +492343224392",
+				"Geschäftsführender Direktor": "Prof. Dr. Stefan Wohnlich",
+				"Zugehörigkeit": "Fakultät für Geowissenschaften"
 			},
 			"geometry": {
 				"type": "Point",
 				"coordinates": [7.261779486151085, 51.443848793618244]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 2,
-				"Bez": "TEST",
-				"Syn": "CC"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.259840779261091, 51.443973017351269]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 3,
-				"Bez": "TEST",
-				"Syn": "Bafög-Amt"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.255822945122241, 51.445045844620687]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 4,
-				"Bez": "TEST",
-				"Syn": "Bib (Hauptbibliothek)"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.260769365505132, 51.445023259043168]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 5,
-				"Bez": "TEST",
-				"Syn": "KITA"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.261836107263529, 51.441787759646211]
 			}
 		}
 	]
