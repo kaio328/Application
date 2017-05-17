@@ -963,19 +963,7 @@ interactive: false
 
 
 //Einrichtung der maxBounds
-		/*var southWest = L.latLng([51.44019, 7.2575], map.getMaxZoom()-5);				//[link unten , link oben];
-		var northEast = L.latLng([51.45016, 7.26589], map.getMaxZoom()-5);				//[rechts oben , rechts unten];
-		mybounds = new L.latLngBounds(southWest, northEast);*/	
-		
-//map.setMaxBounds(overlay.getBounds());
-
 /*var pointA = new L.LatLng(51.44598, 7.25251);
-var pointB = new L.LatLng(51.45032, 7.26549);
-var pointC = new L.LatLng(51.44456, 7.27045);
-var pointD = new L.LatLng(51.44021, 7.25748);
-var pointList = [pointA, pointB, pointC, pointD];*/
-
-var pointA = new L.LatLng(51.44598, 7.25251);
 var pointB = new L.LatLng(51.45032, 7.26549);
 var pointC = new L.LatLng(51.44456, 7.27045);
 var pointD = new L.LatLng(51.44021, 7.25748);
@@ -997,9 +985,9 @@ weight: 50,
 opacity: 1,
 smoothFactor: 1
 
-});
+});*/
 
-map.setMaxBounds(firstpolyline.getBounds());
+map.setMaxBounds(overlay.getBounds());
 
     </script>
 
