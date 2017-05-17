@@ -70,7 +70,7 @@ You can find the project at: https://github.com/domoritz/leaflet-locatecontrol
              * location. When control is disabled, set the view back to the
              * bounds that were saved.
              */
-            returnToPrevBounds: false,
+            returnToPrevBounds: true,
             /** If set, a circle that shows the location accuracy is drawn. */
             drawCircle: false,
             /** If set, the marker at the users' location is drawn. */
