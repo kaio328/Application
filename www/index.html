@@ -870,12 +870,22 @@ var markerInfo = L.AwesomeMarkers.icon({
     markerColor: 'green'
 });	
 
+var smallIcon2 = new L.Icon({
+    iconUrl: 'css/images/marker1.png',
+    iconRetinaUrl: 'css/images/marker1.png',
+    iconSize:    [25, 41],
+    iconAnchor:  [12, 41],
+    popupAnchor: [1, -34],
+    shadowUrl: 'css/images/marker-shadow.png',
+    shadowSize:  [41, 41]
+});
+
 
 var marker = L.marker([51.44797, 7.25919], {
-icon: markerInfo,
+icon: smallIcon2,
 draggable: false
 }).addTo(Infopunkte);
-marker.bindPopup("<img src= css/images/icon1.png/>", {minWidth: 500, minHeight: 300});
+marker.bindPopup("<img src= css/images/marker1.png/>", {minWidth: 300});
 
 var marker = L.marker([51.44617, 7.25998], {
 icon: markerInfo,
