@@ -135,13 +135,14 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 
 
 //Einrichtung einer LayerGroup für mapOverlays
+var Infopunkte = new L.layerGroup();
 var polygone = new L.layerGroup();
 
 		
 //Inhalt für mapOverlays implementieren
 var overlayMaps = {
-	"<img src= css/images/Fig._28_-_Divieto_di_transit_nei_due_sensi_-_1959.svg height=25> Sperrungen": CampusMapLinear,
-	"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
+	"<img src= css/images/info.svg height=30> Infopunkte": Infopunkte
+	//"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 };
 	
 //mapOverlays-Control der Karte hinzufügen
@@ -169,21 +170,7 @@ localStorage.removeItem('alerted');
 localStorage.removeItem('alerted1');
 			
 
-//Marker und entsprechende Icons für die Routing-Schaltflächen einrichten
-var WalkMarker = L.AwesomeMarkers.icon({
-    icon: 'fa-male',
-	prefix: 'fa',
-    markerColor: 'orange',
-});
-  
-var CarMarker = L.AwesomeMarkers.icon({
-    icon: 'fa-car',
-	prefix: 'fa',
-    markerColor: 'orange',
-});
-
-
-//Marker und entsprechende Icons für die Routing-Funktion einrichten
+//Marker-Icons für die Routing-Funktion einrichten
 var markerStart = L.AwesomeMarkers.icon({
 	icon: 'fa-circle-o',
 	prefix: 'fa',
@@ -225,7 +212,7 @@ var controlRouting = L.Routing.control({
 	createMarker: function (i, waypoint, n){ 
     var marker = L.marker (waypoint.latLng, {
                 draggable: true,
-                icon: WalkMarker
+                icon: null
     })
     if (i == 0) {
         marker.setIcon(markerStart).bindPopup(popupStart)
@@ -877,10 +864,93 @@ function doOnOrientationChange()
 		
 	}
 
+//Marker und PopUp-Inhalt für Kartenebene "Info-Punkte" festlegen
+var markerInfo = L.AwesomeMarkers.icon({
+	icon: 'fa-info ',
+	prefix: 'fa',
+    markerColor: 'green'
+});	
 
 
-	
-	
+var marker = L.marker([51.44797, 7.25919], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44617, 7.25998], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44588, 7.26015], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44574, 7.25966], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44589, 7.2607], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44622, 7.26097], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44276, 7.25666], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.4463, 7.26526], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44696, 7.26645], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.445, 7.26218], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44681, 7.2676], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44497, 7.26905], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+var marker = L.marker([51.44452, 7.26086], {
+icon: markerInfo,
+draggable: true
+}).addTo(Infopunkte);
+marker.bindPopup("<img src= splash.png/>", {maxWidth: 500});
+
+
     </script>
 
 </body>
