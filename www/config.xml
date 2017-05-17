@@ -58,6 +58,10 @@
     <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
+	
+	<plugin name="cordova-plugin-media-capture" />
+	<plugin name="cordova-plugin-file" />
+    <plugin name="cordova-plugin-file-transfer" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
