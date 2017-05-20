@@ -20,7 +20,7 @@ var json_Fakultaten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.262467998878375, 51.443086504221256]
+				"coordinates": [7.26367, 51.44389]
 			}
 		}, {
 			"type": "Feature",
@@ -35,7 +35,7 @@ var json_Fakultaten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.261779486151085, 51.443848793618244]
+				"coordinates": [7.26367, 51.44389]
 			}
 		}
 	]

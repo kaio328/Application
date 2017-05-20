@@ -39,14 +39,12 @@
 		<script src="data/json_Einrichtungen.js"></script>
 		<script src="data/json_Veranstaltungen.js"></script>
 
-		<script src="data/rahmen1.js"></script>
 		
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="css/leaflet.css" />
 		<link rel="stylesheet" href="dist/leaflet-routing-machine.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.css" />
-        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/label.css" />
 		<link rel="stylesheet" href="css/mobile.css" />
 		<link rel="stylesheet" href="css/easy-button.css" />
@@ -123,7 +121,7 @@ map.spin(true), setTimeout(function(){
 //Einrichtung der Campuskarte im Rasterformat
 var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z}/{x}/{y}.png',{
 	maxZoom: 17,
-	minZoom: 1,						//raus zoomen
+	minZoom: 15,						//raus zoomen
 	center: [51.44480, 7.26150],
 	//detectRetina: true,
 	//zoomSnap:0.1,
@@ -135,7 +133,6 @@ var CampusMapLinear = L.tileLayer('http://kairud.111mb.de/MB_Campus/MB_Campus/{z
 
 //Einrichtung einer LayerGroup für mapOverlays
 var Infopunkte = new L.layerGroup();
-var polygone = new L.layerGroup();
 
 		
 //Inhalt für mapOverlays implementieren
@@ -143,6 +140,106 @@ var overlayMaps = {
 	"<img src= css/images/info.svg height=30> Infopunkte": Infopunkte
 	//"<img src= css/images/WBW-Logo_Sommer.svg height=25> Sommerfest": polygone
 };
+
+
+//Marker und Icon für Kartenebene "Info-Punkte" festlegen
+var markerInfo = L.AwesomeMarkers.icon({
+	icon: 'fa-info ',
+	prefix: 'fa',
+    markerColor: 'green'
+});	
+
+//Infopunkte verorten und Symbol festlegen
+var marker = L.marker([51.44797, 7.25919], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44617, 7.25998], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44588, 7.26015], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44574, 7.25966], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44589, 7.2607], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44622, 7.26097], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44276, 7.25666], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.4463, 7.26526], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44696, 7.26645], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.445, 7.26218], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44681, 7.2676], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44497, 7.26905], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
+
+var marker = L.marker([51.44452, 7.26086], {
+icon: markerInfo,
+draggable: false,
+interactive: false
+}).addTo(Infopunkte);
+
 	
 //mapOverlays-Control der Karte hinzufügen
 overlayControl = L.control.layers(null, overlayMaps, {position: "bottomleft"})
@@ -282,20 +379,10 @@ function doPointToLayerGebaude(feature, latlng) {
 };
 	
 
-//Einbindung json_GebaudeJSON als Layer
-var json_GebaudeJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Gebaude.geojson", {
-	onEachFeature: pop_Gebaude,													
-	pointToLayer: doPointToLayerGebaude
-});
-
-json_GebaudeJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_GebaudeJSON = new L.geoJson(json_Gebaude, {
-			onEachFeature: pop_Gebaude,													
-			pointToLayer: doPointToLayerGebaude											
-			});	
-    }
-});
+var json_GebaudeJSON = new L.geoJson(json_Gebaude, {
+			onEachFeature: pop_Gebaude,											
+			pointToLayer: doPointToLayerGebaude								
+		});	
 
 //2. Dozenten.geojson
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
@@ -336,19 +423,11 @@ function doPointToLayerDozenten(feature, latlng) {
 	
 
 //Einbindung der Datei Dozenten.geojson als Layer
-var json_DozentenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Dozenten.geojson", {
+var json_DozentenJSON = new L.geoJson(json_Dozenten, {
 	onEachFeature: pop_Dozenten,													
 	pointToLayer: doPointToLayerDozenten
 });
 
-json_DozentenJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Dozenten, {
-			onEachFeature: pop_Dozenten,													
-			pointToLayer: doPointToLayerDozenten											
-			});	
-    }
-});
 
 //3. Fakultaten.geojson
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
@@ -387,18 +466,9 @@ function doPointToLayerFakultaten(feature, latlng) {
 	
 
 //Einbindung der Fakultaten.geojson als Layer
-var json_FakultatenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Fakultaten.geojson", {
+var json_FakultatenJSON = new L.geoJson(json_Fakultaten, {
 	onEachFeature: pop_Fakultaten,													
 	pointToLayer: doPointToLayerFakultaten
-});
-
-json_FakultatenJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Fakultaten, {
-			onEachFeature: pop_Fakultaten,													
-			pointToLayer: doPointToLayerFakultaten											
-			});	
-    }
 });
 
 
@@ -440,19 +510,12 @@ function doPointToLayerRaume(feature, latlng) {
 	
 
 //Einbindung der Raume.geojson als Layer
-var json_RaumeJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Raume.geojson", {
+var json_RaumeJSON = new L.geoJson(json_Raume, {
 	onEachFeature: pop_Raume,													
 	pointToLayer: doPointToLayerRaume
 });
 
-json_RaumeJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Raume, {
-			onEachFeature: pop_Raume,													
-			pointToLayer: doPointToLayerRaume											
-			});	
-    }
-});
+
 //5. Veranstaltungen.geojson
 //PopUp-Inhalt definieren, an Sidebar übergeben und Sidebar über click-event auf ein feature öffnen
 function pop_Veranstaltungen(feature, layer) {
@@ -492,19 +555,12 @@ function doPointToLayerVeranstaltungen(feature, latlng) {
 	
 
 //Einbindung der Veranstaltungen.geojson als Layer
-var json_VeranstaltungenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Veranstaltungen.geojson", {
+var json_VeranstaltungenJSON = new L.geoJson(json_Veranstaltungen, {
 	onEachFeature: pop_Veranstaltungen,													
 	pointToLayer: doPointToLayerVeranstaltungen
 });
 
-json_VeranstaltungenJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Veranstaltungen, {
-			onEachFeature: pop_Veranstaltungen,													
-			pointToLayer: doPointToLayerVeranstaltungen											
-			});	
-    }
-});
+
 //6. Einrichtungen.geojson
 function pop_Einrichtungen(feature, layer) {
 	layer.on('click', function (e) {
@@ -544,30 +600,13 @@ function doPointToLayerEinrichtungen(feature, latlng) {
 	
 
 //Einbindung der Einrichtungen.geojson als Layer
-var json_EinrichtungenJSON = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/kaio328/Application/master/www/data/json_Einrichtungen.geojson", {
+var json_EinrichtungenJSON = new L.geoJson(json_Einrichtungen, {
 	onEachFeature: pop_Einrichtungen,													
 	pointToLayer: doPointToLayerEinrichtungen
 });
 
-json_EinrichtungenJSON.on('data:progress', function (e) {
-    if (e.error) {
-			var json_DozentenJSON = new L.geoJson(json_Einrichtungen, {
-			onEachFeature: pop_Einrichtungen,													
-			pointToLayer: doPointToLayerEinrichtungen											
-			});	
-    }
-});
 //-------------------------------------------------------------------
-//Inhalt der mapOverlays festlegen
-var styleRahmen = {
-	"color": 'rgb(0, 0, 1)',
-	"weight": 2.5,
-	"opacity": 1,
-	"fillOpacity": 0
-	};
-json_rahmenJSON = new L.geoJson(json_rahmen1, {interactive: false, style: styleRahmen}).addTo(polygone);
-		
-		
+	
 //Einrichtung der Suchmaske
 //Zunächst Möglichkeit schaffen, nach mehreren Attributen zu suchen
 L.Control.Search.include({
@@ -863,129 +902,7 @@ function doOnOrientationChange()
 		
 	}
 
-//Marker und Icon für Kartenebene "Info-Punkte" festlegen
-var markerInfo = L.AwesomeMarkers.icon({
-	icon: 'fa-info ',
-	prefix: 'fa',
-    markerColor: 'green'
-});	
 
-
-var marker = L.marker([51.44797, 7.25919], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44617, 7.25998], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44588, 7.26015], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44574, 7.25966], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44589, 7.2607], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44622, 7.26097], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44276, 7.25666], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.4463, 7.26526], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44696, 7.26645], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.445, 7.26218], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44681, 7.2676], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44497, 7.26905], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-var marker = L.marker([51.44452, 7.26086], {
-icon: markerInfo,
-draggable: false,
-interactive: false
-}).addTo(Infopunkte);
-
-
-//Einrichtung der maxBounds
-/*var pointA = new L.LatLng(51.44598, 7.25251);
-var pointB = new L.LatLng(51.45032, 7.26549);
-var pointC = new L.LatLng(51.44456, 7.27045);
-var pointD = new L.LatLng(51.44021, 7.25748);
-var pointE = new L.LatLng(51.44598, 7.25251);
-var pointList = [pointA, pointB, pointC, pointD, pointE]
-
-var firstpolyline = new L.Polyline(pointList, {
-    color: 'red',
-    weight: 3,
-    opacity: 0.5,
-    smoothFactor: 1
-});
-//firstpolyline.addTo(map);
-
-
-var firstpolyline = new L.polyline(pointList, {
-color: 'red',
-weight: 50,
-opacity: 1,
-smoothFactor: 1
-
-});*/
 
 map.setMaxBounds(overlay.getBounds());
 

@@ -19,7 +19,7 @@ var json_Raume = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.262467998878375, 51.443086504221256]
+				"coordinates": [7.26408, 51.44357]
 			}
 		}, {
 			"type": "Feature",
@@ -33,23 +33,10 @@ var json_Raume = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.261779486151085, 51.443848793618244]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 2,
-				"Bez": "NA 5/xxx",
-				"Ausstattung": "Angabe ausstehend",
-				"Software": "Angabe ausstehend",
-				"öffentliche Nutzung": "Ja",
-				"Syn": []
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.259840779261091, 51.443973017351269]
+				"coordinates": [7.26387, 51.44384]
 			}
 		}
+		
 
 	]
 }

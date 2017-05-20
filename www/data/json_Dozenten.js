@@ -16,12 +16,12 @@ var json_Dozenten = {
 				"Raumnummer": "NA 5/169",
 				"Sprechzeiten Vorlesungszeit": "Freitag 10.00 - 12.00 (u. n. V.)",
 				"E-Mail": "Dennis.Edler@rub.de",
-				"Telefonnummer": "02343223362"
+				"Telefonnummer": "+492343223362"
 
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.26367, 51.4437]
+				"coordinates": [7.26377, 51.44359]
 			}
 			
 		}, {
@@ -38,7 +38,7 @@ var json_Dozenten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.26367, 51.4437]
+				"coordinates": [7.26373, 51.44398]
 			}
 			
 		}, {
@@ -55,7 +55,7 @@ var json_Dozenten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.26367, 51.4437]
+				"coordinates": [7.2636, 51.44378]
 			}
 			
 		}, {
@@ -72,7 +72,7 @@ var json_Dozenten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.26367, 51.4437]
+				"coordinates": [7.26379, 51.44392]
 			}
 		}
 

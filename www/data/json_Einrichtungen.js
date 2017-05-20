@@ -19,7 +19,7 @@ var json_Einrichtungen = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.262467998878375, 51.443086504221256]
+				"coordinates": [7.26249, 51.44311]
 			}
 		}, {
 			"type": "Feature",
@@ -34,7 +34,7 @@ var json_Einrichtungen = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.259840779261091, 51.443973017351269]
+				"coordinates": [7.25988, 51.44394]
 			}
 		}, {
 			"type": "Feature",
@@ -63,7 +63,7 @@ var json_Einrichtungen = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.260769365505132, 51.445023259043168]
+				"coordinates": [7.26079, 51.44502]
 			}
 		}, {
 			"type": "Feature",
@@ -71,12 +71,13 @@ var json_Einrichtungen = {
 				"id": 4,
 				"Bez": "Kindertagesstätte",
 				"Syn": "KITA (UniKids)",
-				"Öffnungszeiten": " Montag – Freitag: 7.00 - 20.00 Uhr",
+				"Öffnungszeiten Vorlesungszeit": " Montag – Freitag: 7.00 - 20.00 Uhr",
+				"Öffnungszeiten vorlesungsfreie Zeit": " Montag – Freitag: 7.00 - 20.00 Uhr",
 				"Telefonnummer": "+492343211430"
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.261836107263529, 51.441787759646211]
+				"coordinates": [7.26181, 51.44183]
 			}
 		}, {
 				"type": "Feature",
@@ -97,7 +98,7 @@ var json_Einrichtungen = {
 				"properties": {
 					"id": 6,
 					"Bez": "Q-West",
-					"Syn": [],
+					"Syn": "qwest, Q-West"
 					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag 11.15 - 22.00 Uhr",
 					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "0234321138"
@@ -118,7 +119,7 @@ var json_Einrichtungen = {
 				},
 				"geometry": {
 					"type": "Point",
-					"coordinates": [7.262467998878375, 51.443086504221256]
+					"coordinates": [7.26254, 51.44299]
 				}
 			}, {
 				"type": "Feature",
@@ -126,7 +127,8 @@ var json_Einrichtungen = {
 					"id": 8,
 					"Bez": "BioMedizinZentrum",
 					"Syn": "BMZ, BioMedizinZentrum",
-					"Öffnungszeiten": "-",
+					"Öffnungszeiten Vorlesungszeit": "-",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "+4923461063200"
 				},
 				"geometry": {
@@ -139,7 +141,8 @@ var json_Einrichtungen = {
 					"id": 9,
 					"Bez": "Deutsch als Fremdsprache",
 					"Syn": "TestDaF, Deutsch als Fremdsprache",
-					"Öffnungszeiten": "Montag - Donnerstag: 10.00 - 13.00 Uhr",
+					"Öffnungszeiten Vorlesungszeit": "Montag - Donnerstag: 10.00 - 13.00 Uhr",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "+492343227866"
 				},
 				"geometry": {
@@ -152,12 +155,13 @@ var json_Einrichtungen = {
 					"id": 10,
 					"Bez": "International Office",
 					"Syn": "IO",
-					"Öffnungszeiten": "-",
+					"Öffnungszeiten Vorlesungszeit": "-",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "Zulassungsstelle: +492343226644, RUBiss: +492343222199, Outgoing Service: +492343228913, Welcome Centre: +492343227452"
 				},
 				"geometry": {
 					"type": "Point",
-					"coordinates": null
+					"coordinates": [7.26101, 51.44616]
 				}
 			}, {
 				"type": "Feature",
@@ -278,7 +282,7 @@ var json_Einrichtungen = {
 					"Bez": "Isotopenlabor",
 					"Syn": [],
 					"Öffnungszeiten Vorlesungszeit": "",
-					"Öffnungszeiten vorlesungsfreie Zeit": "",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "+492343224238"
 				},
 				"geometry": {
@@ -306,7 +310,7 @@ var json_Einrichtungen = {
 					"Bez": "IT.Services",
 					"Syn": "IT.S, IT.Services",
 					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag: 10.00 - 15.30 Uhr",
-					"Öffnungszeiten vorlesungsfreie Zeit": "",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "+492343224025"
 				},
 				"geometry": {
@@ -325,23 +329,23 @@ var json_Einrichtungen = {
 				},
 				"geometry": {
 					"type": "Point",
-					"coordinates": [7.26296, 51.44403]
+					"coordinates": [7.26408, 51.44352]
 				}
 			}, {
-					"type": "Feature",
-					"properties": {
-						"id": 24,
-						"Bez": "Hochschulkommunikation (Dezernat 8)",
-						"Syn": "Pressestelle, Hochschulkommunikation (Dezernat 8)",
-						"Öffnungszeiten Vorlesungszeit": "Montag - Freitag: 8.00 - 16.00 Uhr",
-						"Öffnungszeiten vorlesungsfreie Zeit": "-",
-						"Telefonnummer": "+492343222830"
-					},
-					"geometry": {
-						"type": "Point",
-						"coordinates":[7.26296, 51.44403]
-					}
+				"type": "Feature",
+				"properties": {
+					"id": 24,
+					"Bez": "Multimedia Support Zentrum",
+					"Syn": "MSZ, Multimedia Support Zentrum",
+					"Öffnungszeiten Vorlesungszeit": "-",
+					"Öffnungszeiten vorlesungsfreie Zeit": "-",
+					"Telefonnummer": "+49234322826426264"
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [7.26165, 51.444]
 				}
+			}
 			
 			]
 		}
