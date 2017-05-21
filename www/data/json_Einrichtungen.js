@@ -98,7 +98,7 @@ var json_Einrichtungen = {
 				"properties": {
 					"id": 6,
 					"Bez": "Q-West",
-					"Syn": "qwest, Q-West"
+					"Syn": "qwest, Q-West",
 					"Öffnungszeiten Vorlesungszeit": "Montag - Freitag 11.15 - 22.00 Uhr",
 					"Öffnungszeiten vorlesungsfreie Zeit": "-",
 					"Telefonnummer": "0234321138"
