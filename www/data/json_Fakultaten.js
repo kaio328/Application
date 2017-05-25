@@ -20,22 +20,7 @@ var json_Fakultaten = {
 			},
 			"geometry": {
 				"type": "Point",
-				"coordinates": [7.26367, 51.44389]
-			}
-		}, {
-			"type": "Feature",
-			"properties": {
-				"id": 1,
-				"Bez": "Institut für Geologie, Mineralogie & Geophysik ",
-				"Syn": "GMG, Institut für Geologie, Mineralogie & Geophysik",
-				"Sekretariat": "Frau Sitter: +49234223233",
-				"Studienfachberatung": "Thomas Fockenberg: +492343224392",
-				"Geschäftsführender Direktor": "Prof. Dr. Stefan Wohnlich",
-				"Zugehörigkeit": "Fakultät für Geowissenschaften"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [7.26367, 51.44389]
+				"coordinates": [7.26398, 51.44352]
 			}
 		}
 	]

@@ -23,7 +23,7 @@
 		<script src="js/L.Control.Locate.js" ></script>
 		<script src="js/L.Control.Sidebar.js"></script>
         <script src="js/label.js"></script>
-        <script src="js/Autolinker.min.js"></script>
+        <script src="js/Autolinker.js"></script>
 		<script src="js/Control.Loading.js"></script>
 		<script src="js/bouncemarker.js"></script>
 		<script src="js/leaflet.ajax.js"></script>
@@ -290,8 +290,8 @@ var popupZiel = L.popup()
 		
 			
 //Koordinaten der Routing-Marker zur bei Start der Funktion festlegen
-var Start = L.latLng(51.44499, 7.26078);	
-var Ziel = L.latLng(51.44375, 7.26185);
+var Start = L.latLng(51.44503, 7.26077);	
+var Ziel = L.latLng(51.44379, 7.26182);
 
 //Routing-Control implementieren
 var controlRouting = L.Routing.control({
@@ -350,6 +350,8 @@ function pop_Gebaude(feature, layer) {
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});			
 			var sidebarContent = 
 			
@@ -393,6 +395,8 @@ function pop_Dozenten(feature, layer) {
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});	
 			var sidebarContent = 
 			
@@ -437,6 +441,9 @@ function pop_Fakultaten(feature, layer) {
 			json_DozentenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
@@ -481,6 +488,8 @@ function pop_Raume(feature, layer) {
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
 			
@@ -525,6 +534,7 @@ function pop_Veranstaltungen(feature, layer) {
 			json_GebaudeJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_FakultatenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_RaumeJSON.setStyle({fillColor: 'grey', color: 'black'});
+			json_EinrichtungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			json_VeranstaltungenJSON.setStyle({fillColor: 'grey', color: 'black'});
 			layer.setStyle({radius: 8.0, fillColor: '#EEC900', color: 'black', weight: 1.5});		
 			var sidebarContent = 
@@ -779,13 +789,7 @@ var routingButtonWalk = L.easyButton({
 			stateName: 'add-routingWalk',
 			icon:'fa fa-male',
 			title: 'zu Fuß',
-			onClick: function() {
-						var alerted = localStorage.getItem('alerted') || '';
-							if (alerted != 'yes') {
-							alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
-							localStorage.setItem('alerted','yes');
-													  };
-													  
+			onClick: function() {					  
 						controlRouting.getRouter().options.costing = "pedestrian";
 						controlRouting.route();
 							
@@ -816,12 +820,7 @@ var routingButtonCar = L.easyButton({
 			icon:'fa fa-car',
 			title: 'Routing per Auto',
 			onClick: function(){
-						var alerted = localStorage.getItem('alerted') || '';
-							if (alerted != 'yes') {
-							alert("Hinweis: Falls keine Route angezeigt wird, konnte keine Verbindung ermittelt werden!");
-							localStorage.setItem('alerted','yes');
-												  };
-	
+
 						controlRouting.getRouter().options.costing = "auto";
 						controlRouting.route();
 
